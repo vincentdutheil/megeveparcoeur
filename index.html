@@ -82,7 +82,7 @@ section{padding:64px 0}
 .ph{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
 .ph svg,.ph img{width:100%;height:100%;object-fit:cover}
 .ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-weight:600;font-size:.92rem;background:linear-gradient(transparent,rgba(10,20,45,.75))}
-.ph .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:#142a57;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em}
+.ph .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:#142a57;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
 .note{color:var(--muted);font-size:.9rem;margin-top:14px}
 .ph button{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
 .ph button:focus-visible{outline:3px solid var(--heart);outline-offset:-3px}
@@ -433,32 +433,32 @@ const items = [
 {
 "src": "photos/toquicimes-scene.jpg",
 "thumb": "photos/toquicimes-scene-thumb.jpg",
-"t": "Les Toquicimes : démonstration en scène",
-"s": "evenements"
+"t": "Démonstration en scène",
+"s": "evenements", "ev": "Les Toquicimes"
 },
 {
 "src": "photos/toquicimes-entree.jpg",
 "thumb": "photos/toquicimes-entree-thumb.jpg",
-"t": "L'entrée des Toquicimes au Palais",
-"s": "evenements"
+"t": "L'entrée du festival au Palais",
+"s": "evenements", "ev": "Les Toquicimes"
 },
 {
 "src": "photos/toquicimes-dome.jpg",
 "thumb": "photos/toquicimes-dome-thumb.jpg",
-"t": "Le dôme végétal des Toquicimes",
-"s": "evenements"
+"t": "Le dôme végétal",
+"s": "evenements", "ev": "Les Toquicimes"
 },
 {
 "src": "photos/toquicimes-marche-producteurs.jpg",
 "thumb": "photos/toquicimes-marche-producteurs-thumb.jpg",
 "t": "Le marché des producteurs",
-"s": "evenements"
+"s": "evenements", "ev": "Les Toquicimes"
 },
 {
 "src": "photos/toquicimes-miel.jpg",
 "thumb": "photos/toquicimes-miel-thumb.jpg",
 "t": "Miels et confitures du terroir",
-"s": "evenements"
+"s": "evenements", "ev": "Les Toquicimes"
 }
 ];
 const label = {automne:"AUTOMNE", evenements:"ÉVÉNEMENT"};
@@ -468,7 +468,7 @@ function esc(t){return t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/<
 function render(f){
   shown = items.filter(i => f==="all" || i.s===f);
   g.innerHTML = shown.map((i,k) =>
-    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy"></button><span class="tag">${label[i.s]}</span><figcaption>${esc(i.t)}</figcaption></figure>`
+    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy"></button><span class="tag">${esc(i.ev || label[i.s])}</span><figcaption>${esc(i.t)}</figcaption></figure>`
   ).join("");
 }
 document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
@@ -477,7 +477,7 @@ document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () =>
 }));
 const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img"), lbCap=document.getElementById("lb-cap");
 let cur=0, lastFocus=null;
-function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbImg.src=i.src; lbImg.alt=i.t; lbCap.textContent=i.t;}
+function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbImg.src=i.src; lbImg.alt=i.t; lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t;}
 function openLb(k){lastFocus=document.activeElement; show(k); lb.classList.add("open"); document.getElementById("lb-x").focus();}
 function closeLb(){lb.classList.remove("open"); lbImg.removeAttribute("src"); if(lastFocus) lastFocus.focus();}
 g.addEventListener("click", e => { const b=e.target.closest("button[data-k]"); if(b) openLb(+b.dataset.k); });
