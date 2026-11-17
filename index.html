@@ -84,6 +84,17 @@ section{padding:64px 0}
 .ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-weight:600;font-size:.92rem;background:linear-gradient(transparent,rgba(10,20,45,.75))}
 .ph .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:#142a57;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em}
 .note{color:var(--muted);font-size:.9rem;margin-top:14px}
+.ph button{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
+.ph button:focus-visible{outline:3px solid var(--heart);outline-offset:-3px}
+.ph img{transition:transform .4s ease}
+.ph:hover img{transform:scale(1.04)}
+@media (prefers-reduced-motion: reduce){.ph img{transition:none}.ph:hover img{transform:none}}
+.lb{position:fixed;inset:0;background:rgba(8,14,30,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:56px 16px 72px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.lb p{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:#fff;margin:0;padding:0 60px;font-weight:600}
+.lb .x,.lb .nav{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:999px;width:44px;height:44px;font-size:1.4rem;cursor:pointer}
+.lb .x{top:12px;right:12px}.lb .prev{left:12px;top:50%}.lb .next{right:12px;top:50%}
 
 /* Agenda */
 .agenda{display:grid;gap:12px}
@@ -169,17 +180,16 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem;border-top:1px so
       <div>
         <div class="kicker">Galerie</div>
         <h2>Megève au fil des saisons</h2>
-        <p>Les plus belles images du compte, du lever de soleil sur le Mont-Blanc aux ruelles du village.</p>
+        <p>Les photos de Vincent, prises au fil des balades : lever de soleil sur le Mont-Blanc, forêts d'automne et rendez-vous du village.</p>
       </div>
-      <div class="tabs" role="group" aria-label="Filtrer par saison">
+      <div class="tabs" role="group" aria-label="Filtrer les photos">
         <button class="tab" aria-pressed="true" data-f="all" id="f-all">Tout</button>
-        <button class="tab" aria-pressed="false" data-f="hiver" id="f-hiver">Hiver</button>
-        <button class="tab" aria-pressed="false" data-f="ete" id="f-ete">Été</button>
-        <button class="tab" aria-pressed="false" data-f="village" id="f-village">Village</button>
+        <button class="tab" aria-pressed="false" data-f="automne" id="f-automne">Automne</button>
+        <button class="tab" aria-pressed="false" data-f="evenements" id="f-evenements">Événements</button>
       </div>
     </div>
     <div class="gallery" id="gallery"></div>
-    <p class="note">Les illustrations seront remplacées par les photos de Vincent.</p>
+    <p class="note">Touchez une photo pour l'agrandir.</p>
   </div>
 </section>
 
@@ -241,6 +251,14 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem;border-top:1px so
 </section>
 </main>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button class="x" id="lb-x" aria-label="Fermer">✕</button>
+  <button class="nav prev" id="lb-prev" aria-label="Photo précédente">‹</button>
+  <img id="lb-img" alt="">
+  <button class="nav next" id="lb-next" aria-label="Photo suivante">›</button>
+  <p id="lb-cap"></p>
+</div>
+
 <footer>
   <div class="wrap foot">
     <span>© Megève par cœur · Photos et textes de Vincent</span>
@@ -249,36 +267,227 @@ footer{padding:40px 0 56px;color:var(--muted);font-size:.92rem;border-top:1px so
 </footer>
 
 <script>
-// Gallery items: replace "art" with "src" (e.g. "photos/calvaire.jpg") once the real photos are in.
 const items = [
-  {t:"Lever de soleil sur le Mont-Blanc", s:"hiver", art:["#f4b183","#c96f8a","#2a4d93"]},
-  {t:"Premières traces à Rochebrune", s:"hiver", art:["#cfe0f5","#8fb0dc","#1f3d7a"]},
-  {t:"La place du Village sous la neige", s:"village", art:["#e9eef6","#b8c6de","#142a57"]},
-  {t:"Alpages du Mont d'Arbois", s:"ete", art:["#bfe3c9","#6fae8a","#2f5d50"]},
-  {t:"Crêtes du Mont Joly", s:"ete", art:["#ffe2a8","#e6a35a","#3b5a8c"]},
-  {t:"Fondue entre amis", s:"village", art:["#ffd9b0","#e08e5a","#7a3b2e"]},
-  {t:"Ski de rando à la Côte 2000", s:"hiver", art:["#dbe8f7","#a3bce0","#23407a"]},
-  {t:"Le chemin du Calvaire", s:"ete", art:["#d6ecd0","#8cbf88","#355f46"]}
-];
-const label = {hiver:"HIVER", ete:"ÉTÉ", village:"VILLAGE"};
-function art(c){
-  return `<svg viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-    <defs><linearGradient id="g${c[0].slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs>
-    <rect width="200" height="250" fill="url(#g${c[0].slice(1)})"/>
-    <path d="M0 250V150l45-45 30 30 45-60 35 40 45-25v160z" fill="${c[2]}" opacity=".85"/>
-    <path d="M0 250v-60l60-30 50 35 50-25 40 20v60z" fill="${c[2]}"/>
-  </svg>`;
+{
+"src": "photos/lever-soleil-neige-mont-blanc.jpg",
+"thumb": "photos/lever-soleil-neige-mont-blanc-thumb.jpg",
+"t": "Lever de soleil sur le Mont-Blanc après la première neige",
+"s": "automne"
+},
+{
+"src": "photos/montgolfiere-mont-blanc.jpg",
+"thumb": "photos/montgolfiere-mont-blanc-thumb.jpg",
+"t": "Une montgolfière au-dessus du Mont-Blanc",
+"s": "automne"
+},
+{
+"src": "photos/chalet-foret-automne.jpg",
+"thumb": "photos/chalet-foret-automne-thumb.jpg",
+"t": "Un chalet niché dans les couleurs d'automne",
+"s": "automne"
+},
+{
+"src": "photos/mont-blanc-village-brume.jpg",
+"thumb": "photos/mont-blanc-village-brume-thumb.jpg",
+"t": "Le village sous la brume, le Mont-Blanc en majesté",
+"s": "automne"
+},
+{
+"src": "photos/aube-givre-mont-blanc.jpg",
+"thumb": "photos/aube-givre-mont-blanc-thumb.jpg",
+"t": "L'aube sur le massif, l'herbe givrée",
+"s": "automne"
+},
+{
+"src": "photos/cascade-bouleaux-dores.jpg",
+"thumb": "photos/cascade-bouleaux-dores-thumb.jpg",
+"t": "Cascade et bouleaux dorés",
+"s": "automne"
+},
+{
+"src": "photos/mer-de-nuages.jpg",
+"thumb": "photos/mer-de-nuages-thumb.jpg",
+"t": "Mer de nuages au petit matin",
+"s": "automne"
+},
+{
+"src": "photos/cheval-alpage.jpg",
+"thumb": "photos/cheval-alpage-thumb.jpg",
+"t": "Rencontre au pâturage, face aux sommets enneigés",
+"s": "automne"
+},
+{
+"src": "photos/pommes-de-pin-aravis.jpg",
+"thumb": "photos/pommes-de-pin-aravis-thumb.jpg",
+"t": "Pommes de pin et Aravis sous la neige",
+"s": "automne"
+},
+{
+"src": "photos/lune-aravis-enneiges.jpg",
+"thumb": "photos/lune-aravis-enneiges-thumb.jpg",
+"t": "La lune au-dessus des crêtes enneigées",
+"s": "automne"
+},
+{
+"src": "photos/mont-blanc-vallee.jpg",
+"thumb": "photos/mont-blanc-vallee-thumb.jpg",
+"t": "Le Mont-Blanc et la vallée de Megève",
+"s": "automne"
+},
+{
+"src": "photos/coulemelle-mont-blanc.jpg",
+"thumb": "photos/coulemelle-mont-blanc-thumb.jpg",
+"t": "Une coulemelle au bord du chemin",
+"s": "automne"
+},
+{
+"src": "photos/foret-couleurs-automne.jpg",
+"thumb": "photos/foret-couleurs-automne-thumb.jpg",
+"t": "La forêt s'embrase en octobre",
+"s": "automne"
+},
+{
+"src": "photos/ligne-amanites.jpg",
+"thumb": "photos/ligne-amanites-thumb.jpg",
+"t": "Un chemin d'amanites tue-mouches",
+"s": "automne"
+},
+{
+"src": "photos/amanites-tue-mouches.jpg",
+"thumb": "photos/amanites-tue-mouches-thumb.jpg",
+"t": "Amanites tue-mouches en sous-bois",
+"s": "automne"
+},
+{
+"src": "photos/chamois-telesiege.jpg",
+"thumb": "photos/chamois-telesiege-thumb.jpg",
+"t": "Un chamois sous le télésiège",
+"s": "automne"
+},
+{
+"src": "photos/alpage-aravis.jpg",
+"thumb": "photos/alpage-aravis-thumb.jpg",
+"t": "Alpages et sommets enneigés",
+"s": "automne"
+},
+{
+"src": "photos/bouleau-ciel-bleu.jpg",
+"thumb": "photos/bouleau-ciel-bleu-thumb.jpg",
+"t": "Un bouleau doré au pied des falaises",
+"s": "automne"
+},
+{
+"src": "photos/pierrier-vue-vallee.jpg",
+"thumb": "photos/pierrier-vue-vallee-thumb.jpg",
+"t": "Vue sur la vallée depuis le pierrier",
+"s": "automne"
+},
+{
+"src": "photos/aravis-premiere-neige.jpg",
+"thumb": "photos/aravis-premiere-neige-thumb.jpg",
+"t": "Premières neiges sur les crêtes",
+"s": "automne"
+},
+{
+"src": "photos/ruisseau-foret.jpg",
+"thumb": "photos/ruisseau-foret-thumb.jpg",
+"t": "Ruisseau en forêt",
+"s": "automne"
+},
+{
+"src": "photos/sapins-sommets.jpg",
+"thumb": "photos/sapins-sommets-thumb.jpg",
+"t": "Sapins et sommets dans les nuages",
+"s": "automne"
+},
+{
+"src": "photos/cueillette-coulemelles.jpg",
+"thumb": "photos/cueillette-coulemelles-thumb.jpg",
+"t": "Cueillette de coulemelles",
+"s": "automne"
+},
+{
+"src": "photos/sapins-nuages.jpg",
+"thumb": "photos/sapins-nuages-thumb.jpg",
+"t": "Entre les sapins, la vallée",
+"s": "automne"
+},
+{
+"src": "photos/foret-epiceas.jpg",
+"thumb": "photos/foret-epiceas-thumb.jpg",
+"t": "Sous les grands épicéas",
+"s": "automne"
+},
+{
+"src": "photos/sous-bois-mousse.jpg",
+"thumb": "photos/sous-bois-mousse-thumb.jpg",
+"t": "Mousse et sous-bois",
+"s": "automne"
+},
+{
+"src": "photos/champignon-bleu.jpg",
+"thumb": "photos/champignon-bleu-thumb.jpg",
+"t": "Un champignon bleu-vert dans la mousse",
+"s": "automne"
+},
+{
+"src": "photos/toquicimes-scene.jpg",
+"thumb": "photos/toquicimes-scene-thumb.jpg",
+"t": "Les Toquicimes : démonstration en scène",
+"s": "evenements"
+},
+{
+"src": "photos/toquicimes-entree.jpg",
+"thumb": "photos/toquicimes-entree-thumb.jpg",
+"t": "L'entrée des Toquicimes au Palais",
+"s": "evenements"
+},
+{
+"src": "photos/toquicimes-dome.jpg",
+"thumb": "photos/toquicimes-dome-thumb.jpg",
+"t": "Le dôme végétal des Toquicimes",
+"s": "evenements"
+},
+{
+"src": "photos/toquicimes-marche-producteurs.jpg",
+"thumb": "photos/toquicimes-marche-producteurs-thumb.jpg",
+"t": "Le marché des producteurs",
+"s": "evenements"
+},
+{
+"src": "photos/toquicimes-miel.jpg",
+"thumb": "photos/toquicimes-miel-thumb.jpg",
+"t": "Miels et confitures du terroir",
+"s": "evenements"
 }
+];
+const label = {automne:"AUTOMNE", evenements:"ÉVÉNEMENT"};
 const g = document.getElementById("gallery");
+let shown = [];
+function esc(t){return t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
 function render(f){
-  g.innerHTML = items.filter(i => f==="all" || i.s===f).map(i =>
-    `<figure class="ph" style="margin:0">${i.src ? `<img src="${i.src}" alt="${i.t}" loading="lazy">` : art(i.art)}<span class="tag">${label[i.s]}</span><figcaption>${i.t}</figcaption></figure>`
+  shown = items.filter(i => f==="all" || i.s===f);
+  g.innerHTML = shown.map((i,k) =>
+    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy"></button><span class="tag">${label[i.s]}</span><figcaption>${esc(i.t)}</figcaption></figure>`
   ).join("");
 }
 document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x===b ? "true" : "false"));
   render(b.dataset.f);
 }));
+const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img"), lbCap=document.getElementById("lb-cap");
+let cur=0, lastFocus=null;
+function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbImg.src=i.src; lbImg.alt=i.t; lbCap.textContent=i.t;}
+function openLb(k){lastFocus=document.activeElement; show(k); lb.classList.add("open"); document.getElementById("lb-x").focus();}
+function closeLb(){lb.classList.remove("open"); lbImg.removeAttribute("src"); if(lastFocus) lastFocus.focus();}
+g.addEventListener("click", e => { const b=e.target.closest("button[data-k]"); if(b) openLb(+b.dataset.k); });
+document.getElementById("lb-x").onclick=closeLb;
+document.getElementById("lb-prev").onclick=()=>show(cur-1);
+document.getElementById("lb-next").onclick=()=>show(cur+1);
+lb.addEventListener("click", e => { if(e.target===lb) closeLb(); });
+document.addEventListener("keydown", e => { if(!lb.classList.contains("open")) return; if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") show(cur-1); if(e.key==="ArrowRight") show(cur+1); });
+let tx=null; lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener("touchend",e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) show(cur+(dx<0?1:-1)); tx=null; });
 render("all");
 </script>
 </body>
