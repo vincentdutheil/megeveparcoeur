@@ -1,219 +1,24 @@
 [
  {
-  "src": "photos/lever-soleil-neige-mont-blanc.jpg",
-  "thumb": "photos/lever-soleil-neige-mont-blanc-thumb.jpg",
-  "t": "Lever de soleil sur le Mont-Blanc après la première neige",
-  "cat": "Automne"
- },
- {
-  "src": "photos/montgolfiere-mont-blanc.jpg",
-  "thumb": "photos/montgolfiere-mont-blanc-thumb.jpg",
-  "t": "Une montgolfière au-dessus du Mont-Blanc",
-  "cat": "Automne"
- },
- {
-  "src": "photos/chalet-foret-automne.jpg",
-  "thumb": "photos/chalet-foret-automne-thumb.jpg",
-  "t": "Un chalet niché dans les couleurs d'automne",
-  "cat": "Automne"
- },
- {
-  "src": "photos/mont-blanc-village-brume.jpg",
-  "thumb": "photos/mont-blanc-village-brume-thumb.jpg",
-  "t": "Le village sous la brume, le Mont-Blanc en majesté",
-  "cat": "Automne"
- },
- {
-  "src": "photos/aube-givre-mont-blanc.jpg",
-  "thumb": "photos/aube-givre-mont-blanc-thumb.jpg",
-  "t": "L'aube sur le massif, l'herbe givrée",
-  "cat": "Automne"
- },
- {
-  "src": "photos/cascade-bouleaux-dores.jpg",
-  "thumb": "photos/cascade-bouleaux-dores-thumb.jpg",
-  "t": "Cascade et bouleaux dorés",
-  "cat": "Automne"
- },
- {
-  "src": "photos/mer-de-nuages.jpg",
-  "thumb": "photos/mer-de-nuages-thumb.jpg",
-  "t": "Mer de nuages au petit matin",
-  "cat": "Automne"
- },
- {
-  "src": "photos/cheval-alpage.jpg",
-  "thumb": "photos/cheval-alpage-thumb.jpg",
-  "t": "Rencontre au pâturage, face aux sommets enneigés",
-  "cat": "Automne"
- },
- {
-  "src": "photos/pommes-de-pin-aravis.jpg",
-  "thumb": "photos/pommes-de-pin-aravis-thumb.jpg",
-  "t": "Pommes de pin et Aravis sous la neige",
-  "cat": "Automne"
- },
- {
-  "src": "photos/lune-aravis-enneiges.jpg",
-  "thumb": "photos/lune-aravis-enneiges-thumb.jpg",
-  "t": "La lune au-dessus des crêtes enneigées",
-  "cat": "Automne"
- },
- {
   "src": "photos/mont-blanc-vallee.jpg",
   "thumb": "photos/mont-blanc-vallee-thumb.jpg",
   "t": "Le Mont-Blanc et la vallée de Megève",
-  "cat": "Automne"
- },
- {
-  "src": "photos/coulemelle-mont-blanc.jpg",
-  "thumb": "photos/coulemelle-mont-blanc-thumb.jpg",
-  "t": "Une coulemelle au bord du chemin",
-  "cat": "Automne"
- },
- {
-  "src": "photos/foret-couleurs-automne.jpg",
-  "thumb": "photos/foret-couleurs-automne-thumb.jpg",
-  "t": "La forêt s'embrase en octobre",
-  "cat": "Automne"
- },
- {
-  "src": "photos/ligne-amanites.jpg",
-  "thumb": "photos/ligne-amanites-thumb.jpg",
-  "t": "Un chemin d'amanites tue-mouches",
-  "cat": "Automne"
- },
- {
-  "src": "photos/amanites-tue-mouches.jpg",
-  "thumb": "photos/amanites-tue-mouches-thumb.jpg",
-  "t": "Amanites tue-mouches en sous-bois",
-  "cat": "Automne"
- },
- {
-  "src": "photos/chamois-telesiege.jpg",
-  "thumb": "photos/chamois-telesiege-thumb.jpg",
-  "t": "Un chamois sous le télésiège",
-  "cat": "Automne"
- },
- {
-  "src": "photos/alpage-aravis.jpg",
-  "thumb": "photos/alpage-aravis-thumb.jpg",
-  "t": "Alpages et sommets enneigés",
-  "cat": "Automne"
- },
- {
-  "src": "photos/bouleau-ciel-bleu.jpg",
-  "thumb": "photos/bouleau-ciel-bleu-thumb.jpg",
-  "t": "Un bouleau doré au pied des falaises",
-  "cat": "Automne"
- },
- {
-  "src": "photos/pierrier-vue-vallee.jpg",
-  "thumb": "photos/pierrier-vue-vallee-thumb.jpg",
-  "t": "Vue sur la vallée depuis le pierrier",
-  "cat": "Automne"
- },
- {
-  "src": "photos/aravis-premiere-neige.jpg",
-  "thumb": "photos/aravis-premiere-neige-thumb.jpg",
-  "t": "Premières neiges sur les crêtes",
-  "cat": "Automne"
- },
- {
-  "src": "photos/ruisseau-foret.jpg",
-  "thumb": "photos/ruisseau-foret-thumb.jpg",
-  "t": "Ruisseau en forêt",
-  "cat": "Automne"
- },
- {
-  "src": "photos/sapins-sommets.jpg",
-  "thumb": "photos/sapins-sommets-thumb.jpg",
-  "t": "Sapins et sommets dans les nuages",
-  "cat": "Automne"
- },
- {
-  "src": "photos/cueillette-coulemelles.jpg",
-  "thumb": "photos/cueillette-coulemelles-thumb.jpg",
-  "t": "Cueillette de coulemelles",
-  "cat": "Automne"
+  "cat": "Automne",
+  "date": "2026-11-15T13:16"
  },
  {
   "src": "photos/sapins-nuages.jpg",
   "thumb": "photos/sapins-nuages-thumb.jpg",
   "t": "Entre les sapins, la vallée",
-  "cat": "Automne"
+  "cat": "Automne",
+  "date": "2026-11-15T12:08"
  },
  {
-  "src": "photos/foret-epiceas.jpg",
-  "thumb": "photos/foret-epiceas-thumb.jpg",
-  "t": "Sous les grands épicéas",
-  "cat": "Automne"
- },
- {
-  "src": "photos/sous-bois-mousse.jpg",
-  "thumb": "photos/sous-bois-mousse-thumb.jpg",
-  "t": "Mousse et sous-bois",
-  "cat": "Automne"
- },
- {
-  "src": "photos/champignon-bleu.jpg",
-  "thumb": "photos/champignon-bleu-thumb.jpg",
-  "t": "Un champignon bleu-vert dans la mousse",
-  "cat": "Automne"
- },
- {
-  "src": "photos/golf-depart.jpg",
-  "thumb": "photos/golf-depart-thumb.jpg",
-  "t": "Départ au golf du Mont d'Arbois",
-  "cat": "Automne"
- },
- {
-  "src": "photos/golf-green.jpg",
-  "thumb": "photos/golf-green-thumb.jpg",
-  "t": "Sur le green, devant le chalet",
-  "cat": "Automne"
- },
- {
-  "src": "photos/balade-famille-grange.jpg",
-  "thumb": "photos/balade-famille-grange-thumb.jpg",
-  "t": "Balade en famille, vue sur le massif",
-  "cat": "Automne"
- },
- {
-  "src": "photos/pierrier-en-famille.jpg",
-  "thumb": "photos/pierrier-en-famille-thumb.jpg",
-  "t": "Dans les pierriers, sous les falaises",
-  "cat": "Automne"
- },
- {
-  "src": "photos/prairie-mere-fils.jpg",
-  "thumb": "photos/prairie-mere-fils-thumb.jpg",
-  "t": "À travers les herbes d'automne",
-  "cat": "Automne"
- },
- {
-  "src": "photos/montgolfiere-mont-blanc-2.jpg",
-  "thumb": "photos/montgolfiere-mont-blanc-2-thumb.jpg",
-  "t": "La montgolfière, quelques instants plus tard",
-  "cat": "Automne"
- },
- {
-  "src": "photos/foret-couleurs-automne-2.jpg",
-  "thumb": "photos/foret-couleurs-automne-2-thumb.jpg",
-  "t": "Lumière dorée sur la forêt",
-  "cat": "Automne"
- },
- {
-  "src": "photos/chamois-alpage.jpg",
-  "thumb": "photos/chamois-alpage-thumb.jpg",
-  "t": "Chamois dans l'alpage",
-  "cat": "Automne"
- },
- {
-  "src": "photos/aravis-soir.jpg",
-  "thumb": "photos/aravis-soir-thumb.jpg",
-  "t": "Les crêtes au soleil couchant",
-  "cat": "Automne"
+  "src": "photos/ruisseau-foret.jpg",
+  "thumb": "photos/ruisseau-foret-thumb.jpg",
+  "t": "Ruisseau en forêt",
+  "cat": "Automne",
+  "date": "2026-11-15T11:35"
  },
  {
   "src": "videos/toquicimes.mp4",
@@ -221,62 +26,302 @@
   "t": "Le mini-film du festival (musique : Akhilleus)",
   "cat": "Événements",
   "ev": "Les Toquicimes",
-  "video": true
+  "video": true,
+  "date": "2026-11-02T15:28"
  },
  {
-  "src": "photos/toquicimes-scene.jpg",
-  "thumb": "photos/toquicimes-scene-thumb.jpg",
-  "t": "Démonstration en scène",
-  "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "src": "photos/lune-aravis-enneiges.jpg",
+  "thumb": "photos/lune-aravis-enneiges-thumb.jpg",
+  "t": "La lune au-dessus des crêtes enneigées",
+  "cat": "Automne",
+  "date": "2026-10-22T18:30"
  },
  {
-  "src": "photos/toquicimes-entree.jpg",
-  "thumb": "photos/toquicimes-entree-thumb.jpg",
-  "t": "L'entrée du festival au Palais",
-  "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "src": "photos/aravis-premiere-neige.jpg",
+  "thumb": "photos/aravis-premiere-neige-thumb.jpg",
+  "t": "Premières neiges sur les crêtes",
+  "cat": "Automne",
+  "date": "2026-10-22T18:28:35"
  },
  {
-  "src": "photos/toquicimes-dome.jpg",
-  "thumb": "photos/toquicimes-dome-thumb.jpg",
-  "t": "Le dôme végétal",
-  "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "src": "photos/aravis-soir.jpg",
+  "thumb": "photos/aravis-soir-thumb.jpg",
+  "t": "Les crêtes au soleil couchant",
+  "cat": "Automne",
+  "date": "2026-10-22T18:28:27"
  },
  {
-  "src": "photos/toquicimes-marche-producteurs.jpg",
-  "thumb": "photos/toquicimes-marche-producteurs-thumb.jpg",
-  "t": "Le marché des producteurs",
-  "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "src": "photos/cueillette-coulemelles.jpg",
+  "thumb": "photos/cueillette-coulemelles-thumb.jpg",
+  "t": "Cueillette de coulemelles",
+  "cat": "Automne",
+  "date": "2026-10-22T11:57"
  },
  {
-  "src": "photos/toquicimes-miel.jpg",
-  "thumb": "photos/toquicimes-miel-thumb.jpg",
-  "t": "Miels et confitures du terroir",
-  "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "src": "photos/coulemelle-mont-blanc.jpg",
+  "thumb": "photos/coulemelle-mont-blanc-thumb.jpg",
+  "t": "Une coulemelle au bord du chemin",
+  "cat": "Automne",
+  "date": "2026-10-22T11:53"
+ },
+ {
+  "src": "photos/mont-blanc-village-brume.jpg",
+  "thumb": "photos/mont-blanc-village-brume-thumb.jpg",
+  "t": "Le village sous la brume, le Mont-Blanc en majesté",
+  "cat": "Automne",
+  "date": "2026-10-22T10:11"
+ },
+ {
+  "src": "photos/chalet-foret-automne.jpg",
+  "thumb": "photos/chalet-foret-automne-thumb.jpg",
+  "t": "Un chalet niché dans les couleurs d'automne",
+  "cat": "Automne",
+  "date": "2026-10-22T09:31:56"
+ },
+ {
+  "src": "photos/pommes-de-pin-aravis.jpg",
+  "thumb": "photos/pommes-de-pin-aravis-thumb.jpg",
+  "t": "Pommes de pin et Aravis sous la neige",
+  "cat": "Automne",
+  "date": "2026-10-22T09:30:56"
+ },
+ {
+  "src": "photos/montgolfiere-mont-blanc.jpg",
+  "thumb": "photos/montgolfiere-mont-blanc-thumb.jpg",
+  "t": "Une montgolfière au-dessus du Mont-Blanc",
+  "cat": "Automne",
+  "date": "2026-10-22T09:30:50"
+ },
+ {
+  "src": "photos/montgolfiere-mont-blanc-2.jpg",
+  "thumb": "photos/montgolfiere-mont-blanc-2-thumb.jpg",
+  "t": "La montgolfière, quelques instants plus tard",
+  "cat": "Automne",
+  "date": "2026-10-22T09:30:47"
+ },
+ {
+  "src": "photos/lever-soleil-neige-mont-blanc.jpg",
+  "thumb": "photos/lever-soleil-neige-mont-blanc-thumb.jpg",
+  "t": "Lever de soleil sur le Mont-Blanc après la première neige",
+  "cat": "Automne",
+  "date": "2026-10-22T08:46"
+ },
+ {
+  "src": "photos/aube-givre-mont-blanc.jpg",
+  "thumb": "photos/aube-givre-mont-blanc-thumb.jpg",
+  "t": "L'aube sur le massif, l'herbe givrée",
+  "cat": "Automne",
+  "date": "2026-10-22T07:40"
+ },
+ {
+  "src": "photos/golf-depart.jpg",
+  "thumb": "photos/golf-depart-thumb.jpg",
+  "t": "Départ au golf du Mont d'Arbois",
+  "cat": "Automne",
+  "date": "2026-10-17T17:11"
+ },
+ {
+  "src": "photos/golf-green.jpg",
+  "thumb": "photos/golf-green-thumb.jpg",
+  "t": "Sur le green, devant le chalet",
+  "cat": "Automne",
+  "date": "2026-10-17T16:38"
+ },
+ {
+  "src": "photos/foret-couleurs-automne.jpg",
+  "thumb": "photos/foret-couleurs-automne-thumb.jpg",
+  "t": "La forêt s'embrase en octobre",
+  "cat": "Automne",
+  "date": "2026-10-17T08:44:25"
+ },
+ {
+  "src": "photos/foret-couleurs-automne-2.jpg",
+  "thumb": "photos/foret-couleurs-automne-2-thumb.jpg",
+  "t": "Lumière dorée sur la forêt",
+  "cat": "Automne",
+  "date": "2026-10-17T08:44:23"
  },
  {
   "src": "photos/toquicimes-selfie.jpg",
   "thumb": "photos/toquicimes-selfie-thumb.jpg",
   "t": "Belle rencontre au festival",
   "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "ev": "Les Toquicimes",
+  "date": "2026-10-16T20:21"
+ },
+ {
+  "src": "photos/balade-famille-grange.jpg",
+  "thumb": "photos/balade-famille-grange-thumb.jpg",
+  "t": "Balade en famille, vue sur le massif",
+  "cat": "Automne",
+  "date": "2026-10-11T12:11"
+ },
+ {
+  "src": "photos/pierrier-vue-vallee.jpg",
+  "thumb": "photos/pierrier-vue-vallee-thumb.jpg",
+  "t": "Vue sur la vallée depuis le pierrier",
+  "cat": "Automne",
+  "date": "2025-11-01T11:09"
+ },
+ {
+  "src": "photos/amanites-tue-mouches.jpg",
+  "thumb": "photos/amanites-tue-mouches-thumb.jpg",
+  "t": "Amanites tue-mouches en sous-bois",
+  "cat": "Automne",
+  "date": "2025-09-27T10:48"
+ },
+ {
+  "src": "photos/ligne-amanites.jpg",
+  "thumb": "photos/ligne-amanites-thumb.jpg",
+  "t": "Un chemin d'amanites tue-mouches",
+  "cat": "Automne",
+  "date": "2025-09-27T10:14"
+ },
+ {
+  "src": "photos/chamois-telesiege.jpg",
+  "thumb": "photos/chamois-telesiege-thumb.jpg",
+  "t": "Un chamois sous le télésiège",
+  "cat": "Automne",
+  "date": "2025-09-27T08:59"
+ },
+ {
+  "src": "photos/chamois-alpage.jpg",
+  "thumb": "photos/chamois-alpage-thumb.jpg",
+  "t": "Chamois dans l'alpage",
+  "cat": "Automne",
+  "date": "2025-09-27T08:48"
+ },
+ {
+  "src": "photos/alpage-aravis.jpg",
+  "thumb": "photos/alpage-aravis-thumb.jpg",
+  "t": "Alpages et sommets enneigés",
+  "cat": "Automne",
+  "date": "2025-09-27T08:33"
+ },
+ {
+  "src": "photos/mer-de-nuages.jpg",
+  "thumb": "photos/mer-de-nuages-thumb.jpg",
+  "t": "Mer de nuages au petit matin",
+  "cat": "Automne",
+  "date": "2025-09-27T08:30"
+ },
+ {
+  "src": "photos/cheval-alpage.jpg",
+  "thumb": "photos/cheval-alpage-thumb.jpg",
+  "t": "Rencontre au pâturage, face aux sommets enneigés",
+  "cat": "Automne",
+  "date": "2025-09-27T08:04:25"
+ },
+ {
+  "src": "photos/sapins-sommets.jpg",
+  "thumb": "photos/sapins-sommets-thumb.jpg",
+  "t": "Sapins et sommets dans les nuages",
+  "cat": "Automne",
+  "date": "2025-09-27T08:04:02"
+ },
+ {
+  "src": "photos/toquicimes-scene.jpg",
+  "thumb": "photos/toquicimes-scene-thumb.jpg",
+  "t": "Démonstration en scène",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:38"
+ },
+ {
+  "src": "photos/toquicimes-marche-producteurs.jpg",
+  "thumb": "photos/toquicimes-marche-producteurs-thumb.jpg",
+  "t": "Le marché des producteurs",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:34"
+ },
+ {
+  "src": "photos/toquicimes-dome.jpg",
+  "thumb": "photos/toquicimes-dome-thumb.jpg",
+  "t": "Le dôme végétal",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:24"
+ },
+ {
+  "src": "photos/toquicimes-miel.jpg",
+  "thumb": "photos/toquicimes-miel-thumb.jpg",
+  "t": "Miels et confitures du terroir",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:20"
  },
  {
   "src": "photos/toquicimes-atelier.jpg",
   "thumb": "photos/toquicimes-atelier-thumb.jpg",
   "t": "Un atelier au cœur du salon",
   "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:18:32"
  },
  {
   "src": "photos/toquicimes-lecture.jpg",
   "thumb": "photos/toquicimes-lecture-thumb.jpg",
   "t": "Pause lecture au salon",
   "cat": "Événements",
-  "ev": "Les Toquicimes"
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:18:16"
+ },
+ {
+  "src": "photos/toquicimes-entree.jpg",
+  "thumb": "photos/toquicimes-entree-thumb.jpg",
+  "t": "L'entrée du festival au Palais",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "date": "2024-10-19T16:16"
+ },
+ {
+  "src": "photos/pierrier-en-famille.jpg",
+  "thumb": "photos/pierrier-en-famille-thumb.jpg",
+  "t": "Dans les pierriers, sous les falaises",
+  "cat": "Automne",
+  "date": "2024-10-19T11:52"
+ },
+ {
+  "src": "photos/champignon-bleu.jpg",
+  "thumb": "photos/champignon-bleu-thumb.jpg",
+  "t": "Un champignon bleu-vert dans la mousse",
+  "cat": "Automne",
+  "date": "2024-10-19T11:45"
+ },
+ {
+  "src": "photos/sous-bois-mousse.jpg",
+  "thumb": "photos/sous-bois-mousse-thumb.jpg",
+  "t": "Mousse et sous-bois",
+  "cat": "Automne",
+  "date": "2024-10-19T11:43"
+ },
+ {
+  "src": "photos/prairie-mere-fils.jpg",
+  "thumb": "photos/prairie-mere-fils-thumb.jpg",
+  "t": "À travers les herbes d'automne",
+  "cat": "Automne",
+  "date": "2024-10-19T11:13"
+ },
+ {
+  "src": "photos/cascade-bouleaux-dores.jpg",
+  "thumb": "photos/cascade-bouleaux-dores-thumb.jpg",
+  "t": "Cascade et bouleaux dorés",
+  "cat": "Automne",
+  "date": "2024-10-19T11:10"
+ },
+ {
+  "src": "photos/bouleau-ciel-bleu.jpg",
+  "thumb": "photos/bouleau-ciel-bleu-thumb.jpg",
+  "t": "Un bouleau doré au pied des falaises",
+  "cat": "Automne",
+  "date": "2024-10-19T11:06"
+ },
+ {
+  "src": "photos/foret-epiceas.jpg",
+  "thumb": "photos/foret-epiceas-thumb.jpg",
+  "t": "Sous les grands épicéas",
+  "cat": "Automne",
+  "date": "2024-10-19T10:56"
  }
 ]

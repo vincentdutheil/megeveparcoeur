@@ -82,6 +82,7 @@ section{padding:64px 0}
 .ph{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line)}
 .ph svg,.ph img{width:100%;height:100%;object-fit:cover}
 .ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;color:#fff;font-weight:600;font-size:.92rem;background:linear-gradient(transparent,rgba(10,20,45,.75))}
+.ph figcaption small{display:block;font-weight:500;font-size:.78rem;opacity:.85;margin-top:2px}
 .ph .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);color:#142a57;font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
 .note{color:var(--muted);font-size:.9rem;margin-top:14px}
 .ph button{all:unset;display:block;width:100%;height:100%;cursor:zoom-in}
@@ -291,11 +292,12 @@ let items = [];
 
 const g = document.getElementById("gallery");
 let shown = [];
+function fmtDate(d){try{return new Date(d).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}catch(e){return ""}}
 function esc(t){return t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
 function render(f){
   shown = items.filter(i => f==="all" || i.cat===f);
   g.innerHTML = shown.map((i,k) =>
-    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy">${i.video?'<span class="play"></span>':""}</button><span class="tag">${esc(i.ev || i.cat)}</span><figcaption>${esc(i.t)}</figcaption></figure>`
+    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy">${i.video?'<span class="play"></span>':""}</button><span class="tag">${esc(i.ev || i.cat)}</span><figcaption>${esc(i.t)}${i.date?`<small>${fmtDate(i.date)}</small>`:""}</figcaption></figure>`
   ).join("");
 }
 const tabs=document.getElementById("tabs");
@@ -309,7 +311,7 @@ tabs.addEventListener("click", e => { const b=e.target.closest(".tab"); if(!b) r
 });
 const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img"), lbCap=document.getElementById("lb-cap"), lbVid=document.getElementById("lb-vid");
 let cur=0, lastFocus=null;
-function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbVid.pause(); if(i.video){lb.classList.add("vid"); lbVid.src=i.src; lbVid.poster=i.thumb; lbImg.removeAttribute("src");} else {lb.classList.remove("vid"); lbVid.removeAttribute("src"); lbImg.src=i.src; lbImg.alt=i.t;} lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t;}
+function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbVid.pause(); if(i.video){lb.classList.add("vid"); lbVid.src=i.src; lbVid.poster=i.thumb; lbImg.removeAttribute("src");} else {lb.classList.remove("vid"); lbVid.removeAttribute("src"); lbImg.src=i.src; lbImg.alt=i.t;} lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t+(i.date?" · "+fmtDate(i.date):"");}
 function openLb(k){lastFocus=document.activeElement; show(k); lb.classList.add("open"); document.getElementById("lb-x").focus();}
 function closeLb(){lb.classList.remove("open"); lbVid.pause(); lbVid.removeAttribute("src"); lbImg.removeAttribute("src"); if(lastFocus) lastFocus.focus();}
 g.addEventListener("click", e => { const b=e.target.closest("button[data-k]"); if(b) openLb(+b.dataset.k); });
@@ -320,7 +322,7 @@ lb.addEventListener("click", e => { if(e.target===lb) closeLb(); });
 document.addEventListener("keydown", e => { if(!lb.classList.contains("open")) return; if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") show(cur-1); if(e.key==="ArrowRight") show(cur+1); });
 let tx=null; lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
 lb.addEventListener("touchend",e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) show(cur+(dx<0?1:-1)); tx=null; });
-fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d; buildTabs(); render("all");})
+fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.sort((a,b)=>(b.date||"").localeCompare(a.date||"")); buildTabs(); render("all");})
   .catch(()=>{g.innerHTML='<p class="note">La galerie n\'a pas pu se charger. Rechargez la page.</p>';});
 </script>
 </body>
