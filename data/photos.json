@@ -216,6 +216,14 @@
   "cat": "Automne"
  },
  {
+  "src": "videos/toquicimes.mp4",
+  "thumb": "videos/toquicimes-poster.jpg",
+  "t": "Le mini-film du festival (musique : Akhilleus)",
+  "cat": "Événements",
+  "ev": "Les Toquicimes",
+  "video": true
+ },
+ {
   "src": "photos/toquicimes-scene.jpg",
   "thumb": "photos/toquicimes-scene-thumb.jpg",
   "t": "Démonstration en scène",

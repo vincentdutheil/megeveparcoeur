@@ -170,7 +170,7 @@ async function publish(){
       }
     }
     for(const p of photos.filter(p=>p._del)){tree.push({path:p.src,mode:"100644",type:"blob",sha:null});tree.push({path:p.thumb,mode:"100644",type:"blob",sha:null});}
-    const clean=photos.filter(p=>!p._del).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();return o;});
+    const clean=photos.filter(p=>!p._del).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();if(p.video)o.video=true;return o;});
     tree.push({path:DATA,mode:"100644",type:"blob",content:JSON.stringify(clean,null,1)+"\n"});
     const t=await gh("/git/trees",{method:"POST",body:JSON.stringify({base_tree:head.tree.sha,tree})});
     const c=await gh("/git/commits",{method:"POST",body:JSON.stringify({message:"Mise à jour de la galerie depuis l'admin",tree:t.sha,parents:[ref.object.sha]})});
