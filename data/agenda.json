@@ -138,7 +138,8 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Nantes",
   "x": "Match de Division 1 à la patinoire de Megève.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
+  "h": "19h30"
  },
  {
   "d": "2027-01-23",
@@ -181,7 +182,8 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Tours",
   "x": "Match de Division 1 à Megève.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
+  "h": "19h30"
  },
  {
   "d": "2027-02-19",
@@ -271,5 +273,134 @@
   "t": "La Dragonale Givrée",
   "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
   "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+ },
+ {
+  "d": "2026-11-19",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Théâtre Ancolie : « Petites comédies »",
+  "x": "La troupe locale joue de courtes pièces drôles d'Anton Tchekhov.",
+  "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies"
+ },
+ {
+  "d": "2026-11-24",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Coupe de France",
+  "x": "Les Yétis du Mont-Blanc reçoivent pour un match de Coupe de France à la patinoire du Palais.",
+  "u": "https://www.haute-savoie-tourisme.org/6359483-hockey-sur-glace-coupe-de-france-mont-blanc-vs-gap"
+ },
+ {
+  "d": "2026-11-27",
+  "h": "20h30",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Mathieu Stepson, magie et mentalisme",
+  "x": "Le vainqueur de « La France a un Incroyable Talent » mêle illusion et mentalisme, au Palais. Dès 8 ans.",
+  "u": "https://www.haute-savoie-tourisme.org/7388657-mathieu-stepson"
+ },
+ {
+  "d": "2026-11-28",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Spectacle bébés lecteurs « Moon »",
+  "x": "Un petit spectacle tout doux pour les tout-petits, à la médiathèque.",
+  "u": "https://www.haute-savoie-tourisme.org/7987555-spectacle-bebes-lecteurs-moon"
+ },
+ {
+  "d": "2026-12-01",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Villard-de-Lans",
+  "x": "Match de Division 1 à la patinoire du Palais.",
+  "u": "https://www.haute-savoie-tourisme.org/6843705-hockey-sur-glace-match-division-1-mont-blanc-vs-villard-de-lans"
+ },
+ {
+  "d": "2026-12-05",
+  "d2": "2026-12-06",
+  "h": "10h–19h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Salon des Créateurs d'Art de Megève",
+  "x": "Édition de Noël au Palais des Sports, avec une sélection de créateurs, à l'occasion de l'illumination du sapin. Parrainé par le chef Marc Veyrat.",
+  "u": "https://www.instagram.com/alpincreateurs/"
+ },
+ {
+  "d": "2026-12-05",
+  "d2": "2026-12-27",
+  "h": "15h–19h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Atelier-galerie Adrianna MJW en accès libre",
+  "x": "Les week-ends de décembre, l'atelier de la peintre et photographe ouvre ses portes face au Mont-Blanc, au hameau de Vauvray.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/art-contemporain/7197566-exposition-visite-atelier-adrianna-mjw"
+ },
+ {
+  "d": "2026-12-06",
+  "h": "10h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Jardin de la glisse",
+  "x": "Initiation au patin à glace pour les enfants de moins de 10 ans, à la patinoire.",
+  "u": "https://www.haute-savoie-tourisme.org/5065937-jardin-de-la-glisse"
+ },
+ {
+  "d": "2026-12-10",
+  "h": "19h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey féminin U18 : France – Norvège",
+  "x": "Match international des moins de 18 ans à la patinoire de Megève. Entrée gratuite.",
+  "u": "https://www.haute-savoie-tourisme.org/8060397-hockey-sur-glace-feminin-u18-france-norvege"
+ },
+ {
+  "d": "2026-12-11",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Concert",
+  "t": "Concert : Duo Manaïko",
+  "x": "Un voyage musical au Venezuela, à l'auditorium du Palais. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/musique/divers-musique/7983538-concert-duo-manaiko"
+ },
+ {
+  "d": "2026-12-22",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Lyon",
+  "x": "Match de Division 1 à la patinoire du Palais.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
+ },
+ {
+  "d": "2026-12-29",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Match de gala de hockey",
+  "x": "Les Yétis du Mont-Blanc face aux Aigles de Saint-Gervais. Gratuit pour les moins de 18 ans.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/7641933-match-de-gala-hockey-sur-glace"
+ },
+ {
+  "d": "2027-01-19",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Chambéry",
+  "x": "Match de Division 1 à la patinoire du Palais.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
+ },
+ {
+  "d": "2026-05-22",
+  "d2": "2027-05-10",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Expo « Faire Montagne »",
+  "x": "Exposition de l'artiste Adrianna Muffat Jeandet. Entrée gratuite.",
+  "u": "https://www.haute-savoie-tourisme.org/7675767-exposition-faire-montagne-adrianna-muffat-jeandet",
+  "always": true
  }
 ]
