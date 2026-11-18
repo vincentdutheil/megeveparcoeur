@@ -43,8 +43,8 @@ background:linear-gradient(180deg,rgba(14,28,60,.78),rgba(14,28,60,.9)),url('{(R
 .serif{{font-family:"DejaVu Serif",Georgia,serif}}
 .top{{position:absolute;top:150px;left:80px;right:80px;display:flex;gap:28px;align-items:center}}
 .top img{{width:130px;height:130px}}.k{{font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ff8a97;font-size:28px}}
-h1{{font-size:70px;line-height:1.05;margin-top:8px}}.per{{font-size:34px;opacity:.9;margin-top:10px}}
-.list{{position:absolute;top:430px;left:70px;right:70px;display:grid;gap:22px}}
+h1{{font-size:70px;line-height:1.05;margin-top:8px}}.per{{font-size:34px;opacity:.9;margin-top:10px}}.loc{{font-size:26px;font-weight:700;color:#ff8a97;margin-top:6px}}
+.list{{position:absolute;top:470px;left:70px;right:70px;display:grid;gap:22px}}
 .ev{{background:rgba(255,255,255,.96);color:#16213a;border-radius:28px;padding:24px 30px;position:relative}}
 .d{{font-weight:800;color:#d6283c;font-size:28px;text-transform:uppercase;letter-spacing:.03em}}
 .t{{font-size:38px;font-weight:700;line-height:1.15;margin-top:6px;padding-right:200px}}
@@ -53,7 +53,7 @@ h1{{font-size:70px;line-height:1.05;margin-top:8px}}.per{{font-size:34px;opacity
 .cta b{{color:#ff8a97}}
 </style></head><body>
 <div class="top"><img src="{(ROOT/"img/logo-rond.png").as_uri()}"><div><div class="k">L'agenda de la semaine</div>
-<h1 class="serif">Megève &amp; alentours</h1><div class="per">{per}</div></div></div>
+<h1 class="serif">Megève &amp; alentours</h1><div class="loc">Megève · Combloux · Praz-sur-Arly</div><div class="per">{per}</div></div></div>
 <div class="list">{rows}</div>
 <div class="cta">👇 Tous les événements sur<br><b>megeveparcoeur.fr</b></div>
 </body></html>"""
