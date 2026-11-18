@@ -65,10 +65,23 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 .hero h1{font-size:clamp(2.3rem,6.4vw,4.6rem);white-space:nowrap;font-weight:600}
 .hero h1 .h{color:#ff7b80;font-style:italic;font-weight:500}
 .hero p{max-width:42ch;font-size:1.12rem;opacity:.92;margin:16px 0 28px}
-.window{position:relative;justify-self:center;width:min(100%,270px);aspect-ratio:9/16;border-radius:135px 135px 24px 24px;overflow:hidden;
-  border:10px solid #5a4030;box-shadow:0 0 0 2px #7a5a43 inset,0 0 80px rgba(243,194,122,.35),0 30px 60px rgba(0,0,0,.45);background:#000}
-.window video,.window img{width:100%;height:100%;object-fit:cover;display:block}
-.window::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 40px rgba(0,0,0,.35);pointer-events:none;border-radius:inherit}
+/* Boule de Noël qui pend du haut de l'écran, la vidéo à l'intérieur */
+.bauble{--ball:min(100%,370px);position:relative;justify-self:center;align-self:start;padding-top:96px;width:var(--ball);
+  transform-origin:50% -40px;animation:swing 6s ease-in-out infinite}
+.bauble .string{position:absolute;left:50%;bottom:calc(100% - 100px);width:2px;height:600px;margin-left:-1px;
+  background:linear-gradient(#b8892e,#e8c46a)}
+.bauble .bow{position:absolute;left:50%;top:58px;width:120px;margin-left:-60px;z-index:3;filter:drop-shadow(0 3px 4px rgba(0,0,0,.4))}
+.bauble .cap{position:relative;z-index:2;display:block;width:24%;height:30px;margin:0 auto -6px;border-radius:7px 7px 4px 4px;
+  background:linear-gradient(90deg,#8a6420,#f2d68a 35%,#c99a3c 60%,#7a5518);box-shadow:0 2px 6px rgba(0,0,0,.4)}
+.ball{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 2px rgba(255,236,190,.55),0 0 50px rgba(243,194,122,.45),0 26px 60px rgba(0,0,0,.55)}
+.ball video{width:100%;height:100%;object-fit:cover;object-position:50% 52%;display:block}
+.ball::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:radial-gradient(38% 30% at 30% 22%,rgba(255,255,255,.55),rgba(255,255,255,0) 70%),
+             radial-gradient(70% 70% at 50% 50%,rgba(0,0,0,0) 62%,rgba(255,220,160,.22) 88%,rgba(255,240,210,.5) 100%);
+  box-shadow:inset 0 -18px 40px rgba(0,0,0,.35),inset 0 10px 30px rgba(255,255,255,.12)}
+@keyframes swing{0%,100%{transform:rotate(2.2deg)}50%{transform:rotate(-2.2deg)}}
+@media (prefers-reduced-motion: reduce){.bauble{animation:none}}
 .hero-ridge{position:absolute;left:0;right:0;bottom:-1px;z-index:2;width:100%;height:70px;display:block}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem}
@@ -167,12 +180,8 @@ footer a{color:#fbf3e6}
 @media (max-width:860px){
   .shop{grid-template-columns:1fr;padding:28px}
   .feature{grid-template-columns:1fr}.feature video{max-width:320px;margin:0 auto;display:block}
-  /* Mobile : la vidéo verticale remplit le bandeau, le texte passe dessus */
-  .hero{min-height:min(92vh,760px);display:flex;align-items:flex-end}
-  .hero-grid{position:static;grid-template-columns:1fr;padding-top:0;padding-bottom:84px;width:100%}
-  .window{position:absolute;inset:0;width:100%;max-width:none;aspect-ratio:auto;border:0;border-radius:0;box-shadow:none;z-index:0}
-  .window video{object-position:50% 35%}
-  .window::after{border-radius:0;box-shadow:none;background:linear-gradient(180deg,rgba(18,28,26,.15) 0%,rgba(18,28,26,.25) 40%,rgba(18,28,26,.92) 100%)}
+  .hero-grid{grid-template-columns:1fr;gap:6px;padding-top:0}
+  .bauble{order:-1;--ball:min(62vw,250px);padding-top:56px}
   .hero h1{font-size:clamp(2rem,10vw,3rem)}
 }
 @media (max-width:560px){
@@ -212,8 +221,13 @@ footer a{color:#fbf3e6}
       <a class="btn ghost" href="#agenda">Voir l'agenda de Megève</a>
     </div>
     </div>
-    <div class="window">
-      <video id="hero-vid" poster="videos/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="La place du village de Megève sous la neige, la nuit"></video>
+    <div class="bauble">
+      <span class="string" aria-hidden="true"></span>
+      <svg class="bow" viewBox="0 0 120 60" aria-hidden="true"><path d="M60 30C40 4 8 2 6 18c-2 14 26 16 54 12z" fill="#c8323d"/><path d="M60 30C80 4 112 2 114 18c2 14-26 16-54 12z" fill="#c8323d"/><path d="M60 30C48 22 22 12 16 18" stroke="#8f1d26" stroke-width="2" fill="none"/><path d="M60 30C72 22 98 12 104 18" stroke="#8f1d26" stroke-width="2" fill="none"/><path d="M58 32l-16 26 9-2 6 4zM62 32l16 26-9-2-6 4z" fill="#a8242f"/><ellipse cx="60" cy="31" rx="9" ry="8" fill="#e04452"/></svg>
+      <span class="cap" aria-hidden="true"></span>
+      <div class="ball">
+        <video id="hero-vid" poster="videos/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="La place du village de Megève sous la neige, la nuit, dans une boule de Noël"></video>
+      </div>
     </div>
   </div>
   <svg class="hero-ridge" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70V44l120-22 90 16 140-34 110 30 90-10 160 28 120-36 140 24 110-18 130 26 110-20 120 20V70z" fill="var(--wool)"/></svg>
