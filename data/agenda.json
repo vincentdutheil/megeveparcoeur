@@ -1,218 +1,5 @@
 [
  {
-  "d": "2026-12-05",
-  "d2": "2026-12-06",
-  "lieu": "Megève",
-  "cat": "Ski",
-  "t": "Préouverture du domaine skiable",
-  "x": "Ouverture partielle le week-end, selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
- },
- {
-  "d": "2026-12-05",
-  "h": "19h30",
-  "lieu": "Megève",
-  "cat": "Fête",
-  "t": "Illumination du sapin",
-  "x": "Le grand sapin de la place s'illumine et lance la saison d'hiver. Place de l'Église, accès libre.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin"
- },
- {
-  "d": "2026-12-12",
-  "lieu": "Megève",
-  "cat": "Ski",
-  "t": "Ouverture progressive des pistes",
-  "x": "Ouverture partielle tous les jours jusqu'au 18 décembre, selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
- },
- {
-  "d": "2026-12-12",
-  "h": "10h–22h",
-  "lieu": "Combloux",
-  "cat": "Fête",
-  "t": "Marché de Noël de Combloux",
-  "x": "Une trentaine de stands de producteurs et d'artisans, le Père Noël, vin chaud, crêpes et tartiflette. Place de l'Office du tourisme.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/marche-de-noel-combloux-fr-6108383/"
- },
- {
-  "d": "2026-12-12",
-  "lieu": "Megève",
-  "cat": "Spectacle",
-  "t": "The Black Blues Brothers",
-  "x": "Acrobaties et musique : le spectacle « Let's twist again » au Palais.",
-  "u": "https://spectacles-megeve.fr/programmation/"
- },
- {
-  "d": "2026-12-19",
-  "d2": "2027-04-04",
-  "lieu": "Megève",
-  "cat": "Ski",
-  "t": "Ouverture générale de la station",
-  "x": "Rochebrune, Côte 2000 et Mont d'Arbois ouverts tous les jours.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
- },
- {
-  "d": "2026-12-19",
-  "d2": "2027-03-21",
-  "lieu": "Combloux",
-  "cat": "Ski",
-  "t": "Ouverture des Portes du Mont-Blanc",
-  "x": "Le domaine de Combloux, Megève-Jaillet et La Giettaz, face au Mont-Blanc. Selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee"
- },
- {
-  "d": "2026-12-20",
-  "d2": "2027-01-03",
-  "lieu": "Megève",
-  "cat": "Marché",
-  "t": "Marché des producteurs locaux",
-  "x": "Chaque dimanche de 9h30 à 13h, les meilleurs produits locaux sur la place du Village.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux"
- },
- {
-  "d": "2026-12-20",
-  "h": "18h",
-  "lieu": "Combloux",
-  "cat": "Famille",
-  "t": "Spectacle de Guignol",
-  "x": "Marionnettes et éclats de rire en famille, à l'Office de tourisme. Aussi le 14 février.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/spectacle-de-guignol-combloux-fr-5869906/"
- },
- {
-  "d": "2026-12-21",
-  "d2": "2026-12-31",
-  "lieu": "Megève",
-  "cat": "Famille",
-  "t": "Le Village de Noël",
-  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25).",
-  "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/"
- },
- {
-  "d": "2026-12-21",
-  "h": "10h–12h",
-  "lieu": "Combloux",
-  "cat": "Famille",
-  "t": "Bienvenue avec Tilou et le Père Noël",
-  "x": "Accueil sur les pistes puis pot de bienvenue sur le front de neige de La Cry. Les enfants remettent leur lettre au Père Noël.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/pot-de-bienvenue-sur-le-front-de-neige-avec-le-pere-noel-combloux-fr-6895183/"
- },
- {
-  "d": "2026-12-24",
-  "h": "17h30",
-  "lieu": "Megève",
-  "cat": "Fête",
-  "t": "La Parade du Père Noël",
-  "x": "Le Père Noël traverse le village en calèche avec les Satin Doll Sisters. Départ place du Village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/"
- },
- {
-  "d": "2026-12-27",
-  "h": "17h",
-  "lieu": "Combloux",
-  "cat": "Spectacle",
-  "t": "Magic Parade, spectacle de magie",
-  "x": "Sans réservation. Deuxième date le 7 février.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
- },
- {
-  "d": "2027-01-08",
-  "h": "19h",
-  "lieu": "Combloux",
-  "cat": "Sport",
-  "t": "La Crève-Cœur",
-  "x": "Course nocturne de ski de randonnée : 5,8 km et 730 m D+ jusqu'au sommet du Jouty (version courte de 3,9 km).",
-  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/"
- },
- {
-  "d": "2027-01-08",
-  "d2": "2027-01-10",
-  "lieu": "Combloux",
-  "cat": "Sport",
-  "t": "Coupe du monde de nage hivernale",
-  "x": "Près de 300 nageurs internationaux dans l'eau glacée du plan d'eau biotope.",
-  "u": "https://www.combloux.com/mon-agenda/temps-forts/winter-swimming-world-cup-france/"
- },
- {
-  "d": "2027-01-12",
-  "lieu": "Megève",
-  "cat": "Sport",
-  "t": "Hockey : Mont-Blanc contre Nantes",
-  "x": "Match de Division 1 à la patinoire de Megève.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30"
- },
- {
-  "d": "2027-01-23",
-  "d2": "2027-01-24",
-  "lieu": "Megève",
-  "cat": "Sport",
-  "t": "Coupe d'Europe de ski de bosses",
-  "x": "Les meilleurs bosseurs européens sur les pistes de Megève.",
-  "u": "https://www.leslogesblanches-megeve.com/agenda-evenements-megeve/"
- },
- {
-  "d": "2027-01-23",
-  "h": "20h30",
-  "lieu": "Megève",
-  "cat": "Spectacle",
-  "t": "Jérôme Commandeur",
-  "x": "« Jérôme Commandeur tente des trucs », au Palais. Complet.",
-  "u": "https://spectacles-megeve.fr/programmation/"
- },
- {
-  "d": "2027-01-30",
-  "lieu": "Megève",
-  "cat": "Sport",
-  "t": "L'Edelweiss",
-  "x": "Course de ski de randonnée nocturne sur le domaine Évasion Mont-Blanc, départ du stade de la Côte 2000.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/nl/aanbiedingen/edelweiss-domaine-evasion-mont-blanc-megeve-nl-5953347/"
- },
- {
-  "d": "2027-02-12",
-  "d2": "2027-03-05",
-  "lieu": "Megève",
-  "cat": "Fête",
-  "t": "L'ESF fête ses étoiles",
-  "x": "Défilé et spectacle des moniteurs sur la place du Village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/esf-fete-ses-etoiles-megeve-fr-5867414/"
- },
- {
-  "d": "2027-02-16",
-  "lieu": "Megève",
-  "cat": "Sport",
-  "t": "Hockey : Mont-Blanc contre Tours",
-  "x": "Match de Division 1 à Megève.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30"
- },
- {
-  "d": "2027-02-19",
-  "h": "20h30",
-  "lieu": "Megève",
-  "cat": "Spectacle",
-  "t": "Garou en concert",
-  "x": "Le « Solo tour » de Garou au Palais.",
-  "u": "https://spectacles-megeve.fr/programmation/"
- },
- {
-  "d": "2027-03-05",
-  "d2": "2027-03-07",
-  "lieu": "Megève",
-  "cat": "Culture",
-  "t": "Megève Leadership : « Du ciel aux abysses »",
-  "x": "Un week-end de conférences ouvert au grand public, salle Mageva au Palais.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/"
- },
- {
-  "d": "2027-03-24",
-  "d2": "2027-03-27",
-  "lieu": "Megève",
-  "cat": "Sport",
-  "t": "27ᵉ Ski Open Coq d'Or",
-  "x": "Compétition de ski alpin au stade de la Côte 2000.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/27th-ski-open-coq-dor-megeve-en-6746964/"
- },
- {
   "d": "2026-05-22",
   "d2": "2027-05-10",
   "lieu": "Megève",
@@ -223,56 +10,14 @@
   "always": true
  },
  {
-  "d": "2026-12-19",
-  "d2": "2027-04-03",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Ski",
-  "t": "Ouverture de l'Espace Diamant",
-  "x": "Le grand domaine relié de Praz-sur-Arly, Flumet, Notre-Dame-de-Bellecombe, Crest-Voland et Les Saisies, face au Mont-Blanc. Selon l'enneigement.",
-  "u": "https://en.lessaisies.com/once-on-site/les-saisies-in-winter-en/ski-and-activities/alpine-skiing-snowboarding/"
- },
- {
-  "d": "2026-12-22",
-  "d2": "2027-03-23",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Famille",
-  "t": "Visite du village aux lanternes",
-  "x": "Une balade guidée à la lueur des lanternes dans les ruelles de Praz, en fin de journée. Inscription à l'office de tourisme.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
- },
- {
-  "d": "2026-12-24",
-  "d2": "2027-03-04",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Famille",
-  "t": "La chasse au reblochon",
-  "x": "Un jeu de piste familial dans le village, sur le thème du célèbre fromage savoyard.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
- },
- {
-  "d": "2026-12-31",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Fête",
-  "t": "Night Glow Show du Nouvel An",
-  "x": "Les montgolfières de Praz s'illuminent à la tombée de la nuit au cœur du village. Selon la météo.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
- },
- {
-  "d": "2027-01-09",
-  "d2": "2027-01-17",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Fête",
-  "t": "36ᵉ Montgolfiades internationales",
-  "x": "Une trentaine de montgolfières s'envolent au-dessus des sommets enneigés, avec baptêmes de l'air et animations. Programme en cours de finalisation.",
-  "u": "https://www.prazsurarly.com/en/34th-montgolfiades-internationales"
- },
- {
-  "d": "2027-01-31",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Sport",
-  "t": "La Dragonale Givrée",
-  "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+  "d": "2026-05-22",
+  "d2": "2027-05-10",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Expo « Faire Montagne »",
+  "x": "Exposition de l'artiste Adrianna Muffat Jeandet. Entrée gratuite.",
+  "u": "https://www.haute-savoie-tourisme.org/7675767-exposition-faire-montagne-adrianna-muffat-jeandet",
+  "always": true
  },
  {
   "d": "2026-11-19",
@@ -282,6 +27,15 @@
   "t": "Théâtre Ancolie : « Petites comédies »",
   "x": "La troupe locale joue de courtes pièces drôles d'Anton Tchekhov.",
   "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies"
+ },
+ {
+  "d": "2026-11-22",
+  "lieu": "Combloux",
+  "cat": "Gastronomie",
+  "h": "12h",
+  "t": "Repas choucroute",
+  "x": "Choucroute, fromage, dessert et boisson, au 49 chemin des Passerands. Pensez à réserver.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/gastronomie/7525360-repas-choucroute"
  },
  {
   "d": "2026-11-24",
@@ -318,6 +72,24 @@
   "t": "Hockey : Mont-Blanc contre Villard-de-Lans",
   "x": "Match de Division 1 à la patinoire du Palais.",
   "u": "https://www.haute-savoie-tourisme.org/6843705-hockey-sur-glace-match-division-1-mont-blanc-vs-villard-de-lans"
+ },
+ {
+  "d": "2026-12-05",
+  "d2": "2026-12-06",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Préouverture du domaine skiable",
+  "x": "Ouverture partielle le week-end, selon l'enneigement.",
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+ },
+ {
+  "d": "2026-12-05",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Illumination du sapin",
+  "x": "Le grand sapin de la place s'illumine et lance la saison d'hiver. Place de l'Église, accès libre.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin"
  },
  {
   "d": "2026-12-05",
@@ -367,6 +139,112 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/musique/divers-musique/7983538-concert-duo-manaiko"
  },
  {
+  "d": "2026-12-12",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Ouverture progressive des pistes",
+  "x": "Ouverture partielle tous les jours jusqu'au 18 décembre, selon l'enneigement.",
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+ },
+ {
+  "d": "2026-12-12",
+  "h": "10h–22h",
+  "lieu": "Combloux",
+  "cat": "Fête",
+  "t": "Marché de Noël de Combloux",
+  "x": "Une trentaine de stands de producteurs et d'artisans, le Père Noël, vin chaud, crêpes et tartiflette. Place de l'Office du tourisme.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/marche-de-noel-combloux-fr-6108383/"
+ },
+ {
+  "d": "2026-12-12",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "The Black Blues Brothers",
+  "x": "Acrobaties et musique : le spectacle « Let's twist again » au Palais.",
+  "u": "https://spectacles-megeve.fr/programmation/"
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-04-04",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Ouverture générale de la station",
+  "x": "Rochebrune, Côte 2000 et Mont d'Arbois ouverts tous les jours.",
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-03-21",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Ouverture des Portes du Mont-Blanc",
+  "x": "Le domaine de Combloux, Megève-Jaillet et La Giettaz, face au Mont-Blanc. Selon l'enneigement.",
+  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee"
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-04-03",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Ouverture de l'Espace Diamant",
+  "x": "Le grand domaine relié de Praz-sur-Arly, Flumet, Notre-Dame-de-Bellecombe, Crest-Voland et Les Saisies, face au Mont-Blanc. Selon l'enneigement.",
+  "u": "https://en.lessaisies.com/once-on-site/les-saisies-in-winter-en/ski-and-activities/alpine-skiing-snowboarding/"
+ },
+ {
+  "d": "2026-12-20",
+  "d2": "2027-01-03",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché des producteurs locaux",
+  "x": "Chaque dimanche de 9h30 à 13h, les meilleurs produits locaux sur la place du Village.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux"
+ },
+ {
+  "d": "2026-12-20",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Spectacle de Guignol",
+  "x": "Marionnettes et éclats de rire en famille, à l'Office de tourisme. Aussi le 14 février.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/spectacle-de-guignol-combloux-fr-5869906/"
+ },
+ {
+  "d": "2026-12-20",
+  "d2": "2027-03-20",
+  "lieu": "Combloux",
+  "cat": "Expo",
+  "t": "Expo « Lumières d'alpages »",
+  "x": "Un automne et un hiver à Combloux, photographies de Caroline Gallien-Lavorel (à Demi-Quartier).",
+  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html"
+ },
+ {
+  "d": "2026-12-21",
+  "d2": "2026-12-31",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Le Village de Noël",
+  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25).",
+  "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/"
+ },
+ {
+  "d": "2026-12-21",
+  "h": "10h–12h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Bienvenue avec Tilou et le Père Noël",
+  "x": "Accueil sur les pistes puis pot de bienvenue sur le front de neige de La Cry. Les enfants remettent leur lettre au Père Noël.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/pot-de-bienvenue-sur-le-front-de-neige-avec-le-pere-noel-combloux-fr-6895183/"
+ },
+ {
+  "d": "2026-12-22",
+  "d2": "2027-03-23",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Famille",
+  "t": "Visite du village aux lanternes",
+  "x": "Une balade guidée à la lueur des lanternes dans les ruelles de Praz, en fin de journée. Inscription à l'office de tourisme.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+ },
+ {
   "d": "2026-12-22",
   "h": "19h30",
   "lieu": "Megève",
@@ -374,6 +252,61 @@
   "t": "Hockey : Mont-Blanc contre Lyon",
   "x": "Match de Division 1 à la patinoire du Palais.",
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
+ },
+ {
+  "d": "2026-12-22",
+  "d2": "2026-12-29",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Sport",
+  "t": "Footing givré",
+  "x": "Footing encadré d'environ 6 km, inscription à l'office de tourisme la veille.",
+  "u": "https://gotrail.run/fr/evenement/footing-givre-praz-sur-arly"
+ },
+ {
+  "d": "2026-12-23",
+  "d2": "2026-12-30",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "h": "11h",
+  "t": "La causerie du ski",
+  "x": "Théâtre de rue gratuit sur le parvis de l'office de tourisme. Reprise du 10 février au 3 mars 2027.",
+  "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski"
+ },
+ {
+  "d": "2026-12-24",
+  "h": "17h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "La Parade du Père Noël",
+  "x": "Le Père Noël traverse le village en calèche avec les Satin Doll Sisters. Départ place du Village.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/"
+ },
+ {
+  "d": "2026-12-24",
+  "d2": "2027-03-04",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Famille",
+  "t": "La chasse au reblochon",
+  "x": "Un jeu de piste familial dans le village, sur le thème du célèbre fromage savoyard.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+ },
+ {
+  "d": "2026-12-24",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "h": "15h30",
+  "t": "Rencontre avec le Père Noël",
+  "x": "Gratuit, au 2ᵉ étage de l'office de tourisme.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/meeting-santa-claus-combloux-en-6121761/"
+ },
+ {
+  "d": "2026-12-27",
+  "h": "17h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "Magic Parade, spectacle de magie",
+  "x": "Sans réservation. Deuxième date le 7 février.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
  },
  {
   "d": "2026-12-29",
@@ -385,6 +318,50 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/7641933-match-de-gala-hockey-sur-glace"
  },
  {
+  "d": "2026-12-31",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Night Glow Show du Nouvel An",
+  "x": "Les montgolfières de Praz s'illuminent à la tombée de la nuit au cœur du village. Selon la météo.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+ },
+ {
+  "d": "2027-01-08",
+  "h": "19h",
+  "lieu": "Combloux",
+  "cat": "Sport",
+  "t": "La Crève-Cœur",
+  "x": "Course nocturne de ski de randonnée : 5,8 km et 730 m D+ jusqu'au sommet du Jouty (version courte de 3,9 km).",
+  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/"
+ },
+ {
+  "d": "2027-01-08",
+  "d2": "2027-01-10",
+  "lieu": "Combloux",
+  "cat": "Sport",
+  "t": "Coupe du monde de nage hivernale",
+  "x": "Près de 300 nageurs internationaux dans l'eau glacée du plan d'eau biotope.",
+  "u": "https://www.combloux.com/mon-agenda/temps-forts/winter-swimming-world-cup-france/"
+ },
+ {
+  "d": "2027-01-09",
+  "d2": "2027-01-17",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "36ᵉ Montgolfiades internationales",
+  "x": "Une trentaine de montgolfières s'envolent au-dessus des sommets enneigés, avec baptêmes de l'air et animations. Programme en cours de finalisation.",
+  "u": "https://www.prazsurarly.com/en/34th-montgolfiades-internationales"
+ },
+ {
+  "d": "2027-01-12",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Nantes",
+  "x": "Match de Division 1 à la patinoire de Megève.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
+  "h": "19h30"
+ },
+ {
   "d": "2027-01-19",
   "h": "19h30",
   "lieu": "Megève",
@@ -394,13 +371,91 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
  },
  {
-  "d": "2026-05-22",
-  "d2": "2027-05-10",
+  "d": "2027-01-23",
+  "d2": "2027-01-24",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Coupe d'Europe de ski de bosses",
+  "x": "Les meilleurs bosseurs européens sur les pistes de Megève.",
+  "u": "https://www.leslogesblanches-megeve.com/agenda-evenements-megeve/"
+ },
+ {
+  "d": "2027-01-23",
+  "h": "20h30",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Jérôme Commandeur",
+  "x": "« Jérôme Commandeur tente des trucs », au Palais. Complet.",
+  "u": "https://spectacles-megeve.fr/programmation/"
+ },
+ {
+  "d": "2027-01-30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "L'Edelweiss",
+  "x": "Course de ski de randonnée nocturne sur le domaine Évasion Mont-Blanc, départ du stade de la Côte 2000.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/nl/aanbiedingen/edelweiss-domaine-evasion-mont-blanc-megeve-nl-5953347/"
+ },
+ {
+  "d": "2027-01-31",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Sport",
+  "t": "La Dragonale Givrée",
+  "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+ },
+ {
+  "d": "2027-02-07",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "h": "17h",
+  "t": "Magic Parade, spectacle de magie",
+  "x": "Magie, illusion et jonglage pour toute la famille.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
+ },
+ {
+  "d": "2027-02-12",
+  "d2": "2027-03-05",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "L'ESF fête ses étoiles",
+  "x": "Défilé et spectacle des moniteurs sur la place du Village.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/esf-fete-ses-etoiles-megeve-fr-5867414/"
+ },
+ {
+  "d": "2027-02-16",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Tours",
+  "x": "Match de Division 1 à Megève.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
+  "h": "19h30"
+ },
+ {
+  "d": "2027-02-19",
+  "h": "20h30",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Garou en concert",
+  "x": "Le « Solo tour » de Garou au Palais.",
+  "u": "https://spectacles-megeve.fr/programmation/"
+ },
+ {
+  "d": "2027-03-05",
+  "d2": "2027-03-07",
   "lieu": "Megève",
   "cat": "Culture",
-  "t": "Expo « Faire Montagne »",
-  "x": "Exposition de l'artiste Adrianna Muffat Jeandet. Entrée gratuite.",
-  "u": "https://www.haute-savoie-tourisme.org/7675767-exposition-faire-montagne-adrianna-muffat-jeandet",
-  "always": true
+  "t": "Megève Leadership : « Du ciel aux abysses »",
+  "x": "Un week-end de conférences ouvert au grand public, salle Mageva au Palais.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/"
+ },
+ {
+  "d": "2027-03-24",
+  "d2": "2027-03-27",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "27ᵉ Ski Open Coq d'Or",
+  "x": "Compétition de ski alpin au stade de la Côte 2000.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/27th-ski-open-coq-dor-megeve-en-6746964/"
  }
 ]
