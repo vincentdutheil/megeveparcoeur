@@ -123,7 +123,7 @@
  {
   "src": "photos/golf-green.jpg",
   "thumb": "photos/golf-green-thumb.jpg",
-  "t": "Sur le green, devant le chalet",
+  "t": "Sur le green",
   "cat": "Automne",
   "date": "2026-10-17T16:38"
  },
@@ -144,7 +144,7 @@
  {
   "src": "photos/toquicimes-selfie.jpg",
   "thumb": "photos/toquicimes-selfie-thumb.jpg",
-  "t": "Belle rencontre au festival",
+  "t": "Belle rencontre aux Toquicimes avec Chicandier",
   "cat": "Événements",
   "ev": "Les Toquicimes",
   "date": "2026-10-16T20:21"
@@ -226,14 +226,6 @@
   "cat": "Événements",
   "ev": "Les Toquicimes",
   "date": "2024-10-19T16:38"
- },
- {
-  "src": "photos/toquicimes-marche-producteurs.jpg",
-  "thumb": "photos/toquicimes-marche-producteurs-thumb.jpg",
-  "t": "Le marché des producteurs",
-  "cat": "Événements",
-  "ev": "Les Toquicimes",
-  "date": "2024-10-19T16:34"
  },
  {
   "src": "photos/toquicimes-dome.jpg",
