@@ -76,7 +76,18 @@ h2{font-size:clamp(1.8rem,4vw,2.4rem)}
 .soon{font-family:var(--body);vertical-align:middle;display:inline-block;background:var(--card);border:1.5px solid var(--line);padding:5px 12px;border-radius:999px;font-weight:700;font-size:.82rem;color:var(--heart);margin-left:6px}
 footer{padding:36px 0 52px;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logos{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:28px}
+.logos img{height:96px;width:auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+.logos .plus{font-family:var(--display);font-size:1.8rem;color:#ff6b7c}
+.party .logo{height:84px;width:auto;align-self:flex-start;margin-bottom:4px}
+.rogues{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-top:16px}
+.rogues img{width:110px;height:auto;border-radius:10px}
+.rogues h3{font-size:1.35rem;margin-bottom:6px}
+.rogues p{margin:0;color:var(--muted)}
+.cause .side{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.cause .side img{width:96px;height:96px}
 @media (max-width:820px){
+  .rogues{grid-template-columns:1fr}.logos img{height:72px}
   .duo{grid-template-columns:1fr}.x{justify-self:center}
   .steps{grid-template-columns:1fr}
   .products{grid-template-columns:repeat(2,1fr)}
@@ -110,6 +121,13 @@ footer{padding:36px 0 52px;color:var(--muted);font-size:.92rem;border-top:1px so
       <a class="btn primary" href="https://www.coupedesbanquesgenevoises.ch/boutique">Aller à la boutique →</a>
       <a class="btn ghost" href="#partenariat">Découvrir le partenariat</a>
     </div>
+    <div class="logos" aria-label="Les partenaires">
+      <img src="../img/partenaires/megeve-par-coeur.png" alt="Logo Megève par cœur">
+      <span class="plus" aria-hidden="true">×</span>
+      <img src="../img/partenaires/coupe-des-banques-genevoises.png" alt="Logo Coupe de Ski des Banques Genevoises">
+      <span class="plus" aria-hidden="true">×</span>
+      <img src="../img/partenaires/the-ski-rogues.png" alt="Blason The Ski Rogues">
+    </div>
   </div>
 </div>
 
@@ -122,17 +140,28 @@ footer{padding:36px 0 52px;color:var(--muted);font-size:.92rem;border-top:1px so
 
     <div class="duo">
       <article class="party">
+        <img class="logo" src="../img/partenaires/megeve-par-coeur.png" alt="">
         <span class="who">Le compte des amoureux de Megève</span>
         <h3>Megève par cœur</h3>
         <p>Les balades, les panoramas et les rendez-vous de Megève et de ses alentours, partagés au fil des saisons sur Instagram et sur ce site.</p>
       </article>
       <span class="x" aria-hidden="true">×</span>
       <article class="party">
+        <img class="logo" src="../img/partenaires/coupe-des-banques-genevoises.png" alt="">
         <span class="who">La course caritative des banques genevoises</span>
         <h3>Coupe des Banques Genevoises</h3>
         <p>Une course de ski solidaire : chaque équipe court et lève des fonds pour une association différente. L'équipe qui récolte le plus remporte la Coupe.</p>
       </article>
     </div>
+
+    <article class="rogues">
+      <img src="../img/partenaires/the-ski-rogues.png" alt="Blason The Ski Rogues">
+      <div>
+        <span class="kicker" style="display:block">L'équipe soutenue</span>
+        <h3>The Ski Rogues</h3>
+        <p>L'équipe des candidats libres de la Coupe des Banques Genevoises. Elle court pour la Ligue genevoise contre le cancer, et c'est à sa collecte que vont les bénéfices de la boutique.</p>
+      </div>
+    </article>
 
     <div class="steps">
       <div class="step"><span class="n">1</span><b>Des produits signés</b><p>Chaque article porte les logos de Megève par cœur, de la Coupe et de The Ski Rogues, l'équipe des candidats libres.</p></div>
@@ -150,7 +179,7 @@ footer{padding:36px 0 52px;color:var(--muted);font-size:.92rem;border-top:1px so
         <h2>La Ligue genevoise contre le cancer</h2>
         <p>En montagne, le soleil tape plus fort qu'en ville et la neige renvoie ses rayons. La boutique soutient la lutte contre les cancers de la peau : c'est aussi pour ça qu'on y trouve de la crème solaire et des sticks à lèvres.</p>
       </div>
-      <div class="big">100 %<small>des bénéfices reversés à la Ligue</small></div>
+      <div class="side"><img src="../img/partenaires/ligue-genevoise-contre-le-cancer.png" alt="Logo de la Ligue genevoise contre le cancer"><div class="big">100 %<small>des bénéfices reversés à la Ligue</small></div></div>
     </div>
   </div>
 </section>
