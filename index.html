@@ -679,11 +679,12 @@ fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.
 f.addEventListener("submit",async e=>{e.preventDefault();const d=new FormData(f),email=(d.get("email")||"").trim();
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){m.textContent=M.email;return;}
   if(!d.get("consent")){m.textContent=M.consent;return;}
-  m.textContent="…";
+  m.textContent="⏳ Inscription en cours…";m.scrollIntoView({block:"center",behavior:"smooth"});f.querySelector("button").disabled=true;
   try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,consent:true,lang:"fr",website:d.get("website")||""})});
     const j=await r.json().catch(()=>({}));
     if(j.ok){m.textContent=j.doi?M.ok:M.okdirect;f.reset();}else m.textContent=r.status===503?M.soon:(M[j.error]||M.err);}
-  catch(err){m.textContent=M.err;}});})();
+  catch(err){m.textContent=M.err;}
+  f.querySelector("button").disabled=false;m.scrollIntoView({block:"center",behavior:"smooth"});});})();
 </script>
 </body>
 </html>

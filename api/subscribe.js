@@ -2,8 +2,13 @@
 // Variables d'environnement Vercel : BREVO_API_KEY, BREVO_LIST_ID, et facultatif BREVO_DOI_TEMPLATE_ID (double opt-in).
 module.exports = async (req, res) => {
   res.setHeader("Content-Type", "application/json; charset=utf-8");
-  if (req.method !== "POST") { res.statusCode = 405; return res.end(JSON.stringify({ ok: false, error: "method" })); }
   const key = process.env.BREVO_API_KEY, list = Number(process.env.BREVO_LIST_ID), doi = Number(process.env.BREVO_DOI_TEMPLATE_ID || 0);
+  if (req.method === "GET") {   // diagnostic : la configuration est-elle présente ? (aucune valeur secrète affichée)
+    let brevo = null;
+    if (key) { try { const r = await fetch("https://api.brevo.com/v3/contacts/lists/" + list, { headers: { "api-key": key, accept: "application/json" } }); brevo = r.status; } catch (e) { brevo = "network"; } }
+    return res.end(JSON.stringify({ key: !!key, list: list || null, doi: !!doi, brevoListStatus: brevo }));
+  }
+  if (req.method !== "POST") { res.statusCode = 405; return res.end(JSON.stringify({ ok: false, error: "method" })); }
   if (!key || !list) { res.statusCode = 503; return res.end(JSON.stringify({ ok: false, error: "not_configured" })); }
   let body = req.body;
   if (typeof body === "string") { try { body = JSON.parse(body); } catch (e) { body = {}; } }
