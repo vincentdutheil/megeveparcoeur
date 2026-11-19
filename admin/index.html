@@ -37,6 +37,21 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 #status{font-weight:600}
 .err{color:var(--heart)} .ok{color:var(--ok)}
 .hidden{display:none}
+.sper{display:flex;gap:6px}.sper button{background:#fff;color:var(--navy);border:1.5px solid var(--line);padding:7px 13px;font-size:.85rem}
+.sper button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px 14px}.kpi small{display:block;color:var(--muted);font-size:.8rem;font-weight:600}
+.kpi b{font-size:1.8rem;line-height:1.2;color:var(--ink)}.kpi i{font-style:normal;font-size:.8rem;font-weight:700;margin-left:6px}
+.kpi i.up{color:var(--ok)}.kpi i.dn{color:var(--muted)}
+.chart{position:relative;display:flex;align-items:flex-end;gap:2px;height:160px;border-bottom:1px solid var(--line);margin:8px 0 4px;padding-top:10px}
+.chart .c{flex:1;display:flex;align-items:flex-end;height:100%;cursor:default}.chart .c span{display:block;width:100%;background:var(--navy);border-radius:4px 4px 0 0;min-height:2px;opacity:.85}
+.chart .c:hover span{opacity:1}.cx{display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:#fff;font-size:.78rem;padding:6px 9px;border-radius:8px;white-space:nowrap;transform:translate(-50%,-100%);display:none;z-index:5}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}@media(max-width:700px){.sgrid{grid-template-columns:1fr}}
+.rank h3{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 8px}
+.rank .r{position:relative;display:flex;justify-content:space-between;gap:10px;padding:6px 8px;font-size:.88rem;border-radius:6px;overflow:hidden}
+.rank .r em{position:absolute;left:0;top:0;bottom:0;background:#e8edf6;border-radius:6px;z-index:0}.rank .r span,.rank .r b{position:relative;z-index:1}
+.rank .r span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
 .tabs button{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
 .tabs button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
@@ -77,6 +92,7 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <button role="tab" data-tab="tPhotos" aria-selected="true">📷 Photos</button>
     <button role="tab" data-tab="tAgenda" aria-selected="false">📅 Agenda</button>
     <button role="tab" data-tab="tVis" aria-selected="false">🖼️ Visuels Instagram</button>
+    <button role="tab" data-tab="tStats" aria-selected="false">📊 Statistiques</button>
     <button role="tab" data-tab="tProp" aria-selected="false">📨 Propositions <span id="pcount" class="pill" style="display:none"></span></button>
   </div>
   <div id="tPhotos">
@@ -116,6 +132,16 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <p class="muted">Cliquez sur un événement pour le modifier. Cochez « Vérifié par Vincent » : la mise à jour automatique du jeudi ne le modifiera ni ne le supprimera jamais. Les événements que vous ajoutez ici sont protégés automatiquement.</p>
   </section>
   <div id="alist"></div>
+  </div>
+
+  <div id="tStats" class="hidden">
+  <section class="box">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <h2 style="margin:0">Visites du site</h2>
+      <div class="sper" role="group" aria-label="Période"><button data-d="1">Aujourd'hui</button><button data-d="7" aria-pressed="true">7 jours</button><button data-d="30">30 jours</button></div>
+    </div>
+    <div id="sbody"><p class="muted">Chargement…</p></div>
+  </section>
   </div>
 
   <div id="tProp" class="hidden">
@@ -264,6 +290,7 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   $(b.dataset.tab).classList.remove("hidden");
   if(b.dataset.tab==="tVis") loadVis();
   if(b.dataset.tab==="tProp") loadProps();
+  if(b.dataset.tab==="tStats") loadStats();
 });
 
 /* ---------- Agenda ---------- */
@@ -334,6 +361,49 @@ async function publishAgenda(){
   const r=await gh("/contents/"+ADATA,{method:"PUT",body:JSON.stringify({message:"Mise à jour de l'agenda depuis l'admin",content:b64(JSON.stringify(clean,null,1)+"\n"),sha:agendaSha,branch:BRANCH})});
   agendaSha=r.content.sha; agenda=clean; aChanged=false; renderAgenda();
 }
+
+/* ---------- Statistiques (Vercel Web Analytics via /api/stats) ---------- */
+let sDays=7;
+const PNAMES={"/":"Accueil","/en/":"Accueil (EN)","/meteo/":"Météo & neige","/webcams/":"Webcams","/balades/":"Balades","/carte/":"Carte","/boutique/":"Boutique",
+ "/que-faire/":"Que faire ?","/que-faire/ce-week-end/":"Ce week-end","/que-faire/aujourd-hui/":"Aujourd'hui","/que-faire/avec-des-enfants/":"Avec des enfants",
+ "/que-faire/quand-il-pleut/":"Quand il pleut","/que-faire/gratuit/":"Gratuit","/venir/":"Venir & se déplacer","/proposer/":"Proposer un événement","/merci/":"Merci (newsletter)"};
+const pname=p=>PNAMES[p]||(p.startsWith("/en/")&&PNAMES[p.slice(3)]?PNAMES[p.slice(3)]+" (EN)":p);
+const flag=c=>c&&c.length===2?String.fromCodePoint(...[...c.toUpperCase()].map(x=>127397+x.charCodeAt())):"🌐";
+const CN={FR:"France",CH:"Suisse",BE:"Belgique",GB:"Royaume-Uni",US:"États-Unis",DE:"Allemagne",IT:"Italie",NL:"Pays-Bas",ES:"Espagne",LU:"Luxembourg",CA:"Canada"};
+const DEV={mobile:"📱 Mobile",desktop:"💻 Ordinateur",tablet:"📲 Tablette"};
+const nf=n=>Number(n||0).toLocaleString("fr-FR");
+function rank(title,rows,label){
+  const max=Math.max(1,...rows.map(r=>r.visitors||0));
+  return `<div class="rank"><h3>${title}</h3>${rows.length?rows.map(r=>`<div class="r"><em style="width:${(r.visitors||0)/max*100}%"></em><span>${esc(label(r))}</span><b>${nf(r.visitors)}</b></div>`).join(""):'<p class="muted">Pas encore de données.</p>'}</div>`;
+}
+async function loadStats(){
+  const b=$("sbody");b.innerHTML='<p class="muted">Chargement…</p>';
+  let j;try{const r=await fetch("/api/stats?days="+sDays,{headers:{"X-GH-Token":token}});j=await r.json();}catch(e){j={ok:false,error:e.message};}
+  if(!j.ok){b.innerHTML=`<p class="muted">${j.error==="auth"?"Accès refusé : reconnectez-vous à l'admin.":"Statistiques indisponibles : "+esc(j.error||"erreur")}</p>`;return;}
+  const t=j.total||{},p=j.prev;
+  const delta=(a,b)=>{if(!p||!b)return"";const d=Math.round((a-b)/b*100);return `<i class="${d>=0?"up":"dn"}">${d>=0?"▲":"▼"} ${Math.abs(d)} %</i>`;};
+  const per=sDays===1?"aujourd'hui":`sur ${sDays} jours`;
+  const ser=j.series||[],mx=Math.max(1,...ser.map(r=>r.visitors||0));
+  const chart=sDays>1&&ser.length?`<div class="chart" id="schart">${ser.map(r=>{const d=new Date(r.timestamp);return `<div class="c" data-t="${d.toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"})} · ${nf(r.visitors)} visiteurs · ${nf(r.pageviews)} pages vues"><span style="height:${(r.visitors||0)/mx*100}%"></span></div>`;}).join("")}<div class="tip" id="stip"></div></div>
+    <div class="cx"><span>${fmt(j.since)}</span><span>Visiteurs par jour</span><span>${fmt(j.until)}</span></div>`:"";
+  const ppv=t.visitors?(t.pageviews/t.visitors).toFixed(1).replace(".",","):"–";
+  b.innerHTML=`<div class="kpis">
+    <div class="kpi"><small>Visiteurs ${per}</small><b>${nf(t.visitors)}</b>${p?delta(t.visitors,p.visitors):""}</div>
+    <div class="kpi"><small>Pages vues ${per}</small><b>${nf(t.pageviews)}</b>${p?delta(t.pageviews,p.pageviews):""}</div>
+    <div class="kpi"><small>Pages par visiteur</small><b>${ppv}</b></div></div>
+    ${chart}
+    <div class="sgrid">${rank("Pages les plus vues",j.pages||[],r=>pname(r.requestPath||r.route||"?"))}
+    ${rank("D'où viennent les visiteurs",j.refs||[],r=>{const h=r.referrerHostname;return !h||h==="Others"?(h==="Others"?"Autres":"Accès direct / appli"):h.replace(/^www\./,"").replace(/^(l\.)?instagram\.com$/,"Instagram").replace(/^google\..*$/,"Google");})}
+    ${rank("Pays",j.countries||[],r=>r.country==="Others"?"Autres":flag(r.country)+" "+(CN[r.country]||r.country||"?"))}
+    ${rank("Appareils",j.devices||[],r=>DEV[r.deviceType]||r.deviceType||"?")}</div>
+    <p class="muted" style="margin-top:14px">Visiteurs uniques, sans cookies (Vercel Web Analytics). ${p?"Les pourcentages comparent à la période précédente de même durée. ":""}Historique conservé : 1 mois.</p>`;
+  const ch=$("schart");if(ch){const tip=$("stip");
+    ch.addEventListener("mousemove",e=>{const c=e.target.closest(".c");if(!c){tip.style.display="none";return;}tip.textContent=c.dataset.t;tip.style.display="block";
+      const r=ch.getBoundingClientRect(),cr=c.getBoundingClientRect();tip.style.left=Math.min(r.width-80,Math.max(80,cr.left-r.left+cr.width/2))+"px";tip.style.top=(cr.top-r.top+cr.height-c.firstElementChild.offsetHeight-6)+"px";});
+    ch.addEventListener("mouseleave",()=>tip.style.display="none");}
+}
+document.querySelector(".sper").addEventListener("click",e=>{const x=e.target.closest("button");if(!x)return;sDays=+x.dataset.d;
+  document.querySelectorAll(".sper button").forEach(y=>y.setAttribute("aria-pressed",y===x));loadStats();});
 
 /* ---------- Propositions d'événements (branche « propositions ») ---------- */
 const PFILE="data/propositions.json", PBRANCH="propositions";
