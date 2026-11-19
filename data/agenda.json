@@ -20,31 +20,162 @@
   "always": true
  },
  {
+  "d": "2026-09-28",
+  "d2": "2026-12-26",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Expo",
+  "t": "Expo « Les 4 éléments »",
+  "x": "Exposition en plein air sur les berges de l'Arly : photos, poésie et regards d'enfants sur l'air, l'eau, le soleil et la terre. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/exposition-les-4-elements",
+  "always": true
+ },
+ {
   "d": "2026-11-19",
-  "h": "19h30",
+  "d2": "2026-11-28",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Braderie de la médiathèque",
+  "x": "Livres, revues et CD retirés des collections vendus 1 € pièce aux particuliers, du mardi au samedi aux heures d'ouverture de la médiathèque du Palais.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/"
+ },
+ {
+  "d": "2026-11-19",
+  "d2": "2026-12-31",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Enquête baroque « À la recherche du trésor perdu »",
+  "x": "Jeu de piste gratuit et en autonomie dans le village sur l'histoire baroque de Megève, dès 10 ans ; carnets à retirer à Megève Tourisme.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/enquete-baroque-a-la-recherche-du-tresor-perdu/",
+  "always": true
+ },
+ {
+  "d": "2026-11-19",
+  "d2": "2026-12-06",
+  "h": "14h–18h",
+  "lieu": "Megève",
+  "cat": "Expo",
+  "t": "Expo Pierre Margara, sculpteur",
+  "x": "Le sculpteur mégevan dévoile les coulisses du bronze, de la fonte à la cire perdue et ses grandes œuvres publiques. Espace d'art Edith Allard au Palais, du mardi au dimanche, 6 €.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/expositions/7510154-exposition-pierre-margara-l-intuition-des-cimes-pierre-margara"
+ },
+ {
+  "d": "2026-11-19",
+  "d2": "2026-12-13",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Expo",
+  "t": "Expo « Lumières d'alpages : un printemps et un été »",
+  "x": "Les photos de Caroline Gallien-Lavorel sur les alpages et les bergers, à la Ferme à Isidore, du mercredi au vendredi. Entrée libre.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/lumieres-dalpages-un-printemps-et-un-ete-a-combloux-exposition-de-caroline-gallien-lavorel-combloux-fr-6377972/",
+  "always": true
+ },
+ {
+  "d": "2026-11-19",
   "lieu": "Megève",
   "cat": "Spectacle",
-  "t": "Théâtre Ancolie : « Petites comédies »",
-  "x": "La troupe locale joue de courtes pièces drôles d'Anton Tchekhov.",
-  "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies"
+  "t": "Théâtre : « Petites comédies »",
+  "x": "Les courtes pièces burlesques de Tchekhov jouées par la troupe Ancolie à l'auditorium du Palais : jeudi 19h30, vendredi et samedi 20h, dimanche 18h. 10 €, 5 € enfant, sur réservation.",
+  "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies",
+  "d2": "2026-11-22"
+ },
+ {
+  "d": "2026-11-19",
+  "h": "9h–11h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Initiation à la réflexologie",
+  "x": "Atelier d'initiation à la réflexologie plantaire au Loucafé, le café associatif. Gratuit (adhésion 5 €).",
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/introductory-workshop-on-reflexology-combloux-en-6895223/"
+ },
+ {
+  "d": "2026-11-20",
+  "h": "15h30–18h30",
+  "lieu": "Combloux",
+  "cat": "Expo",
+  "t": "Expo « Les animaux fantastiques »",
+  "x": "Les photos d'animaux du monde entier de Nils Latour, à la bibliothèque municipale.",
+  "u": "https://biblio-combloux.fr/animation/exposition-les-animaux-fantastiques"
+ },
+ {
+  "d": "2026-11-20",
+  "h": "19h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Culture",
+  "t": "Projection « À la rencontre des asso' »",
+  "x": "Pour la Journée mondiale de l'enfance, projection d'un documentaire suivie d'un échange, salle polyvalente du Belambra L'Alisier. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/projection-de-film-a-la-rencontre-des-assos"
+ },
+ {
+  "d": "2026-11-20",
+  "h": "8h–13h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché de Megève",
+  "x": "Le marché du vendredi matin dans les rues du village : produits du terroir, primeurs et artisans.",
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+ },
+ {
+  "d": "2026-11-21",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte bébés lecteurs",
+  "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+ },
+ {
+  "d": "2026-11-21",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Morzine",
+  "x": "Match de Division 1 des Yétis, joué à la patinoire du Palais de Megève.",
+  "u": "https://www.haute-savoie-tourisme.org/6311393-hockey-sur-glace-match-de-division-1-mont-blanc-vs-morzine"
  },
  {
   "d": "2026-11-22",
   "lieu": "Combloux",
   "cat": "Gastronomie",
-  "h": "12h",
+  "h": "12h–18h",
   "t": "Repas choucroute",
   "x": "Choucroute, fromage, dessert et boisson, au 49 chemin des Passerands. Pensez à réserver.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/gastronomie/7525360-repas-choucroute"
  },
  {
   "d": "2026-11-24",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Aide au Clic",
+  "x": "Aide individuelle et gratuite sur smartphone, tablette ou ordinateur à la médiathèque, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+ },
+ {
+  "d": "2026-11-24",
   "h": "19h30",
   "lieu": "Megève",
   "cat": "Sport",
-  "t": "Hockey : Coupe de France",
+  "t": "Coupe de France de hockey : Mont-Blanc – Gap",
   "x": "Les Yétis du Mont-Blanc reçoivent pour un match de Coupe de France à la patinoire du Palais.",
   "u": "https://www.haute-savoie-tourisme.org/6359483-hockey-sur-glace-coupe-de-france-mont-blanc-vs-gap"
+ },
+ {
+  "d": "2026-11-25",
+  "h": "13h15 et 15h15",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Escape game « Les enfants de la Résistance »",
+  "x": "Enquête à énigmes dans la médiathèque pour les enfants dès 8 ans. Gratuit sur inscription, deux sessions.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque"
+ },
+ {
+  "d": "2026-11-25",
+  "h": "8h–12h",
+  "lieu": "Combloux",
+  "cat": "Marché",
+  "t": "Marché de Combloux",
+  "x": "Le marché du mercredi matin sur le parvis de l'Office de Tourisme.",
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
  },
  {
   "d": "2026-11-27",
@@ -56,6 +187,15 @@
   "u": "https://www.haute-savoie-tourisme.org/7388657-mathieu-stepson"
  },
  {
+  "d": "2026-11-27",
+  "h": "8h–13h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché de Megève",
+  "x": "Le marché du vendredi matin dans les rues du village : produits du terroir, primeurs et artisans.",
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+ },
+ {
   "d": "2026-11-28",
   "h": "11h",
   "lieu": "Megève",
@@ -63,6 +203,51 @@
   "t": "Spectacle bébés lecteurs « Moon »",
   "x": "Un petit spectacle tout doux pour les tout-petits, à la médiathèque.",
   "u": "https://www.haute-savoie-tourisme.org/7987555-spectacle-bebes-lecteurs-moon"
+ },
+ {
+  "d": "2026-11-28",
+  "h": "20h",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Concours de belote des Mailles et Béguines",
+  "x": "Le concours traditionnel du groupe folklorique à la Fondation Morand Allard : 12 €, un lot pour chacun, buvette et petite restauration.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2347864-5-concours-belote-des-mailles-beguines.html"
+ },
+ {
+  "d": "2026-11-28",
+  "h": "9h–12h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Repair Café",
+  "x": "Des bénévoles réparent gratuitement petit électroménager et vêtements, sous le presbytère.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/repair-cafe-combloux-combloux-fr-5868626/"
+ },
+ {
+  "d": "2026-11-29",
+  "h": "8h30–16h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Bourse aux jouets",
+  "x": "Vente de jouets d'occasion au 1er étage de l'Office de Tourisme (dépôt la veille de 16h à 19h).",
+  "u": "https://vide-greniers.org/evenement/1034722/20261129"
+ },
+ {
+  "d": "2026-11-29",
+  "h": "9h30–12h",
+  "lieu": "Combloux",
+  "cat": "Gastronomie",
+  "t": "Opération Pain-Boudin",
+  "x": "Les parents d'élèves vendent près de l'église boudin à la compote maison et pain cuit au four à bois, au profit de l'école.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1989912-5-operation-pain-boudin.html"
+ },
+ {
+  "d": "2026-12-01",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Aide au Clic",
+  "x": "Aide individuelle et gratuite sur smartphone, tablette ou ordinateur à la médiathèque, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
  },
  {
   "d": "2026-12-01",
@@ -74,6 +259,34 @@
   "u": "https://www.haute-savoie-tourisme.org/6843705-hockey-sur-glace-match-division-1-mont-blanc-vs-villard-de-lans"
  },
  {
+  "d": "2026-12-02",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2026-12-02",
+  "h": "8h–12h",
+  "lieu": "Combloux",
+  "cat": "Marché",
+  "t": "Marché de Combloux",
+  "x": "Le marché du mercredi matin sur le parvis de l'Office de Tourisme.",
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
+ },
+ {
+  "d": "2026-12-04",
+  "d2": "2026-12-31",
+  "h": "8h–13h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché de Megève (vendredis)",
+  "x": "Le marché du vendredi matin se tient chaque semaine dans les rues du village.",
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+ },
+ {
   "d": "2026-12-05",
   "d2": "2026-12-06",
   "lieu": "Megève",
@@ -81,15 +294,6 @@
   "t": "Préouverture du domaine skiable",
   "x": "Ouverture partielle le week-end, selon l'enneigement.",
   "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
- },
- {
-  "d": "2026-12-05",
-  "h": "19h30",
-  "lieu": "Megève",
-  "cat": "Fête",
-  "t": "Illumination du sapin",
-  "x": "Le grand sapin de la place s'illumine et lance la saison d'hiver. Place de l'Église, accès libre.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin"
  },
  {
   "d": "2026-12-05",
@@ -103,13 +307,31 @@
  },
  {
   "d": "2026-12-05",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Hommage aux morts pour la France (AFN)",
+  "x": "Cérémonie et dépôt de gerbe place de la Résistance, en mémoire des victimes de la guerre d'Algérie et des combats au Maroc et en Tunisie.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/journee-nationale-dhommage-aux-morts-pour-la-france-megeve-fr-5866235/"
+ },
+ {
+  "d": "2026-12-05",
   "d2": "2026-12-27",
   "h": "15h–19h",
   "lieu": "Megève",
   "cat": "Culture",
   "t": "Atelier-galerie Adrianna MJW en accès libre",
-  "x": "Les week-ends de décembre, l'atelier de la peintre et photographe ouvre ses portes face au Mont-Blanc, au hameau de Vauvray.",
+  "x": "L'artiste ouvre son atelier-galerie de Demi-Quartier (hameau de Vauvray) en entrée libre les quatre week-ends de décembre, de 15h à 19h ; le reste du temps sur rendez-vous.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/art-contemporain/7197566-exposition-visite-atelier-adrianna-mjw"
+ },
+ {
+  "d": "2026-12-05",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Illumination du sapin",
+  "x": "Le grand sapin de la place s'illumine et lance la saison d'hiver. Place de l'Église, accès libre.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin"
  },
  {
   "d": "2026-12-06",
@@ -121,6 +343,45 @@
   "u": "https://www.haute-savoie-tourisme.org/5065937-jardin-de-la-glisse"
  },
  {
+  "d": "2026-12-06",
+  "h": "9h30–13h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché des producteurs locaux",
+  "x": "Producteurs locaux le dimanche matin place du Village.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux"
+ },
+ {
+  "d": "2026-12-08",
+  "d2": "2026-12-15",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Aide au Clic (mardis)",
+  "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+ },
+ {
+  "d": "2026-12-09",
+  "d2": "2027-03-17",
+  "h": "14h–16h",
+  "lieu": "Megève",
+  "cat": "Gastronomie",
+  "t": "Atelier cocktails au Bar des Cochers",
+  "x": "Le mercredi aux Loges Blanches : on passe derrière le bar pour préparer son cocktail ou mocktail, puis on le déguste (environ 30 €).",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6780642-atelier-cocktails"
+ },
+ {
+  "d": "2026-12-09",
+  "d2": "2027-03-17",
+  "h": "8h–12h",
+  "lieu": "Combloux",
+  "cat": "Marché",
+  "t": "Marché de Combloux (mercredis)",
+  "x": "Produits locaux chaque mercredi matin sur le parvis de l'Office de Tourisme.",
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
+ },
+ {
   "d": "2026-12-10",
   "h": "19h",
   "lieu": "Megève",
@@ -128,6 +389,25 @@
   "t": "Hockey féminin U18 : France – Norvège",
   "x": "Match international des moins de 18 ans à la patinoire de Megève. Entrée gratuite.",
   "u": "https://www.haute-savoie-tourisme.org/8060397-hockey-sur-glace-feminin-u18-france-norvege"
+ },
+ {
+  "d": "2026-12-11",
+  "d2": "2027-03-07",
+  "h": "15h–18h",
+  "lieu": "Megève",
+  "cat": "Concert",
+  "t": "After-ski aux Loges Blanches",
+  "x": "Musique live, brasero, crêpes et vin chaud aux Loges Blanches : les week-ends de décembre et janvier, tous les jours pendant les vacances.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/concerts/7293989-after-ski-aux-loges-blanches-4"
+ },
+ {
+  "d": "2026-12-11",
+  "h": "17h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Rencontre littéraire « Le goût des mots »",
+  "x": "Rencontre autour des livres à la médiathèque du Palais.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1465780-5-rencontre-litteraire-gout-des-mots.html"
  },
  {
   "d": "2026-12-11",
@@ -157,11 +437,68 @@
  },
  {
   "d": "2026-12-12",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte bébés lecteurs",
+  "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+ },
+ {
+  "d": "2026-12-12",
+  "d2": "2027-03-13",
+  "h": "18h–22h",
+  "lieu": "Megève",
+  "cat": "Concert",
+  "t": "Samedis musicaux aux Loges Blanches",
+  "x": "Chaque samedi soir, un artiste différent en live au Bar des Cochers. Entrée libre.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1937643-5-samedis-musicaux-aux-loges-blanches.html"
+ },
+ {
+  "d": "2026-12-12",
   "lieu": "Megève",
   "cat": "Spectacle",
   "t": "The Black Blues Brothers",
   "x": "Acrobaties et musique : le spectacle « Let's twist again » au Palais.",
-  "u": "https://spectacles-megeve.fr/programmation/"
+  "u": "https://spectacles-megeve.fr/programmation/",
+  "h": "20h30"
+ },
+ {
+  "d": "2026-12-16",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2026-12-18",
+  "d2": "2027-04-08",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Sport",
+  "t": "Défi trail blanc",
+  "x": "Parcours de trail à faire avec l'application « Praz destination nature », classement chaque vendredi et lots en fin de saison.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/defi-trail-blanc-praz-sur-arly-fr-6731236/"
+ },
+ {
+  "d": "2026-12-18",
+  "d2": "2027-04-04",
+  "h": "15h45",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Apéri'gliss au coucher du soleil",
+  "x": "Montée par la dernière remontée, vin chaud face au Mont-Blanc puis descente en yooner avec un guide, hors vacances scolaires. Dès 60 €.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/5935712-aperigliss"
+ },
+ {
+  "d": "2026-12-18",
+  "h": "19h",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Gala de patinage « Un Noël Pop Rock 'n Love »",
+  "x": "Le spectacle de Noël du club de patinage artistique de Megève, à la patinoire du Palais. Gratuit.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1429413-5-spectacle-patinage-club-megeve-noel-pop-rock-love.html"
  },
  {
   "d": "2026-12-19",
@@ -191,13 +528,41 @@
   "u": "https://en.lessaisies.com/once-on-site/les-saisies-in-winter-en/ski-and-activities/alpine-skiing-snowboarding/"
  },
  {
-  "d": "2026-12-20",
-  "d2": "2027-01-03",
+  "d": "2026-12-19",
+  "d2": "2027-12-19",
   "lieu": "Megève",
-  "cat": "Marché",
-  "t": "Marché des producteurs locaux",
-  "x": "Chaque dimanche de 9h30 à 13h, les meilleurs produits locaux sur la place du Village.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux"
+  "cat": "Expo",
+  "t": "La Vie d'Artiste, atelier-galerie",
+  "x": "Sculptures et peintures à découvrir dans l'atelier de l'artiste, allée des Planes, sur rendez-vous.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/la-vie-dartiste/",
+  "always": true
+ },
+ {
+  "d": "2026-12-19",
+  "h": "16h–18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Dédicace avec Marilyn Vitry",
+  "x": "Séance de dédicaces à la médiathèque.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2348024-5-rencontre-dedicaces-avec-marilyn-vitry.html"
+ },
+ {
+  "d": "2026-12-20",
+  "d2": "2027-03-20",
+  "lieu": "Combloux",
+  "cat": "Expo",
+  "t": "Expo « Lumières d'alpages : un automne et un hiver »",
+  "x": "Les photos de Caroline Gallien-Lavorel sur la vie des alpages en automne et en hiver, exposées dans la salle hors-sac de l'alpage de Beauregard (1 433 m), sur les pistes.",
+  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html"
+ },
+ {
+  "d": "2026-12-20",
+  "h": "17h45",
+  "lieu": "Combloux",
+  "cat": "Fête",
+  "t": "Pot d'accueil en musique",
+  "x": "Boisson offerte et présentation du programme de la semaine par l'Office de Tourisme.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
  },
  {
   "d": "2026-12-20",
@@ -210,21 +575,41 @@
  },
  {
   "d": "2026-12-20",
-  "d2": "2027-03-20",
-  "lieu": "Combloux",
-  "cat": "Expo",
-  "t": "Expo « Lumières d'alpages »",
-  "x": "Un automne et un hiver à Combloux, photographies de Caroline Gallien-Lavorel (à Demi-Quartier).",
-  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html"
+  "d2": "2027-02-28",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Pot d'accueil (dimanches)",
+  "x": "Chaque dimanche place de l'église : présentation de la semaine et rencontre avec les prestataires autour d'un verre.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver"
+ },
+ {
+  "d": "2026-12-20",
+  "d2": "2027-01-03",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché des producteurs locaux",
+  "x": "Producteurs locaux le dimanche matin place du Village : les 20 et 27 décembre et le 3 janvier.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux",
+  "h": "9h30–13h"
  },
  {
   "d": "2026-12-21",
-  "d2": "2026-12-31",
-  "lieu": "Megève",
+  "d2": "2027-03-19",
+  "lieu": "Combloux",
   "cat": "Famille",
-  "t": "Le Village de Noël",
-  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25).",
-  "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/"
+  "t": "Escape game de l'Office de Tourisme",
+  "x": "Nouvelle aventure d'une heure jusqu'à 5 joueurs, dès 12 ans (7 ans accompagné). 30 € par groupe, sur réservation.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/escape-game-une-nouvelle-aventure-se-prepare/"
+ },
+ {
+  "d": "2026-12-21",
+  "d2": "2026-12-24",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Noël",
+  "t": "Le lutin farceur",
+  "x": "Chaque jour, trouvez le lutin caché dans une vitrine du village ; un gagnant est tiré au sort à l'office de tourisme.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/lutin-farceur"
  },
  {
   "d": "2026-12-21",
@@ -236,13 +621,88 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/pot-de-bienvenue-sur-le-front-de-neige-avec-le-pere-noel-combloux-fr-6895183/"
  },
  {
+  "d": "2026-12-21",
+  "d2": "2026-12-31",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Le Village de Noël",
+  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25). Fermé le 25 décembre ; bureau du Père Noël du 21 au 24.",
+  "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/",
+  "h": "10h–12h, 15h30–18h30"
+ },
+ {
+  "d": "2026-12-21",
+  "h": "16h–18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Famille",
+  "t": "Atelier sculpture sur glace",
+  "x": "Chaque famille réalise sa sculpture sur glace, place de l'église. Gratuit, inscription le jour même avant midi.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace"
+ },
+ {
+  "d": "2026-12-21",
+  "h": "17h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Spectacle",
+  "t": "Show sculpture sur glace",
+  "x": "Le sculpteur Nicolas Gombert taille la glace à la tronçonneuse en direct, place de l'église. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace"
+ },
+ {
+  "d": "2026-12-21",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "« Parent malgré lui », ventriloquie",
+  "x": "Thomas Dillinger et sa marionnette-bébé Philippe dans un spectacle familial à l'Office de Tourisme. Au chapeau.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
+ },
+ {
+  "d": "2026-12-21",
+  "h": "9h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Petit déj sur les pistes",
+  "x": "Boissons chaudes et viennoiseries offertes sur le front de neige, au parking des Varins.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes"
+ },
+ {
+  "d": "2026-12-22",
+  "h": "15h–17h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Mini Pelle Challenge",
+  "x": "Les 3-10 ans pilotent des mini-pelles électriques pour déplacer une cargaison. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mini-pelle-challenge/"
+ },
+ {
+  "d": "2026-12-22",
+  "d2": "2026-12-24",
+  "h": "16h–18h",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "t": "Balade en calèche avec le Père Noël",
+  "x": "Petit tour du village en calèche avec le Père Noël, au départ de l'Office de Tourisme (aussi les 23 et 24 de 10h à 12h). 5 €, sur réservation.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1414016-5-balade-caleche-avec-pere-noel.html"
+ },
+ {
+  "d": "2026-12-22",
+  "h": "17h",
+  "lieu": "Megève",
+  "cat": "Noël",
+  "t": "Micro-Folie « Noël, histoire et traditions »",
+  "x": "Projection commentée sur l'histoire de Noël de l'Antiquité à nos jours, suivie d'un quiz. Gratuit, dès 7 ans.",
+  "u": "https://www.haute-savoie-tourisme.org/7741014-micro-folie-noel-histoire-et-traditions"
+ },
+ {
   "d": "2026-12-22",
   "d2": "2027-03-23",
   "lieu": "Praz-sur-Arly",
   "cat": "Famille",
   "t": "Visite du village aux lanternes",
   "x": "Une balade guidée à la lueur des lanternes dans les ruelles de Praz, en fin de journée. Inscription à l'office de tourisme.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/visite-guidee-de-praz-sur-arly-aux-lanternes",
+  "h": "17h30"
  },
  {
   "d": "2026-12-22",
@@ -252,15 +712,6 @@
   "t": "Hockey : Mont-Blanc contre Lyon",
   "x": "Match de Division 1 à la patinoire du Palais.",
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
- },
- {
-  "d": "2026-12-22",
-  "d2": "2026-12-29",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Sport",
-  "t": "Footing givré",
-  "x": "Footing encadré d'environ 6 km, inscription à l'office de tourisme la veille.",
-  "u": "https://gotrail.run/fr/evenement/footing-givre-praz-sur-arly"
  },
  {
   "d": "2026-12-23",
@@ -273,13 +724,50 @@
   "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski"
  },
  {
-  "d": "2026-12-24",
-  "h": "17h30",
+  "d": "2026-12-23",
+  "h": "11h",
   "lieu": "Megève",
-  "cat": "Fête",
-  "t": "La Parade du Père Noël",
-  "x": "Le Père Noël traverse le village en calèche avec les Satin Doll Sisters. Départ place du Village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/"
+  "cat": "Noël",
+  "t": "Heure du conte spéciale Noël",
+  "x": "Une séance de contes de Noël à la médiathèque, gratuite.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2026-12-23",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier « Laisse ta trace ! »",
+  "x": "Reconnaître les empreintes de la faune de montagne et repartir avec son moulage. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laisse-ta-trace/"
+ },
+ {
+  "d": "2026-12-23",
+  "h": "17h15",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Soirée ESF : luge, flambeaux et feu d'artifice",
+  "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/"
+ },
+ {
+  "d": "2026-12-23",
+  "h": "18h30",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Concert",
+  "t": "Concert de Noël « Just for Winter »",
+  "x": "Le duo vocal Just for Winter chante Noël et le gospel place de l'église. Entrée libre.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/concert-de-noel"
+ },
+ {
+  "d": "2026-12-23",
+  "d2": "2026-12-30",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Sport",
+  "t": "Footing givré",
+  "x": "Footing encadré d'environ 6 km, inscription à l'office de tourisme la veille.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre",
+  "h": "9h"
  },
  {
   "d": "2026-12-24",
@@ -288,7 +776,26 @@
   "cat": "Famille",
   "t": "La chasse au reblochon",
   "x": "Un jeu de piste familial dans le village, sur le thème du célèbre fromage savoyard.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/chasse-au-reblochon-1",
+  "h": "10h30"
+ },
+ {
+  "d": "2026-12-24",
+  "h": "10h–12h, 14h–16h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Le Maître des Jeux",
+  "x": "Arphé fait découvrir des jeux anciens du monde entier à l'Office de Tourisme. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/7417259-le-maitre-des-jeux"
+ },
+ {
+  "d": "2026-12-24",
+  "h": "14h",
+  "lieu": "Combloux",
+  "cat": "Concert",
+  "t": "Concert de Noël : Journeyman",
+  "x": "Pop, soul et indie en live, guitare et looper, à l'Office de Tourisme. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-noel-avec-journeyman/"
  },
  {
   "d": "2026-12-24",
@@ -300,6 +807,53 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/meeting-santa-claus-combloux-en-6121761/"
  },
  {
+  "d": "2026-12-24",
+  "h": "16h",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "t": "Contes de Noël avec Arphé et le Père Noël",
+  "x": "Une demi-heure d'histoires de Noël en présence du Père Noël. Accès libre.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/contes-de-noel-avec-arphe-et-le-pere-noel/"
+ },
+ {
+  "d": "2026-12-24",
+  "h": "17h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "La Parade du Père Noël",
+  "x": "Le Père Noël traverse le village en calèche avec les Satin Doll Sisters. Départ place du Village.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/"
+ },
+ {
+  "d": "2026-12-24",
+  "d2": "2027-03-18",
+  "h": "8h40",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Pisteur d'un jour (jeudis)",
+  "x": "Le jeudi matin, tour du domaine avec les pisteurs avant l'ouverture. Gratuit, dès la 3e étoile, inscription la veille.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pisteur-d-un-jour"
+ },
+ {
+  "d": "2026-12-25",
+  "h": "16h30",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "t": "Parade de Polo le Lutin",
+  "x": "Défilé de Noël dans le village avec échasses, jonglage et équilibrisme. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parade-de-polo-le-lutin/"
+ },
+ {
+  "d": "2026-12-27",
+  "d2": "2027-01-03",
+  "h": "10h–19h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Structures gonflables des vacances",
+  "x": "Châteaux gonflables pour tous les âges au gymnase du Palais : 10 € par enfant, sans limite de temps.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1998597-5-les-structures-gonflables-des-vacances.html"
+ },
+ {
   "d": "2026-12-27",
   "h": "17h",
   "lieu": "Combloux",
@@ -309,13 +863,141 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
  },
  {
+  "d": "2026-12-27",
+  "h": "17h45",
+  "lieu": "Combloux",
+  "cat": "Fête",
+  "t": "Pot d'accueil en musique",
+  "x": "Boisson offerte et présentation du programme de la semaine par l'Office de Tourisme.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
+ },
+ {
+  "d": "2026-12-27",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "Spectacle de Guignol",
+  "x": "Les marionnettes de Guignol pour les familles à l'Office de Tourisme.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/"
+ },
+ {
+  "d": "2026-12-28",
+  "d2": "2027-03-15",
+  "h": "10h",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Bienvenue sur les pistes avec Tilou (lundis)",
+  "x": "Chaque lundi, Tilou va à la rencontre des skieurs puis un pot est offert sur le front de neige de La Cry à 11h. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-de-bienvenue-sur-le-front-de-neige/"
+ },
+ {
+  "d": "2026-12-28",
+  "h": "16h–18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Famille",
+  "t": "Atelier sculpture sur glace",
+  "x": "Chaque famille réalise sa sculpture sur glace, place de l'église. Gratuit, inscription le jour même avant midi.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace"
+ },
+ {
+  "d": "2026-12-28",
+  "h": "17h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Spectacle",
+  "t": "Show sculpture sur glace",
+  "x": "Le sculpteur Nicolas Gombert taille la glace à la tronçonneuse en direct, place de l'église. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace"
+ },
+ {
+  "d": "2026-12-28",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "« Parent malgré lui », ventriloquie",
+  "x": "Thomas Dillinger et sa marionnette-bébé Philippe dans un spectacle familial à l'Office de Tourisme. Au chapeau.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
+ },
+ {
+  "d": "2026-12-28",
+  "h": "9h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Petit déj sur les pistes",
+  "x": "Boissons chaudes et viennoiseries offertes sur le front de neige, au parking des Varins.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes"
+ },
+ {
+  "d": "2026-12-29",
+  "h": "14h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier bois : chalet",
+  "x": "Assembler et décorer son petit chalet en bois. Gratuit, accès libre.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-chalet/"
+ },
+ {
+  "d": "2026-12-29",
+  "h": "15h–18h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Après-midi jeux de société",
+  "x": "Jeux de société en accès libre à la mezzanine de la médiathèque.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/"
+ },
+ {
+  "d": "2026-12-29",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Spectacle",
+  "t": "« Le sortilège d'Arcano Lumina »",
+  "x": "Spectacle familial et interactif mêlant humour et magie, salle de la Montagne. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/spectacle-le-sortilege-d-arcano-lumina"
+ },
+ {
   "d": "2026-12-29",
   "h": "19h30",
   "lieu": "Megève",
   "cat": "Sport",
-  "t": "Match de gala de hockey",
+  "t": "Match de gala : Mont-Blanc contre Saint-Gervais",
   "x": "Les Yétis du Mont-Blanc face aux Aigles de Saint-Gervais. Gratuit pour les moins de 18 ans.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/7641933-match-de-gala-hockey-sur-glace"
+ },
+ {
+  "d": "2026-12-30",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2026-12-30",
+  "h": "16h–18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Dédicace BD « Les mystères de Megève »",
+  "x": "David Rossoni et Carine Racine dédicacent « L'écharpe du pacha », une BD entre fiction et histoire locale.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1443730-5-rencontre-dedicaces-avec-carine-racine-david-rossoni.html"
+ },
+ {
+  "d": "2026-12-30",
+  "h": "17h15",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Soirée ESF : luge, flambeaux et feu d'artifice",
+  "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/"
+ },
+ {
+  "d": "2026-12-30",
+  "d2": "2027-03-24",
+  "h": "8h30–13h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Marché",
+  "t": "Marché de Praz (mercredis)",
+  "x": "Chaque mercredi matin place de l'église : charcuteries, fromages, miel et produits locaux.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/weekly-market-praz-sur-arly-en-5867854/"
  },
  {
   "d": "2026-12-31",
@@ -323,16 +1005,45 @@
   "cat": "Fête",
   "t": "Night Glow Show du Nouvel An",
   "x": "Les montgolfières de Praz s'illuminent à la tombée de la nuit au cœur du village. Selon la météo.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+  "u": "https://prazsurarly.labellemontagne.com/fr/evenements/",
+  "h": "18h"
  },
  {
-  "d": "2027-01-08",
-  "h": "19h",
+  "d": "2026-12-31",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Nouvel An et descente aux flambeaux",
+  "x": "Place du Village : DJ et vin chaud dès 18h, arrivée des descentes aux flambeaux des écoles de ski, puis DJ et saxophone jusqu'à 1h. Accès libre.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1431792-5-soiree-nouvel.html"
+ },
+ {
+  "d": "2026-12-31",
+  "h": "18h30",
   "lieu": "Combloux",
-  "cat": "Sport",
-  "t": "La Crève-Cœur",
-  "x": "Course nocturne de ski de randonnée : 5,8 km et 730 m D+ jusqu'au sommet du Jouty (version courte de 3,9 km).",
-  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/"
+  "cat": "Concert",
+  "t": "Concert de Tof Mercier",
+  "x": "L'auteur-compositeur originaire de Combloux en live avant le réveillon, à l'Office de Tourisme. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-tof-mercier/"
+ },
+ {
+  "d": "2026-12-31",
+  "h": "22h–1h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Nouvel An Party",
+  "x": "Réveillon en plein air place de l'église avec DJ et buvette.",
+  "u": "https://prazsurarly.labellemontagne.com/fr/evenements/"
+ },
+ {
+  "d": "2027-01-05",
+  "d2": "2027-02-02",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Aide au Clic (mardis)",
+  "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
  },
  {
   "d": "2027-01-08",
@@ -344,13 +1055,49 @@
   "u": "https://www.combloux.com/mon-agenda/temps-forts/winter-swimming-world-cup-france/"
  },
  {
+  "d": "2027-01-08",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Micro-Folie : musées de Paris et de Nouvelle-Aquitaine",
+  "x": "Découverte d'œuvres des musées sur grand écran à l'auditorium du Palais. Gratuit, dès 7 ans.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1462947-5-micro-folie-collections-quot-paris-quot-quot-nouvelle-aquitaine-quot.html"
+ },
+ {
+  "d": "2027-01-08",
+  "h": "19h",
+  "lieu": "Combloux",
+  "cat": "Sport",
+  "t": "La Crève-Cœur",
+  "x": "Course nocturne de ski de randonnée : 5,8 km et 730 m D+ jusqu'au sommet du Jouty (version courte de 3,9 km).",
+  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/"
+ },
+ {
   "d": "2027-01-09",
   "d2": "2027-01-17",
   "lieu": "Praz-sur-Arly",
   "cat": "Fête",
   "t": "36ᵉ Montgolfiades internationales",
   "x": "Une trentaine de montgolfières s'envolent au-dessus des sommets enneigés, avec baptêmes de l'air et animations. Programme en cours de finalisation.",
-  "u": "https://www.prazsurarly.com/en/34th-montgolfiades-internationales"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/36eme-montgolfiades-internationales"
+ },
+ {
+  "d": "2027-01-09",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte bébés lecteurs",
+  "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+ },
+ {
+  "d": "2027-01-09",
+  "h": "9h30",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "La Bûcheronne, Grand Prix de ski de fond",
+  "x": "Course de ski de fond en style libre des U13 aux seniors, puis relais déguisés des plus jeunes l'après-midi.",
+  "u": "https://csmegeve.com/evenements/bucheronne2027/"
  },
  {
   "d": "2027-01-12",
@@ -360,6 +1107,33 @@
   "x": "Match de Division 1 à la patinoire de Megève.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
   "h": "19h30"
+ },
+ {
+  "d": "2027-01-13",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2027-01-15",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Projection « Les Instants doc »",
+  "x": "Séance de film documentaire au Palais.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html"
+ },
+ {
+  "d": "2027-01-17",
+  "h": "10h–12h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Jardin de la glisse",
+  "x": "Découverte du patinage pour les moins de 10 ans accompagnés, à la patinoire du Palais. 6 €.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse"
  },
  {
   "d": "2027-01-19",
@@ -385,8 +1159,26 @@
   "lieu": "Megève",
   "cat": "Spectacle",
   "t": "Jérôme Commandeur",
-  "x": "« Jérôme Commandeur tente des trucs », au Palais. Complet.",
+  "x": "« Jérôme Commandeur tente des trucs », au Palais. Complet. Annoncé complet.",
   "u": "https://spectacles-megeve.fr/programmation/"
+ },
+ {
+  "d": "2027-01-27",
+  "h": "10h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Micro-Folie « Les masques » + atelier",
+  "x": "Sélection d'œuvres sur le thème des masques, suivie d'un atelier créatif « Mascarade ».",
+  "u": "https://haute-savoie.planetekiosque.com/167-1903245-5-micro-folie-playlist-quot-les-masques-quot-suivi-atelier-quot-mascarade-quot.html"
+ },
+ {
+  "d": "2027-01-27",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
  },
  {
   "d": "2027-01-30",
@@ -402,7 +1194,27 @@
   "cat": "Sport",
   "t": "La Dragonale Givrée",
   "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/notre-destination/hautement-blanche/les-stations/praz-sur-arly/"
+  "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/white-trail-la-dragonale-givree",
+  "h": "7h30"
+ },
+ {
+  "d": "2027-02-06",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte bébés lecteurs",
+  "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+ },
+ {
+  "d": "2027-02-06",
+  "d2": "2027-03-01",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "« Parent malgré lui », ventriloquie",
+  "x": "Le spectacle de ventriloquie revient pendant les vacances d'hiver (6, 8, 15, 22, 27 février et 1er mars). Au chapeau.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
  },
  {
   "d": "2027-02-07",
@@ -414,6 +1226,113 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
  },
  {
+  "d": "2027-02-07",
+  "d2": "2027-02-28",
+  "h": "17h45",
+  "lieu": "Combloux",
+  "cat": "Fête",
+  "t": "Pots d'accueil en musique (dimanches)",
+  "x": "Chaque dimanche des vacances d'hiver, boisson offerte et programme de la semaine à l'Office de Tourisme.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
+ },
+ {
+  "d": "2027-02-07",
+  "d2": "2027-03-14",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "Spectacle de Guignol (dimanches)",
+  "x": "Guignol revient chaque dimanche des vacances d'hiver à l'Office de Tourisme, jusqu'au 14 mars.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/"
+ },
+ {
+  "d": "2027-02-09",
+  "d2": "2027-03-02",
+  "h": "17h45",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Soirées luge à Rochebrune (mardis)",
+  "x": "Luge gratuite au Petit Rochebrune avec musique et tombola, les mardis des vacances d'hiver.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/282224-soiree-luge-rochebrune"
+ },
+ {
+  "d": "2027-02-10",
+  "d2": "2027-03-03",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte (mercredis)",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit. Chaque mercredi des vacances d'hiver.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2027-02-10",
+  "d2": "2027-03-03",
+  "h": "11h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "La causerie du ski",
+  "x": "Le comédien Sylvain raconte avec humour l'histoire du ski à Combloux, place du marché, chaque mercredi des vacances. Gratuit.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-causerie-du-ski-combloux-fr-6121796/"
+ },
+ {
+  "d": "2027-02-10",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier « Éventail à empreintes »",
+  "x": "Fabriquer un éventail pour reconnaître les traces d'animaux en balade. Gratuit.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/eventail-a-empreintes-combloux-fr-6885167/"
+ },
+ {
+  "d": "2027-02-10",
+  "d2": "2027-03-03",
+  "h": "17h45",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Soirées ESF : luge, flambeaux et feu d'artifice",
+  "x": "Chaque mercredi des vacances d'hiver au bas de la piste Écureuil : luge, descente aux flambeaux des enfants, Ski Parade et feu d'artifice.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/descente-aux-flambeaux-des-enfants/"
+ },
+ {
+  "d": "2027-02-10",
+  "d2": "2027-03-03",
+  "h": "9h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Sport",
+  "t": "Footing givré (mercredis)",
+  "x": "Footing gratuit d'environ 6 km au départ de l'office de tourisme, chaque mercredi des vacances d'hiver ; inscription la veille.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre"
+ },
+ {
+  "d": "2027-02-11",
+  "h": "14h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier bois : bonhomme de neige skieur",
+  "x": "Assembler et décorer un bonhomme de neige skieur en bois. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-bonhomme-de-neige-skieur/"
+ },
+ {
+  "d": "2027-02-11",
+  "d2": "2027-03-04",
+  "h": "17h30",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Soirées luge au Mont d'Arbois (jeudis)",
+  "x": "Luge gratuite au Jardineige du Mont d'Arbois avec musique et tombola, les jeudis des vacances d'hiver.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/282225-soiree-luge-mont-darbois"
+ },
+ {
+  "d": "2027-02-11",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Ciné-rencontre « Alpes Himalaya, la route des cimes »",
+  "x": "Les réalisateurs racontent leurs 10 000 km à vélo puis 80 jours à pied jusqu'au Népal. Gratuit, auditorium du Palais.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-rencontre-alpes-himalaya-la-route-des-cimes-megeve-fr-6793878/"
+ },
+ {
   "d": "2027-02-12",
   "d2": "2027-03-05",
   "lieu": "Megève",
@@ -421,6 +1340,42 @@
   "t": "L'ESF fête ses étoiles",
   "x": "Défilé et spectacle des moniteurs sur la place du Village.",
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/esf-fete-ses-etoiles-megeve-fr-5867414/"
+ },
+ {
+  "d": "2027-02-12",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Tire d'érable et défi hockey",
+  "x": "Sucette au sirop d'érable coulé sur la neige et tirs au but face à un gardien, à l'Office de Tourisme. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/"
+ },
+ {
+  "d": "2027-02-14",
+  "h": "10h–12h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Jardin de la glisse",
+  "x": "Découverte du patinage pour les moins de 10 ans accompagnés, à la patinoire du Palais. 6 €.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse"
+ },
+ {
+  "d": "2027-02-16",
+  "h": "14h45",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Escape game « Les enfants de la Résistance »",
+  "x": "Enquête à énigmes à la médiathèque pour les enfants dès 8 ans, gratuit sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque"
+ },
+ {
+  "d": "2027-02-16",
+  "h": "15h–17h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Laser Game",
+  "x": "Partie en deux équipes au sous-sol de l'Office de Tourisme, dès 7 ans. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laser-game/"
  },
  {
   "d": "2027-02-16",
@@ -432,6 +1387,51 @@
   "h": "19h30"
  },
  {
+  "d": "2027-02-17",
+  "h": "10h",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Micro-Folie « Familiarités »",
+  "x": "Portraits drôles et tendres tirés des albums de famille, pour les 200 ans de la photographie. Gratuit, dès 8 ans.",
+  "u": "https://www.haute-savoie-tourisme.org/7584224-micro-folie-familiarites"
+ },
+ {
+  "d": "2027-02-17",
+  "h": "10h–12h, 14h–17h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Initiation à la maroquinerie",
+  "x": "Les gestes de base avec un maître maroquinier ; chacun repart avec un bracelet ou un porte-clé. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/initiation-a-la-maroquinerie/"
+ },
+ {
+  "d": "2027-02-17",
+  "h": "19h30–22h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Soirée givrée à la patinoire",
+  "x": "Patinage en musique avec DJ et jeux de lumière au Palais. 6 €.",
+  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree"
+ },
+ {
+  "d": "2027-02-18",
+  "h": "17h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Ciné Famille",
+  "x": "Projection gratuite choisie par les bibliothécaires, à l'auditorium du Palais.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/"
+ },
+ {
+  "d": "2027-02-19",
+  "h": "10h–16h",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Xspeed Ski Tour",
+  "x": "Initiation au ski de vitesse chronométré sur la piste des Roitelets, dès la 3e étoile. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/"
+ },
+ {
   "d": "2027-02-19",
   "h": "20h30",
   "lieu": "Megève",
@@ -441,6 +1441,87 @@
   "u": "https://spectacles-megeve.fr/programmation/"
  },
  {
+  "d": "2027-02-21",
+  "h": "17h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "Magic Parade, spectacle de magie",
+  "x": "Magie, illusions et jonglerie pour les familles à l'Office de Tourisme. 10 €.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/"
+ },
+ {
+  "d": "2027-02-23",
+  "h": "15h–18h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Après-midi jeux de société",
+  "x": "Jeux de société en accès libre à la mezzanine de la médiathèque.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/"
+ },
+ {
+  "d": "2027-02-24",
+  "h": "19h30–22h30",
+  "lieu": "Megève",
+  "cat": "Fête",
+  "t": "Soirée givrée à la patinoire",
+  "x": "Patinage en musique avec DJ et jeux de lumière au Palais. 6 €.",
+  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree"
+ },
+ {
+  "d": "2027-02-26",
+  "h": "10h–16h",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Xspeed Ski Tour",
+  "x": "Initiation au ski de vitesse chronométré sur la piste des Roitelets, dès la 3e étoile. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/"
+ },
+ {
+  "d": "2027-02-26",
+  "h": "17h",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Spectacle jeunesse « Voyage de Rézé »",
+  "x": "Un « quatuor musical dessiné » pour les familles à l'auditorium du Palais. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/5932322-spectacle-jeunesse-voyage-de-reze"
+ },
+ {
+  "d": "2027-02-27",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Hockey : Mont-Blanc contre Épinal",
+  "x": "Match de Division 1 des Yétis à la patinoire du Palais.",
+  "u": "https://www.megeve-tourisme.fr/agenda/hockey-sur-glace-match-division-1-mont-blanc-vs-epinal-2/"
+ },
+ {
+  "d": "2027-03-02",
+  "h": "14h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier bois : cabane à oiseau",
+  "x": "Assembler et décorer une cabane à oiseau en bois. Gratuit.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/atelier-creation-dobjets-en-bois-cabane-a-oiseau-combloux-fr-6885127/"
+ },
+ {
+  "d": "2027-03-03",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier « Mission solaire »",
+  "x": "Les enfants fabriquent un four solaire avec des matériaux de récup et repartent avec. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mission-solaire/"
+ },
+ {
+  "d": "2027-03-03",
+  "h": "17h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Ciné Famille",
+  "x": "Projection gratuite choisie par les bibliothécaires, à l'auditorium du Palais.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/"
+ },
+ {
   "d": "2027-03-05",
   "d2": "2027-03-07",
   "lieu": "Megève",
@@ -448,6 +1529,80 @@
   "t": "Megève Leadership : « Du ciel aux abysses »",
   "x": "Un week-end de conférences ouvert au grand public, salle Mageva au Palais.",
   "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/"
+ },
+ {
+  "d": "2027-03-05",
+  "h": "15h–18h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Tire d'érable et défi hockey",
+  "x": "Sucette au sirop d'érable coulé sur la neige et tirs au but face à un gardien, à l'Office de Tourisme. Gratuit.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/"
+ },
+ {
+  "d": "2027-03-05",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Micro-Folie « Femmes artistes »",
+  "x": "Sélection commentée d'œuvres de femmes artistes, au Palais.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1925922-5-micro-folie-playlist-commentee-quot-femmes-artistes-quot.html"
+ },
+ {
+  "d": "2027-03-07",
+  "h": "17h",
+  "lieu": "Combloux",
+  "cat": "Spectacle",
+  "t": "Magic Parade, spectacle de magie",
+  "x": "Magie, illusions et jonglerie pour les familles à l'Office de Tourisme. 10 €.",
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/"
+ },
+ {
+  "d": "2027-03-08",
+  "d2": "2027-03-22",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Pot d'accueil (lundis)",
+  "x": "En mars, le pot d'accueil passe au lundi soir, place de l'église. Gratuit.",
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver"
+ },
+ {
+  "d": "2027-03-09",
+  "d2": "2027-03-16",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Aide au Clic (mardis)",
+  "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+ },
+ {
+  "d": "2027-03-13",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte bébés lecteurs",
+  "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+ },
+ {
+  "d": "2027-03-17",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Heure du conte",
+  "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+ },
+ {
+  "d": "2027-03-18",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Projection « Les Instants doc »",
+  "x": "Séance de film documentaire au Palais.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html"
  },
  {
   "d": "2027-03-24",
