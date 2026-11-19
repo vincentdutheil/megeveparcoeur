@@ -72,7 +72,9 @@ module.exports = async (req, res) => {
   const H = { "api-key": key, "Content-Type": "application/json", accept: "application/json" };
   const c = await fetch("https://api.brevo.com/v3/emailCampaigns", { method: "POST", headers: H, body: JSON.stringify({
     name: "Agenda " + start, subject: mail.subject, sender: { name: "Megève par cœur", email: process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr" },
-    htmlContent: mail.html, recipients: { listIds: [list] }, inlineImageActivation: false }) });
+    htmlContent: mail.html, recipients: { listIds: [list] }, inlineImageActivation: false,
+    replyTo: process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr",
+    previewText: "Marchés, spectacles, sorties en famille : tout ce qui se passe cette semaine à Megève, Combloux, Demi-Quartier et Praz." }) });
   if (!c.ok) { res.statusCode = 502; return res.end("create failed: " + (await c.text()).slice(0, 300)); }
   const { id } = await c.json();
   const s = await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}/sendNow`, { method: "POST", headers: H });
