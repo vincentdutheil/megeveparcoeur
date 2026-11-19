@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Météo & neige · Megève, Demi-Quartier, Combloux, Praz-sur-Arly · Megève par cœur</title>
+<meta name="description" content="Météo, hauteur de neige et prévisions de chutes de neige à Megève, Demi-Quartier, Combloux et Praz-sur-Arly, au village et en altitude.">
+<link rel="icon" type="image/png" href="../img/favicon.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0a1424;--night-2:#12284a;--wool:#f1f4f9;--card:#ffffff;--ink:#1c2533;--muted:#5d6878;--line:#dbe3ee;
+  --ice:#bcd3ee;--snow:#4b8fd6;--snow-2:#8fc0f0;--glow:#f3c27a;--heart:#c8323d;--pine:#3f6150;
+  --display:"Fraunces",Georgia,serif;--body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{--wool:#0e1522;--card:#162133;--ink:#e9eef6;--muted:#a3b0c2;--line:#26344a;--snow:#7cb6ee;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--wool);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0;font-variation-settings:"SOFT" 100}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-size:1.3rem}
+.brand img{width:40px;height:40px}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap;font-weight:600;font-size:.95rem}
+.nav ul a{text-decoration:none;opacity:.85}.nav ul a:hover,.nav ul a[aria-current]{opacity:1;color:var(--glow)}
+
+/* bandeau */
+.hero{position:relative;overflow:hidden;color:#f4f8ff;padding:46px 0 120px;
+  background:radial-gradient(50% 60% at 80% 20%,rgba(150,190,255,.18),transparent 70%),linear-gradient(180deg,#050c18,#0b1c36 55%,#16345a 90%,#244a73)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.kicker{font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--glow);font-size:.8rem}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-top:8px}
+.hero h1 em{color:#ff8a97}
+.hero p{margin:10px 0 0;opacity:.88;max-width:640px}
+.peaks{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:110px;z-index:1}
+.ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+.seg{display:inline-flex;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px}
+.seg button{font:700 .92rem var(--body);border:0;background:transparent;color:#e8f0fb;padding:9px 16px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:#fff;color:#0b1c36}
+.upd{font-size:.85rem;opacity:.75}
+
+/* temps forts */
+.alert{margin:-70px auto 0;position:relative;z-index:4}
+.alert .in{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px 22px;display:flex;gap:16px;align-items:center;box-shadow:0 18px 40px rgba(10,20,40,.18)}
+.alert .ic{font-size:2.4rem;line-height:1}
+.alert b{font-family:var(--display);font-size:1.25rem;font-weight:600}
+.alert p{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+
+/* cartes */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:28px auto 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 10px 30px rgba(10,20,40,.06);min-width:0}
+.card .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card h2{font-size:1.6rem}
+.alt{font-size:.82rem;font-weight:700;color:var(--muted);background:var(--wool);border-radius:999px;padding:3px 10px;white-space:nowrap}
+.now{display:flex;align-items:center;gap:16px;margin-top:12px}
+.now .big{font-size:3.4rem;line-height:1}
+.now .t{font-family:var(--display);font-size:3rem;line-height:1;font-weight:600}
+.now .lb{font-weight:700}
+.now .sub{color:var(--muted);font-size:.9rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.st{background:var(--wool);border-radius:16px;padding:12px;text-align:center}
+.st .v{font-family:var(--display);font-size:1.7rem;font-weight:600;color:var(--snow);line-height:1.1}
+.st .v small{font-size:.9rem;font-family:var(--body);font-weight:700}
+.st .k{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-top:4px}
+.gauge{height:6px;border-radius:99px;background:var(--line);margin-top:8px;overflow:hidden}
+.gauge i{display:block;height:100%;background:linear-gradient(90deg,var(--snow-2),var(--snow));border-radius:99px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+.day{text-align:center;font-size:.82rem;min-width:0}
+.day .n{font-weight:800;text-transform:capitalize}
+.day .i{font-size:1.5rem;line-height:1.5}
+.day .mx{font-weight:800}.day .mn{color:var(--muted)}
+.bar{height:56px;display:flex;align-items:flex-end;justify-content:center;margin-top:6px}
+.bar i{display:block;width:60%;max-width:22px;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--snow-2),var(--snow));min-height:2px}
+.bar.zero i{background:var(--line)}
+.day .cm{font-weight:800;color:var(--snow);font-size:.78rem;height:1.2em}
+.day.today .n{color:var(--heart)}
+.skel{color:var(--muted);text-align:center;padding:40px 0}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--muted);font-size:.85rem;margin:6px 0 0}
+.note{color:var(--muted);font-size:.88rem;margin:22px 0 50px}
+.note a{font-weight:700}
+footer{background:var(--night);color:#cfd8e6;padding:30px 0 40px;font-size:.92rem}
+footer a{color:#fff}
+@media (max-width:860px){
+  .grid{grid-template-columns:1fr}
+  .days{gap:2px}.day{font-size:.75rem}.day .i{font-size:1.25rem}
+  .now .t{font-size:2.5rem}.now .big{font-size:2.8rem}
+  .st{padding:10px 6px}.st .k{font-size:.66rem;letter-spacing:0}.st .v{font-size:1.45rem}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="../" aria-label="Megève par cœur, accueil"><img src="../img/logo.png" alt="" width="40" height="40">Megève par cœur</a>
+    <ul>
+      <li><a href="../#galerie">Galerie</a></li>
+      <li><a href="../#agenda">Agenda</a></li>
+      <li><a href="./" aria-current="page">Météo</a></li>
+      <li><a href="../#coups-de-coeur">Coups de cœur</a></li>
+      <li><a href="../boutique/">Boutique solidaire</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="kicker">❄ Megève · Demi-Quartier · Combloux · Praz-sur-Arly</div>
+    <h1>Météo &amp; <em>neige</em></h1>
+    <p>Le temps qu'il fait, la neige au sol et les chutes de neige prévues sur 7 jours, au village ou en altitude.</p>
+    <div class="ctrl">
+      <div class="seg" role="group" aria-label="Altitude">
+        <button type="button" data-z="v" aria-pressed="true">🏡 Au village</button>
+        <button type="button" data-z="a" aria-pressed="false">🏔️ En altitude (~1 850 m)</button>
+      </div>
+      <span class="upd" id="upd">Chargement…</span>
+    </div>
+  </div>
+  <svg class="peaks" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path fill="#2a4a74" d="M0 80L140 40 230 62 360 18 470 60 600 30 730 66 860 14 990 58 1100 36 1250 70 1440 40V110H0z"/><g fill="#e9f1fb" opacity=".85"><path d="M360 18l-20 14 9-1 9 6 8-8 12 4z"/><path d="M860 14l-22 16 10-2 9 6 9-8 13 4z"/></g><path fill="var(--wool)" d="M0 96C200 86 420 102 720 92S1200 84 1440 96V110H0z"/></svg>
+</section>
+
+<main class="wrap">
+  <div class="alert" id="alert" hidden><div class="in"><div class="ic" id="aIc">❄️</div><div><b id="aT"></b><p id="aP"></p></div></div></div>
+  <div class="grid" id="grid"><p class="skel">Chargement de la météo…</p></div>
+  <div class="legend"><span>📏 <b>Au sol</b> : hauteur de neige estimée par les modèles</span><span>🆕 <b>Tombée 24 h</b> : neige fraîche des dernières 24 h</span><span>📅 <b>À venir 7 j</b> : cumul des chutes prévues</span></div>
+  <p class="note">Estimations des modèles météo (Météo-France, ECMWF…) fournies par <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, mises à jour plusieurs fois par jour. Elles peuvent différer de l'enneigement mesuré sur les pistes : pour l'ouverture des pistes et les bulletins officiels, consultez <a href="https://meteofrance.com/meteo-montagne" target="_blank" rel="noopener">Météo-France montagne</a> et les offices de tourisme de <a href="https://www.megeve-tourisme.fr/" target="_blank" rel="noopener">Megève</a>, <a href="https://www.combloux.com/" target="_blank" rel="noopener">Combloux</a> et <a href="https://www.prazsurarly.com/" target="_blank" rel="noopener">Praz-sur-Arly</a>.</p>
+</main>
+
+<footer><div class="wrap">© Megève par cœur · <a href="../">Accueil</a> · <a href="../#agenda">L'agenda de Megève &amp; alentours</a> · Données météo : <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0)</div></footer>
+
+<script>
+const V=[
+  {n:"Megève",lat:45.8567,lon:6.6175,v:1113,a:1850},
+  {n:"Demi-Quartier",lat:45.8760,lon:6.6260,v:1050,a:1830},
+  {n:"Combloux",lat:45.8966,lon:6.6417,v:1000,a:1850},
+  {n:"Praz-sur-Arly",lat:45.8375,lon:6.5719,v:1036,a:1830}
+];
+const W={0:["☀️","Ensoleillé"],1:["🌤️","Plutôt ensoleillé"],2:["⛅","Éclaircies"],3:["☁️","Couvert"],45:["🌫️","Brouillard"],48:["🌫️","Brouillard givrant"],
+51:["🌦️","Bruine"],53:["🌦️","Bruine"],55:["🌧️","Bruine forte"],56:["🌧️","Bruine verglaçante"],57:["🌧️","Bruine verglaçante"],
+61:["🌧️","Pluie faible"],63:["🌧️","Pluie"],65:["🌧️","Forte pluie"],66:["🌧️","Pluie verglaçante"],67:["🌧️","Pluie verglaçante"],
+71:["🌨️","Neige faible"],73:["🌨️","Neige"],75:["❄️","Fortes chutes de neige"],77:["🌨️","Grains de neige"],
+80:["🌦️","Averses"],81:["🌧️","Averses"],82:["⛈️","Fortes averses"],85:["🌨️","Averses de neige"],86:["❄️","Fortes averses de neige"],
+95:["⛈️","Orage"],96:["⛈️","Orage et grêle"],99:["⛈️","Orage et grêle"]};
+const wc=c=>W[c]||["🌡️","—"];
+const JN=["dim.","lun.","mar.","mer.","jeu.","ven.","sam."], JL=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+let zone="v", cache={};
+const $=id=>document.getElementById(id);
+const r0=x=>Math.round(x), cmF=x=>x>=10?r0(x):Math.round(x*10)/10;
+
+async function load(z){
+  if(cache[z]) return cache[z];
+  const q=new URLSearchParams({
+    latitude:V.map(v=>v.lat).join(","), longitude:V.map(v=>v.lon).join(","), elevation:V.map(v=>z==="v"?v.v:v.a).join(","),
+    current:"temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_gusts_10m",
+    hourly:"snow_depth,snowfall,freezing_level_height",
+    daily:"weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum,precipitation_probability_max",
+    timezone:"Europe/Paris", forecast_days:"7", past_days:"1"
+  });
+  const r=await fetch("https://api.open-meteo.com/v1/forecast?"+q);
+  if(!r.ok) throw new Error(r.status);
+  let d=await r.json(); if(!Array.isArray(d)) d=[d];
+  cache[z]=d; return d;
+}
+function summarize(d){
+  const now=d.current.time.slice(0,13), H=d.hourly, i=Math.max(0,H.time.findIndex(t=>t.slice(0,13)===now));
+  const depth=(H.snow_depth[i]||0)*100;
+  let fresh=0; for(let k=Math.max(0,i-23);k<=i;k++) fresh+=H.snowfall[k]||0;
+  const fz=H.freezing_level_height?H.freezing_level_height[i]:null;
+  const D=d.daily, today=d.current.time.slice(0,10), s=D.time.indexOf(today)<0?0:D.time.indexOf(today);
+  const days=D.time.slice(s,s+7).map((t,k)=>({t,c:D.weather_code[s+k],mx:D.temperature_2m_max[s+k],mn:D.temperature_2m_min[s+k],sn:D.snowfall_sum[s+k]||0,pp:D.precipitation_probability_max?D.precipitation_probability_max[s+k]:null}));
+  const week=days.reduce((a,x)=>a+x.sn,0);
+  return {depth,fresh,fz,days,week,cur:d.current};
+}
+function dayName(t,k){const dt=new Date(t+"T12:00:00");return k===0?"auj.":JN[dt.getDay()];}
+function render(data){
+  const S=data.map(summarize), maxSn=Math.max(5,...S.flatMap(s=>s.days.map(x=>x.sn)));
+  $("grid").innerHTML=S.map((s,i)=>{const v=V[i],c=s.cur,[ic,lb]=wc(c.weather_code);
+    const depthPct=Math.min(100,s.depth/200*100);
+    return `<article class="card" aria-label="Météo ${v.n}">
+      <div class="hd"><h2>${v.n}</h2><span class="alt">${zone==="v"?"Village":"Altitude"} · ${(zone==="v"?v.v:v.a).toLocaleString("fr-FR")} m</span></div>
+      <div class="now"><div class="big" aria-hidden="true">${ic}</div><div><div class="t">${r0(c.temperature_2m)}°</div></div>
+        <div><div class="lb">${lb}</div><div class="sub">Ressenti ${r0(c.apparent_temperature)}° · Vent ${r0(c.wind_speed_10m)} km/h${c.wind_gusts_10m>40?` (rafales ${r0(c.wind_gusts_10m)})`:""}</div>${s.fz!=null?`<div class="sub">Isotherme 0 °C : ${(Math.round(s.fz/50)*50).toLocaleString("fr-FR")} m</div>`:""}</div></div>
+      <div class="stats">
+        <div class="st"><div class="v">${r0(s.depth)}<small> cm</small></div><div class="k">📏 Au sol</div><div class="gauge"><i style="width:${depthPct}%"></i></div></div>
+        <div class="st"><div class="v">${cmF(s.fresh)}<small> cm</small></div><div class="k">🆕 Tombée 24 h</div></div>
+        <div class="st"><div class="v">${r0(s.week)}<small> cm</small></div><div class="k">📅 À venir 7 j</div></div>
+      </div>
+      <div class="days">${s.days.map((x,k)=>{const [di,dl]=wc(x.c),h=x.sn>0.2?Math.max(6,x.sn/maxSn*100):4;
+        return `<div class="day ${k===0?"today":""}" title="${JL[new Date(x.t+"T12:00:00").getDay()]} : ${dl}${x.sn>0.2?`, ${cmF(x.sn)} cm de neige`:""}">
+          <div class="n">${dayName(x.t,k)}</div><div class="i" aria-hidden="true">${di}</div><div class="mx">${r0(x.mx)}°</div><div class="mn">${r0(x.mn)}°</div>
+          <div class="bar ${x.sn>0.2?"":"zero"}"><i style="height:${h}%"></i></div><div class="cm">${x.sn>0.2?cmF(x.sn)+" cm":""}</div></div>`;}).join("")}</div>
+    </article>`;}).join("");
+  // prochaine chute de neige notable
+  let best=null;
+  S.forEach((s,i)=>s.days.forEach((x,k)=>{if(x.sn>=1&&(!best||k<best.k||(k===best.k&&x.sn>best.sn)))best={k,sn:x.sn,t:x.t,v:V[i].n};}));
+  const A=$("alert"); A.hidden=false;
+  if(best){const tot=Math.max(...S.map(s=>s.week));
+    $("aIc").textContent="❄️";
+    $("aT").textContent=best.k===0?"Il neige aujourd'hui !":best.k===1?"De la neige attendue demain":`Prochaine neige : ${JL[new Date(best.t+"T12:00:00").getDay()]}`;
+    $("aP").textContent=`Jusqu'à ${cmF(best.sn)} cm ce jour-là (${best.v}) · jusqu'à ${r0(tot)} cm cumulés sur 7 jours ${zone==="v"?"au village":"en altitude"}.`;
+  }else{$("aIc").textContent="☀️";$("aT").textContent="Pas de chute de neige prévue cette semaine";$("aP").textContent=zone==="v"?"Regardez aussi en altitude : la neige y tombe souvent plus tôt.":"Profitez du soleil sur les pistes !";}
+  const t=new Date(); $("upd").textContent="Mis à jour à "+t.toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit"});
+}
+async function show(){
+  $("upd").textContent="Chargement…";
+  try{render(await load(zone));}
+  catch(e){$("grid").innerHTML='<p class="skel">La météo n\'a pas pu se charger. Réessayez dans un instant.</p>';$("upd").textContent="";}
+}
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{zone=b.dataset.z;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));show();});
+show();
+
+/* neige qui tombe dans le bandeau */
+(function(){const c=$("snow");if(!c||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const x=c.getContext("2d");let W2,H2,f=[];
+function sz(){const r=c.getBoundingClientRect();W2=c.width=r.width;H2=c.height=r.height;}sz();addEventListener("resize",sz);
+for(let i=0;i<120;i++){const z=Math.random();f.push({x:Math.random()*W2,y:Math.random()*H2,z,r:.6+z*z*3,s:.3+z*1.1,d:Math.random()*6});}
+(function t(){x.clearRect(0,0,W2,H2);x.fillStyle="#fff";for(const p of f){p.y+=p.s;p.d+=.01;p.x+=Math.sin(p.d)*.4*p.z;if(p.y>H2+5){p.y=-5;p.x=Math.random()*W2;}x.globalAlpha=.35+p.z*.6;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();}requestAnimationFrame(t);})();})();
+</script>
+</body>
+</html>
