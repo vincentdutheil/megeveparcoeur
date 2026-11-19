@@ -286,7 +286,8 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .fans-grid span{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;font-weight:800;border-radius:999px;padding:3px 8px}
 .fans-empty{grid-column:1/-1;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.35);border-radius:18px;padding:30px;text-align:center;margin:0}
 @media (max-width:760px){.fans{grid-template-columns:1fr;padding:22px}}
-.nl{background:linear-gradient(120deg,#0b1c36,#1d3d2d);color:#f4f8ff;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center;margin:34px 0 0}
+.nl{background:linear-gradient(120deg,#0b1c36,#1d3d2d);color:#f4f8ff;border-radius:22px;padding:20px 24px;display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:center;margin:0 0 22px;scroll-margin-top:20px}
+.nl h2{font-size:clamp(1.35rem,3vw,1.8rem)!important}.nl p{font-size:.95rem}
 .nl h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:#fff}.nl p{margin:6px 0 0;opacity:.85}
 .nl form{display:flex;flex-direction:column;gap:10px}
 .nl .row{display:flex;gap:8px}
@@ -383,6 +384,7 @@ footer a{color:#fbf3e6}
       <div class="btns">
       <a class="btn primary" href="https://www.instagram.com/megeveparcoeur/"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>Suivre @megeveparcoeur</a>
       <a class="btn ghost" href="#agenda">Voir l'agenda de Megève</a>
+      <a class="btn ghost" href="#newsletter">📬 L'agenda par e-mail</a>
     </div>
     </div>
     <div class="hang">
@@ -481,9 +483,7 @@ footer a{color:#fbf3e6}
         <button class="tab" aria-pressed="false" data-l="Praz-sur-Arly">Praz-sur-Arly</button>
       </div>
     </div>
-    <div class="quick" id="ag-quick" role="group" aria-label="Filtres rapides"></div>
-    <div class="agenda" id="agenda-list"></div>
-  <div class="nl" id="newsletter">
+    <div class="nl" id="newsletter">
   <div><div class="kicker" style="color:#f3c27a">📬 Chaque jeudi</div>
     <h2>L'agenda de la semaine par e-mail</h2>
     <p>Tous les rendez-vous de Megève, Combloux, Demi-Quartier et Praz, dans ta boîte mail le jeudi. Gratuit, sans pub, désinscription en un clic.</p></div>
@@ -494,6 +494,9 @@ footer a{color:#fbf3e6}
     <div class="msg" id="nl-msg" aria-live="polite"></div>
   </form>
 </div>
+    <div class="quick" id="ag-quick" role="group" aria-label="Filtres rapides"></div>
+    <div class="agenda" id="agenda-list"></div>
+  
   </div>
 </section>
 

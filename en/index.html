@@ -85,7 +85,8 @@
 .btns a{background:#c8323d;color:#fff;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 18px}
 .btns a.ghost{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35)}
 @media (max-width:760px){.ev{grid-template-columns:1fr;gap:8px}.ev .meta{flex-direction:row;align-items:center;justify-content:space-between}.tiles{grid-template-columns:1fr}}
-.nl{background:linear-gradient(120deg,#0b1c36,#1d3d2d);color:#f4f8ff;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center;margin:34px 0 0}
+.nl{background:linear-gradient(120deg,#0b1c36,#1d3d2d);color:#f4f8ff;border-radius:22px;padding:20px 24px;display:grid;grid-template-columns:1fr 1.1fr;gap:18px;align-items:center;margin:0 0 22px;scroll-margin-top:20px}
+.nl h2{font-size:clamp(1.35rem,3vw,1.8rem)!important}.nl p{font-size:.95rem}
 .nl h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:#fff}.nl p{margin:6px 0 0;opacity:.85}
 .nl form{display:flex;flex-direction:column;gap:10px}
 .nl .row{display:flex;gap:8px}
@@ -124,7 +125,7 @@
     <div class="kicker">❄ Megève · Combloux · Demi-Quartier · Praz-sur-Arly</div>
     <h1>What's on in <em>Megève</em></h1>
     <p>Every event in Megève and the neighbouring villages, in one place: markets, concerts, shows, ice hockey, kids' activities and more. Updated every Thursday by a local who loves Megève.</p>
-    <div class="btns"><a href="#agenda">See this week's events</a><a class="ghost" href="/meteo/">❄ Snow forecast</a><a class="ghost" href="/webcams/">📷 Live webcams</a></div>
+    <div class="btns"><a href="#agenda">See this week's events</a><a class="ghost" href="/meteo/">❄ Snow forecast</a><a class="ghost" href="/webcams/">📷 Live webcams</a><a class="ghost" href="#newsletter">📬 Events by email</a></div>
   </div>
   <svg class="scene" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#7f9cc0" opacity=".8" d="M0 130L120 72 210 100 340 22 430 76 560 40 690 98 820 12 930 76 1050 46 1180 92 1300 50 1440 80V200H0z"/>
@@ -151,10 +152,7 @@
       <button class="tab" aria-pressed="false" data-l="Praz-sur-Arly">Praz-sur-Arly</button>
     </div>
   </div>
-  <div class="quick" id="ag-quick" role="group" aria-label="Quick filters"></div>
-  <div class="agenda" id="agenda-list"></div>
-</section>
-<div class="nl" id="newsletter">
+    <div class="nl" id="newsletter">
   <div><div class="kicker" style="color:#f3c27a">📬 Every Thursday</div>
     <h2>This week's events by email</h2>
     <p>Every event in Megève and the nearby villages, in your inbox on Thursdays. Free, no ads, one-click unsubscribe. (Email in French.)</p></div>
@@ -165,6 +163,10 @@
     <div class="msg" id="nl-msg" aria-live="polite"></div>
   </form>
 </div>
+  <div class="quick" id="ag-quick" role="group" aria-label="Quick filters"></div>
+  <div class="agenda" id="agenda-list"></div>
+</section>
+
 <div class="tiles">
   <a href="/meteo/"><span>❄ Snow &amp; weather</span><b>Snow depth &amp; 7-day forecast</b><span>For the 4 villages, in the village and up on the slopes (page in French).</span></a>
   <a href="/webcams/"><span>📷 Webcams</span><b>6 live webcams</b><span>Megève village, Rochebrune, Mont d'Arbois, Côte 2000, Combloux, Le Jaillet.</span></a>
