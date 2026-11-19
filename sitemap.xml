@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.megeveparcoeur.fr/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/en/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/meteo/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/webcams/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/balades/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/carte/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.megeveparcoeur.fr/boutique/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.megeveparcoeur.fr/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/"/><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/"/><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/meteo/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/meteo/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/meteo/"/><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/meteo/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/meteo/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/meteo/"/><changefreq>daily</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/webcams/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/webcams/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/webcams/"/><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/webcams/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/webcams/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/webcams/"/><changefreq>daily</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/balades/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/balades/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/balades/"/><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/balades/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/balades/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/balades/"/><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/carte/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/carte/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/carte/"/><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/carte/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/carte/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/carte/"/><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/boutique/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/boutique/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/boutique/"/><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/boutique/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/boutique/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/boutique/"/><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>

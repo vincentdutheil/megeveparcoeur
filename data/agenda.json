@@ -356,7 +356,9 @@
   "cat": "Marché",
   "t": "Marché de Megève (vendredis)",
   "x": "Le marché du vendredi matin se tient chaque semaine dans les rues du village.",
-  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve",
+  "t_en": "Megève market (Fridays)",
+  "x_en": "The Friday morning market, held every week in the village streets."
  },
  {
   "d": "2026-12-05",
@@ -365,7 +367,9 @@
   "cat": "Ski",
   "t": "Préouverture du domaine skiable",
   "x": "Ouverture partielle le week-end, selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable",
+  "t_en": "Ski area pre-opening",
+  "x_en": "Partial opening at weekends, depending on snow."
  },
  {
   "d": "2026-12-05",
@@ -375,7 +379,9 @@
   "cat": "Culture",
   "t": "Salon des Créateurs d'Art de Megève",
   "x": "Édition de Noël au Palais des Sports, avec une sélection de créateurs, à l'occasion de l'illumination du sapin. Parrainé par le chef Marc Veyrat.",
-  "u": "https://www.instagram.com/alpincreateurs/"
+  "u": "https://www.instagram.com/alpincreateurs/",
+  "t_en": "Megève Art Makers' Fair",
+  "x_en": "Christmas edition at the Palais des Sports, with a selection of makers, for the tree-lighting. Sponsored by chef Marc Veyrat."
  },
  {
   "d": "2026-12-05",
@@ -384,7 +390,9 @@
   "cat": "Culture",
   "t": "Hommage aux morts pour la France (AFN)",
   "x": "Cérémonie et dépôt de gerbe place de la Résistance, en mémoire des victimes de la guerre d'Algérie et des combats au Maroc et en Tunisie.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/journee-nationale-dhommage-aux-morts-pour-la-france-megeve-fr-5866235/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/journee-nationale-dhommage-aux-morts-pour-la-france-megeve-fr-5866235/",
+  "t_en": "Remembrance ceremony (North Africa veterans)",
+  "x_en": "Ceremony and wreath-laying on Place de la Résistance, in memory of the victims of the Algerian war and the fighting in Morocco and Tunisia."
  },
  {
   "d": "2026-12-05",
@@ -394,7 +402,9 @@
   "cat": "Culture",
   "t": "Atelier-galerie Adrianna MJW en accès libre",
   "x": "L'artiste ouvre son atelier-galerie du hameau de Vauvray, face au Mont-Blanc, en entrée libre les quatre week-ends de décembre, de 15h à 19h ; le reste du temps sur rendez-vous.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/art-contemporain/7197566-exposition-visite-atelier-adrianna-mjw"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/art-contemporain/7197566-exposition-visite-atelier-adrianna-mjw",
+  "t_en": "Adrianna MJW studio-gallery, open house",
+  "x_en": "The artist opens her studio-gallery in the hamlet of Vauvray, facing Mont Blanc, free entry on the four weekends of December, 3pm to 7pm; the rest of the time by appointment."
  },
  {
   "d": "2026-12-05",
@@ -403,7 +413,9 @@
   "cat": "Fête",
   "t": "Illumination du sapin",
   "x": "Le grand sapin de la place s'illumine et lance la saison d'hiver. Place de l'Église, accès libre.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/traditions-folklore/fetes-traditionnelles/163044-l-illumination-du-sapin",
+  "t_en": "Christmas tree lighting",
+  "x_en": "The big tree on the square lights up and kicks off the winter season. Place de l'Église, free."
  },
  {
   "d": "2026-12-06",
@@ -412,7 +424,9 @@
   "cat": "Famille",
   "t": "Jardin de la glisse",
   "x": "Initiation au patin à glace pour les enfants de moins de 10 ans, à la patinoire.",
-  "u": "https://www.haute-savoie-tourisme.org/5065937-jardin-de-la-glisse"
+  "u": "https://www.haute-savoie-tourisme.org/5065937-jardin-de-la-glisse",
+  "t_en": "Jardin de la glisse (kids' skating)",
+  "x_en": "Ice-skating taster sessions for children under 10, at the ice rink."
  },
  {
   "d": "2026-12-06",
@@ -421,7 +435,9 @@
   "cat": "Marché",
   "t": "Marché des producteurs locaux",
   "x": "Producteurs locaux le dimanche matin place du Village.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux",
+  "t_en": "Local producers' market",
+  "x_en": "Local producers on Sunday mornings on Place du Village."
  },
  {
   "d": "2026-12-08",
@@ -431,7 +447,9 @@
   "cat": "Culture",
   "t": "Aide au Clic (mardis)",
   "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
+  "t_en": "Aide au Clic: digital help (Tuesdays)",
+  "x_en": "Free one-to-one help with computers and phones every Tuesday at the library, booking required."
  },
  {
   "d": "2026-12-09",
@@ -441,7 +459,9 @@
   "cat": "Gastronomie",
   "t": "Atelier cocktails au Bar des Cochers",
   "x": "Le mercredi aux Loges Blanches : on passe derrière le bar pour préparer son cocktail ou mocktail, puis on le déguste (environ 30 €).",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6780642-atelier-cocktails"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6780642-atelier-cocktails",
+  "t_en": "Cocktail workshop at the Bar des Cochers",
+  "x_en": "Wednesdays at Les Loges Blanches: step behind the bar to make your own cocktail or mocktail, then enjoy it (about €30)."
  },
  {
   "d": "2026-12-09",
@@ -451,7 +471,9 @@
   "cat": "Marché",
   "t": "Marché de Combloux (mercredis)",
   "x": "Produits locaux chaque mercredi matin sur le parvis de l'Office de Tourisme.",
-  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux",
+  "t_en": "Combloux market (Wednesdays)",
+  "x_en": "Local produce every Wednesday morning outside the tourist office."
  },
  {
   "d": "2026-12-10",
@@ -460,7 +482,9 @@
   "cat": "Sport",
   "t": "Hockey féminin U18 : France – Norvège",
   "x": "Match international des moins de 18 ans à la patinoire de Megève. Entrée gratuite.",
-  "u": "https://www.haute-savoie-tourisme.org/8060397-hockey-sur-glace-feminin-u18-france-norvege"
+  "u": "https://www.haute-savoie-tourisme.org/8060397-hockey-sur-glace-feminin-u18-france-norvege",
+  "t_en": "Women's U18 ice hockey: France – Norway",
+  "x_en": "Under-18 international match at the Megève ice rink. Free entry."
  },
  {
   "d": "2026-12-11",
@@ -470,7 +494,9 @@
   "cat": "Concert",
   "t": "After-ski aux Loges Blanches",
   "x": "Musique live, brasero, crêpes et vin chaud aux Loges Blanches : les week-ends de décembre et janvier, tous les jours pendant les vacances.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/concerts/7293989-after-ski-aux-loges-blanches-4"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/concerts/7293989-after-ski-aux-loges-blanches-4",
+  "t_en": "Après-ski at Les Loges Blanches",
+  "x_en": "Live music, brazier, crêpes and mulled wine at Les Loges Blanches: weekends in December and January, every day during the holidays."
  },
  {
   "d": "2026-12-11",
@@ -479,7 +505,9 @@
   "cat": "Culture",
   "t": "Rencontre littéraire « Le goût des mots »",
   "x": "Rencontre autour des livres à la médiathèque du Palais.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1465780-5-rencontre-litteraire-gout-des-mots.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1465780-5-rencontre-litteraire-gout-des-mots.html",
+  "t_en": "Book talk “Le goût des mots”",
+  "x_en": "A get-together about books at the Palais library."
  },
  {
   "d": "2026-12-11",
@@ -488,7 +516,9 @@
   "cat": "Concert",
   "t": "Concert : Duo Manaïko",
   "x": "Un voyage musical au Venezuela, à l'auditorium du Palais. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/musique/divers-musique/7983538-concert-duo-manaiko"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/musique/divers-musique/7983538-concert-duo-manaiko",
+  "t_en": "Concert: Duo Manaïko",
+  "x_en": "A musical journey to Venezuela, at the Palais auditorium. Free."
  },
  {
   "d": "2026-12-12",
@@ -496,7 +526,9 @@
   "cat": "Ski",
   "t": "Ouverture progressive des pistes",
   "x": "Ouverture partielle tous les jours jusqu'au 18 décembre, selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable",
+  "t_en": "Slopes opening gradually",
+  "x_en": "Partial opening every day until 18 December, depending on snow."
  },
  {
   "d": "2026-12-12",
@@ -505,7 +537,9 @@
   "cat": "Fête",
   "t": "Marché de Noël de Combloux",
   "x": "Une trentaine de stands de producteurs et d'artisans, le Père Noël, vin chaud, crêpes et tartiflette. Place de l'Office du tourisme.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/marche-de-noel-combloux-fr-6108383/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/marche-de-noel-combloux-fr-6108383/",
+  "t_en": "Combloux Christmas market",
+  "x_en": "Around thirty stalls of producers and craftspeople, Father Christmas, mulled wine, crêpes and tartiflette. Tourist office square."
  },
  {
   "d": "2026-12-12",
@@ -514,7 +548,9 @@
   "cat": "Famille",
   "t": "Heure du conte bébés lecteurs",
   "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
+  "t_en": "Story time for babies",
+  "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
  },
  {
   "d": "2026-12-12",
@@ -524,7 +560,9 @@
   "cat": "Concert",
   "t": "Samedis musicaux aux Loges Blanches",
   "x": "Chaque samedi soir, un artiste différent en live au Bar des Cochers. Entrée libre.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1937643-5-samedis-musicaux-aux-loges-blanches.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1937643-5-samedis-musicaux-aux-loges-blanches.html",
+  "t_en": "Saturday music at Les Loges Blanches",
+  "x_en": "Every Saturday evening, a different artist plays live at the Bar des Cochers. Free entry."
  },
  {
   "d": "2026-12-12",
@@ -533,7 +571,9 @@
   "t": "The Black Blues Brothers",
   "x": "Acrobaties et musique : le spectacle « Let's twist again » au Palais.",
   "u": "https://spectacles-megeve.fr/programmation/",
-  "h": "20h30"
+  "h": "20h30",
+  "t_en": "The Black Blues Brothers",
+  "x_en": "Acrobatics and music: the “Let's twist again” show at the Palais."
  },
  {
   "d": "2026-12-16",
@@ -542,7 +582,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2026-12-18",
@@ -551,7 +593,9 @@
   "cat": "Sport",
   "t": "Défi trail blanc",
   "x": "Parcours de trail à faire avec l'application « Praz destination nature », classement chaque vendredi et lots en fin de saison.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/defi-trail-blanc-praz-sur-arly-fr-6731236/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/defi-trail-blanc-praz-sur-arly-fr-6731236/",
+  "t_en": "Snow trail challenge",
+  "x_en": "A trail-running route to do with the “Praz destination nature” app, with rankings every Friday and prizes at the end of the season."
  },
  {
   "d": "2026-12-18",
@@ -561,7 +605,9 @@
   "cat": "Ski",
   "t": "Apéri'gliss au coucher du soleil",
   "x": "Montée par la dernière remontée, vin chaud face au Mont-Blanc puis descente en yooner avec un guide, hors vacances scolaires. Dès 60 €.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/5935712-aperigliss"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/5935712-aperigliss",
+  "t_en": "Sunset Apéri'gliss",
+  "x_en": "Ride up on the last lift, mulled wine facing Mont Blanc, then ski down on a yooner with a guide, outside school holidays. From €60."
  },
  {
   "d": "2026-12-18",
@@ -570,7 +616,9 @@
   "cat": "Spectacle",
   "t": "Gala de patinage « Un Noël Pop Rock 'n Love »",
   "x": "Le spectacle de Noël du club de patinage artistique de Megève, à la patinoire du Palais. Gratuit.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1429413-5-spectacle-patinage-club-megeve-noel-pop-rock-love.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1429413-5-spectacle-patinage-club-megeve-noel-pop-rock-love.html",
+  "t_en": "Skating gala “Un Noël Pop Rock 'n Love”",
+  "x_en": "The Megève figure-skating club's Christmas show, at the Palais ice rink. Free."
  },
  {
   "d": "2026-12-19",
@@ -579,7 +627,9 @@
   "cat": "Ski",
   "t": "Ouverture générale de la station",
   "x": "Rochebrune, Côte 2000 et Mont d'Arbois ouverts tous les jours.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable"
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable",
+  "t_en": "Resort fully open",
+  "x_en": "Rochebrune, Côte 2000 and Mont d'Arbois open every day."
  },
  {
   "d": "2026-12-19",
@@ -588,7 +638,9 @@
   "cat": "Ski",
   "t": "Ouverture des Portes du Mont-Blanc",
   "x": "Le domaine de Combloux, Megève-Jaillet et La Giettaz, face au Mont-Blanc. Selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee"
+  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee",
+  "t_en": "Portes du Mont-Blanc opening",
+  "x_en": "The Combloux, Megève-Jaillet and La Giettaz ski area, facing Mont Blanc. Depending on snow."
  },
  {
   "d": "2026-12-19",
@@ -597,7 +649,9 @@
   "cat": "Ski",
   "t": "Ouverture de l'Espace Diamant",
   "x": "Le grand domaine relié de Praz-sur-Arly, Flumet, Notre-Dame-de-Bellecombe, Crest-Voland et Les Saisies, face au Mont-Blanc. Selon l'enneigement.",
-  "u": "https://en.lessaisies.com/once-on-site/les-saisies-in-winter-en/ski-and-activities/alpine-skiing-snowboarding/"
+  "u": "https://en.lessaisies.com/once-on-site/les-saisies-in-winter-en/ski-and-activities/alpine-skiing-snowboarding/",
+  "t_en": "Espace Diamant opening",
+  "x_en": "The large linked ski area of Praz-sur-Arly, Flumet, Notre-Dame-de-Bellecombe, Crest-Voland and Les Saisies, facing Mont Blanc. Depending on snow."
  },
  {
   "d": "2026-12-19",
@@ -607,7 +661,9 @@
   "t": "La Vie d'Artiste, atelier-galerie",
   "x": "Sculptures et peintures à découvrir dans l'atelier de l'artiste, allée des Planes, sur rendez-vous.",
   "u": "https://www.megeve-tourisme.fr/en/agenda/la-vie-dartiste/",
-  "always": true
+  "always": true,
+  "t_en": "La Vie d'Artiste studio-gallery",
+  "x_en": "Sculptures and paintings to discover in the artist's studio, allée des Planes, by appointment."
  },
  {
   "d": "2026-12-19",
@@ -616,7 +672,9 @@
   "cat": "Culture",
   "t": "Dédicace avec Marilyn Vitry",
   "x": "Séance de dédicaces à la médiathèque.",
-  "u": "https://haute-savoie.planetekiosque.com/167-2348024-5-rencontre-dedicaces-avec-marilyn-vitry.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-2348024-5-rencontre-dedicaces-avec-marilyn-vitry.html",
+  "t_en": "Book signing with Marilyn Vitry",
+  "x_en": "Book signing at the library."
  },
  {
   "d": "2026-12-20",
@@ -625,7 +683,9 @@
   "cat": "Expo",
   "t": "Expo « Lumières d'alpages : un automne et un hiver »",
   "x": "Les photos de Caroline Gallien-Lavorel sur la vie des alpages en automne et en hiver, exposées dans la salle hors-sac de l'alpage de Beauregard (1 433 m), sur les pistes.",
-  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html"
+  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html",
+  "t_en": "Exhibition “Alpine light: an autumn and a winter”",
+  "x_en": "Caroline Gallien-Lavorel's photos of life in the alpine pastures in autumn and winter, shown in the picnic room of the Beauregard alpine farm (1,433 m), on the slopes."
  },
  {
   "d": "2026-12-20",
@@ -634,7 +694,9 @@
   "cat": "Fête",
   "t": "Pot d'accueil en musique",
   "x": "Boisson offerte et présentation du programme de la semaine par l'Office de Tourisme.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/",
+  "t_en": "Welcome drinks with music",
+  "x_en": "Free drink and presentation of the week's programme by the tourist office."
  },
  {
   "d": "2026-12-20",
@@ -643,7 +705,9 @@
   "cat": "Famille",
   "t": "Spectacle de Guignol",
   "x": "Marionnettes et éclats de rire en famille, à l'Office de tourisme. Aussi le 14 février.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/spectacle-de-guignol-combloux-fr-5869906/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/spectacle-de-guignol-combloux-fr-5869906/",
+  "t_en": "Guignol puppet show",
+  "x_en": "Puppets and laughter for the whole family, at the tourist office. Also on 14 February."
  },
  {
   "d": "2026-12-20",
@@ -653,7 +717,9 @@
   "cat": "Fête",
   "t": "Pot d'accueil (dimanches)",
   "x": "Chaque dimanche place de l'église : présentation de la semaine et rencontre avec les prestataires autour d'un verre.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver",
+  "t_en": "Welcome drinks (Sundays)",
+  "x_en": "Every Sunday on the church square: the week ahead and a chance to meet local providers over a drink."
  },
  {
   "d": "2026-12-20",
@@ -663,7 +729,9 @@
   "t": "Marché des producteurs locaux",
   "x": "Producteurs locaux le dimanche matin place du Village : les 20 et 27 décembre et le 3 janvier.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux",
-  "h": "9h30–13h"
+  "h": "9h30–13h",
+  "t_en": "Local producers' market",
+  "x_en": "Local producers on Sunday mornings on Place du Village: 20 and 27 December and 3 January."
  },
  {
   "d": "2026-12-21",
@@ -672,7 +740,9 @@
   "cat": "Famille",
   "t": "Escape game de l'Office de Tourisme",
   "x": "Nouvelle aventure d'une heure jusqu'à 5 joueurs, dès 12 ans (7 ans accompagné). 30 € par groupe, sur réservation.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/escape-game-une-nouvelle-aventure-se-prepare/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/escape-game-une-nouvelle-aventure-se-prepare/",
+  "t_en": "Tourist office escape game",
+  "x_en": "A new one-hour adventure for up to 5 players, age 12+ (7+ with an adult). €30 per group, booking required."
  },
  {
   "d": "2026-12-21",
@@ -681,7 +751,9 @@
   "cat": "Noël",
   "t": "Le lutin farceur",
   "x": "Chaque jour, trouvez le lutin caché dans une vitrine du village ; un gagnant est tiré au sort à l'office de tourisme.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/lutin-farceur"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/lutin-farceur",
+  "t_en": "The prankster elf",
+  "x_en": "Every day, find the elf hidden in a shop window in the village; a winner is drawn at the tourist office."
  },
  {
   "d": "2026-12-21",
@@ -690,7 +762,9 @@
   "cat": "Famille",
   "t": "Bienvenue avec Tilou et le Père Noël",
   "x": "Accueil sur les pistes puis pot de bienvenue sur le front de neige de La Cry. Les enfants remettent leur lettre au Père Noël.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/pot-de-bienvenue-sur-le-front-de-neige-avec-le-pere-noel-combloux-fr-6895183/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/pot-de-bienvenue-sur-le-front-de-neige-avec-le-pere-noel-combloux-fr-6895183/",
+  "t_en": "Welcome with Tilou and Father Christmas",
+  "x_en": "A welcome on the slopes, then welcome drinks at the bottom of La Cry. Children hand their letters to Father Christmas."
  },
  {
   "d": "2026-12-21",
@@ -700,7 +774,9 @@
   "t": "Le Village de Noël",
   "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25). Fermé le 25 décembre ; bureau du Père Noël du 21 au 24.",
   "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/",
-  "h": "10h–12h, 15h30–18h30"
+  "h": "10h–12h, 15h30–18h30",
+  "t_en": "Christmas Village",
+  "x_en": "Elf workshops for children on the ice-rink esplanade, 10am–12pm and 3:30–6:30pm (closed on the 25th). Father Christmas's office from the 21st to the 24th."
  },
  {
   "d": "2026-12-21",
@@ -709,7 +785,9 @@
   "cat": "Famille",
   "t": "Atelier sculpture sur glace",
   "x": "Chaque famille réalise sa sculpture sur glace, place de l'église. Gratuit, inscription le jour même avant midi.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace",
+  "t_en": "Ice-sculpture workshop",
+  "x_en": "Each family makes its own ice sculpture, on the church square. Free, sign up on the day before noon."
  },
  {
   "d": "2026-12-21",
@@ -718,7 +796,9 @@
   "cat": "Spectacle",
   "t": "Show sculpture sur glace",
   "x": "Le sculpteur Nicolas Gombert taille la glace à la tronçonneuse en direct, place de l'église. Gratuit.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace",
+  "t_en": "Ice-sculpture show",
+  "x_en": "Sculptor Nicolas Gombert carves ice live with a chainsaw on the church square. Free."
  },
  {
   "d": "2026-12-21",
@@ -727,7 +807,9 @@
   "cat": "Spectacle",
   "t": "« Parent malgré lui », ventriloquie",
   "x": "Thomas Dillinger et sa marionnette-bébé Philippe dans un spectacle familial à l'Office de Tourisme. Au chapeau.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/",
+  "t_en": "“Parent malgré lui”, ventriloquism",
+  "x_en": "Thomas Dillinger and his baby puppet Philippe in a family show at the tourist office. Pay what you like."
  },
  {
   "d": "2026-12-21",
@@ -736,7 +818,9 @@
   "cat": "Ski",
   "t": "Petit déj sur les pistes",
   "x": "Boissons chaudes et viennoiseries offertes sur le front de neige, au parking des Varins.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes",
+  "t_en": "Breakfast on the slopes",
+  "x_en": "Free hot drinks and pastries at the bottom of the slopes, at the Varins car park."
  },
  {
   "d": "2026-12-22",
@@ -745,7 +829,9 @@
   "cat": "Famille",
   "t": "Mini Pelle Challenge",
   "x": "Les 3-10 ans pilotent des mini-pelles électriques pour déplacer une cargaison. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mini-pelle-challenge/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mini-pelle-challenge/",
+  "t_en": "Mini Digger Challenge",
+  "x_en": "3 to 10-year-olds drive electric mini-diggers to move a load. Free."
  },
  {
   "d": "2026-12-22",
@@ -755,7 +841,9 @@
   "cat": "Noël",
   "t": "Balade en calèche avec le Père Noël",
   "x": "Petit tour du village en calèche avec le Père Noël, au départ de l'Office de Tourisme (aussi les 23 et 24 de 10h à 12h). 5 €, sur réservation.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1414016-5-balade-caleche-avec-pere-noel.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1414016-5-balade-caleche-avec-pere-noel.html",
+  "t_en": "Carriage ride with Father Christmas",
+  "x_en": "A short carriage tour of the village with Father Christmas, from the tourist office (also on the 23rd and 24th, 10am–12pm). €5, booking required."
  },
  {
   "d": "2026-12-22",
@@ -764,7 +852,9 @@
   "cat": "Noël",
   "t": "Micro-Folie « Noël, histoire et traditions »",
   "x": "Projection commentée sur l'histoire de Noël de l'Antiquité à nos jours, suivie d'un quiz. Gratuit, dès 7 ans.",
-  "u": "https://www.haute-savoie-tourisme.org/7741014-micro-folie-noel-histoire-et-traditions"
+  "u": "https://www.haute-savoie-tourisme.org/7741014-micro-folie-noel-histoire-et-traditions",
+  "t_en": "Micro-Folie “Christmas, history and traditions”",
+  "x_en": "A guided screening on the history of Christmas from Antiquity to today, followed by a quiz. Free, age 7+."
  },
  {
   "d": "2026-12-22",
@@ -774,7 +864,9 @@
   "t": "Visite du village aux lanternes",
   "x": "Une balade guidée à la lueur des lanternes dans les ruelles de Praz, en fin de journée. Inscription à l'office de tourisme.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/visite-guidee-de-praz-sur-arly-aux-lanternes",
-  "h": "17h30"
+  "h": "17h30",
+  "t_en": "Lantern-lit village tour",
+  "x_en": "A guided walk by lantern light through the lanes of Praz, at the end of the day. Sign up at the tourist office."
  },
  {
   "d": "2026-12-22",
@@ -783,7 +875,9 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Lyon",
   "x": "Match de Division 1 à la patinoire du Palais.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/",
+  "t_en": "Ice hockey: Mont-Blanc vs Lyon",
+  "x_en": "Division 1 match at the Palais ice rink."
  },
  {
   "d": "2026-12-23",
@@ -793,7 +887,9 @@
   "h": "11h",
   "t": "La causerie du ski",
   "x": "Théâtre de rue gratuit sur le parvis de l'office de tourisme. Reprise du 10 février au 3 mars 2027.",
-  "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski"
+  "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski",
+  "t_en": "La causerie du ski (street theatre)",
+  "x_en": "Free street theatre outside the tourist office. Back from 10 February to 3 March 2027."
  },
  {
   "d": "2026-12-23",
@@ -802,7 +898,9 @@
   "cat": "Noël",
   "t": "Heure du conte spéciale Noël",
   "x": "Une séance de contes de Noël à la médiathèque, gratuite.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Christmas story time",
+  "x_en": "A Christmas story session at the library, free."
  },
  {
   "d": "2026-12-23",
@@ -811,7 +909,9 @@
   "cat": "Famille",
   "t": "Atelier « Laisse ta trace ! »",
   "x": "Reconnaître les empreintes de la faune de montagne et repartir avec son moulage. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laisse-ta-trace/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laisse-ta-trace/",
+  "t_en": "Workshop “Leave your mark!”",
+  "x_en": "Learn to recognise mountain animal tracks and take home your own cast. Free."
  },
  {
   "d": "2026-12-23",
@@ -820,7 +920,9 @@
   "cat": "Ski",
   "t": "Soirée ESF : luge, flambeaux et feu d'artifice",
   "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/",
+  "t_en": "ESF evening: sledging, torchlight and fireworks",
+  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free."
  },
  {
   "d": "2026-12-23",
@@ -829,7 +931,9 @@
   "cat": "Concert",
   "t": "Concert de Noël « Just for Winter »",
   "x": "Le duo vocal Just for Winter chante Noël et le gospel place de l'église. Entrée libre.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/concert-de-noel"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/concert-de-noel",
+  "t_en": "Christmas concert “Just for Winter”",
+  "x_en": "The vocal duo Just for Winter sings Christmas songs and gospel on the church square. Free entry."
  },
  {
   "d": "2026-12-23",
@@ -839,7 +943,9 @@
   "t": "Footing givré",
   "x": "Footing encadré d'environ 6 km, inscription à l'office de tourisme la veille.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre",
-  "h": "9h"
+  "h": "9h",
+  "t_en": "Frosty run",
+  "x_en": "A guided run of about 6 km; sign up at the tourist office the day before."
  },
  {
   "d": "2026-12-24",
@@ -849,7 +955,9 @@
   "t": "La chasse au reblochon",
   "x": "Un jeu de piste familial dans le village, sur le thème du célèbre fromage savoyard.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/chasse-au-reblochon-1",
-  "h": "10h30"
+  "h": "10h30",
+  "t_en": "The reblochon hunt",
+  "x_en": "A family treasure trail through the village, all about the famous Savoyard cheese."
  },
  {
   "d": "2026-12-24",
@@ -858,7 +966,9 @@
   "cat": "Famille",
   "t": "Le Maître des Jeux",
   "x": "Arphé fait découvrir des jeux anciens du monde entier à l'Office de Tourisme. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/7417259-le-maitre-des-jeux"
+  "u": "https://www.haute-savoie-tourisme.org/7417259-le-maitre-des-jeux",
+  "t_en": "The Games Master",
+  "x_en": "Arphé introduces traditional games from around the world at the tourist office. Free."
  },
  {
   "d": "2026-12-24",
@@ -867,7 +977,9 @@
   "cat": "Concert",
   "t": "Concert de Noël : Journeyman",
   "x": "Pop, soul et indie en live, guitare et looper, à l'Office de Tourisme. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-noel-avec-journeyman/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-noel-avec-journeyman/",
+  "t_en": "Christmas concert: Journeyman",
+  "x_en": "Live pop, soul and indie with guitar and looper, at the tourist office. Free."
  },
  {
   "d": "2026-12-24",
@@ -876,7 +988,9 @@
   "h": "15h30",
   "t": "Rencontre avec le Père Noël",
   "x": "Gratuit, au 2ᵉ étage de l'office de tourisme.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/meeting-santa-claus-combloux-en-6121761/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/meeting-santa-claus-combloux-en-6121761/",
+  "t_en": "Meet Father Christmas",
+  "x_en": "Free, on the 2nd floor of the tourist office."
  },
  {
   "d": "2026-12-24",
@@ -885,7 +999,9 @@
   "cat": "Noël",
   "t": "Contes de Noël avec Arphé et le Père Noël",
   "x": "Une demi-heure d'histoires de Noël en présence du Père Noël. Accès libre.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/contes-de-noel-avec-arphe-et-le-pere-noel/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/contes-de-noel-avec-arphe-et-le-pere-noel/",
+  "t_en": "Christmas tales with Arphé and Father Christmas",
+  "x_en": "Half an hour of Christmas stories with Father Christmas. Free entry."
  },
  {
   "d": "2026-12-24",
@@ -894,7 +1010,9 @@
   "cat": "Fête",
   "t": "La Parade du Père Noël",
   "x": "Le Père Noël traverse le village en calèche avec les Satin Doll Sisters. Départ place du Village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-parade-du-pere-noel-megeve-fr-5953423/",
+  "t_en": "Father Christmas Parade",
+  "x_en": "Father Christmas rides through the village in a carriage with the Satin Doll Sisters. Starts from Place du Village."
  },
  {
   "d": "2026-12-24",
@@ -904,7 +1022,9 @@
   "cat": "Ski",
   "t": "Pisteur d'un jour (jeudis)",
   "x": "Le jeudi matin, tour du domaine avec les pisteurs avant l'ouverture. Gratuit, dès la 3e étoile, inscription la veille.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pisteur-d-un-jour"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pisteur-d-un-jour",
+  "t_en": "Ski patroller for a day (Thursdays)",
+  "x_en": "On Thursday mornings, tour the ski area with the ski patrol before opening. Free, from 3rd-star level, sign up the day before."
  },
  {
   "d": "2026-12-25",
@@ -913,7 +1033,9 @@
   "cat": "Noël",
   "t": "Parade de Polo le Lutin",
   "x": "Défilé de Noël dans le village avec échasses, jonglage et équilibrisme. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parade-de-polo-le-lutin/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parade-de-polo-le-lutin/",
+  "t_en": "Polo the Elf Parade",
+  "x_en": "A Christmas parade through the village with stilts, juggling and balancing acts. Free."
  },
  {
   "d": "2026-12-27",
@@ -923,7 +1045,9 @@
   "cat": "Famille",
   "t": "Structures gonflables des vacances",
   "x": "Châteaux gonflables pour tous les âges au gymnase du Palais : 10 € par enfant, sans limite de temps.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1998597-5-les-structures-gonflables-des-vacances.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1998597-5-les-structures-gonflables-des-vacances.html",
+  "t_en": "Holiday bouncy castles",
+  "x_en": "Bouncy castles for all ages at the Palais gym: €10 per child, no time limit."
  },
  {
   "d": "2026-12-27",
@@ -932,7 +1056,9 @@
   "cat": "Spectacle",
   "t": "Magic Parade, spectacle de magie",
   "x": "Sans réservation. Deuxième date le 7 février.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie",
+  "t_en": "Magic Parade, magic show",
+  "x_en": "No booking needed. Second date on 7 February."
  },
  {
   "d": "2026-12-27",
@@ -941,7 +1067,9 @@
   "cat": "Fête",
   "t": "Pot d'accueil en musique",
   "x": "Boisson offerte et présentation du programme de la semaine par l'Office de Tourisme.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/",
+  "t_en": "Welcome drinks with music",
+  "x_en": "Free drink and presentation of the week's programme by the tourist office."
  },
  {
   "d": "2026-12-27",
@@ -950,7 +1078,9 @@
   "cat": "Spectacle",
   "t": "Spectacle de Guignol",
   "x": "Les marionnettes de Guignol pour les familles à l'Office de Tourisme.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/",
+  "t_en": "Guignol puppet show",
+  "x_en": "Guignol puppets for families at the tourist office."
  },
  {
   "d": "2026-12-28",
@@ -960,7 +1090,9 @@
   "cat": "Ski",
   "t": "Bienvenue sur les pistes avec Tilou (lundis)",
   "x": "Chaque lundi, Tilou va à la rencontre des skieurs puis un pot est offert sur le front de neige de La Cry à 11h. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-de-bienvenue-sur-le-front-de-neige/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-de-bienvenue-sur-le-front-de-neige/",
+  "t_en": "Welcome to the slopes with Tilou (Mondays)",
+  "x_en": "Every Monday, Tilou meets the skiers, then drinks are offered at the bottom of La Cry at 11am. Free."
  },
  {
   "d": "2026-12-28",
@@ -969,7 +1101,9 @@
   "cat": "Famille",
   "t": "Atelier sculpture sur glace",
   "x": "Chaque famille réalise sa sculpture sur glace, place de l'église. Gratuit, inscription le jour même avant midi.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/atelier-sculpture-sur-glace",
+  "t_en": "Ice-sculpture workshop",
+  "x_en": "Each family makes its own ice sculpture, on the church square. Free, sign up on the day before noon."
  },
  {
   "d": "2026-12-28",
@@ -978,7 +1112,9 @@
   "cat": "Spectacle",
   "t": "Show sculpture sur glace",
   "x": "Le sculpteur Nicolas Gombert taille la glace à la tronçonneuse en direct, place de l'église. Gratuit.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace",
+  "t_en": "Ice-sculpture show",
+  "x_en": "Sculptor Nicolas Gombert carves ice live with a chainsaw on the church square. Free."
  },
  {
   "d": "2026-12-28",
@@ -987,7 +1123,9 @@
   "cat": "Spectacle",
   "t": "« Parent malgré lui », ventriloquie",
   "x": "Thomas Dillinger et sa marionnette-bébé Philippe dans un spectacle familial à l'Office de Tourisme. Au chapeau.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/",
+  "t_en": "“Parent malgré lui”, ventriloquism",
+  "x_en": "Thomas Dillinger and his baby puppet Philippe in a family show at the tourist office. Pay what you like."
  },
  {
   "d": "2026-12-28",
@@ -996,7 +1134,9 @@
   "cat": "Ski",
   "t": "Petit déj sur les pistes",
   "x": "Boissons chaudes et viennoiseries offertes sur le front de neige, au parking des Varins.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/petit-dej-sur-les-pistes",
+  "t_en": "Breakfast on the slopes",
+  "x_en": "Free hot drinks and pastries at the bottom of the slopes, at the Varins car park."
  },
  {
   "d": "2026-12-29",
@@ -1005,7 +1145,9 @@
   "cat": "Famille",
   "t": "Atelier bois : chalet",
   "x": "Assembler et décorer son petit chalet en bois. Gratuit, accès libre.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-chalet/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-chalet/",
+  "t_en": "Woodwork workshop: chalet",
+  "x_en": "Build and decorate your own little wooden chalet. Free, drop in."
  },
  {
   "d": "2026-12-29",
@@ -1014,7 +1156,9 @@
   "cat": "Famille",
   "t": "Après-midi jeux de société",
   "x": "Jeux de société en accès libre à la mezzanine de la médiathèque.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/"
+  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/",
+  "t_en": "Board games afternoon",
+  "x_en": "Free board games on the library mezzanine."
  },
  {
   "d": "2026-12-29",
@@ -1023,7 +1167,9 @@
   "cat": "Spectacle",
   "t": "« Le sortilège d'Arcano Lumina »",
   "x": "Spectacle familial et interactif mêlant humour et magie, salle de la Montagne. Gratuit.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/spectacle-le-sortilege-d-arcano-lumina"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/spectacle-le-sortilege-d-arcano-lumina",
+  "t_en": "“The spell of Arcano Lumina”",
+  "x_en": "An interactive family show mixing comedy and magic, salle de la Montagne. Free."
  },
  {
   "d": "2026-12-29",
@@ -1032,7 +1178,9 @@
   "cat": "Sport",
   "t": "Match de gala : Mont-Blanc contre Saint-Gervais",
   "x": "Les Yétis du Mont-Blanc face aux Aigles de Saint-Gervais. Gratuit pour les moins de 18 ans.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/7641933-match-de-gala-hockey-sur-glace"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/7641933-match-de-gala-hockey-sur-glace",
+  "t_en": "Gala match: Mont-Blanc vs Saint-Gervais",
+  "x_en": "The Mont-Blanc Yetis take on the Saint-Gervais Eagles. Free for under-18s."
  },
  {
   "d": "2026-12-30",
@@ -1041,7 +1189,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2026-12-30",
@@ -1050,7 +1200,9 @@
   "cat": "Culture",
   "t": "Dédicace BD « Les mystères de Megève »",
   "x": "David Rossoni et Carine Racine dédicacent « L'écharpe du pacha », une BD entre fiction et histoire locale.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1443730-5-rencontre-dedicaces-avec-carine-racine-david-rossoni.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1443730-5-rencontre-dedicaces-avec-carine-racine-david-rossoni.html",
+  "t_en": "Comic book signing “Les mystères de Megève”",
+  "x_en": "David Rossoni and Carine Racine sign “L'écharpe du pacha”, a comic mixing fiction and local history."
  },
  {
   "d": "2026-12-30",
@@ -1059,7 +1211,9 @@
   "cat": "Ski",
   "t": "Soirée ESF : luge, flambeaux et feu d'artifice",
   "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/",
+  "t_en": "ESF evening: sledging, torchlight and fireworks",
+  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free."
  },
  {
   "d": "2026-12-30",
@@ -1069,7 +1223,9 @@
   "cat": "Marché",
   "t": "Marché de Praz (mercredis)",
   "x": "Chaque mercredi matin place de l'église : charcuteries, fromages, miel et produits locaux.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/weekly-market-praz-sur-arly-en-5867854/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/weekly-market-praz-sur-arly-en-5867854/",
+  "t_en": "Praz market (Wednesdays)",
+  "x_en": "Every Wednesday morning on the church square: cured meats, cheese, honey and local produce."
  },
  {
   "d": "2026-12-31",
@@ -1078,7 +1234,9 @@
   "t": "Night Glow Show du Nouvel An",
   "x": "Les montgolfières de Praz s'illuminent à la tombée de la nuit au cœur du village. Selon la météo.",
   "u": "https://prazsurarly.labellemontagne.com/fr/evenements/",
-  "h": "18h"
+  "h": "18h",
+  "t_en": "New Year Night Glow Show",
+  "x_en": "The Praz hot-air balloons light up at nightfall in the heart of the village. Weather permitting."
  },
  {
   "d": "2026-12-31",
@@ -1087,7 +1245,9 @@
   "cat": "Fête",
   "t": "Nouvel An et descente aux flambeaux",
   "x": "Place du Village : DJ et vin chaud dès 18h, arrivée des descentes aux flambeaux des écoles de ski, puis DJ et saxophone jusqu'à 1h. Accès libre.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1431792-5-soiree-nouvel.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1431792-5-soiree-nouvel.html",
+  "t_en": "New Year's Eve and torchlight descent",
+  "x_en": "Place du Village: DJ and mulled wine from 6pm, the ski schools' torchlight descents, then DJ and saxophone until 1am. Free."
  },
  {
   "d": "2026-12-31",
@@ -1096,7 +1256,9 @@
   "cat": "Concert",
   "t": "Concert de Tof Mercier",
   "x": "L'auteur-compositeur originaire de Combloux en live avant le réveillon, à l'Office de Tourisme. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-tof-mercier/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/concert-de-tof-mercier/",
+  "t_en": "Tof Mercier concert",
+  "x_en": "The Combloux-born singer-songwriter plays live before New Year's Eve, at the tourist office. Free."
  },
  {
   "d": "2026-12-31",
@@ -1105,7 +1267,9 @@
   "cat": "Fête",
   "t": "Nouvel An Party",
   "x": "Réveillon en plein air place de l'église avec DJ et buvette.",
-  "u": "https://prazsurarly.labellemontagne.com/fr/evenements/"
+  "u": "https://prazsurarly.labellemontagne.com/fr/evenements/",
+  "t_en": "New Year Party",
+  "x_en": "Open-air New Year's Eve party on the church square with DJ and bar."
  },
  {
   "d": "2027-01-05",
@@ -1115,7 +1279,9 @@
   "cat": "Culture",
   "t": "Aide au Clic (mardis)",
   "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
+  "t_en": "Aide au Clic: digital help (Tuesdays)",
+  "x_en": "Free one-to-one help with computers and phones every Tuesday at the library, booking required."
  },
  {
   "d": "2027-01-08",
@@ -1124,7 +1290,9 @@
   "cat": "Sport",
   "t": "Coupe du monde de nage hivernale",
   "x": "Près de 300 nageurs internationaux dans l'eau glacée du plan d'eau biotope.",
-  "u": "https://www.combloux.com/mon-agenda/temps-forts/winter-swimming-world-cup-france/"
+  "u": "https://www.combloux.com/mon-agenda/temps-forts/winter-swimming-world-cup-france/",
+  "t_en": "Winter Swimming World Cup",
+  "x_en": "Nearly 300 international swimmers in the icy water of the biotope lake."
  },
  {
   "d": "2027-01-08",
@@ -1133,7 +1301,9 @@
   "cat": "Culture",
   "t": "Micro-Folie : musées de Paris et de Nouvelle-Aquitaine",
   "x": "Découverte d'œuvres des musées sur grand écran à l'auditorium du Palais. Gratuit, dès 7 ans.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1462947-5-micro-folie-collections-quot-paris-quot-quot-nouvelle-aquitaine-quot.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1462947-5-micro-folie-collections-quot-paris-quot-quot-nouvelle-aquitaine-quot.html",
+  "t_en": "Micro-Folie: museums of Paris and Nouvelle-Aquitaine",
+  "x_en": "Discover museum masterpieces on the big screen at the Palais auditorium. Free, age 7+."
  },
  {
   "d": "2027-01-08",
@@ -1142,7 +1312,9 @@
   "cat": "Sport",
   "t": "La Crève-Cœur",
   "x": "Course nocturne de ski de randonnée : 5,8 km et 730 m D+ jusqu'au sommet du Jouty (version courte de 3,9 km).",
-  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/"
+  "u": "https://www.combloux.com/mon-agenda/temps-forts/la-creve-coeur/",
+  "t_en": "La Crève-Cœur",
+  "x_en": "Night ski-touring race: 5.8 km and 730 m of climbing to the top of the Jouty (short version 3.9 km)."
  },
  {
   "d": "2027-01-09",
@@ -1151,7 +1323,9 @@
   "cat": "Fête",
   "t": "36ᵉ Montgolfiades internationales",
   "x": "Une trentaine de montgolfières s'envolent au-dessus des sommets enneigés, avec baptêmes de l'air et animations. Programme en cours de finalisation.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/36eme-montgolfiades-internationales"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/36eme-montgolfiades-internationales",
+  "t_en": "36th International Montgolfiades",
+  "x_en": "Around thirty hot-air balloons take off above the snowy peaks, with first flights and activities. Programme being finalised."
  },
  {
   "d": "2027-01-09",
@@ -1160,7 +1334,9 @@
   "cat": "Famille",
   "t": "Heure du conte bébés lecteurs",
   "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
+  "t_en": "Story time for babies",
+  "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
  },
  {
   "d": "2027-01-09",
@@ -1169,7 +1345,9 @@
   "cat": "Ski",
   "t": "La Bûcheronne, Grand Prix de ski de fond",
   "x": "Course de ski de fond en style libre des U13 aux seniors, puis relais déguisés des plus jeunes l'après-midi.",
-  "u": "https://csmegeve.com/evenements/bucheronne2027/"
+  "u": "https://csmegeve.com/evenements/bucheronne2027/",
+  "t_en": "La Bûcheronne cross-country Grand Prix",
+  "x_en": "Freestyle cross-country ski race from U13 to seniors, then fancy-dress relays for the youngest in the afternoon."
  },
  {
   "d": "2027-01-12",
@@ -1178,7 +1356,9 @@
   "t": "Hockey : Mont-Blanc contre Nantes",
   "x": "Match de Division 1 à la patinoire de Megève.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30"
+  "h": "19h30",
+  "t_en": "Ice hockey: Mont-Blanc vs Nantes",
+  "x_en": "Division 1 match at the Megève ice rink."
  },
  {
   "d": "2027-01-13",
@@ -1187,7 +1367,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2027-01-15",
@@ -1196,7 +1378,9 @@
   "cat": "Culture",
   "t": "Projection « Les Instants doc »",
   "x": "Séance de film documentaire au Palais.",
-  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html",
+  "t_en": "“Les Instants doc” screening",
+  "x_en": "Documentary film screening at the Palais."
  },
  {
   "d": "2027-01-17",
@@ -1205,7 +1389,9 @@
   "cat": "Famille",
   "t": "Jardin de la glisse",
   "x": "Découverte du patinage pour les moins de 10 ans accompagnés, à la patinoire du Palais. 6 €.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse",
+  "t_en": "Jardin de la glisse (kids' skating)",
+  "x_en": "An introduction to skating for under-10s with an adult, at the Palais ice rink. €6."
  },
  {
   "d": "2027-01-19",
@@ -1214,7 +1400,9 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Chambéry",
   "x": "Match de Division 1 à la patinoire du Palais.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/matchs-de-hockey-les-yetis-mont-blanc-a-megeve-saint-gervais-les-bains-fr-6823047/",
+  "t_en": "Ice hockey: Mont-Blanc vs Chambéry",
+  "x_en": "Division 1 match at the Palais ice rink."
  },
  {
   "d": "2027-01-23",
@@ -1223,7 +1411,9 @@
   "cat": "Sport",
   "t": "Coupe d'Europe de ski de bosses",
   "x": "Les meilleurs bosseurs européens sur les pistes de Megève.",
-  "u": "https://www.leslogesblanches-megeve.com/agenda-evenements-megeve/"
+  "u": "https://www.leslogesblanches-megeve.com/agenda-evenements-megeve/",
+  "t_en": "Moguls European Cup",
+  "x_en": "Europe's best mogul skiers on the Megève slopes."
  },
  {
   "d": "2027-01-23",
@@ -1232,7 +1422,9 @@
   "cat": "Spectacle",
   "t": "Jérôme Commandeur",
   "x": "« Jérôme Commandeur tente des trucs », au Palais. Complet. Annoncé complet.",
-  "u": "https://spectacles-megeve.fr/programmation/"
+  "u": "https://spectacles-megeve.fr/programmation/",
+  "t_en": "Jérôme Commandeur",
+  "x_en": "“Jérôme Commandeur tente des trucs” (comedy, in French), at the Palais. Sold out."
  },
  {
   "d": "2027-01-27",
@@ -1241,7 +1433,9 @@
   "cat": "Famille",
   "t": "Micro-Folie « Les masques » + atelier",
   "x": "Sélection d'œuvres sur le thème des masques, suivie d'un atelier créatif « Mascarade ».",
-  "u": "https://haute-savoie.planetekiosque.com/167-1903245-5-micro-folie-playlist-quot-les-masques-quot-suivi-atelier-quot-mascarade-quot.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1903245-5-micro-folie-playlist-quot-les-masques-quot-suivi-atelier-quot-mascarade-quot.html",
+  "t_en": "Micro-Folie “Masks” + workshop",
+  "x_en": "A selection of artworks on the theme of masks, followed by a “Mascarade” craft workshop."
  },
  {
   "d": "2027-01-27",
@@ -1250,7 +1444,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2027-01-30",
@@ -1258,7 +1454,9 @@
   "cat": "Sport",
   "t": "L'Edelweiss",
   "x": "Course de ski de randonnée nocturne sur le domaine Évasion Mont-Blanc, départ du stade de la Côte 2000.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/nl/aanbiedingen/edelweiss-domaine-evasion-mont-blanc-megeve-nl-5953347/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/nl/aanbiedingen/edelweiss-domaine-evasion-mont-blanc-megeve-nl-5953347/",
+  "t_en": "L'Edelweiss",
+  "x_en": "Night ski-touring race on the Évasion Mont-Blanc ski area, starting from the Côte 2000 stadium."
  },
  {
   "d": "2027-01-31",
@@ -1267,7 +1465,9 @@
   "t": "La Dragonale Givrée",
   "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
   "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/white-trail-la-dragonale-givree",
-  "h": "7h30"
+  "h": "7h30",
+  "t_en": "La Dragonale Givrée",
+  "x_en": "Praz-sur-Arly's snow trail race, on snowy courses around the village."
  },
  {
   "d": "2027-02-06",
@@ -1276,7 +1476,9 @@
   "cat": "Famille",
   "t": "Heure du conte bébés lecteurs",
   "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
+  "t_en": "Story time for babies",
+  "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
  },
  {
   "d": "2027-02-06",
@@ -1286,7 +1488,9 @@
   "cat": "Spectacle",
   "t": "« Parent malgré lui », ventriloquie",
   "x": "Le spectacle de ventriloquie revient pendant les vacances d'hiver (6, 8, 15, 22, 27 février et 1er mars). Au chapeau.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/parent-malgre-lui-spectacle-de-thomas-dillinger/",
+  "t_en": "“Parent malgré lui”, ventriloquism",
+  "x_en": "The ventriloquism show is back for the winter holidays (6, 8, 15, 22, 27 February and 1 March). Pay what you like."
  },
  {
   "d": "2027-02-07",
@@ -1295,7 +1499,9 @@
   "h": "17h",
   "t": "Magic Parade, spectacle de magie",
   "x": "Magie, illusion et jonglage pour toute la famille.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie",
+  "t_en": "Magic Parade, magic show",
+  "x_en": "Magic, illusion and juggling for the whole family."
  },
  {
   "d": "2027-02-07",
@@ -1305,7 +1511,9 @@
   "cat": "Fête",
   "t": "Pots d'accueil en musique (dimanches)",
   "x": "Chaque dimanche des vacances d'hiver, boisson offerte et programme de la semaine à l'Office de Tourisme.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/pot-daccueil-et-ambiance-musicale/",
+  "t_en": "Welcome drinks with music (Sundays)",
+  "x_en": "Every Sunday of the winter holidays, a free drink and the week's programme at the tourist office."
  },
  {
   "d": "2027-02-07",
@@ -1315,7 +1523,9 @@
   "cat": "Spectacle",
   "t": "Spectacle de Guignol (dimanches)",
   "x": "Guignol revient chaque dimanche des vacances d'hiver à l'Office de Tourisme, jusqu'au 14 mars.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/spectacle-de-guignol/",
+  "t_en": "Guignol puppet show (Sundays)",
+  "x_en": "Guignol is back every Sunday of the winter holidays at the tourist office, until 14 March."
  },
  {
   "d": "2027-02-09",
@@ -1325,7 +1535,9 @@
   "cat": "Famille",
   "t": "Soirées luge à Rochebrune (mardis)",
   "x": "Luge gratuite au Petit Rochebrune avec musique et tombola, les mardis des vacances d'hiver.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/282224-soiree-luge-rochebrune"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/282224-soiree-luge-rochebrune",
+  "t_en": "Sledging evenings at Rochebrune (Tuesdays)",
+  "x_en": "Free sledging at Petit Rochebrune with music and a raffle, on Tuesdays during the winter holidays."
  },
  {
   "d": "2027-02-10",
@@ -1335,7 +1547,9 @@
   "cat": "Famille",
   "t": "Heure du conte (mercredis)",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit. Chaque mercredi des vacances d'hiver.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time (Wednesdays)",
+  "x_en": "Stories for children in the library's children's area. Free. Every Wednesday of the winter holidays."
  },
  {
   "d": "2027-02-10",
@@ -1345,7 +1559,9 @@
   "cat": "Culture",
   "t": "La causerie du ski",
   "x": "Le comédien Sylvain raconte avec humour l'histoire du ski à Combloux, place du marché, chaque mercredi des vacances. Gratuit.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-causerie-du-ski-combloux-fr-6121796/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/la-causerie-du-ski-combloux-fr-6121796/",
+  "t_en": "La causerie du ski (street theatre)",
+  "x_en": "Actor Sylvain tells the story of skiing in Combloux with humour, on the market square, every Wednesday of the holidays. Free."
  },
  {
   "d": "2027-02-10",
@@ -1354,7 +1570,9 @@
   "cat": "Famille",
   "t": "Atelier « Éventail à empreintes »",
   "x": "Fabriquer un éventail pour reconnaître les traces d'animaux en balade. Gratuit.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/eventail-a-empreintes-combloux-fr-6885167/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/eventail-a-empreintes-combloux-fr-6885167/",
+  "t_en": "Workshop “Animal-track fan”",
+  "x_en": "Make a fan to help you recognise animal tracks on your walks. Free."
  },
  {
   "d": "2027-02-10",
@@ -1364,7 +1582,9 @@
   "cat": "Ski",
   "t": "Soirées ESF : luge, flambeaux et feu d'artifice",
   "x": "Chaque mercredi des vacances d'hiver au bas de la piste Écureuil : luge, descente aux flambeaux des enfants, Ski Parade et feu d'artifice.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/descente-aux-flambeaux-des-enfants/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/descente-aux-flambeaux-des-enfants/",
+  "t_en": "ESF evenings: sledging, torchlight and fireworks",
+  "x_en": "Every Wednesday of the winter holidays at the bottom of the Écureuil slope: sledging, children's torchlight descent, Ski Parade and fireworks."
  },
  {
   "d": "2027-02-10",
@@ -1374,7 +1594,9 @@
   "cat": "Sport",
   "t": "Footing givré (mercredis)",
   "x": "Footing gratuit d'environ 6 km au départ de l'office de tourisme, chaque mercredi des vacances d'hiver ; inscription la veille.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre",
+  "t_en": "Frosty run (Wednesdays)",
+  "x_en": "A free run of about 6 km from the tourist office, every Wednesday of the winter holidays; sign up the day before."
  },
  {
   "d": "2027-02-11",
@@ -1383,7 +1605,9 @@
   "cat": "Famille",
   "t": "Atelier bois : bonhomme de neige skieur",
   "x": "Assembler et décorer un bonhomme de neige skieur en bois. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-bonhomme-de-neige-skieur/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/atelier-creation-dobjets-en-bois-bonhomme-de-neige-skieur/",
+  "t_en": "Woodwork workshop: skiing snowman",
+  "x_en": "Build and decorate a wooden skiing snowman. Free."
  },
  {
   "d": "2027-02-11",
@@ -1393,7 +1617,9 @@
   "cat": "Famille",
   "t": "Soirées luge au Mont d'Arbois (jeudis)",
   "x": "Luge gratuite au Jardineige du Mont d'Arbois avec musique et tombola, les jeudis des vacances d'hiver.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/282225-soiree-luge-mont-darbois"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/282225-soiree-luge-mont-darbois",
+  "t_en": "Sledging evenings at Mont d'Arbois (Thursdays)",
+  "x_en": "Free sledging at the Mont d'Arbois Jardineige with music and a raffle, on Thursdays during the winter holidays."
  },
  {
   "d": "2027-02-11",
@@ -1402,7 +1628,9 @@
   "cat": "Culture",
   "t": "Ciné-rencontre « Alpes Himalaya, la route des cimes »",
   "x": "Les réalisateurs racontent leurs 10 000 km à vélo puis 80 jours à pied jusqu'au Népal. Gratuit, auditorium du Palais.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-rencontre-alpes-himalaya-la-route-des-cimes-megeve-fr-6793878/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-rencontre-alpes-himalaya-la-route-des-cimes-megeve-fr-6793878/",
+  "t_en": "Film & talk “Alpes Himalaya, la route des cimes”",
+  "x_en": "The filmmakers tell of their 10,000 km by bike and then 80 days on foot to Nepal. Free, Palais auditorium."
  },
  {
   "d": "2027-02-12",
@@ -1411,7 +1639,9 @@
   "cat": "Fête",
   "t": "L'ESF fête ses étoiles",
   "x": "Défilé et spectacle des moniteurs sur la place du Village.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/esf-fete-ses-etoiles-megeve-fr-5867414/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/esf-fete-ses-etoiles-megeve-fr-5867414/",
+  "t_en": "The ESF celebrates its stars",
+  "x_en": "Parade and show by the ski instructors on Place du Village."
  },
  {
   "d": "2027-02-12",
@@ -1420,7 +1650,9 @@
   "cat": "Famille",
   "t": "Tire d'érable et défi hockey",
   "x": "Sucette au sirop d'érable coulé sur la neige et tirs au but face à un gardien, à l'Office de Tourisme. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/",
+  "t_en": "Maple taffy and hockey challenge",
+  "x_en": "Maple syrup poured on the snow to make a lollipop, and penalty shots against a goalie, at the tourist office. Free."
  },
  {
   "d": "2027-02-14",
@@ -1429,7 +1661,9 @@
   "cat": "Famille",
   "t": "Jardin de la glisse",
   "x": "Découverte du patinage pour les moins de 10 ans accompagnés, à la patinoire du Palais. 6 €.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse",
+  "t_en": "Jardin de la glisse (kids' skating)",
+  "x_en": "An introduction to skating for under-10s with an adult, at the Palais ice rink. €6."
  },
  {
   "d": "2027-02-16",
@@ -1438,7 +1672,9 @@
   "cat": "Famille",
   "t": "Escape game « Les enfants de la Résistance »",
   "x": "Enquête à énigmes à la médiathèque pour les enfants dès 8 ans, gratuit sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque",
+  "t_en": "Escape game “Children of the Resistance”",
+  "x_en": "A puzzle investigation at the library for children aged 8+, free with booking."
  },
  {
   "d": "2027-02-16",
@@ -1447,7 +1683,9 @@
   "cat": "Famille",
   "t": "Laser Game",
   "x": "Partie en deux équipes au sous-sol de l'Office de Tourisme, dès 7 ans. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laser-game/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/laser-game/",
+  "t_en": "Laser Game",
+  "x_en": "Two-team laser tag in the tourist office basement, age 7+. Free."
  },
  {
   "d": "2027-02-16",
@@ -1456,7 +1694,9 @@
   "t": "Hockey : Mont-Blanc contre Tours",
   "x": "Match de Division 1 à Megève.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30"
+  "h": "19h30",
+  "t_en": "Ice hockey: Mont-Blanc vs Tours",
+  "x_en": "Division 1 match in Megève."
  },
  {
   "d": "2027-02-17",
@@ -1465,7 +1705,9 @@
   "cat": "Spectacle",
   "t": "Micro-Folie « Familiarités »",
   "x": "Portraits drôles et tendres tirés des albums de famille, pour les 200 ans de la photographie. Gratuit, dès 8 ans.",
-  "u": "https://www.haute-savoie-tourisme.org/7584224-micro-folie-familiarites"
+  "u": "https://www.haute-savoie-tourisme.org/7584224-micro-folie-familiarites",
+  "t_en": "Micro-Folie “Familiarités”",
+  "x_en": "Funny and tender portraits from family albums, for the 200th anniversary of photography. Free, age 8+."
  },
  {
   "d": "2027-02-17",
@@ -1474,7 +1716,9 @@
   "cat": "Culture",
   "t": "Initiation à la maroquinerie",
   "x": "Les gestes de base avec un maître maroquinier ; chacun repart avec un bracelet ou un porte-clé. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/initiation-a-la-maroquinerie/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/initiation-a-la-maroquinerie/",
+  "t_en": "Leatherwork taster",
+  "x_en": "Learn the basics with a master leatherworker; everyone leaves with a bracelet or key ring. Free."
  },
  {
   "d": "2027-02-17",
@@ -1483,7 +1727,9 @@
   "cat": "Fête",
   "t": "Soirée givrée à la patinoire",
   "x": "Patinage en musique avec DJ et jeux de lumière au Palais. 6 €.",
-  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree"
+  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree",
+  "t_en": "Frosty night at the ice rink",
+  "x_en": "Skating to music with a DJ and light show at the Palais. €6."
  },
  {
   "d": "2027-02-18",
@@ -1492,7 +1738,9 @@
   "cat": "Famille",
   "t": "Ciné Famille",
   "x": "Projection gratuite choisie par les bibliothécaires, à l'auditorium du Palais.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/",
+  "t_en": "Family cinema",
+  "x_en": "A free screening chosen by the librarians, at the Palais auditorium."
  },
  {
   "d": "2027-02-19",
@@ -1501,7 +1749,9 @@
   "cat": "Ski",
   "t": "Xspeed Ski Tour",
   "x": "Initiation au ski de vitesse chronométré sur la piste des Roitelets, dès la 3e étoile. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/",
+  "t_en": "Xspeed Ski Tour",
+  "x_en": "Timed speed-skiing taster on the Roitelets slope, from 3rd-star level. Free."
  },
  {
   "d": "2027-02-19",
@@ -1510,7 +1760,9 @@
   "cat": "Spectacle",
   "t": "Garou en concert",
   "x": "Le « Solo tour » de Garou au Palais.",
-  "u": "https://spectacles-megeve.fr/programmation/"
+  "u": "https://spectacles-megeve.fr/programmation/",
+  "t_en": "Garou in concert",
+  "x_en": "Garou's “Solo tour” at the Palais."
  },
  {
   "d": "2027-02-21",
@@ -1519,7 +1771,9 @@
   "cat": "Spectacle",
   "t": "Magic Parade, spectacle de magie",
   "x": "Magie, illusions et jonglerie pour les familles à l'Office de Tourisme. 10 €.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/",
+  "t_en": "Magic Parade, magic show",
+  "x_en": "Magic, illusions and juggling for families at the tourist office. €10."
  },
  {
   "d": "2027-02-23",
@@ -1528,7 +1782,9 @@
   "cat": "Famille",
   "t": "Après-midi jeux de société",
   "x": "Jeux de société en accès libre à la mezzanine de la médiathèque.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/"
+  "u": "https://www.megeve-tourisme.fr/en/agenda/apres-midi-jeux-de-societe/",
+  "t_en": "Board games afternoon",
+  "x_en": "Free board games on the library mezzanine."
  },
  {
   "d": "2027-02-24",
@@ -1537,7 +1793,9 @@
   "cat": "Fête",
   "t": "Soirée givrée à la patinoire",
   "x": "Patinage en musique avec DJ et jeux de lumière au Palais. 6 €.",
-  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree"
+  "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree",
+  "t_en": "Frosty night at the ice rink",
+  "x_en": "Skating to music with a DJ and light show at the Palais. €6."
  },
  {
   "d": "2027-02-26",
@@ -1546,7 +1804,9 @@
   "cat": "Ski",
   "t": "Xspeed Ski Tour",
   "x": "Initiation au ski de vitesse chronométré sur la piste des Roitelets, dès la 3e étoile. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/xspeed-ski-tour/",
+  "t_en": "Xspeed Ski Tour",
+  "x_en": "Timed speed-skiing taster on the Roitelets slope, from 3rd-star level. Free."
  },
  {
   "d": "2027-02-26",
@@ -1555,7 +1815,9 @@
   "cat": "Spectacle",
   "t": "Spectacle jeunesse « Voyage de Rézé »",
   "x": "Un « quatuor musical dessiné » pour les familles à l'auditorium du Palais. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/5932322-spectacle-jeunesse-voyage-de-reze"
+  "u": "https://www.haute-savoie-tourisme.org/5932322-spectacle-jeunesse-voyage-de-reze",
+  "t_en": "Children's show “Voyage de Rézé”",
+  "x_en": "A “drawn musical quartet” for families at the Palais auditorium. Free."
  },
  {
   "d": "2027-02-27",
@@ -1564,7 +1826,9 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Épinal",
   "x": "Match de Division 1 des Yétis à la patinoire du Palais.",
-  "u": "https://www.megeve-tourisme.fr/agenda/hockey-sur-glace-match-division-1-mont-blanc-vs-epinal-2/"
+  "u": "https://www.megeve-tourisme.fr/agenda/hockey-sur-glace-match-division-1-mont-blanc-vs-epinal-2/",
+  "t_en": "Ice hockey: Mont-Blanc vs Épinal",
+  "x_en": "The Yetis' Division 1 match at the Palais ice rink."
  },
  {
   "d": "2027-03-02",
@@ -1573,7 +1837,9 @@
   "cat": "Famille",
   "t": "Atelier bois : cabane à oiseau",
   "x": "Assembler et décorer une cabane à oiseau en bois. Gratuit.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/atelier-creation-dobjets-en-bois-cabane-a-oiseau-combloux-fr-6885127/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/atelier-creation-dobjets-en-bois-cabane-a-oiseau-combloux-fr-6885127/",
+  "t_en": "Woodwork workshop: birdhouse",
+  "x_en": "Build and decorate a wooden birdhouse. Free."
  },
  {
   "d": "2027-03-03",
@@ -1582,7 +1848,9 @@
   "cat": "Famille",
   "t": "Atelier « Mission solaire »",
   "x": "Les enfants fabriquent un four solaire avec des matériaux de récup et repartent avec. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mission-solaire/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mission-solaire/",
+  "t_en": "Workshop “Solar mission”",
+  "x_en": "Children build a solar oven from recycled materials and take it home. Free."
  },
  {
   "d": "2027-03-03",
@@ -1591,7 +1859,9 @@
   "cat": "Famille",
   "t": "Ciné Famille",
   "x": "Projection gratuite choisie par les bibliothécaires, à l'auditorium du Palais.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/cine-famille-megeve-fr-5868544/",
+  "t_en": "Family cinema",
+  "x_en": "A free screening chosen by the librarians, at the Palais auditorium."
  },
  {
   "d": "2027-03-05",
@@ -1600,7 +1870,9 @@
   "cat": "Culture",
   "t": "Megève Leadership : « Du ciel aux abysses »",
   "x": "Un week-end de conférences ouvert au grand public, salle Mageva au Palais.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/"
+  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/",
+  "t_en": "Megève Leadership: “From the sky to the deep”",
+  "x_en": "A weekend of talks open to the public, salle Mageva at the Palais."
  },
  {
   "d": "2027-03-05",
@@ -1609,7 +1881,9 @@
   "cat": "Famille",
   "t": "Tire d'érable et défi hockey",
   "x": "Sucette au sirop d'érable coulé sur la neige et tirs au but face à un gardien, à l'Office de Tourisme. Gratuit.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/tire-derable-et-defi-hockey/",
+  "t_en": "Maple taffy and hockey challenge",
+  "x_en": "Maple syrup poured on the snow to make a lollipop, and penalty shots against a goalie, at the tourist office. Free."
  },
  {
   "d": "2027-03-05",
@@ -1618,7 +1892,9 @@
   "cat": "Culture",
   "t": "Micro-Folie « Femmes artistes »",
   "x": "Sélection commentée d'œuvres de femmes artistes, au Palais.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1925922-5-micro-folie-playlist-commentee-quot-femmes-artistes-quot.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1925922-5-micro-folie-playlist-commentee-quot-femmes-artistes-quot.html",
+  "t_en": "Micro-Folie “Women artists”",
+  "x_en": "A guided selection of works by women artists, at the Palais."
  },
  {
   "d": "2027-03-07",
@@ -1627,7 +1903,9 @@
   "cat": "Spectacle",
   "t": "Magic Parade, spectacle de magie",
   "x": "Magie, illusions et jonglerie pour les familles à l'Office de Tourisme. 10 €.",
-  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/"
+  "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/magic-parade-spectacle-de-magie/",
+  "t_en": "Magic Parade, magic show",
+  "x_en": "Magic, illusions and juggling for families at the tourist office. €10."
  },
  {
   "d": "2027-03-08",
@@ -1637,7 +1915,9 @@
   "cat": "Fête",
   "t": "Pot d'accueil (lundis)",
   "x": "En mars, le pot d'accueil passe au lundi soir, place de l'église. Gratuit.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver",
+  "t_en": "Welcome drinks (Mondays)",
+  "x_en": "In March, the welcome drinks move to Monday evenings, on the church square. Free."
  },
  {
   "d": "2027-03-09",
@@ -1647,7 +1927,9 @@
   "cat": "Culture",
   "t": "Aide au Clic (mardis)",
   "x": "Aide numérique individuelle et gratuite chaque mardi à la médiathèque, sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
+  "t_en": "Aide au Clic: digital help (Tuesdays)",
+  "x_en": "Free one-to-one help with computers and phones every Tuesday at the library, booking required."
  },
  {
   "d": "2027-03-13",
@@ -1656,7 +1938,9 @@
   "cat": "Famille",
   "t": "Heure du conte bébés lecteurs",
   "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
+  "t_en": "Story time for babies",
+  "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
  },
  {
   "d": "2027-03-17",
@@ -1665,7 +1949,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2027-03-18",
@@ -1674,7 +1960,9 @@
   "cat": "Culture",
   "t": "Projection « Les Instants doc »",
   "x": "Séance de film documentaire au Palais.",
-  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-2007426-5-projection-les-instants-doc.html",
+  "t_en": "“Les Instants doc” screening",
+  "x_en": "Documentary film screening at the Palais."
  },
  {
   "d": "2027-03-24",
@@ -1683,6 +1971,8 @@
   "cat": "Sport",
   "t": "27ᵉ Ski Open Coq d'Or",
   "x": "Compétition de ski alpin au stade de la Côte 2000.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/27th-ski-open-coq-dor-megeve-en-6746964/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/27th-ski-open-coq-dor-megeve-en-6746964/",
+  "t_en": "27th Ski Open Coq d'Or",
+  "x_en": "Alpine ski race at the Côte 2000 stadium."
  }
 ]

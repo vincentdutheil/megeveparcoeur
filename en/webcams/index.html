@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live webcams · Megève, Rochebrune, Mont d'Arbois, Côte 2000, Combloux, Jaillet · Megève par cœur</title>
+<link rel="canonical" href="https://www.megeveparcoeur.fr/en/webcams/">
+<link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/webcams/">
+<link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/webcams/">
+<link rel="alternate" hreflang="x-default" href="https://www.megeveparcoeur.fr/webcams/">
+<meta name="description" content="All the Megève and Combloux webcams on one page: Megève village, Rochebrune, Mont d'Arbois, Côte 2000, the Combloux summit and Le Jaillet.">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0a1424">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Megève ❤">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#0a1424;--wool:#f1f4f9;--card:#ffffff;--ink:#1c2533;--muted:#5d6878;--line:#dbe3ee;
+  --pine:#2f5a44;--pine-2:#1d3d2d;--moss:#6f9a74;--glow:#f3c27a;--heart:#c8323d;--sky:#4b8fd6;
+  --display:"Fraunces",Georgia,serif;--body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{--wool:#0e1522;--card:#162133;--ink:#e9eef6;--muted:#a3b0c2;--line:#26344a;--moss:#8fbfa5;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--wool);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.1;margin:0;font-variation-settings:"SOFT" 100}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-size:1.3rem}
+.brand img{width:40px;height:40px}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap;font-weight:600;font-size:.95rem}
+.nav ul a{text-decoration:none;opacity:.85}.nav ul a:hover,.nav ul a[aria-current]{opacity:1;color:var(--glow)}
+
+/* bandeau : aube sur les sommets, forêt de sapins */
+.hero{position:relative;overflow:hidden;color:#fff;padding:54px 0 170px;
+  background:radial-gradient(40% 50% at 78% 70%,rgba(255,190,130,.45),transparent 70%),linear-gradient(180deg,#0b1c36 0%,#24476e 45%,#6d8fb3 75%,#e9b98f 100%)}
+.hero .wrap{position:relative;z-index:3}
+.kicker{font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--glow);font-size:.8rem}
+.hero h1{font-size:clamp(2.3rem,6vw,3.8rem);margin-top:8px;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.hero h1 em{color:#ffd2a1}
+.hero p{margin:10px 0 0;max-width:640px;opacity:.92}
+.live{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem;backdrop-filter:blur(4px)}
+.live i{width:9px;height:9px;border-radius:50%;background:#ff4d5a;box-shadow:0 0 0 0 rgba(255,77,90,.7);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(255,77,90,0)}100%{box-shadow:0 0 0 0 rgba(255,77,90,0)}}
+.scene{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:230px;z-index:1}
+.sun{position:absolute;right:16%;bottom:120px;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,#fff3d6,#ffc98a 60%,rgba(255,201,138,0) 72%);z-index:0}
+
+/* barre d'outils */
+.tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:-34px auto 0;position:relative;z-index:4}
+.tools .in{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px;display:inline-flex;box-shadow:0 12px 30px rgba(10,20,40,.15)}
+.tools button{font:700 .9rem var(--body);border:0;background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer}
+.tools button[aria-pressed="true"]{background:var(--pine);color:#fff}
+.tools .meteo{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:800;text-decoration:none;box-shadow:0 12px 30px rgba(10,20,40,.15)}
+.tools .meteo:hover{color:var(--sky)}
+
+/* grille des webcams */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:26px auto 16px}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.cam{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 10px 30px rgba(10,20,40,.07);display:flex;flex-direction:column}
+.cam .hd{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px 12px}
+.cam h2{font-size:1.3rem}
+.cam .v{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.v.megeve{background:#1f3d7a}.v.combloux{background:var(--pine)}.v.jaillet{background:#5b4a86}
+.frame{position:relative;aspect-ratio:16/9;background:linear-gradient(160deg,#24476e,#6d8fb3);overflow:hidden}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.frame .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;opacity:.8;font-size:.95rem}
+.cam .ft{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);flex-wrap:wrap}
+.cam .ft button,.cam .ft a{font:700 .82rem var(--body);border:1.5px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:7px 12px;cursor:pointer;text-decoration:none}
+.cam .ft button:hover,.cam .ft a:hover{border-color:var(--pine);color:var(--pine)}
+.cam .tag{margin-left:auto;align-self:center;color:var(--muted);font-size:.8rem}
+
+.band{margin:34px 0 0;background:linear-gradient(120deg,var(--pine-2),var(--pine));color:#fff;border-radius:24px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative;overflow:hidden}
+.band h3{font-size:1.5rem}.band p{margin:4px 0 0;opacity:.85}
+.band a{background:#fff;color:var(--pine-2);font-weight:800;text-decoration:none;border-radius:999px;padding:12px 20px;white-space:nowrap}
+.band svg{position:absolute;right:-10px;bottom:-6px;width:260px;opacity:.18}
+.note{color:var(--muted);font-size:.86rem;margin:18px 0 50px}
+.foot-peaks{display:block;width:100%;height:110px;margin-bottom:-1px}
+footer{background:var(--night);color:#cfd8e6;padding:24px 0 40px;font-size:.92rem}
+footer a{color:#fff}
+@media (max-width:980px){.grid.c3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){.scene{height:120px}.hero{padding-bottom:100px}.sun{width:56px;height:56px;bottom:62px;right:8%}.grid,.grid.c3{grid-template-columns:1fr}.tools .in{display:none}.tools{justify-content:center}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="/en/" aria-label="Megève par cœur, home"><img src="/img/logo.png" alt="" width="40" height="40">Megève par cœur</a>
+    <ul>
+      <li><a href="/en/#agenda">What's on</a></li>
+      <li><a href="/en/meteo/">Snow &amp; weather</a></li>
+      <li><a href="/en/webcams/" aria-current="page">Webcams</a></li>
+      <li><a href="/en/balades/">Walks</a></li>
+      <li><a href="/en/carte/">Map</a></li>
+      <li><a href="/en/#galerie">Gallery</a></li>
+      <li><a href="/en/boutique/">Shop</a></li>
+      <li><a class="lang" href="/webcams/" lang="fr" hreflang="fr">FR</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="kicker">🏔️ Megève · Combloux · Le Jaillet</div>
+    <h1>The webcams, <em>live</em></h1>
+    <p>From Megève village to the top of Combloux, watch all six panoramic webcams at once: the snow, the sky, the mood on the slopes.</p>
+    <span class="live"><i></i>6 live webcams</span>
+  </div>
+  <svg class="scene" viewBox="0 0 1440 230" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f9cc0"/><stop offset="1" stop-color="#5d7ea6"/></linearGradient>
+      <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d5f87"/><stop offset="1" stop-color="#284766"/></linearGradient>
+    </defs>
+    <path fill="url(#m1)" opacity=".8" d="M0 150L120 92 210 120 340 40 430 96 560 60 690 118 820 30 930 96 1050 66 1180 112 1300 70 1440 100V230H0z"/>
+    <g fill="#f5f8fd" opacity=".95"><path d="M340 40l-28 20 13-2 11 8 11-11 16 6z"/><path d="M820 30l-32 24 15-3 12 9 11-12 18 6z"/><path d="M560 60l-20 14 10-1 9 6 8-8 11 3z"/><path d="M1300 70l-20 14 10-1 9 6 8-8 11 3z"/></g>
+    <path fill="url(#m2)" d="M0 186L130 140 240 166 380 120 500 168 630 132 760 176 900 128 1030 168 1170 136 1300 172 1440 146V230H0z"/>
+    <g fill="#1d3d2d">
+      <path d="M20 214l14-30h-6l10-20h-4l8-18 8 18h-4l10 20h-6l14 30z"/><path d="M60 214l10-22h-4l8-14h-3l6-13 6 13h-3l8 14h-4l10 22z"/>
+      <path d="M150 214l14-30h-6l10-20h-4l8-18 8 18h-4l10 20h-6l14 30z"/><path d="M196 214l10-22h-4l8-14h-3l6-13 6 13h-3l8 14h-4l10 22z"/>
+      <path d="M420 214l12-26h-5l9-17h-4l7-15 7 15h-4l9 17h-5l12 26z"/><path d="M1000 214l14-30h-6l10-20h-4l8-18 8 18h-4l10 20h-6l14 30z"/>
+      <path d="M1046 214l10-22h-4l8-14h-3l6-13 6 13h-3l8 14h-4l10 22z"/><path d="M1230 214l14-30h-6l10-20h-4l8-18 8 18h-4l10 20h-6l14 30z"/>
+      <path d="M1276 214l10-22h-4l8-14h-3l6-13 6 13h-3l8 14h-4l10 22z"/><path d="M1380 214l14-30h-6l10-20h-4l8-18 8 18h-4l10 20h-6l14 30z"/>
+    </g>
+    <path fill="var(--wool)" d="M0 210C180 196 360 220 600 206S1000 196 1200 210 1380 204 1440 208V230H0z"/>
+  </svg>
+</section>
+
+<main class="wrap">
+  <div class="tools">
+    <div class="in" role="group" aria-label="Webcam size">
+      <button type="button" data-c="2" aria-pressed="true">◻◻ Large</button>
+      <button type="button" data-c="3" aria-pressed="false">◻◻◻ Grid</button>
+    </div>
+    <a class="meteo" href="/en/meteo/">🌨️ Snow &amp; weather in the 4 villages →</a>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <div class="band">
+    <div><h3>Is snow on the way?</h3><p>Snow depth and snowfall forecast for the next 7 days, in the village and up the mountain.</p></div>
+    <a href="/en/meteo/">See the snow forecast →</a>
+    <svg viewBox="0 0 260 90" aria-hidden="true"><path fill="#fff" d="M0 90L60 30 90 50 140 0 190 46 220 30 260 60V90z"/></svg>
+  </div>
+  <p class="note">Panoramic webcams by <a href="https://www.skaping.com/" target="_blank" rel="noopener">Skaping</a>, shown from their public pages. Images update automatically; in each webcam you can pan around the view and go back in time. If a webcam does not show, tap “Open ↗”.</p>
+</main>
+
+<svg class="foot-peaks" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path fill="#1b3354" d="M0 110V70L110 34 190 56 300 12 380 50 470 28 590 70 700 20 800 62 900 40 1010 74 1120 16 1210 56 1320 34 1440 62V110z"/><g fill="#e3edf9" opacity=".8"><path d="M300 12l-20 14 9-1 9 6 8-8 12 4z"/><path d="M700 20l-22 16 10-2 10 7 8-9 13 4z"/><path d="M1120 16l-22 16 10-2 9 6 9-8 13 4z"/></g><path fill="var(--night)" d="M0 110V92C140 80 260 96 400 88S660 76 800 90 1100 100 1240 86 1380 82 1440 88V110z"/></svg>
+<footer><div class="wrap">© Megève par cœur · <a href="/en/">Home</a> · <a href="/en/#agenda">What's on</a> · <a href="/en/meteo/">Snow &amp; weather</a></div></footer>
+
+<script>
+const CAMS=[
+  {t:"Megève village",v:"Megève",c:"megeve",u:"https://www.skaping.com/megeve/village",d:"The square, the church and the chalets"},
+  {t:"Rochebrune",v:"Megève",c:"megeve",u:"https://www.skaping.com/megeve/rochebrune",d:"Rochebrune ski area"},
+  {t:"Mont d'Arbois",v:"Megève",c:"megeve",u:"https://www.skaping.com/megeve/mont-d-arbois",d:"Facing Mont Blanc"},
+  {t:"Côte 2000",v:"Megève",c:"megeve",u:"https://www.skaping.com/megeve/cote-2000",d:"The top of the ski area"},
+  {t:"Combloux summit",v:"Combloux",c:"combloux",u:"https://www.skaping.com/combloux/sommet",d:"Les Portes du Mont-Blanc"},
+  {t:"Le Jaillet summit",v:"Le Jaillet",c:"jaillet",u:"https://www.skaping.com/jaillet/sommet",d:"Between Megève and Combloux"}
+];
+const g=document.getElementById("grid");
+g.innerHTML=CAMS.map((c,i)=>`<article class="cam">
+  <div class="hd"><h2>${c.t}</h2><span class="v ${c.c}">${c.v}</span></div>
+  <div class="frame" id="f${i}"><div class="ph">Loading the webcam…</div>
+    <iframe src="${c.u}" title="Webcam ${c.t}" loading="lazy" allow="fullscreen; autoplay" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  <div class="ft"><button type="button" data-fs="${i}">⛶ Full screen</button><a href="${c.u}" target="_blank" rel="noopener">Open ↗</a><span class="tag">${c.d}</span></div>
+</article>`).join("");
+g.addEventListener("click",e=>{const b=e.target.closest("[data-fs]");if(!b)return;const f=document.getElementById("f"+b.dataset.fs);
+  (f.requestFullscreen||f.webkitRequestFullscreen||function(){window.open(CAMS[b.dataset.fs].u,"_blank")}).call(f);});
+document.querySelectorAll(".tools [data-c]").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tools [data-c]").forEach(x=>x.setAttribute("aria-pressed",x===b));g.classList.toggle("c3",b.dataset.c==="3");});
+</script>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
