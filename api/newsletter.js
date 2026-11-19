@@ -43,7 +43,7 @@ async function meteo() {
   try { const [v, a] = await Promise.all([meteoZone("v"), meteoZone("a")]); return { v, a }; }
   catch (e) { return null; } // pas de météo : la newsletter part quand même
 }
-const cm = x => x >= 10 ? Math.round(x) : Math.round(x * 10) / 10;
+const cm = x => String(x >= 10 ? Math.round(x) : Math.round(x * 10) / 10).replace(".", ",");
 function meteoBlock(M) {
   if (!M) return "";
   // prochaine chute de neige notable (en altitude)
