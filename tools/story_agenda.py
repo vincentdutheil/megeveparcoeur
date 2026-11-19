@@ -60,7 +60,7 @@ h1{{font-size:70px;line-height:1.05;margin-top:8px}}.loc{{font-size:26px;font-we
 .cta b{{color:#ff8a97}}
 </style></head><body>
 <div class="top"><img src="{(ROOT/"img/logo-rond.png").as_uri()}"><div><div class="k">L'agenda de la semaine</div>
-<h1 class="serif">Megève &amp; alentours</h1><div class="loc">📍 Megève · Demi-Quartier · Combloux · Praz</div><div class="per">{per}</div></div></div>
+<h1 class="serif">Megève &amp; alentours</h1><div class="loc">📍 Megève · Combloux · Demi-Quartier · Praz</div><div class="per">{per}</div></div></div>
 <div class="list">{rows}</div>
 <div class="cta">{cta}</div>
 </body></html>"""

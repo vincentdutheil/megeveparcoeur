@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Météo & neige · Megève, Demi-Quartier, Combloux, Praz-sur-Arly · Megève par cœur</title>
-<meta name="description" content="Météo, hauteur de neige et prévisions de chutes de neige à Megève, Demi-Quartier, Combloux et Praz-sur-Arly, au village et en altitude.">
+<title>Météo & neige · Megève, Combloux, Demi-Quartier, Praz-sur-Arly · Megève par cœur</title>
+<meta name="description" content="Météo, hauteur de neige et prévisions de chutes de neige à Megève, Combloux, Demi-Quartier et Praz-sur-Arly, au village et en altitude.">
 <link rel="icon" type="image/png" href="../img/favicon.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
 <meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
@@ -103,7 +103,8 @@ footer a{color:#fff}
     <ul>
       <li><a href="../#galerie">Galerie</a></li>
       <li><a href="../#agenda">Agenda</a></li>
-      <li><a href="./" aria-current="page">Météo</a></li>
+      <li><a href="./" aria-current="page">Météo &amp; neige</a></li>
+      <li><a href="../webcams/">Webcams</a></li>
       <li><a href="../#coups-de-coeur">Coups de cœur</a></li>
       <li><a href="../boutique/">Boutique solidaire</a></li>
     </ul>
@@ -113,7 +114,7 @@ footer a{color:#fff}
 <section class="hero">
   <canvas id="snow" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div class="kicker">❄ Megève · Demi-Quartier · Combloux · Praz-sur-Arly</div>
+    <div class="kicker">❄ Megève · Combloux · Demi-Quartier · Praz-sur-Arly</div>
     <h1>Météo &amp; <em>neige</em></h1>
     <p>Le temps qu'il fait, la neige au sol et les chutes de neige prévues sur 7 jours, au village ou en altitude.</p>
     <div class="ctrl">
@@ -134,13 +135,13 @@ footer a{color:#fff}
   <p class="note">Estimations des modèles météo (Météo-France, ECMWF…) fournies par <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, mises à jour plusieurs fois par jour. Elles peuvent différer de l'enneigement mesuré sur les pistes : pour l'ouverture des pistes et les bulletins officiels, consultez <a href="https://meteofrance.com/meteo-montagne" target="_blank" rel="noopener">Météo-France montagne</a> et les offices de tourisme de <a href="https://www.megeve-tourisme.fr/" target="_blank" rel="noopener">Megève</a>, <a href="https://www.combloux.com/" target="_blank" rel="noopener">Combloux</a> et <a href="https://www.prazsurarly.com/" target="_blank" rel="noopener">Praz-sur-Arly</a>.</p>
 </main>
 
-<footer><div class="wrap">© Megève par cœur · <a href="../">Accueil</a> · <a href="../#agenda">L'agenda de Megève &amp; alentours</a> · Données météo : <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0)</div></footer>
+<footer><div class="wrap">© Megève par cœur · <a href="../">Accueil</a> · <a href="../#agenda">L'agenda de Megève &amp; alentours</a> · <a href="../webcams/">Webcams</a> · Données météo : <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a> (CC BY 4.0)</div></footer>
 
 <script>
 const V=[
   {n:"Megève",lat:45.8567,lon:6.6175,v:1113,a:1850},
-  {n:"Demi-Quartier",lat:45.8760,lon:6.6260,v:1050,a:1830},
   {n:"Combloux",lat:45.8966,lon:6.6417,v:1000,a:1850},
+  {n:"Demi-Quartier",lat:45.8760,lon:6.6260,v:1050,a:1830},
   {n:"Praz-sur-Arly",lat:45.8375,lon:6.5719,v:1036,a:1830}
 ];
 const W={0:["☀️","Ensoleillé"],1:["🌤️","Plutôt ensoleillé"],2:["⛅","Éclaircies"],3:["☁️","Couvert"],45:["🌫️","Brouillard"],48:["🌫️","Brouillard givrant"],
