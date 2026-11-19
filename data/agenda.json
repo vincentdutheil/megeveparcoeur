@@ -7,7 +7,9 @@
   "t": "Promenade en calèche et visite des écuries",
   "x": "Visite des écuries puis balade d'environ une heure en calèche au départ de la ferme, route du Feug. Du lundi au samedi, sur réservation au 04 50 93 32 89.",
   "u": "https://www.haute-savoie-tourisme.org/6487739-promenade-en-caleche-et-visite-des-ecuries",
-  "always": true
+  "always": true,
+  "t_en": "Horse-drawn carriage ride & stable visit",
+  "x_en": "Visit the stables, then a one-hour carriage ride from the farm on the route du Feug. Monday to Saturday, booking required: +33 4 50 93 32 89."
  },
  {
   "d": "2026-05-22",
@@ -17,7 +19,9 @@
   "t": "Expo « Des savants au sommet »",
   "x": "Irène et Frédéric Joliot-Curie à Megève, 1925-1931. Entrée gratuite.",
   "u": "https://www.megeve-tourisme.fr/tout-lagenda/",
-  "always": true
+  "always": true,
+  "t_en": "Exhibition: “Scientists at the summit”",
+  "x_en": "Irène and Frédéric Joliot-Curie in Megève, 1925–1931. Free entry."
  },
  {
   "d": "2026-05-22",
@@ -27,7 +31,9 @@
   "t": "Expo « Faire Montagne »",
   "x": "Exposition de l'artiste Adrianna Muffat Jeandet. Entrée gratuite.",
   "u": "https://www.haute-savoie-tourisme.org/7675767-exposition-faire-montagne-adrianna-muffat-jeandet",
-  "always": true
+  "always": true,
+  "t_en": "Exhibition: “Faire Montagne”",
+  "x_en": "Works by artist Adrianna Muffat Jeandet. Free entry."
  },
  {
   "d": "2026-09-28",
@@ -37,7 +43,9 @@
   "t": "Expo « Les 4 éléments »",
   "x": "Exposition en plein air sur les berges de l'Arly : photos, poésie et regards d'enfants sur l'air, l'eau, le soleil et la terre. Gratuit.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/exposition-les-4-elements",
-  "always": true
+  "always": true,
+  "t_en": "Exhibition: “The 4 elements”",
+  "x_en": "Open-air exhibition on the banks of the Arly: photos, poetry and children's views on air, water, sun and earth. Free."
  },
  {
   "d": "2026-11-19",
@@ -46,7 +54,9 @@
   "cat": "Culture",
   "t": "Braderie de la médiathèque",
   "x": "Livres, revues et CD retirés des collections vendus 1 € pièce aux particuliers, du mardi au samedi aux heures d'ouverture de la médiathèque du Palais.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/"
+  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/",
+  "t_en": "Library book sale",
+  "x_en": "Books, magazines and CDs withdrawn from the collections, €1 each, Tuesday to Saturday during opening hours of the library at the Palais."
  },
  {
   "d": "2026-11-19",
@@ -56,7 +66,9 @@
   "t": "Enquête baroque « À la recherche du trésor perdu »",
   "x": "Jeu de piste gratuit et en autonomie dans le village sur l'histoire baroque de Megève, dès 10 ans ; carnets à retirer à Megève Tourisme.",
   "u": "https://www.megeve-tourisme.fr/en/agenda/enquete-baroque-a-la-recherche-du-tresor-perdu/",
-  "always": true
+  "always": true,
+  "t_en": "Baroque treasure hunt",
+  "x_en": "A free, self-guided trail through the village about Megève's baroque history, from age 10; booklets available at Megève Tourisme."
  },
  {
   "d": "2026-11-19",
@@ -66,7 +78,9 @@
   "cat": "Expo",
   "t": "Expo Pierre Margara, sculpteur",
   "x": "Le sculpteur mégevan dévoile les coulisses du bronze, de la fonte à la cire perdue et ses grandes œuvres publiques. Espace d'art Edith Allard au Palais, du mardi au dimanche, 6 €.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/expositions/7510154-exposition-pierre-margara-l-intuition-des-cimes-pierre-margara"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/expositions/7510154-exposition-pierre-margara-l-intuition-des-cimes-pierre-margara",
+  "t_en": "Exhibition: Pierre Margara, sculptor",
+  "x_en": "The Megève sculptor reveals the secrets of bronze casting and his large public works. Espace d'art Edith Allard at the Palais, Tuesday to Sunday, €6."
  },
  {
   "d": "2026-11-19",
@@ -77,7 +91,9 @@
   "t": "Expo « Lumières d'alpages : un printemps et un été »",
   "x": "Les photos de Caroline Gallien-Lavorel sur les alpages et les bergers, à la Ferme à Isidore, du mercredi au vendredi. Entrée libre.",
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/lumieres-dalpages-un-printemps-et-un-ete-a-combloux-exposition-de-caroline-gallien-lavorel-combloux-fr-6377972/",
-  "always": true
+  "always": true,
+  "t_en": "Exhibition: “Alpine light: spring and summer”",
+  "x_en": "Caroline Gallien-Lavorel's photos of mountain pastures and shepherds, at the Ferme à Isidore, Wednesday to Friday. Free entry."
  },
  {
   "d": "2026-11-19",
@@ -86,7 +102,9 @@
   "t": "Théâtre : « Petites comédies »",
   "x": "Les courtes pièces burlesques de Tchekhov jouées par la troupe Ancolie à l'auditorium du Palais : jeudi 19h30, vendredi et samedi 20h, dimanche 18h. 10 €, 5 € enfant, sur réservation.",
   "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies",
-  "d2": "2026-11-22"
+  "d2": "2026-11-22",
+  "t_en": "Theatre: Chekhov's short comedies",
+  "x_en": "Chekhov's short farces performed by the Ancolie company at the Palais auditorium: Thursday 7.30pm, Friday and Saturday 8pm, Sunday 6pm. €10, children €5, booking required."
  },
  {
   "d": "2026-11-19",
@@ -95,7 +113,9 @@
   "cat": "Culture",
   "t": "Initiation à la réflexologie",
   "x": "Atelier d'initiation à la réflexologie plantaire au Loucafé, le café associatif. Gratuit (adhésion 5 €).",
-  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/introductory-workshop-on-reflexology-combloux-en-6895223/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/introductory-workshop-on-reflexology-combloux-en-6895223/",
+  "t_en": "Introduction to reflexology",
+  "x_en": "A foot reflexology workshop at the Loucafé community café. Free (membership €5)."
  },
  {
   "d": "2026-11-20",
@@ -104,7 +124,9 @@
   "cat": "Expo",
   "t": "Expo « Les animaux fantastiques »",
   "x": "Les photos d'animaux du monde entier de Nils Latour, à la bibliothèque municipale.",
-  "u": "https://biblio-combloux.fr/animation/exposition-les-animaux-fantastiques"
+  "u": "https://biblio-combloux.fr/animation/exposition-les-animaux-fantastiques",
+  "t_en": "Exhibition: “Fantastic animals”",
+  "x_en": "Nils Latour's photos of animals from all over the world, at the municipal library."
  },
  {
   "d": "2026-11-20",
@@ -113,7 +135,9 @@
   "cat": "Culture",
   "t": "Projection « À la rencontre des asso' »",
   "x": "Pour la Journée mondiale de l'enfance, projection d'un documentaire suivie d'un échange, salle polyvalente du Belambra L'Alisier. Gratuit.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/projection-de-film-a-la-rencontre-des-assos"
+  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/projection-de-film-a-la-rencontre-des-assos",
+  "t_en": "Film screening for World Children's Day",
+  "x_en": "A documentary followed by a discussion, in the Belambra L'Alisier function room. Free."
  },
  {
   "d": "2026-11-20",
@@ -122,7 +146,9 @@
   "cat": "Marché",
   "t": "Marché de Megève",
   "x": "Le marché du vendredi matin dans les rues du village : produits du terroir, primeurs et artisans.",
-  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve",
+  "t_en": "Megève market",
+  "x_en": "The Friday morning market in the village streets: local produce, fruit and vegetables, craftspeople."
  },
  {
   "d": "2026-11-21",
@@ -131,7 +157,9 @@
   "cat": "Famille",
   "t": "Heure du conte bébés lecteurs",
   "x": "Histoires et livres animés ou à toucher pour les tout-petits à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
+  "t_en": "Story time for babies",
+  "x_en": "Stories, pop-up and touch-and-feel books for toddlers in the library's children's area. Free."
  },
  {
   "d": "2026-11-21",
@@ -140,7 +168,9 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Morzine",
   "x": "Match de Division 1 des Yétis, joué à la patinoire du Palais de Megève.",
-  "u": "https://www.haute-savoie-tourisme.org/6311393-hockey-sur-glace-match-de-division-1-mont-blanc-vs-morzine"
+  "u": "https://www.haute-savoie-tourisme.org/6311393-hockey-sur-glace-match-de-division-1-mont-blanc-vs-morzine",
+  "t_en": "Ice hockey: Mont-Blanc vs Morzine",
+  "x_en": "Division 1 game of the Yétis, at the Palais de Megève ice rink."
  },
  {
   "d": "2026-11-22",
@@ -149,7 +179,9 @@
   "h": "12h–18h",
   "t": "Repas choucroute",
   "x": "Choucroute, fromage, dessert et boisson, au 49 chemin des Passerands. Pensez à réserver.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/gastronomie/7525360-repas-choucroute"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/gastronomie/7525360-repas-choucroute",
+  "t_en": "Sauerkraut lunch",
+  "x_en": "Choucroute, cheese, dessert and a drink, at 49 chemin des Passerands. Booking recommended."
  },
  {
   "d": "2026-11-24",
@@ -158,7 +190,9 @@
   "cat": "Culture",
   "t": "Aide au Clic",
   "x": "Aide individuelle et gratuite sur smartphone, tablette ou ordinateur à la médiathèque, sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
+  "t_en": "Digital help desk",
+  "x_en": "Free one-to-one help with your smartphone, tablet or computer at the library, by registration."
  },
  {
   "d": "2026-11-24",
@@ -167,7 +201,9 @@
   "cat": "Sport",
   "t": "Coupe de France de hockey : Mont-Blanc – Gap",
   "x": "Les Yétis du Mont-Blanc reçoivent pour un match de Coupe de France à la patinoire du Palais.",
-  "u": "https://www.haute-savoie-tourisme.org/6359483-hockey-sur-glace-coupe-de-france-mont-blanc-vs-gap"
+  "u": "https://www.haute-savoie-tourisme.org/6359483-hockey-sur-glace-coupe-de-france-mont-blanc-vs-gap",
+  "t_en": "French Cup ice hockey: Mont-Blanc vs Gap",
+  "x_en": "The Mont-Blanc Yétis host a French Cup game at the Palais ice rink."
  },
  {
   "d": "2026-11-25",
@@ -176,7 +212,9 @@
   "cat": "Famille",
   "t": "Escape game « Les enfants de la Résistance »",
   "x": "Enquête à énigmes dans la médiathèque pour les enfants dès 8 ans. Gratuit sur inscription, deux sessions.",
-  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque"
+  "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/litterature/5893569-escape-game-a-la-mediatheque",
+  "t_en": "Escape game: “Children of the Resistance”",
+  "x_en": "A puzzle hunt in the library for children from age 8. Free, registration required, two sessions."
  },
  {
   "d": "2026-11-25",
@@ -185,7 +223,9 @@
   "cat": "Marché",
   "t": "Marché de Combloux",
   "x": "Le marché du mercredi matin sur le parvis de l'Office de Tourisme.",
-  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux",
+  "t_en": "Combloux market",
+  "x_en": "The Wednesday morning market in front of the tourist office."
  },
  {
   "d": "2026-11-27",
@@ -194,7 +234,9 @@
   "cat": "Spectacle",
   "t": "Mathieu Stepson, magie et mentalisme",
   "x": "Le vainqueur de « La France a un Incroyable Talent » mêle illusion et mentalisme, au Palais. Dès 8 ans.",
-  "u": "https://www.haute-savoie-tourisme.org/7388657-mathieu-stepson"
+  "u": "https://www.haute-savoie-tourisme.org/7388657-mathieu-stepson",
+  "t_en": "Mathieu Stepson, magic & mentalism",
+  "x_en": "The winner of France's Got Talent blends illusion and mind reading, at the Palais. From age 8."
  },
  {
   "d": "2026-11-27",
@@ -203,7 +245,9 @@
   "cat": "Marché",
   "t": "Marché de Megève",
   "x": "Le marché du vendredi matin dans les rues du village : produits du terroir, primeurs et artisans.",
-  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve"
+  "u": "https://www.haute-savoie-tourisme.org/198719-marche-de-megeve",
+  "t_en": "Megève market",
+  "x_en": "The Friday morning market in the village streets: local produce, fruit and vegetables, craftspeople."
  },
  {
   "d": "2026-11-28",
@@ -212,7 +256,9 @@
   "cat": "Famille",
   "t": "Spectacle bébés lecteurs « Moon »",
   "x": "Un petit spectacle tout doux pour les tout-petits, à la médiathèque.",
-  "u": "https://www.haute-savoie-tourisme.org/7987555-spectacle-bebes-lecteurs-moon"
+  "u": "https://www.haute-savoie-tourisme.org/7987555-spectacle-bebes-lecteurs-moon",
+  "t_en": "Baby show “Moon”",
+  "x_en": "A gentle little show for toddlers at the library."
  },
  {
   "d": "2026-11-28",
@@ -221,7 +267,9 @@
   "cat": "Fête",
   "t": "Concours de belote des Mailles et Béguines",
   "x": "Le concours traditionnel du groupe folklorique à la Fondation Morand Allard : 12 €, un lot pour chacun, buvette et petite restauration.",
-  "u": "https://haute-savoie.planetekiosque.com/167-2347864-5-concours-belote-des-mailles-beguines.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-2347864-5-concours-belote-des-mailles-beguines.html",
+  "t_en": "Belote card tournament",
+  "x_en": "The traditional tournament of the Mailles et Béguines folk group at the Fondation Morand Allard: €12, a prize for everyone, bar and snacks."
  },
  {
   "d": "2026-11-28",
@@ -230,7 +278,9 @@
   "cat": "Famille",
   "t": "Repair Café",
   "x": "Des bénévoles réparent gratuitement petit électroménager et vêtements, sous le presbytère.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/offres/repair-cafe-combloux-combloux-fr-5868626/"
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/repair-cafe-combloux-combloux-fr-5868626/",
+  "t_en": "Repair Café",
+  "x_en": "Volunteers repair small appliances and clothes for free, under the presbytery."
  },
  {
   "d": "2026-11-29",
@@ -239,7 +289,9 @@
   "cat": "Famille",
   "t": "Bourse aux jouets",
   "x": "Vente de jouets d'occasion au 1er étage de l'Office de Tourisme (dépôt la veille de 16h à 19h).",
-  "u": "https://vide-greniers.org/evenement/1034722/20261129"
+  "u": "https://vide-greniers.org/evenement/1034722/20261129",
+  "t_en": "Toy sale",
+  "x_en": "Second-hand toy sale on the 1st floor of the tourist office (drop-off the day before, 4–7pm)."
  },
  {
   "d": "2026-11-29",
@@ -248,7 +300,9 @@
   "cat": "Gastronomie",
   "t": "Opération Pain-Boudin",
   "x": "Les parents d'élèves vendent près de l'église boudin à la compote maison et pain cuit au four à bois, au profit de l'école.",
-  "u": "https://haute-savoie.planetekiosque.com/167-1989912-5-operation-pain-boudin.html"
+  "u": "https://haute-savoie.planetekiosque.com/167-1989912-5-operation-pain-boudin.html",
+  "t_en": "Black pudding & bread sale",
+  "x_en": "Parents sell homemade black pudding with apple compote and wood-fired bread near the church, in support of the school."
  },
  {
   "d": "2026-12-01",
@@ -257,7 +311,9 @@
   "cat": "Culture",
   "t": "Aide au Clic",
   "x": "Aide individuelle et gratuite sur smartphone, tablette ou ordinateur à la médiathèque, sur inscription.",
-  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic"
+  "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
+  "t_en": "Digital help desk",
+  "x_en": "Free one-to-one help with your smartphone, tablet or computer at the library, by registration."
  },
  {
   "d": "2026-12-01",
@@ -266,7 +322,9 @@
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Villard-de-Lans",
   "x": "Match de Division 1 à la patinoire du Palais.",
-  "u": "https://www.haute-savoie-tourisme.org/6843705-hockey-sur-glace-match-division-1-mont-blanc-vs-villard-de-lans"
+  "u": "https://www.haute-savoie-tourisme.org/6843705-hockey-sur-glace-match-division-1-mont-blanc-vs-villard-de-lans",
+  "t_en": "Ice hockey: Mont-Blanc vs Villard-de-Lans",
+  "x_en": "Division 1 game at the Palais ice rink."
  },
  {
   "d": "2026-12-02",
@@ -275,7 +333,9 @@
   "cat": "Famille",
   "t": "Heure du conte",
   "x": "Histoires racontées aux enfants à l'espace jeunesse de la médiathèque. Gratuit.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte"
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Story time",
+  "x_en": "Stories for children in the library's children's area. Free."
  },
  {
   "d": "2026-12-02",
@@ -284,7 +344,9 @@
   "cat": "Marché",
   "t": "Marché de Combloux",
   "x": "Le marché du mercredi matin sur le parvis de l'Office de Tourisme.",
-  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux"
+  "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux",
+  "t_en": "Combloux market",
+  "x_en": "The Wednesday morning market in front of the tourist office."
  },
  {
   "d": "2026-12-04",

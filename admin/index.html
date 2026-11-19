@@ -84,6 +84,7 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <div class="row">
       <div><label for="ncat">Catégorie</label><input id="ncat" list="cats" placeholder="Automne, Hiver, Événements…"></div>
       <div><label for="nev">Nom de l'événement (facultatif)</label><input id="nev" placeholder="Les Toquicimes"></div>
+      <div><label for="nby">Photo d'un abonné : son compte (facultatif)</label><input id="nby" placeholder="@prenom.nom"></div>
     </div>
     <div class="row" style="margin-top:10px">
       <div><label for="files">Photos</label><input id="files" type="file" accept="image/*" multiple></div>
@@ -177,13 +178,14 @@ function render(){
         <div><label for="c${k}">Catégorie</label><input id="c${k}" data-f="cat" list="cats" value="${esc(p.cat)}"></div>
         <div><label for="d${k}">Date</label><input id="d${k}" data-f="date" type="datetime-local" value="${esc((p.date||"").slice(0,16))}"></div>
         <div><label for="e${k}">Événement</label><input id="e${k}" data-f="ev" value="${esc(p.ev||"")}" placeholder="—"></div>
+        <div><label for="b${k}">Photo d'abonné (@compte)</label><input id="b${k}" data-f="by" value="${esc(p.by||"")}" placeholder="—"></div>
         <button class="danger" data-act="del">${p._del?"Annuler la suppression":"Supprimer"}</button>
       </div>
     </div>`).join("");
 }
 $("grid").addEventListener("input",e=>{const it=e.target.closest(".it");if(!it||!e.target.dataset.f)return;
   const p=photos[+it.dataset.k];const v=e.target.value;
-  if(e.target.dataset.f==="ev"){if(v.trim())p.ev=v;else delete p.ev;}else p[e.target.dataset.f]=v;markChanged();});
+  if(e.target.dataset.f==="ev"){if(v.trim())p.ev=v;else delete p.ev;}else if(e.target.dataset.f==="by"){const h=v.trim().replace(/^@?/,"@");if(h.length>1)p.by=h;else delete p.by;}else p[e.target.dataset.f]=v;markChanged();});
 $("grid").addEventListener("click",e=>{if(e.target.dataset.act!=="del")return;const k=+e.target.closest(".it").dataset.k;
   const p=photos[k];if(p._new){photos.splice(k,1);}else p._del=!p._del;markChanged();render();});
 $("filter").addEventListener("change",e=>{filter=e.target.value;render();});
@@ -197,14 +199,14 @@ function resize(file,max,q){return new Promise((res,rej)=>{const img=new Image()
   c.width=Math.round(img.width*r);c.height=Math.round(img.height*r);c.getContext("2d").drawImage(img,0,0,c.width,c.height);
   res(c.toDataURL("image/jpeg",q));URL.revokeObjectURL(img.src);};img.onerror=rej;img.src=URL.createObjectURL(file);});}
 $("files").addEventListener("change",async e=>{
-  const cat=$("ncat").value.trim()||"Divers", ev=$("nev").value.trim();
+  const cat=$("ncat").value.trim()||"Divers", ev=$("nev").value.trim(), by=$("nby").value.trim().replace(/^@?/,"@").replace(/^@$/,"");
   setStatus("Préparation des photos…");
   for(const f of e.target.files){
     try{
       const big=await resize(f,1600,.82), th=await resize(f,640,.75);
       const base=slug(f.name.replace(/\.[^.]+$/,""))+"-"+Date.now().toString(36);
       const p={src:"photos/"+base+".jpg",thumb:"photos/"+base+"-thumb.jpg",t:"",cat,date:dateOf(f),_new:true,_big:big,_th:th,_preview:th};
-      if(ev)p.ev=ev;photos.unshift(p);
+      if(ev)p.ev=ev;if(by)p.by=by;photos.unshift(p);
     }catch(err){setStatus("Impossible de lire "+f.name,"err");}
   }
   e.target.value="";filter="all";markChanged();render();
@@ -232,7 +234,7 @@ async function publishPhotos(){
       }
     }
     for(const p of photos.filter(p=>p._del)){tree.push({path:p.src,mode:"100644",type:"blob",sha:null});tree.push({path:p.thumb,mode:"100644",type:"blob",sha:null});}
-    const clean=photos.filter(p=>!p._del).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();if(p.video)o.video=true;if(p.date)o.date=p.date;return o;});
+    const clean=photos.filter(p=>!p._del).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();if(p.by)o.by=p.by.trim();if(p.video)o.video=true;if(p.date)o.date=p.date;return o;});
     tree.push({path:DATA,mode:"100644",type:"blob",content:JSON.stringify(clean,null,1)+"\n"});
     const t=await gh("/git/trees",{method:"POST",body:JSON.stringify({base_tree:head.tree.sha,tree})});
     const c=await gh("/git/commits",{method:"POST",body:JSON.stringify({message:"Mise à jour de la galerie depuis l'admin",tree:t.sha,parents:[ref.object.sha]})});
@@ -316,7 +318,7 @@ $("aAdd").onclick=()=>{agenda.unshift({d:today,lieu:"Megève",cat:"Fête",t:"",x
 async function publishAgenda(){
   const bad=agenda.filter(e=>!e._del&&(!e.t||!e.d||!e.lieu||!e.cat));
   if(bad.length)throw new Error("chaque événement doit avoir au moins un titre, une date, un village et une catégorie");
-  const clean=agenda.filter(e=>!e._del).map(e=>{const o={};for(const k of ["d","d2","h","lieu","cat","t","x","u","always","v"])if(e[k]!==undefined&&e[k]!=="")o[k]=e[k];return o;})
+  const clean=agenda.filter(e=>!e._del).map(e=>{const o={};for(const k of ["d","d2","h","lieu","cat","t","x","u","always","v","free","kids","indoor","t_en","x_en"])if(e[k]!==undefined&&e[k]!=="")o[k]=e[k];return o;})
     .sort((a,b)=>(a.d||"").localeCompare(b.d||""));
   const r=await gh("/contents/"+ADATA,{method:"PUT",body:JSON.stringify({message:"Mise à jour de l'agenda depuis l'admin",content:b64(JSON.stringify(clean,null,1)+"\n"),sha:agendaSha,branch:BRANCH})});
   agendaSha=r.content.sha; agenda=clean; aChanged=false; renderAgenda();

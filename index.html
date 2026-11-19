@@ -3,11 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Megève par cœur</title>
+<title>Megève par cœur · Agenda, météo, webcams de Megève, Combloux, Demi-Quartier, Praz-sur-Arly</title>
+<link rel="canonical" href="https://www.megeveparcoeur.fr/">
+<link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/">
+<link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/">
 <link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0a1424">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Megève ❤">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
-<meta name="description" content="Megève par cœur : photos, agenda des événements et coups de cœur pour les amoureux de Megève et ses alentours.">
+<meta name="description" content="Que faire à Megève ce week-end ? L'agenda le plus complet de Megève, Combloux, Demi-Quartier et Praz-sur-Arly : marchés, concerts, spectacles, sorties enfants, mis à jour chaque jeudi. Plus météo, neige et webcams.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -254,8 +262,44 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .place.Combloux{background:var(--pine)}
 .place.Praz-sur-Arly{background:#8a5a24}
 .ev .hour{font-weight:700;color:var(--ink)}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;margin:-10px 0 6px;scrollbar-width:none}
+.quick::-webkit-scrollbar{display:none}
+.qf{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:700 .88rem var(--body);cursor:pointer;white-space:nowrap}
+.qf[aria-pressed="true"]{background:var(--heart);border-color:var(--heart);color:#fff}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center}
+.acts .tg{font-size:.72rem;font-weight:800;color:var(--pine);background:rgba(63,97,80,.1);border-radius:999px;padding:3px 9px}
+.act,.acts .menu button{font:700 .8rem var(--body);border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 11px;cursor:pointer}
+.act:hover{border-color:var(--heart);color:var(--heart)}
+.addw{position:relative}
+.acts .menu{position:absolute;left:0;top:calc(100% + 6px);z-index:5;display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 12px 30px rgba(10,20,40,.18);min-width:190px}
+.acts .menu[hidden]{display:none}
+.acts .menu button{text-align:left;border-radius:10px}
+.ev.hl{outline:3px solid var(--glow);outline-offset:3px}
 
+
+.fans{background:linear-gradient(135deg,#12284a,#1d3d2d);color:#f4f8ff;border-radius:28px;padding:30px;display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.fans h2{font-size:clamp(1.8rem,4vw,2.5rem)}.fans p{opacity:.88;margin:10px 0 18px}.fans .kicker{color:var(--glow)}
+.fans .btn{display:inline-block;background:#fff;color:#12284a;font-weight:800;text-decoration:none;border-radius:999px;padding:12px 20px}
+.fans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.fans-grid a{position:relative;display:block;border-radius:14px;overflow:hidden;aspect-ratio:1}
+.fans-grid img{width:100%;height:100%;object-fit:cover}
+.fans-grid span{position:absolute;left:6px;bottom:6px;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;font-weight:800;border-radius:999px;padding:3px 8px}
+.fans-empty{grid-column:1/-1;background:rgba(255,255,255,.08);border:1.5px dashed rgba(255,255,255,.35);border-radius:18px;padding:30px;text-align:center;margin:0}
+@media (max-width:760px){.fans{grid-template-columns:1fr;padding:22px}}
+.nl{background:linear-gradient(120deg,#0b1c36,#1d3d2d);color:#f4f8ff;border-radius:26px;padding:26px 28px;display:grid;grid-template-columns:1fr 1.1fr;gap:22px;align-items:center;margin:34px 0 0}
+.nl h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:#fff}.nl p{margin:6px 0 0;opacity:.85}
+.nl form{display:flex;flex-direction:column;gap:10px}
+.nl .row{display:flex;gap:8px}
+.nl input[type=email]{flex:1;min-width:0;font:600 1rem var(--body);border:0;border-radius:999px;padding:13px 18px}
+.nl button{font:800 .95rem var(--body);border:0;border-radius:999px;background:#c8323d;color:#fff;padding:13px 18px;cursor:pointer;white-space:nowrap}
+.nl label.c{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;opacity:.85}
+.nl .msg{font-weight:800;min-height:1.2em}
+.nl .hp{position:absolute;left:-5000px}
+@media (max-width:760px){.nl{grid-template-columns:1fr;padding:22px}.nl .row{flex-direction:column}}
 /* Coups de cœur */
+.cc-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.cc-links a{background:var(--night);color:#fff;text-decoration:none;font-weight:800;border-radius:999px;padding:12px 18px}
+.cc-links a:hover{background:var(--heart)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px;box-shadow:0 6px 18px rgba(60,40,20,.06)}
 .card .meta{font-size:.78rem;color:var(--pine);font-weight:800;letter-spacing:.08em;text-transform:uppercase}
@@ -310,12 +354,14 @@ footer a{color:#fbf3e6}
       Megève par cœur
     </a>
     <ul>
-      <li><a href="#galerie">Galerie</a></li>
       <li><a href="#agenda">Agenda</a></li>
-      <li><a href="meteo/">Météo &amp; neige</a></li>
-      <li><a href="webcams/">Webcams</a></li>
-      <li><a href="#coups-de-coeur">Coups de cœur</a></li>
-      <li><a href="boutique/">Boutique solidaire</a></li>
+      <li><a href="/meteo/">Météo &amp; neige</a></li>
+      <li><a href="/webcams/">Webcams</a></li>
+      <li><a href="/balades/">Balades</a></li>
+      <li><a href="/carte/">Carte</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="/boutique/">Boutique</a></li>
+      <li><a href="/en/" lang="en" hreflang="en">EN</a></li>
     </ul>
   </div>
 </header>
@@ -396,6 +442,21 @@ footer a{color:#fbf3e6}
   </div>
 </section>
 
+<section id="vos-photos" style="padding-top:8px">
+  <div class="wrap">
+    <div class="fans">
+      <div class="fans-hd">
+        <div class="kicker">Vos photos</div>
+        <h2>Megève vue par vous</h2>
+        <p>Partagez vos plus belles photos de Megève, Combloux, Demi-Quartier ou Praz avec <b>#megeveparcoeur</b> ou en identifiant <b>@megeveparcoeur</b> : chaque semaine, nos coups de cœur sont publiés ici et sur Instagram, avec votre nom.</p>
+        <a class="btn" href="https://www.instagram.com/megeveparcoeur/" target="_blank" rel="noopener">📷 Partager sur Instagram</a>
+      </div>
+      <div class="fans-grid" id="fans-grid"><p class="fans-empty">Les premières photos de la communauté arrivent bientôt. La vôtre sera peut-être la première ✨</p></div>
+    </div>
+  </div>
+</section>
+
+
 <div class="deco" aria-hidden="true"><svg viewBox="0 0 220 56"><path d="M6 50L48 20 66 32 96 8 122 30 140 18 176 44 214 50" fill="none" stroke="#6f93bf" stroke-width="1.8" stroke-linejoin="round"/><path d="M96 8l-10 8 5-1 5 4 5-5 6 2zM48 20l-7 5 4 0 3 2 4-3 4 1z" fill="#6f93bf" opacity=".55"/><g fill="#3f6150"><path d="M30 52l8-14-4 1 6-10-3 1 5-9 5 9-3-1 6 10-4-1 8 14z"/><path d="M182 52l6-11-3 1 5-8-2 1 4-7 4 7-2-1 5 8-3-1 6 11z"/><path d="M196 52l5-9-3 1 4-6-2 1 3-6 3 6-2-1 4 6-3-1 5 9z"/></g><circle cx="160" cy="12" r="3" fill="#e0b25a"/></svg></div>
 <section id="agenda" style="padding-top:8px">
   <div class="wrap">
@@ -414,7 +475,19 @@ footer a{color:#fbf3e6}
         <button class="tab" aria-pressed="false" data-l="Praz-sur-Arly">Praz-sur-Arly</button>
       </div>
     </div>
+    <div class="quick" id="ag-quick" role="group" aria-label="Filtres rapides"></div>
     <div class="agenda" id="agenda-list"></div>
+  <div class="nl" id="newsletter">
+  <div><div class="kicker" style="color:#f3c27a">📬 Chaque jeudi</div>
+    <h2>L'agenda de la semaine par e-mail</h2>
+    <p>Tous les rendez-vous de Megève, Combloux, Demi-Quartier et Praz, dans ta boîte mail le jeudi. Gratuit, sans pub, désinscription en un clic.</p></div>
+  <form id="nl-form" novalidate>
+    <div class="row"><input type="email" name="email" required autocomplete="email" placeholder="ton@email.fr" aria-label="E-mail"><button type="submit">Je m'inscris</button></div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="c"><input type="checkbox" name="consent" required> J'accepte de recevoir l'agenda de Megève par cœur par e-mail. Mon adresse n'est utilisée que pour cet envoi.</label>
+    <div class="msg" id="nl-msg" aria-live="polite"></div>
+  </form>
+</div>
   </div>
 </section>
 
@@ -433,6 +506,7 @@ footer a{color:#fbf3e6}
       <article class="card"><div class="meta">Rando · Panorama</div><h3>Les crêtes du Mont Joly</h3><p>Le grand classique pour les panoramas : le massif du Mont-Blanc en face, les Aravis dans le dos.</p></article>
       <article class="card"><div class="meta">Ski · Raquettes</div><h3>La Côte 2000</h3><p>Le secteur le plus sauvage du domaine, idéal pour une journée au calme loin de l'agitation du village.</p></article>
     </div>
+    <div class="cc-links"><a href="carte/">🗺️ La carte des beaux coins</a><a href="balades/">🥾 Balades &amp; raquettes balisées</a></div>
   </div>
 </section>
 
@@ -469,7 +543,7 @@ footer a{color:#fbf3e6}
 <footer>
   <div class="wrap"><span class="xmas">Joyeuses fêtes depuis Megève ✨</span></div>
   <div class="wrap foot">
-    <span>© Megève par cœur · Photos et textes de Vincent · <a href="meteo/">Météo &amp; neige</a> · <a href="webcams/">Webcams</a></span>
+    <span>© Megève par cœur · Photos et textes de Vincent · <a href="meteo/">Météo &amp; neige</a> · <a href="webcams/">Webcams</a> · <a href="balades/">Balades</a> · <a href="carte/">Carte</a> · <a href="en/">English</a></span>
     <a href="https://www.instagram.com/megeveparcoeur/">Instagram : @megeveparcoeur</a>
   </div>
 </footer>
@@ -498,7 +572,7 @@ tabs.addEventListener("click", e => { const b=e.target.closest(".tab"); if(!b) r
 });
 const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img"), lbCap=document.getElementById("lb-cap"), lbVid=document.getElementById("lb-vid");
 let cur=0, lastFocus=null;
-function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbVid.pause(); if(i.video){lb.classList.add("vid"); lbVid.src=i.src; lbVid.poster=i.thumb; lbImg.removeAttribute("src");} else {lb.classList.remove("vid"); lbVid.removeAttribute("src"); lbImg.src=i.src; lbImg.alt=i.t;} lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t+(i.date?" · "+fmtDate(i.date):"");}
+function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbVid.pause(); if(i.video){lb.classList.add("vid"); lbVid.src=i.src; lbVid.poster=i.thumb; lbImg.removeAttribute("src");} else {lb.classList.remove("vid"); lbVid.removeAttribute("src"); lbImg.src=i.src; lbImg.alt=i.t;} lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t+(i.date?" · "+fmtDate(i.date):"")+(i.by?" · 📷 "+i.by:"");}
 function openLb(k){lastFocus=document.activeElement; show(k); lb.classList.add("open"); document.getElementById("lb-x").focus();}
 function closeLb(){lb.classList.remove("open"); lbVid.pause(); lbVid.removeAttribute("src"); lbImg.removeAttribute("src"); if(lastFocus) lastFocus.focus();}
 g.addEventListener("click", e => { const b=e.target.closest("button[data-k]"); if(b) openLb(+b.dataset.k); });
@@ -509,29 +583,9 @@ lb.addEventListener("click", e => { if(e.target===lb) closeLb(); });
 document.addEventListener("keydown", e => { if(!lb.classList.contains("open")) return; if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") show(cur-1); if(e.key==="ArrowRight") show(cur+1); });
 let tx=null; lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
 lb.addEventListener("touchend",e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) show(cur+(dx<0?1:-1)); tx=null; });
-const MOIS=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-const MC=["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
-let agenda=[], lieu="all";
-function dParts(s){const [y,m,d]=s.split("-").map(Number);return {y,m,d};}
-function dLabel(e){const a=dParts(e.d); if(!e.d2) return {big:`${a.d} ${MC[a.m-1]}`,small:String(a.y)};
-  const b=dParts(e.d2); if(e.always) return {big:"Jusqu'au",small:`${b.d} ${MC[b.m-1]} ${b.y}`};
-  if(a.m===b.m&&a.y===b.y) return {big:`${a.d}–${b.d} ${MC[a.m-1]}`,small:String(a.y)};
-  return {big:`${a.d} ${MC[a.m-1]}`,small:`au ${b.d} ${MC[b.m-1]} ${b.y}`};}
-function renderAgenda(){
-  const today=new Date().toISOString().slice(0,10);
-  const list=agenda.filter(e=>(lieu==="all"||e.lieu===lieu)&&((e.d2||e.d)>=today)).sort((x,y)=>(x.always?1:0)-(y.always?1:0)||x.d.localeCompare(y.d));
-  let html="",cur="";
-  for(const e of list){
-    const a=dParts(e.d), key=e.always?"Toute la saison":`${MOIS[a.m-1]} ${a.y}`;
-    if(key!==cur){cur=key;html+=`<h3 class="month">${key.charAt(0).toUpperCase()+key.slice(1)}</h3>`;}
-    const L=dLabel(e);
-    html+=`<article class="ev"><div class="date"><b>${L.big}</b><span>${L.small}</span></div><div><h3>${esc(e.t)}</h3><p>${e.h?`<span class="hour">${esc(e.h)} · </span>`:""}${esc(e.x)}</p></div><div class="meta"><span class="place ${esc(e.lieu)}">${esc(e.lieu)}</span>${e.u?`<a class="more" href="${esc(e.u)}" target="_blank" rel="noopener">Plus d'infos ↗</a>`:""}</div></article>`;
-  }
-  document.getElementById("agenda-list").innerHTML=html||'<p class="note">Aucun événement à venir pour le moment.</p>';
-}
-document.getElementById("ag-tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;
-  document.querySelectorAll("#ag-tabs .tab").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));lieu=b.dataset.l;renderAgenda();});
-fetch("data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{agenda=d;renderAgenda();const t=new Date().toISOString().slice(0,10),n=d.filter(e=>(e.d2||e.d)>=t).length,v=new Set(d.map(e=>e.lieu)).size;const st=document.getElementById("ag-stats");if(st)st.innerHTML=`<span><b>${n}</b> événements à venir</span><span><b>${v}</b> villages</span><span>🔄 Mis à jour chaque jeudi</span>`;}).catch(()=>{document.getElementById("agenda-list").innerHTML='<p class="note">L\'agenda n\'a pas pu se charger. Rechargez la page.</p>';});
+
+fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{const f=d.filter(p=>p.by&&!p.video).slice(0,6);if(!f.length)return;
+  document.getElementById("fans-grid").innerHTML=f.map(p=>`<a href="https://www.instagram.com/${encodeURIComponent(p.by.replace(/^@/,""))}/" target="_blank" rel="noopener" title="${esc(p.t||"")}"><img src="${esc(p.thumb)}" alt="${esc(p.t||"Photo de "+p.by)}" loading="lazy"><span>📷 ${esc(p.by)}</span></a>`).join("");}).catch(()=>{});
 fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.sort((a,b)=>(b.date||"").localeCompare(a.date||"")); buildTabs(); render("all");})
   .catch(()=>{g.innerHTML='<p class="note">La galerie n\'a pas pu se charger. Rechargez la page.</p>';});
 </script>
@@ -617,6 +671,19 @@ fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.
   step(); setInterval(idle,700);
   if(!rm) setTimeout(function(){energy=.6; P.forEach(function(p){if(Math.random()<.6){p.rest=false;p.vx=(Math.random()-.5)*5;p.vy=-Math.random()*6-1;}}); if(!running){running=true;requestAnimationFrame(step);}},1800);
 })();
+</script>
+<script src="assets/agenda.js" defer></script>
+<script src="/assets/app.js" defer></script>
+<script>
+(function(){const f=document.getElementById("nl-form"),m=document.getElementById("nl-msg"),M={"ok": "Merci ! Vérifie ta boîte mail pour confirmer ton inscription ✉️", "okdirect": "C'est noté, à jeudi ! 🎉", "email": "Cette adresse e-mail ne semble pas valide.", "consent": "Coche la case pour accepter de recevoir l'e-mail.", "soon": "Les inscriptions ouvrent très bientôt, reviens dans quelques jours 🙂", "err": "Oups, ça n'a pas marché. Réessaie dans un instant."};
+f.addEventListener("submit",async e=>{e.preventDefault();const d=new FormData(f),email=(d.get("email")||"").trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){m.textContent=M.email;return;}
+  if(!d.get("consent")){m.textContent=M.consent;return;}
+  m.textContent="…";
+  try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,consent:true,lang:"fr",website:d.get("website")||""})});
+    const j=await r.json().catch(()=>({}));
+    if(j.ok){m.textContent=j.doi?M.ok:M.okdirect;f.reset();}else m.textContent=r.status===503?M.soon:(M[j.error]||M.err);}
+  catch(err){m.textContent=M.err;}});})();
 </script>
 </body>
 </html>

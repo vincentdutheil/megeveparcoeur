@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.megeveparcoeur.fr/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/en/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/meteo/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/webcams/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/balades/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/carte/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.megeveparcoeur.fr/boutique/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>
