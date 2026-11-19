@@ -1,6 +1,7 @@
 // Envoi de « L'agenda de la semaine » chaque jeudi (Vercel Cron, voir vercel.json).
 // /api/newsletter?preview=1  → aperçu HTML, sans envoi.
 // Envoi : appelé par Vercel Cron (en-tête Authorization: Bearer CRON_SECRET) ou /api/newsletter?key=CRON_SECRET.
+// Inclut un point météo & neige (Open-Meteo) ; si l'API ne répond pas, l'e-mail part sans.
 // Variables : BREVO_API_KEY, BREVO_LIST_ID, CRON_SECRET, SENDER_EMAIL (défaut bonjour@megeveparcoeur.fr).
 const SITE = "https://www.megeveparcoeur.fr";
 const MC = ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."];
@@ -13,7 +14,73 @@ function add(s, k) { const d = new Date(s + "T12:00:00Z"); d.setUTCDate(d.getUTC
 function lab(s) { const d = new Date(s + "T12:00:00Z"); return `${JOURS[d.getUTCDay()]} ${d.getUTCDate()} ${MC[d.getUTCMonth()]}`; }
 function slug(e) { return "e-" + e.d + "-" + (e.t || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40); }
 
-function build(agenda, start) {
+// ---- Point météo & neige (Open-Meteo, mêmes données que la page /meteo/) ----
+const VIL = [
+  { n: "Megève", lat: 45.8567, lon: 6.6175, v: 1113, a: 1850 },
+  { n: "Combloux", lat: 45.8966, lon: 6.6417, v: 1000, a: 1850 },
+  { n: "Demi-Quartier", lat: 45.8760, lon: 6.6260, v: 1050, a: 1830 },
+  { n: "Praz-sur-Arly", lat: 45.8375, lon: 6.5719, v: 1036, a: 1830 }
+];
+const WI = c => c === 0 ? "☀️" : c <= 2 ? "🌤️" : c === 3 ? "☁️" : c <= 48 ? "🌫️" : c <= 67 ? "🌧️" : c <= 77 ? "🌨️" : c <= 82 ? "🌦️" : c <= 86 ? "🌨️" : "⛈️";
+async function meteoZone(z) {
+  const q = new URLSearchParams({
+    latitude: VIL.map(v => v.lat).join(","), longitude: VIL.map(v => v.lon).join(","), elevation: VIL.map(v => z === "v" ? v.v : v.a).join(","),
+    current: "temperature_2m,weather_code", hourly: "snow_depth",
+    daily: "weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum", timezone: "Europe/Paris", forecast_days: "7"
+  });
+  const r = await fetch("https://api.open-meteo.com/v1/forecast?" + q, { signal: AbortSignal.timeout(8000) });
+  if (!r.ok) throw new Error("open-meteo " + r.status);
+  let d = await r.json(); if (!Array.isArray(d)) d = [d];
+  return d.map(x => {
+    const H = x.hourly, i = Math.max(0, H.time.findIndex(t => t.slice(0, 13) === x.current.time.slice(0, 13)));
+    const D = x.daily;
+    return { depth: Math.round((H.snow_depth[i] || 0) * 100), temp: Math.round(x.current.temperature_2m),
+      week: D.snowfall_sum.reduce((a, b) => a + (b || 0), 0),
+      days: D.time.map((t, k) => ({ t, c: D.weather_code[k], mx: Math.round(D.temperature_2m_max[k]), mn: Math.round(D.temperature_2m_min[k]), sn: D.snowfall_sum[k] || 0 })) };
+  });
+}
+async function meteo() {
+  try { const [v, a] = await Promise.all([meteoZone("v"), meteoZone("a")]); return { v, a }; }
+  catch (e) { return null; } // pas de météo : la newsletter part quand même
+}
+const cm = x => x >= 10 ? Math.round(x) : Math.round(x * 10) / 10;
+function meteoBlock(M) {
+  if (!M) return "";
+  // prochaine chute de neige notable (en altitude)
+  let best = null;
+  M.a.forEach((s, i) => s.days.forEach((x, k) => { if (x.sn >= 1 && (!best || k < best.k || (k === best.k && x.sn > best.sn))) best = { k, sn: x.sn, t: x.t }; }));
+  const maxWeek = Math.max(...M.a.map(s => s.week)), maxWeekV = Math.max(...M.v.map(s => s.week));
+  const head = best
+    ? `❄️ ${best.k === 0 ? "Il neige aujourd'hui" : best.k === 1 ? "De la neige attendue demain" : "Prochaine neige : " + lab(best.t).replace(/ \d.*$/, "")} · jusqu'à ${cm(maxWeek)} cm cumulés sur 7 jours en altitude${maxWeekV >= 1 ? `, ${cm(maxWeekV)} cm au village` : ""}.`
+    : "☀️ Pas de chute de neige prévue cette semaine.";
+  const td = "padding:8px 6px;font:13px Arial,sans-serif;color:#1c2533;border-top:1px solid #e6ecf4";
+  const rows = VIL.map((v, i) => `<tr>
+      <td style="${td};font-weight:700">${v.n}</td>
+      <td style="${td};text-align:center">${M.v[i].temp}°</td>
+      <td style="${td};text-align:center">${M.v[i].depth} cm</td>
+      <td style="${td};text-align:center">${M.a[i].depth} cm</td>
+      <td style="${td};text-align:center;font-weight:700;color:#1f3d7a">${cm(M.a[i].week)} cm</td></tr>`).join("");
+  const th = "padding:6px;font:700 10px Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8592a3";
+  const strip = M.v[0].days.map((x, k) => `<td align="center" style="padding:8px 2px;font:12px Arial,sans-serif;color:#5d6878">
+      <div style="font-weight:700;color:#1c2533">${k === 0 ? "Auj." : JOURS[new Date(x.t + "T12:00:00Z").getUTCDay()].slice(0, 3) + "."}</div>
+      <div style="font-size:20px;line-height:28px">${WI(x.c)}</div>
+      <div><b style="color:#1c2533">${x.mx}°</b> ${x.mn}°</div>
+      <div style="color:#1f3d7a;font-weight:700;height:16px">${M.a[0].days[k].sn >= 0.5 ? "❄ " + cm(M.a[0].days[k].sn) : ""}</div></td>`).join("");
+  return `<tr><td style="padding:16px 18px 0">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #dbe3ee;border-radius:16px"><tr><td style="padding:16px 16px 12px">
+      <div style="font:700 13px/1.2 Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#c8323d">Le point météo &amp; neige</div>
+      <div style="font:600 16px/1.4 Arial,sans-serif;color:#1c2533;margin:8px 0 10px">${head}</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+        <tr><td style="${th}"></td><td style="${th};text-align:center">Temp.</td><td style="${th};text-align:center">Neige au village</td><td style="${th};text-align:center">Neige en altitude</td><td style="${th};text-align:center">À venir 7 j</td></tr>
+        ${rows}
+      </table>
+      <div style="font:700 11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#8592a3;margin-top:14px">Les 7 jours à Megève (❄ = cm de neige en altitude)</div>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>${strip}</tr></table>
+      <div style="font:12px/1.5 Arial,sans-serif;color:#8592a3;margin-top:6px">Estimations des modèles météo (Open-Meteo), au moment de l'envoi. <a href="${SITE}/meteo/" style="color:#1f3d7a;font-weight:700">Prévisions à jour →</a></div>
+    </td></tr></table></td></tr>`;
+}
+
+function build(agenda, start, M) {
   const end = add(start, 6);
   const evs = agenda.filter(e => { const a = e.d, b = e.d2 || e.d; if (b < start || a > end) return false;
       const long = (new Date(b) - new Date(a)) / 864e5 > 14; return !long || (a >= start && a <= end); })
@@ -40,6 +107,7 @@ function build(agenda, start) {
     <div style="font:28px/1.15 Georgia,serif;color:#ffffff;margin-top:6px">Megève &amp; alentours</div>
     <div style="font:15px Arial,sans-serif;color:#cfe0f7;margin-top:6px">${period} · Megève, Combloux, Demi-Quartier, Praz-sur-Arly</div>
   </td></tr>
+  ${meteoBlock(M)}
   <tr><td style="background:#f1f4f9;padding:4px 18px 10px">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows || `<tr><td style="padding:24px 0;font:15px Arial,sans-serif;color:#5d6878">Semaine calme : retrouvez les prochains rendez-vous sur le site.</td></tr>`}</table>
   </td></tr>
@@ -62,7 +130,7 @@ module.exports = async (req, res) => {
   const agenda = await r.json();
   let start = parisToday();
   if (url.searchParams.get("start")) start = url.searchParams.get("start");
-  const mail = build(agenda, start);
+  const mail = build(agenda, start, await meteo());
   if (url.searchParams.get("preview")) { res.setHeader("Content-Type", "text/html; charset=utf-8"); return res.end(mail.html.replace("{{ unsubscribe }}", "#")); }
   const secret = process.env.CRON_SECRET, auth = req.headers.authorization || "";
   if (!secret || (auth !== "Bearer " + secret && url.searchParams.get("key") !== secret)) { res.statusCode = 401; return res.end("unauthorized"); }
@@ -74,7 +142,7 @@ module.exports = async (req, res) => {
     name: "Agenda " + start, subject: mail.subject, sender: { name: "Megève par cœur", email: process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr" },
     htmlContent: mail.html, recipients: { listIds: [list] }, inlineImageActivation: false,
     replyTo: process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr",
-    previewText: "Marchés, spectacles, sorties en famille : tout ce qui se passe cette semaine à Megève, Combloux, Demi-Quartier et Praz." }) });
+    previewText: "Marchés, spectacles, sorties en famille, et le point météo & neige : tout ce qui se passe cette semaine à Megève, Combloux, Demi-Quartier et Praz." }) });
   if (!c.ok) { res.statusCode = 502; return res.end("create failed: " + (await c.text()).slice(0, 300)); }
   const { id } = await c.json();
   const s = await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}/sendNow`, { method: "POST", headers: H });
