@@ -37,6 +37,25 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 #status{font-weight:600}
 .err{color:var(--heart)} .ok{color:var(--ok)}
 .hidden{display:none}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.tabs button[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;width:100%;min-height:64px;resize:vertical;color:var(--ink)}
+.ev{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:10px}
+.ev summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.ev summary::-webkit-details-marker{display:none}
+.ev .dt{font-weight:700;color:var(--heart);min-width:120px}
+.ev .tt{font-weight:600;flex:1;min-width:180px}
+.pill{font-size:.75rem;font-weight:700;border-radius:999px;padding:2px 9px;background:#e8edf6;color:var(--navy)}
+.pill.lock{background:#e3f3ea;color:var(--ok)}
+.pill.past{background:#f1f1f1;color:#888}
+.ev .f{padding:0 14px 14px;display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.ev .f .wide{grid-column:1/-1}
+.ev.del{opacity:.4}.ev.new{outline:3px solid var(--ok)}.ev.mod{outline:2px solid #e0a63a}
+.chk{display:flex;gap:8px;align-items:center;font-weight:600}.chk input{width:auto}
+.vis{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.vis a{align-self:start;display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:600}
+.vis img{width:100%;display:block;background:#e5e9f0}.vis span{display:block;padding:8px 10px}
 </style>
 </head>
 <body>
@@ -54,6 +73,12 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 </section>
 
 <div id="app" class="hidden">
+  <div class="tabs" role="tablist">
+    <button role="tab" data-tab="tPhotos" aria-selected="true">📷 Photos</button>
+    <button role="tab" data-tab="tAgenda" aria-selected="false">📅 Agenda</button>
+    <button role="tab" data-tab="tVis" aria-selected="false">🖼️ Visuels Instagram</button>
+  </div>
+  <div id="tPhotos">
   <section class="box">
     <h2>Ajouter des photos</h2>
     <div class="row">
@@ -73,6 +98,31 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
     </div>
     <div class="grid" id="grid"></div>
   </section>
+  </div>
+
+  <div id="tAgenda" class="hidden">
+  <section class="box">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <h2 style="margin:0">Agenda (<span id="acount">0</span> événements)</h2>
+      <button id="aAdd">+ Ajouter un événement</button>
+    </div>
+    <div class="row" style="margin-top:12px">
+      <div><label for="aq">Rechercher</label><input id="aq" placeholder="Titre, description…"></div>
+      <div style="flex:0 0 190px"><label for="al">Village</label><select id="al"><option value="">Tous</option><option>Megève</option><option>Combloux</option><option>Praz-sur-Arly</option></select></div>
+      <div style="flex:0 0 190px"><label for="ap">Période</label><select id="ap"><option value="fut">À venir</option><option value="past">Passés</option><option value="all">Tous</option></select></div>
+    </div>
+    <p class="muted">Cliquez sur un événement pour le modifier. Cochez « Vérifié par Vincent » : la mise à jour automatique du jeudi ne le modifiera ni ne le supprimera jamais. Les événements que vous ajoutez ici sont protégés automatiquement.</p>
+  </section>
+  <div id="alist"></div>
+  </div>
+
+  <div id="tVis" class="hidden">
+  <section class="box">
+    <h2>Visuels Instagram</h2>
+    <p class="muted">Les images de l'agenda de la semaine (story et publication) et les photos de la semaine, les plus récentes en premier. Touchez une image pour l'ouvrir en grand et l'enregistrer.</p>
+    <div class="vis" id="vis"></div>
+  </section>
+  </div>
 </div>
 <datalist id="cats"></datalist>
 </main>
@@ -98,9 +148,7 @@ async function gh(path,opt={}){
 }
 function esc(t){return String(t??"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
 function setStatus(t,cls){$("status").textContent=t;$("status").className=cls||"muted";}
-function markChanged(){changed=true;$("publish").disabled=false;
-  const n=photos.filter(p=>p._new).length,d=photos.filter(p=>p._del).length;
-  setStatus(`Modifications non publiées${n?` · ${n} ajout(s)`:""}${d?` · ${d} suppression(s)`:""}`);}
+function markChanged(){changed=true;$("publish").disabled=false;updStatus();}
 
 async function connect(){
   token=$("tok").value.trim()||load("mpc_tok")||"";
@@ -112,6 +160,7 @@ async function connect(){
     store("mpc_tok",token);
     $("login").classList.add("hidden");$("app").classList.remove("hidden");$("bar").classList.remove("hidden");
     render();
+    loadAgenda().catch(()=>{});
   }catch(e){$("loginErr").textContent="Connexion impossible : vérifiez la clé. ("+e.message.slice(0,80)+")";store("mpc_tok",null);}
 }
 function cats(){return [...new Set(photos.filter(p=>!p._del).map(p=>p.cat))];}
@@ -161,8 +210,17 @@ $("files").addEventListener("change",async e=>{
   e.target.value="";filter="all";markChanged();render();
 });
 
-async function publish(){
+async function publishAll(){
   $("publish").disabled=true;setStatus("Publication en cours…");
+  try{
+    if(aChanged) await publishAgenda();
+    if(changed) await publishPhotos();
+    updStatus(); setStatus("Publié ✓ Le site sera à jour dans environ une minute.","ok");
+  }catch(e){
+    const msg=/409|does not match/.test(e.message)?"l'agenda a été modifié entre-temps (mise à jour du jeudi ?). Rechargez la page et refaites vos changements.":e.message.slice(0,140);
+    setStatus("Échec de la publication : "+msg,"err");$("publish").disabled=false;}
+}
+async function publishPhotos(){
   try{
     const ref=await gh("/git/ref/heads/"+BRANCH);
     const head=await gh("/git/commits/"+ref.object.sha);
@@ -180,14 +238,104 @@ async function publish(){
     const c=await gh("/git/commits",{method:"POST",body:JSON.stringify({message:"Mise à jour de la galerie depuis l'admin",tree:t.sha,parents:[ref.object.sha]})});
     await gh("/git/refs/heads/"+BRANCH,{method:"PATCH",body:JSON.stringify({sha:c.sha})});
     photos=clean;changed=false;render();
-    setStatus("Publié ✓ Le site sera à jour dans environ une minute.","ok");
-  }catch(e){setStatus("Échec de la publication : "+e.message.slice(0,120),"err");$("publish").disabled=false;}
+  }catch(e){throw e;}
 }
-$("publish").onclick=publish;
+$("publish").onclick=publishAll;
 $("go").onclick=connect;
 $("tok").addEventListener("keydown",e=>{if(e.key==="Enter")connect();});
 $("logout").onclick=()=>{store("mpc_tok",null);location.reload();};
-window.addEventListener("beforeunload",e=>{if(changed){e.preventDefault();e.returnValue="";}});
+window.addEventListener("beforeunload",e=>{if(changed||aChanged){e.preventDefault();e.returnValue="";}});
+
+/* ---------- Onglets ---------- */
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>{x.setAttribute("aria-selected",x===b);$(x.dataset.tab).classList.add("hidden");});
+  $(b.dataset.tab).classList.remove("hidden");
+  if(b.dataset.tab==="tVis") loadVis();
+});
+
+/* ---------- Agenda ---------- */
+const ADATA="data/agenda.json", LIEUX=["Megève","Combloux","Praz-sur-Arly"],
+  CATS=["Ski","Fête","Sport","Spectacle","Famille","Marché","Culture","Concert","Expo","Noël","Gastronomie"];
+let agenda=[], agendaSha="", aChanged=false, aOpen=-1;
+const today=new Date().toISOString().slice(0,10);
+function dec(b64){return new TextDecoder().decode(Uint8Array.from(atob(b64.replace(/\n/g,"")),c=>c.charCodeAt(0)));}
+function b64(t){const by=new TextEncoder().encode(t);let s="";for(let i=0;i<by.length;i+=0x8000)s+=String.fromCharCode.apply(null,by.subarray(i,i+0x8000));return btoa(s);}
+async function loadAgenda(){
+  const f=await gh("/contents/"+ADATA+"?ref="+BRANCH);
+  agendaSha=f.sha; agenda=JSON.parse(dec(f.content)); renderAgenda();
+}
+function fmt(d){if(!d)return"";const [y,m,j]=d.split("-");return `${+j} ${["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."][+m-1]} ${y}`;}
+function aMark(){aChanged=true;$("publish").disabled=false;updStatus();}
+function updStatus(){
+  const parts=[];
+  if(changed){const n=photos.filter(p=>p._new).length,d=photos.filter(p=>p._del).length;parts.push("photos"+(n?` +${n}`:"")+(d?` −${d}`:""));}
+  if(aChanged){const n=agenda.filter(e=>e._new).length,d=agenda.filter(e=>e._del).length,m=agenda.filter(e=>e._mod&&!e._new).length;parts.push("agenda"+(n?` +${n}`:"")+(m?` ~${m}`:"")+(d?` −${d}`:""));}
+  setStatus(parts.length?"Modifications non publiées : "+parts.join(" · "):"Aucune modification.");
+}
+function renderAgenda(){
+  const q=$("aq").value.trim().toLowerCase(), l=$("al").value, per=$("ap").value;
+  $("acount").textContent=agenda.filter(e=>!e._del).length;
+  const rows=agenda.map((e,k)=>({e,k})).filter(({e})=>{
+    const end=e.d2||e.d, past=end<today&&!e.always;
+    if(per==="fut"&&past&&!e._new)return false; if(per==="past"&&!past)return false;
+    if(l&&e.lieu!==l)return false;
+    if(q&&!((e.t||"")+" "+(e.x||"")).toLowerCase().includes(q))return false; return true;
+  }).sort((a,b)=>(a.e._new?-1:0)-(b.e._new?-1:0)||(a.e.d||"").localeCompare(b.e.d||""));
+  $("alist").innerHTML=rows.length?rows.map(({e,k})=>{const end=e.d2||e.d,past=end<today&&!e.always;return `
+  <details class="ev ${e._del?"del":""} ${e._new?"new":""} ${e._mod&&!e._new?"mod":""}" data-k="${k}" ${aOpen===k?"open":""}>
+    <summary><span class="dt">${e.always?"Toute la saison":fmt(e.d)+(e.d2&&e.d2!==e.d?" → "+fmt(e.d2):"")}${e.h?" · "+esc(e.h):""}</span>
+      <span class="tt">${esc(e.t)||"<i>Nouvel événement</i>"}</span><span class="pill">${esc(e.lieu)}</span>
+      ${e.v?'<span class="pill lock">✓ vérifié</span>':""}${past?'<span class="pill past">passé</span>':""}</summary>
+    <div class="f">
+      <div class="wide"><label>Titre</label><input data-f="t" value="${esc(e.t)}"></div>
+      <div><label>Date de début</label><input type="date" data-f="d" value="${esc(e.d)}"></div>
+      <div><label>Date de fin (facultatif)</label><input type="date" data-f="d2" value="${esc(e.d2||"")}"></div>
+      <div><label>Horaire (facultatif)</label><input data-f="h" value="${esc(e.h||"")}" placeholder="19h30"></div>
+      <div><label>Village</label><select data-f="lieu">${LIEUX.map(x=>`<option ${x===e.lieu?"selected":""}>${x}</option>`).join("")}</select></div>
+      <div><label>Catégorie</label><select data-f="cat">${[...new Set([...CATS,e.cat].filter(Boolean))].map(x=>`<option ${x===e.cat?"selected":""}>${esc(x)}</option>`).join("")}</select></div>
+      <div class="wide"><label>Description</label><textarea data-f="x">${esc(e.x||"")}</textarea></div>
+      <div class="wide"><label>Lien « Plus d'infos »</label><input type="url" data-f="u" value="${esc(e.u||"")}" placeholder="https://…"></div>
+      <label class="chk"><input type="checkbox" data-f="always" ${e.always?"checked":""}> Toute la saison (expo, activité permanente)</label>
+      <label class="chk"><input type="checkbox" data-f="v" ${e.v?"checked":""}> Vérifié par Vincent (protégé)</label>
+      <div class="wide"><button class="danger" data-act="adel">${e._del?"Annuler la suppression":"Supprimer cet événement"}</button></div>
+    </div>
+  </details>`;}).join(""):'<p class="muted">Aucun événement pour ce filtre.</p>';
+}
+$("alist").addEventListener("toggle",e=>{if(e.target.open)aOpen=+e.target.dataset.k;},true);
+$("alist").addEventListener("input",e=>{const d=e.target.closest(".ev"),f=e.target.dataset.f;if(!d||!f)return;
+  const ev=agenda[+d.dataset.k];
+  if(e.target.type==="checkbox"){if(e.target.checked)ev[f]=true;else delete ev[f];}
+  else{const v=e.target.value.trim();if(v||f==="t"||f==="d")ev[f]=v;else delete ev[f];}
+  ev._mod=true; if(f!=="v") ev.v=true; aMark();
+  if(e.target.type==="checkbox"||e.target.tagName==="SELECT"||e.target.type==="date")renderAgenda();});
+$("alist").addEventListener("click",e=>{if(e.target.dataset.act!=="adel")return;const k=+e.target.closest(".ev").dataset.k,ev=agenda[k];
+  if(ev._new)agenda.splice(k,1);else ev._del=!ev._del;aOpen=-1;aMark();renderAgenda();});
+["aq","al","ap"].forEach(id=>$(id).addEventListener("input",renderAgenda));
+$("aAdd").onclick=()=>{agenda.unshift({d:today,lieu:"Megève",cat:"Fête",t:"",x:"",u:"",v:true,_new:true,_mod:true});aOpen=0;$("ap").value="all";$("aq").value="";$("al").value="";aMark();renderAgenda();
+  setTimeout(()=>{const i=document.querySelector('#alist .ev[open] input');if(i)i.focus();},50);};
+async function publishAgenda(){
+  const bad=agenda.filter(e=>!e._del&&(!e.t||!e.d||!e.lieu||!e.cat));
+  if(bad.length)throw new Error("chaque événement doit avoir au moins un titre, une date, un village et une catégorie");
+  const clean=agenda.filter(e=>!e._del).map(e=>{const o={};for(const k of ["d","d2","h","lieu","cat","t","x","u","always","v"])if(e[k]!==undefined&&e[k]!=="")o[k]=e[k];return o;})
+    .sort((a,b)=>(a.d||"").localeCompare(b.d||""));
+  const r=await gh("/contents/"+ADATA,{method:"PUT",body:JSON.stringify({message:"Mise à jour de l'agenda depuis l'admin",content:b64(JSON.stringify(clean,null,1)+"\n"),sha:agendaSha,branch:BRANCH})});
+  agendaSha=r.content.sha; agenda=clean; aChanged=false; renderAgenda();
+}
+
+/* ---------- Visuels Instagram ---------- */
+let visLoaded=false;
+async function loadVis(){
+  if(visLoaded)return; $("vis").innerHTML='<p class="muted">Chargement…</p>';
+  try{
+    const lists=await Promise.all(["stories","instagram"].map(d=>gh("/contents/"+d+"?ref="+BRANCH).catch(()=>[])));
+    const files=lists.flat().filter(f=>/\.(png|jpe?g)$/i.test(f.name)&&!/source-/.test(f.name))
+      .sort((a,b)=>b.name.replace(/\D/g,"").localeCompare(a.name.replace(/\D/g,""))||a.name.localeCompare(b.name));
+    const lab=n=>/agenda-.*-post/.test(n)?"Agenda · publication":/agenda-/.test(n)?"Agenda · story":/-story/.test(n)?"Photo · story":"Photo · publication";
+    const date=n=>{const m=n.match(/(\d{4})-(\d\d)-(\d\d)/);return m?`${+m[3]}/${m[2]}/${m[1]}`:"";};
+    $("vis").innerHTML=files.length?files.map(f=>`<a href="../${f.path}" target="_blank" rel="noopener"><img src="../${f.path}" alt="${esc(lab(f.name))}" loading="lazy"><span>${lab(f.name)} · ${date(f.name)}</span></a>`).join(""):'<p class="muted">Aucun visuel pour l\'instant.</p>';
+    visLoaded=true;
+  }catch(e){$("vis").innerHTML='<p class="err">Impossible de charger les visuels.</p>';}
+}
 if(load("mpc_tok")) connect();
 </script>
 </body>
