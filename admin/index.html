@@ -108,7 +108,7 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     </div>
     <div class="row" style="margin-top:12px">
       <div><label for="aq">Rechercher</label><input id="aq" placeholder="Titre, description…"></div>
-      <div style="flex:0 0 190px"><label for="al">Village</label><select id="al"><option value="">Tous</option><option>Megève</option><option>Combloux</option><option>Praz-sur-Arly</option></select></div>
+      <div style="flex:0 0 190px"><label for="al">Village</label><select id="al"><option value="">Tous</option><option>Megève</option><option>Demi-Quartier</option><option>Combloux</option><option>Praz-sur-Arly</option></select></div>
       <div style="flex:0 0 190px"><label for="ap">Période</label><select id="ap"><option value="fut">À venir</option><option value="past">Passés</option><option value="all">Tous</option></select></div>
     </div>
     <p class="muted">Cliquez sur un événement pour le modifier. Cochez « Vérifié par Vincent » : la mise à jour automatique du jeudi ne le modifiera ni ne le supprimera jamais. Les événements que vous ajoutez ici sont protégés automatiquement.</p>
@@ -254,7 +254,7 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
 });
 
 /* ---------- Agenda ---------- */
-const ADATA="data/agenda.json", LIEUX=["Megève","Combloux","Praz-sur-Arly"],
+const ADATA="data/agenda.json", LIEUX=["Megève","Demi-Quartier","Combloux","Praz-sur-Arly"],
   CATS=["Ski","Fête","Sport","Spectacle","Famille","Marché","Culture","Concert","Expo","Noël","Gastronomie"];
 let agenda=[], agendaSha="", aChanged=false, aOpen=-1;
 const today=new Date().toISOString().slice(0,10);

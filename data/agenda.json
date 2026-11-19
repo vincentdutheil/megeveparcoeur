@@ -1,5 +1,15 @@
 [
  {
+  "d": "2026-01-01",
+  "d2": "2026-12-31",
+  "lieu": "Demi-Quartier",
+  "cat": "Famille",
+  "t": "Promenade en calèche et visite des écuries",
+  "x": "Visite des écuries puis balade d'environ une heure en calèche au départ de la ferme, route du Feug. Du lundi au samedi, sur réservation au 04 50 93 32 89.",
+  "u": "https://www.haute-savoie-tourisme.org/6487739-promenade-en-caleche-et-visite-des-ecuries",
+  "always": true
+ },
+ {
   "d": "2026-05-22",
   "d2": "2027-05-10",
   "lieu": "Megève",
@@ -318,10 +328,10 @@
   "d": "2026-12-05",
   "d2": "2026-12-27",
   "h": "15h–19h",
-  "lieu": "Megève",
+  "lieu": "Demi-Quartier",
   "cat": "Culture",
   "t": "Atelier-galerie Adrianna MJW en accès libre",
-  "x": "L'artiste ouvre son atelier-galerie de Demi-Quartier (hameau de Vauvray) en entrée libre les quatre week-ends de décembre, de 15h à 19h ; le reste du temps sur rendez-vous.",
+  "x": "L'artiste ouvre son atelier-galerie du hameau de Vauvray, face au Mont-Blanc, en entrée libre les quatre week-ends de décembre, de 15h à 19h ; le reste du temps sur rendez-vous.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/art-contemporain/7197566-exposition-visite-atelier-adrianna-mjw"
  },
  {
@@ -549,7 +559,7 @@
  {
   "d": "2026-12-20",
   "d2": "2027-03-20",
-  "lieu": "Combloux",
+  "lieu": "Demi-Quartier",
   "cat": "Expo",
   "t": "Expo « Lumières d'alpages : un automne et un hiver »",
   "x": "Les photos de Caroline Gallien-Lavorel sur la vie des alpages en automne et en hiver, exposées dans la salle hors-sac de l'alpage de Beauregard (1 433 m), sur les pistes.",
