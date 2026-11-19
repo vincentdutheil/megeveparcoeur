@@ -293,7 +293,13 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .nl input[type=email]{flex:1;min-width:0;font:600 1rem var(--body);border:0;border-radius:999px;padding:13px 18px}
 .nl button{font:800 .95rem var(--body);border:0;border-radius:999px;background:#c8323d;color:#fff;padding:13px 18px;cursor:pointer;white-space:nowrap}
 .nl label.c{display:flex;gap:8px;align-items:flex-start;font-size:.82rem;opacity:.85}
-.nl .msg{font-weight:800;min-height:1.2em}
+.nl .msg{font-weight:800;font-size:1rem;border-radius:14px;padding:0;transition:all .3s}
+.nl .msg:not(:empty){background:#fff;color:#1c2533;padding:12px 16px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.nl .msg.err{background:#ffe3e5;color:#8f1d26}
+.nl .done{background:#fff;color:#1c2533;border-radius:20px;padding:22px;text-align:center;animation:nlpop .5s ease}
+.nl .done .ic{font-size:2.6rem;line-height:1}.nl .done b{display:block;font-family:var(--display);font-size:1.5rem;font-weight:600;margin:8px 0 4px;color:#1d3d2d}
+.nl .done p{margin:0;color:#5d6878;opacity:1}
+@keyframes nlpop{0%{transform:scale(.9);opacity:0}100%{transform:none;opacity:1}}
 .nl .hp{position:absolute;left:-5000px}
 @media (max-width:760px){.nl{grid-template-columns:1fr;padding:22px}.nl .row{flex-direction:column}}
 /* Coups de cœur */
@@ -677,13 +683,13 @@ fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.
 <script>
 (function(){const f=document.getElementById("nl-form"),m=document.getElementById("nl-msg"),M={"ok": "Merci ! Vérifie ta boîte mail pour confirmer ton inscription ✉️", "okdirect": "C'est noté, à jeudi ! 🎉", "email": "Cette adresse e-mail ne semble pas valide.", "consent": "Coche la case pour accepter de recevoir l'e-mail.", "soon": "Les inscriptions ouvrent très bientôt, reviens dans quelques jours 🙂", "err": "Oups, ça n'a pas marché. Réessaie dans un instant."};
 f.addEventListener("submit",async e=>{e.preventDefault();const d=new FormData(f),email=(d.get("email")||"").trim();
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){m.textContent=M.email;return;}
-  if(!d.get("consent")){m.textContent=M.consent;return;}
+  m.classList.remove("err");if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){m.classList.add("err");m.textContent=M.email;return;}
+  if(!d.get("consent")){m.classList.add("err");m.textContent=M.consent;return;}
   m.textContent="⏳ Inscription en cours…";m.scrollIntoView({block:"center",behavior:"smooth"});f.querySelector("button").disabled=true;
   try{const r=await fetch("/api/subscribe",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email,consent:true,lang:"fr",website:d.get("website")||""})});
     const j=await r.json().catch(()=>({}));
-    if(j.ok){m.textContent=j.doi?M.ok:M.okdirect;f.reset();}else m.textContent=r.status===503?M.soon:(M[j.error]||M.err);}
-  catch(err){m.textContent=M.err;}
+    if(j.ok){f.outerHTML=`<div class="done" role="status"><div class="ic">${j.doi?"✉️":"🎉"}</div><b>Inscription confirmée !</b><p>${j.doi?"Un e-mail de confirmation vient de partir : clique sur le lien pour valider.":"Rendez-vous jeudi en fin d'après-midi dans ta boîte mail. Pense à vérifier tes spams la première fois."}</p></div>`;return;}else{m.classList.add("err");m.textContent=r.status===503?M.soon:(M[j.error]||M.err);}}
+  catch(err){m.classList.add("err");m.textContent=M.err;}
   f.querySelector("button").disabled=false;m.scrollIntoView({block:"center",behavior:"smooth"});});})();
 </script>
 </body>
