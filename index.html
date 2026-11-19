@@ -14,13 +14,14 @@
 <style>
 :root{
   /* Ambiance : chalet la nuit sous la neige. Nuit de sapin + laine crème + lueur de bougie ambrée ; le cœur rouge du logo reste l'accent principal. Mise en page : bandeau nocturne avec fenêtre vidéo, puis pièces « en laine » claires. */
-  --night:#121c1a;
-  --night-2:#1d2a26;
-  --wool:#f6f0e6;
-  --card:#fffcf6;
-  --ink:#2b231d;
-  --muted:#7a6c5e;
-  --line:#e8dccb;
+  --night:#0a1424;
+  --night-2:#12284a;
+  --wool:#f1f4f9;
+  --card:#ffffff;
+  --ink:#1c2533;
+  --muted:#5d6878;
+  --line:#dbe3ee;
+  --ice:#bcd3ee;
   --ember:#c27a34;
   --glow:#f3c27a;
   --heart:#c8323d;
@@ -31,12 +32,12 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --wool:#171512; --card:#211d18; --ink:#f1e8da; --muted:#b3a593; --line:#3a3128;
+    --wool:#0e1522; --card:#162133; --ink:#e9eef6; --muted:#a3b0c2; --line:#26344a;
     --ember:#e3a35c; --heart:#ff6a6f; --pine:#8fbfa5; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --wool:#171512; --card:#211d18; --ink:#f1e8da; --muted:#b3a593; --line:#3a3128;
+  --wool:#0e1522; --card:#162133; --ink:#e9eef6; --muted:#a3b0c2; --line:#26344a;
   --ember:#e3a35c; --heart:#ff6a6f; --pine:#8fbfa5; color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -58,9 +59,9 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 .nav ul a:hover{opacity:1;color:var(--glow)}
 
 /* Hero : nuit, flocons, fenêtre sur la vidéo */
-.hero{position:relative;color:#fbf3e6;overflow:hidden;background:radial-gradient(120% 90% at 78% 40%,#3a2b1c 0%,var(--night-2) 42%,var(--night) 75%)}
-.hero-snow{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:30px;padding-bottom:64px}
+.hero{position:relative;color:#f4f8ff;overflow:hidden;background:radial-gradient(70% 60% at 76% 42%,rgba(255,196,120,.16),rgba(255,196,120,0) 60%),radial-gradient(50% 40% at 34% 8%,rgba(150,190,255,.18),rgba(150,190,255,0) 70%),linear-gradient(180deg,#050c18 0%,#0b1c36 45%,#16345a 80%,#244a73 100%)}
+.hero-snow{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+.hero-grid{position:relative;z-index:3;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:30px;padding-bottom:170px}
 .hero .kicker{color:var(--glow)}
 .hero h1{font-size:clamp(2.3rem,6.4vw,4.6rem);white-space:nowrap;font-weight:600}
 .hero h1 .h{color:#ff7b80;font-style:italic;font-weight:500}
@@ -78,7 +79,7 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
              linear-gradient(90deg,#6e4c15,#c99a3c 18%,#fff3c8 34%,#f2d68a 44%,#c99a3c 66%,#8a6420 84%,#5c3f10);
   box-shadow:0 3px 6px rgba(0,0,0,.45),inset 0 -4px 0 rgba(90,60,15,.55),inset 0 2px 0 rgba(255,245,210,.6)}
 .ball{position:relative;width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;isolation:isolate;
-  box-shadow:0 0 0 1.5px rgba(255,244,220,.75),0 0 0 5px rgba(255,236,190,.12),0 0 70px 6px rgba(243,194,122,.38),0 30px 70px rgba(0,0,0,.6)}
+  box-shadow:0 0 0 1.5px rgba(255,248,232,.85),0 0 0 4px rgba(170,205,255,.18),0 0 0 6px rgba(255,236,190,.10),0 0 80px 10px rgba(255,200,130,.30),0 0 40px rgba(170,205,255,.25),0 34px 70px rgba(0,0,0,.6)}
 .ball video{width:100%;height:100%;object-fit:cover;object-position:50% 52%;display:block;transform:scale(1.04);filter:saturate(1.08) contrast(1.04)}
 /* verre : bord qui réfracte la lumière, reflet principal, reflet secondaire */
 .ball .glass{position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:2;mix-blend-mode:screen;
@@ -110,23 +111,57 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 .spark:nth-of-type(4){left:70%;top:86%;width:16px;height:16px;animation-delay:.6s}
 .spark:nth-of-type(5){left:52%;top:9%;width:10px;height:10px;animation-delay:1.7s}
 @keyframes twinkle{0%,100%{opacity:0;transform:scale(.3) rotate(0)}45%{opacity:1;transform:scale(1) rotate(20deg)}60%{opacity:.9}}
+/* globe : neige au fond, paillettes, givre, inscription dorée */
+.ball .pile{position:absolute;left:-5%;right:-5%;bottom:-2%;height:30%;z-index:1;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 100%,#ffffff 0%,#eef4fc 45%,#d4e2f3 62%,rgba(212,226,243,0) 74%)}
+.ball .pile::before{content:"";position:absolute;inset:0;background-image:radial-gradient(1.4px 1.4px at 20% 70%,#fff,transparent),radial-gradient(1.2px 1.2px at 46% 60%,#cfe3ff,transparent),radial-gradient(1.6px 1.6px at 70% 74%,#fff,transparent),radial-gradient(1.2px 1.2px at 84% 66%,#ffe7b0,transparent),radial-gradient(1.2px 1.2px at 33% 82%,#ffe7b0,transparent);animation:stars 1.8s ease-in-out infinite alternate}
+.ball .script{position:absolute;left:0;right:0;bottom:3%;width:100%;z-index:2;pointer-events:none;filter:drop-shadow(0 1px 1px rgba(80,50,10,.45))}
+.ball .glitter{position:absolute;inset:0;z-index:2;pointer-events:none}
+.ball .glitter b{position:absolute;top:-4%;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 6px #fff,0 0 10px #ffe1a0;opacity:.9;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate(0,0)}50%{transform:translate(10px,55%)}100%{transform:translate(-6px,110%);opacity:0}}
+.ball .frost{position:absolute;left:18%;right:18%;top:-6%;height:24%;z-index:2;border-radius:50%;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(60% 70% at 50% 0%,rgba(235,244,255,.55),rgba(235,244,255,0) 75%)}
+.bauble .holly{position:absolute;left:50%;top:84px;width:110px;margin-left:-6px;z-index:4;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
+.bauble .cap::after{content:"";position:absolute;left:4%;right:4%;top:-5px;height:9px;border-radius:8px 8px 4px 4px;background:linear-gradient(#fff,#e3edf9);box-shadow:0 1px 2px rgba(0,0,0,.25)}
 @keyframes swing{0%,100%{transform:rotate(2.2deg)}50%{transform:rotate(-2.2deg)}}
-@media (prefers-reduced-motion: reduce){.bauble{animation:none}.ball .shine::before,.spark{animation:none}.spark{opacity:.8}}
-/* lumières de Noël floues (bokeh) dans le ciel du bandeau */
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(60px 60px at 8% 18%,rgba(255,196,110,.20),transparent 70%),
-    radial-gradient(90px 90px at 22% 86%,rgba(255,170,90,.14),transparent 70%),
-    radial-gradient(40px 40px at 46% 12%,rgba(255,220,150,.22),transparent 70%),
-    radial-gradient(120px 120px at 58% 70%,rgba(255,150,90,.10),transparent 70%),
-    radial-gradient(70px 70px at 92% 20%,rgba(255,206,120,.20),transparent 70%),
-    radial-gradient(50px 50px at 96% 74%,rgba(255,120,110,.16),transparent 70%),
-    radial-gradient(34px 34px at 36% 52%,rgba(255,230,170,.16),transparent 70%),
-    radial-gradient(80px 80px at 84% 92%,rgba(255,190,110,.14),transparent 70%);
-  animation:glow 6s ease-in-out infinite alternate}
-@keyframes glow{from{opacity:.7}to{opacity:1}}
-@media (prefers-reduced-motion: reduce){.hero::before{animation:none}}
-.hero-ridge{position:absolute;left:0;right:0;bottom:-1px;z-index:2;width:100%;height:70px;display:block}
+@media (prefers-reduced-motion: reduce){.bauble{animation:none}.ball .shine::before,.spark,.ball .glitter b,.ball .pile::before{animation:none}.spark{opacity:.8}.ball .glitter{display:none}}
+/* ciel d'hiver : étoiles, lune, montagnes enneigées */
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+    radial-gradient(2.4px 2.4px at 7% 12%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 15% 30%,#fff,transparent),
+    radial-gradient(2.0px 2.0px at 23% 8%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 31% 22%,#fff,transparent),
+    radial-gradient(1.8px 1.8px at 44% 6%,#fff,transparent),
+    radial-gradient(2.6px 2.6px at 52% 18%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 61% 9%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 68% 26%,#fff,transparent),
+    radial-gradient(2.2px 2.2px at 79% 7%,#fff,transparent),
+    radial-gradient(1.8px 1.8px at 88% 16%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 95% 32%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 12% 48%,#fff,transparent),
+    radial-gradient(1.2px 1.2px at 48% 40%,#fff,transparent),
+    radial-gradient(1.8px 1.8px at 58% 34%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 92% 46%,#fff,transparent),
+    radial-gradient(1.2px 1.2px at 4% 64%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 38% 58%,#fff,transparent),
+    radial-gradient(2.0px 2.0px at 27% 44%,#fff,transparent);
+  animation:stars 5s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:
+    radial-gradient(1.6px 1.6px at 19% 20%,#fff,transparent),radial-gradient(1.4px 1.4px at 74% 12%,#fff,transparent),radial-gradient(1.8px 1.8px at 41% 28%,#fff,transparent),radial-gradient(1.4px 1.4px at 86% 36%,#fff,transparent),radial-gradient(1.4px 1.4px at 9% 38%,#fff,transparent);
+  animation:stars 3.4s ease-in-out infinite alternate-reverse}
+@keyframes stars{from{opacity:.35}to{opacity:1}}
+.moon{position:absolute;z-index:1;left:46%;top:46px;width:58px;height:58px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 38% 36%,#ffffff 0%,#eef3fb 45%,#cfdaea 100%);
+  box-shadow:0 0 30px 8px rgba(200,220,255,.35),0 0 120px 40px rgba(150,190,255,.14)}
+.moon::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(9px 7px at 62% 40%,rgba(150,170,200,.35),transparent),radial-gradient(6px 6px at 40% 66%,rgba(150,170,200,.3),transparent),radial-gradient(4px 4px at 30% 34%,rgba(150,170,200,.25),transparent)}
+.peaks{position:absolute;left:0;right:0;bottom:-1px;z-index:2;width:100%;height:220px;display:block;pointer-events:none}
+.peaks .win{animation:win 4s ease-in-out infinite alternate}
+.peaks .win:nth-of-type(2n){animation-delay:-2s}
+@keyframes win{from{opacity:.65}to{opacity:1}}
+/* stalactites de glace sous l'en-tête */
+header.top::after{content:"";position:absolute;left:0;right:0;top:100%;height:18px;pointer-events:none;z-index:5;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='18' viewBox='0 0 140 18'%3E%3Cdefs%3E%3ClinearGradient id='i' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23eaf3ff'/%3E%3Cstop offset='1' stop-color='%23bcd3ee' stop-opacity='.2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23i)' d='M0 0h140v2l-6 1-3 9-3-9-9 1-2 5-2-5-11 1-3 13-3-13-10 0-2 4-2-4-12 1-4 10-3-10-9 0-2 6-2-6-10 1-3 12-3-12-9 0-2 5-2-5-10 1-3 8-3-8H0z'/%3E%3C/svg%3E") repeat-x;background-size:140px 18px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+@media (prefers-reduced-motion: reduce){.hero::before,.hero::after,.peaks .win{animation:none}}
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem}
 .btn svg{width:20px;height:20px;flex:none}
@@ -138,7 +173,7 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 
 section{padding:68px 0}
 /* Ambiance de Noël : flocons discrets en fond, séparateur de sections avec branche de sapin et boules */
-body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg stroke='%23c27a34' stroke-opacity='.10' stroke-width='1.6' stroke-linecap='round' fill='none'%3E%3Cpath d='M40 28v24M28 40h24M31.5 31.5l17 17M48.5 31.5l-17 17'/%3E%3Cpath d='M130 118v16M122 126h16M124.3 120.3l11.4 11.4M135.7 120.3l-11.4 11.4'/%3E%3Cpath d='M140 30v10M135 35h10'/%3E%3Cpath d='M50 140v8M46 144h8'/%3E%3C/g%3E%3C/svg%3E")}
+body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg stroke='%236f93bf' stroke-opacity='.16' stroke-width='1.6' stroke-linecap='round' fill='none'%3E%3Cpath d='M40 28v24M28 40h24M31.5 31.5l17 17M48.5 31.5l-17 17'/%3E%3Cpath d='M130 118v16M122 126h16M124.3 120.3l11.4 11.4M135.7 120.3l-11.4 11.4'/%3E%3Cpath d='M140 30v10M135 35h10'/%3E%3Cpath d='M50 140v8M46 144h8'/%3E%3C/g%3E%3C/svg%3E")}
 .deco{display:flex;justify-content:center;align-items:center;gap:14px;padding:6px 0 0;color:var(--ember)}
 .deco::before,.deco::after{content:"";height:1px;width:min(28vw,220px);background:linear-gradient(90deg,transparent,var(--glow))}
 .deco::after{transform:scaleX(-1)}
@@ -217,7 +252,7 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .card p{margin:0;color:var(--muted)}
 
 /* Boutique */
-.shop{background:radial-gradient(120% 120% at 85% 20%,#3a2b1c,var(--night) 60%);color:#fbf3e6;border-radius:26px;padding:42px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+.shop{background:radial-gradient(90% 90% at 85% 15%,rgba(255,196,120,.18),rgba(255,196,120,0) 60%),linear-gradient(160deg,#0b1c36,#16345a);color:#fbf3e6;border-radius:26px;padding:42px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
 .shop .kicker{color:var(--glow)}
 .shop h2{font-size:clamp(1.8rem,4vw,2.5rem)}
 .shop p{opacity:.9;max-width:46ch}
@@ -237,6 +272,10 @@ footer a{color:#fbf3e6}
   .bauble{order:-1;--ball:min(64vw,260px);padding-top:70px}
   .bauble .ribbon{bottom:calc(100% - 70px);width:10px;margin-left:-5px}
   .bauble .bow{top:24px;width:118px;margin-left:-59px}
+  .bauble .holly{top:52px;width:84px}
+  .hero-grid{padding-bottom:130px}
+  .peaks{height:150px}
+  .moon{left:auto;right:8%;top:24px;width:38px;height:38px}
   .hero h1{font-size:clamp(2rem,10vw,3rem)}
 }
 @media (max-width:560px){
@@ -265,6 +304,7 @@ footer a{color:#fbf3e6}
 </header>
 
 <div class="hero" id="top">
+  <span class="moon" aria-hidden="true"></span>
   <canvas class="hero-snow" id="snow" aria-hidden="true"></canvas>
   <div class="wrap hero-grid">
     <div style="position:relative;z-index:2">
@@ -291,14 +331,19 @@ footer a{color:#fbf3e6}
 <path d="M66 38C52 30 34 26 22 28M84 38c14-8 32-12 44-10" stroke="#6b0d17" stroke-opacity=".5" stroke-width="1.5" fill="none"/>
 <rect x="64" y="28" width="22" height="20" rx="8" fill="url(#bk)"/><path d="M68 32h12" stroke="#ffc2c7" stroke-opacity=".6" stroke-width="2" stroke-linecap="round"/></svg>
       <span class="cap" aria-hidden="true"></span>
+      <svg class="holly" viewBox="0 0 110 50" aria-hidden="true"><defs><linearGradient id="hl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8a5e"/><stop offset="1" stop-color="#1f4a2c"/></linearGradient></defs><path d="M8 28c8-12 22-16 36-12-4 3-2 7-6 9 4 1 2 6 6 8-14 5-28 3-36-5 3-1 2-3 0 0z" fill="url(#hl)"/><path d="M10 28c12-4 22-6 32-10" stroke="#8fc29a" stroke-width="1.2" fill="none" opacity=".7"/><path d="M30 40c10-12 26-14 40-8-4 3-1 7-6 8 4 2 1 6 5 8-14 4-30 2-39-8z" fill="url(#hl)"/><circle cx="46" cy="22" r="5" fill="#c8323d"/><circle cx="54" cy="27" r="5" fill="#b22433"/><circle cx="45" cy="31" r="4.5" fill="#d63a47"/><circle cx="44.5" cy="20.5" r="1.4" fill="#fff" opacity=".8"/><circle cx="52.5" cy="25.5" r="1.4" fill="#fff" opacity=".8"/><circle cx="43.5" cy="29.8" r="1.2" fill="#fff" opacity=".8"/></svg>
       <div class="ball">
         <video id="hero-vid" poster="videos/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="La place du village de Megève sous la neige, la nuit, dans une boule de Noël"></video>
+        <span class="pile" aria-hidden="true"></span>
+        <span class="glitter" aria-hidden="true"><b style="left:30%;width:3px;height:3px;animation-duration:10.6s;animation-delay:-4.7s"></b><b style="left:56%;width:2px;height:4px;animation-duration:7.3s;animation-delay:-2.3s"></b><b style="left:88%;width:4px;height:4px;animation-duration:8.0s;animation-delay:-8.6s"></b><b style="left:30%;width:3px;height:4px;animation-duration:9.7s;animation-delay:-6.7s"></b><b style="left:17%;width:2px;height:3px;animation-duration:9.9s;animation-delay:-8.2s"></b><b style="left:32%;width:4px;height:4px;animation-duration:8.0s;animation-delay:-8.0s"></b><b style="left:46%;width:3px;height:3px;animation-duration:6.5s;animation-delay:-1.4s"></b><b style="left:28%;width:4px;height:3px;animation-duration:8.1s;animation-delay:-8.3s"></b><b style="left:56%;width:4px;height:3px;animation-duration:10.5s;animation-delay:-6.8s"></b><b style="left:83%;width:3px;height:3px;animation-duration:9.5s;animation-delay:-3.3s"></b><b style="left:53%;width:2px;height:3px;animation-duration:9.2s;animation-delay:-9.9s"></b><b style="left:32%;width:2px;height:2px;animation-duration:8.4s;animation-delay:-6.4s"></b><b style="left:49%;width:3px;height:2px;animation-duration:8.1s;animation-delay:-1.5s"></b><b style="left:34%;width:4px;height:2px;animation-duration:6.2s;animation-delay:-6.1s"></b><b style="left:15%;width:3px;height:3px;animation-duration:8.5s;animation-delay:-10.0s"></b><b style="left:36%;width:2px;height:2px;animation-duration:9.0s;animation-delay:-0.3s"></b></span>
+        <svg class="script" viewBox="0 0 300 80" aria-hidden="true"><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a5a12"/><stop offset=".45" stop-color="#d9a441"/><stop offset=".55" stop-color="#f6dc96"/><stop offset="1" stop-color="#9a6a1c"/></linearGradient><path id="arc" d="M40 30 Q150 66 260 30"/></defs><text font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="600" font-size="27" fill="url(#gd)" text-anchor="middle"><textPath href="#arc" startOffset="50%">Megève par cœur</textPath></text></svg>
+        <span class="frost" aria-hidden="true"></span>
         <span class="glass" aria-hidden="true"></span><span class="shine" aria-hidden="true"></span>
         <i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i><i class="spark"></i>
       </div>
     </div>
   </div>
-  <svg class="hero-ridge" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70V44l120-22 90 16 140-34 110 30 90-10 160 28 120-36 140 24 110-18 130 26 110-20 120 20V70z" fill="var(--wool)"/></svg>
+  <svg class="peaks" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="pf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a5d88"/><stop offset="1" stop-color="#1c3556"/></linearGradient><linearGradient id="pm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27466e"/><stop offset="1" stop-color="#132842"/></linearGradient><linearGradient id="sn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="var(--wool)"/></linearGradient></defs><path fill="url(#pf)" opacity=".85" d="M0 150L90 92 150 118 260 46 330 96 420 70 520 120 640 38 730 100 820 66 930 112 1040 30 1130 96 1230 62 1330 108 1440 74V220H0z"/><g fill="#e9f1fb" opacity=".85"><path d="M260 46l-26 18 12-2 10 8 10-10 14 6z"/><path d="M640 38l-30 22 14-3 12 9 10-12 18 6z"/><path d="M1040 30l-32 24 15-4 11 9 12-12 18 7z"/><path d="M420 70l-18 12 9 0 9 5 8-7 9 2z"/><path d="M1230 62l-20 14 10-1 9 6 8-8 11 3z"/></g><path fill="url(#pm)" d="M0 176L120 128 210 150 330 102 450 152 560 118 690 160 800 112 930 150 1060 116 1180 156 1300 120 1440 150V220H0z"/><g fill="#dfeaf8" opacity=".7"><path d="M330 102l-22 15 10-1 10 6 9-8 13 3z"/><path d="M800 112l-24 16 11-2 10 6 9-8 14 4z"/><path d="M120 128l-18 12 9-1 8 5 8-6 10 3z"/></g><g fill="#0c1b30"><path d="M-2 186l6.1 0l-2.2 -9.6l1.5 0l-2.4 -9.6l1.0 0l-2.7 -9.9l-2.7 9.9l1.0 0l-2.4 9.6l1.5 0l-2.2 9.6z"/><path d="M22 186l5.8 0l-2.1 -9.1l1.4 0l-2.3 -9.1l0.9 0l-2.5 -9.3l-2.5 9.3l0.9 0l-2.3 9.1l1.4 0l-2.1 9.1z"/><path d="M40 186l7.0 0l-2.5 -11.0l1.7 0l-2.8 -11.0l1.1 0l-3.1 -11.3l-3.1 11.3l1.1 0l-2.8 11.0l1.7 0l-2.5 11.0z"/><path d="M55 186l7.6 0l-2.7 -11.9l1.8 0l-3.0 -11.9l1.2 0l-3.3 -12.3l-3.3 12.3l1.2 0l-3.0 11.9l1.8 0l-2.7 11.9z"/><path d="M74 186l7.3 0l-2.6 -11.4l1.7 0l-2.9 -11.4l1.2 0l-3.2 -11.8l-3.2 11.8l1.2 0l-2.9 11.4l1.7 0l-2.6 11.4z"/><path d="M95 186l5.8 0l-2.1 -9.2l1.4 0l-2.3 -9.2l0.9 0l-2.6 -9.5l-2.6 9.5l0.9 0l-2.3 9.2l1.4 0l-2.1 9.2z"/><path d="M119 186l8.9 0l-3.2 -14.0l2.1 0l-3.6 -14.0l1.4 0l-3.9 -14.5l-3.9 14.5l1.4 0l-3.6 14.0l2.1 0l-3.2 14.0z"/><path d="M135 186l6.4 0l-2.3 -10.1l1.5 0l-2.6 -10.1l1.0 0l-2.8 -10.4l-2.8 10.4l1.0 0l-2.6 10.1l1.5 0l-2.3 10.1z"/><path d="M162 186l9.4 0l-3.4 -14.8l2.3 0l-3.8 -14.8l1.5 0l-4.2 -15.3l-4.2 15.3l1.5 0l-3.8 14.8l2.3 0l-3.4 14.8z"/><path d="M181 186l7.1 0l-2.6 -11.2l1.7 0l-2.9 -11.2l1.1 0l-3.1 -11.5l-3.1 11.5l1.1 0l-2.9 11.2l1.7 0l-2.6 11.2z"/><path d="M206 186l5.7 0l-2.0 -8.9l1.4 0l-2.3 -8.9l0.9 0l-2.5 -9.2l-2.5 9.2l0.9 0l-2.3 8.9l1.4 0l-2.0 8.9z"/><path d="M224 186l6.7 0l-2.4 -10.5l1.6 0l-2.7 -10.5l1.1 0l-2.9 -10.8l-2.9 10.8l1.1 0l-2.7 10.5l1.6 0l-2.4 10.5z"/><path d="M236 186l6.0 0l-2.1 -9.4l1.4 0l-2.4 -9.4l1.0 0l-2.6 -9.6l-2.6 9.6l1.0 0l-2.4 9.4l1.4 0l-2.1 9.4z"/><path d="M258 186l8.9 0l-3.2 -14.0l2.1 0l-3.6 -14.0l1.4 0l-3.9 -14.4l-3.9 14.4l1.4 0l-3.6 14.0l2.1 0l-3.2 14.0z"/><path d="M276 186l7.9 0l-2.8 -12.4l1.9 0l-3.2 -12.4l1.3 0l-3.5 -12.8l-3.5 12.8l1.3 0l-3.2 12.4l1.9 0l-2.8 12.4z"/><path d="M302 186l7.0 0l-2.5 -11.0l1.7 0l-2.8 -11.0l1.1 0l-3.1 -11.4l-3.1 11.4l1.1 0l-2.8 11.0l1.7 0l-2.5 11.0z"/><path d="M321 186l5.7 0l-2.1 -9.0l1.4 0l-2.3 -9.0l0.9 0l-2.5 -9.3l-2.5 9.3l0.9 0l-2.3 9.0l1.4 0l-2.1 9.0z"/><path d="M335 186l6.3 0l-2.3 -9.9l1.5 0l-2.5 -9.9l1.0 0l-2.8 -10.2l-2.8 10.2l1.0 0l-2.5 9.9l1.5 0l-2.3 9.9z"/><path d="M362 186l7.3 0l-2.6 -11.4l1.7 0l-2.9 -11.4l1.2 0l-3.2 -11.7l-3.2 11.7l1.2 0l-2.9 11.4l1.7 0l-2.6 11.4z"/><path d="M378 186l7.9 0l-2.9 -12.4l1.9 0l-3.2 -12.4l1.3 0l-3.5 -12.8l-3.5 12.8l1.3 0l-3.2 12.4l1.9 0l-2.9 12.4z"/><path d="M399 186l6.7 0l-2.4 -10.6l1.6 0l-2.7 -10.6l1.1 0l-3.0 -10.9l-3.0 10.9l1.1 0l-2.7 10.6l1.6 0l-2.4 10.6z"/><path d="M424 186l8.4 0l-3.0 -13.2l2.0 0l-3.4 -13.2l1.3 0l-3.7 -13.6l-3.7 13.6l1.3 0l-3.4 13.2l2.0 0l-3.0 13.2z"/><path d="M437 186l7.9 0l-2.8 -12.4l1.9 0l-3.1 -12.4l1.3 0l-3.5 -12.7l-3.5 12.7l1.3 0l-3.1 12.4l1.9 0l-2.8 12.4z"/><path d="M460 186l9.1 0l-3.3 -14.4l2.2 0l-3.7 -14.4l1.5 0l-4.0 -14.8l-4.0 14.8l1.5 0l-3.7 14.4l2.2 0l-3.3 14.4z"/><path d="M483 186l6.7 0l-2.4 -10.5l1.6 0l-2.7 -10.5l1.1 0l-2.9 -10.8l-2.9 10.8l1.1 0l-2.7 10.5l1.6 0l-2.4 10.5z"/><path d="M506 186l6.0 0l-2.1 -9.4l1.4 0l-2.4 -9.4l1.0 0l-2.6 -9.6l-2.6 9.6l1.0 0l-2.4 9.4l1.4 0l-2.1 9.4z"/></g><g fill="#0c1b30"><path d="M899 184l8.2 0l-3.0 -12.9l2.0 0l-3.3 -12.9l1.3 0l-3.6 -13.3l-3.6 13.3l1.3 0l-3.3 12.9l2.0 0l-3.0 12.9z"/><path d="M920 184l7.1 0l-2.6 -11.1l1.7 0l-2.8 -11.1l1.1 0l-3.1 -11.5l-3.1 11.5l1.1 0l-2.8 11.1l1.7 0l-2.6 11.1z"/><path d="M944 184l7.8 0l-2.8 -12.3l1.9 0l-3.1 -12.3l1.3 0l-3.5 -12.7l-3.5 12.7l1.3 0l-3.1 12.3l1.9 0l-2.8 12.3z"/><path d="M977 184l7.4 0l-2.7 -11.7l1.8 0l-3.0 -11.7l1.2 0l-3.3 -12.1l-3.3 12.1l1.2 0l-3.0 11.7l1.8 0l-2.7 11.7z"/><path d="M1003 184l6.4 0l-2.3 -10.0l1.5 0l-2.5 -10.0l1.0 0l-2.8 -10.3l-2.8 10.3l1.0 0l-2.5 10.0l1.5 0l-2.3 10.0z"/><path d="M1025 184l7.5 0l-2.7 -11.8l1.8 0l-3.0 -11.8l1.2 0l-3.3 -12.2l-3.3 12.2l1.2 0l-3.0 11.8l1.8 0l-2.7 11.8z"/><path d="M1048 184l7.0 0l-2.5 -10.9l1.7 0l-2.8 -10.9l1.1 0l-3.1 -11.3l-3.1 11.3l1.1 0l-2.8 10.9l1.7 0l-2.5 10.9z"/><path d="M1076 184l9.0 0l-3.2 -14.2l2.2 0l-3.6 -14.2l1.4 0l-4.0 -14.6l-4.0 14.6l1.4 0l-3.6 14.2l2.2 0l-3.2 14.2z"/><path d="M1096 184l7.8 0l-2.8 -12.3l1.9 0l-3.1 -12.3l1.3 0l-3.4 -12.7l-3.4 12.7l1.3 0l-3.1 12.3l1.9 0l-2.8 12.3z"/><path d="M1116 184l8.0 0l-2.9 -12.5l1.9 0l-3.2 -12.5l1.3 0l-3.5 -12.9l-3.5 12.9l1.3 0l-3.2 12.5l1.9 0l-2.9 12.5z"/><path d="M1147 184l9.2 0l-3.3 -14.5l2.2 0l-3.7 -14.5l1.5 0l-4.1 -14.9l-4.1 14.9l1.5 0l-3.7 14.5l2.2 0l-3.3 14.5z"/><path d="M1174 184l6.2 0l-2.2 -9.8l1.5 0l-2.5 -9.8l1.0 0l-2.7 -10.1l-2.7 10.1l1.0 0l-2.5 9.8l1.5 0l-2.2 9.8z"/><path d="M1193 184l7.8 0l-2.8 -12.3l1.9 0l-3.1 -12.3l1.3 0l-3.5 -12.7l-3.5 12.7l1.3 0l-3.1 12.3l1.9 0l-2.8 12.3z"/><path d="M1213 184l7.0 0l-2.5 -11.0l1.7 0l-2.8 -11.0l1.1 0l-3.1 -11.3l-3.1 11.3l1.1 0l-2.8 11.0l1.7 0l-2.5 11.0z"/><path d="M1240 184l5.5 0l-2.0 -8.7l1.3 0l-2.2 -8.7l0.9 0l-2.4 -9.0l-2.4 9.0l0.9 0l-2.2 8.7l1.3 0l-2.0 8.7z"/><path d="M1263 184l8.3 0l-3.0 -13.0l2.0 0l-3.3 -13.0l1.3 0l-3.6 -13.4l-3.6 13.4l1.3 0l-3.3 13.0l2.0 0l-3.0 13.0z"/><path d="M1288 184l6.1 0l-2.2 -9.6l1.5 0l-2.4 -9.6l1.0 0l-2.7 -9.8l-2.7 9.8l1.0 0l-2.4 9.6l1.5 0l-2.2 9.6z"/><path d="M1316 184l8.7 0l-3.1 -13.7l2.1 0l-3.5 -13.7l1.4 0l-3.8 -14.1l-3.8 14.1l1.4 0l-3.5 13.7l2.1 0l-3.1 13.7z"/><path d="M1337 184l6.9 0l-2.5 -10.9l1.7 0l-2.8 -10.9l1.1 0l-3.0 -11.2l-3.0 11.2l1.1 0l-2.8 10.9l1.7 0l-2.5 10.9z"/><path d="M1367 184l8.8 0l-3.2 -13.8l2.1 0l-3.5 -13.8l1.4 0l-3.9 -14.2l-3.9 14.2l1.4 0l-3.5 13.8l2.1 0l-3.2 13.8z"/><path d="M1395 184l8.7 0l-3.1 -13.6l2.1 0l-3.5 -13.6l1.4 0l-3.8 -14.0l-3.8 14.0l1.4 0l-3.5 13.6l2.1 0l-3.1 13.6z"/><path d="M1413 184l6.8 0l-2.4 -10.7l1.6 0l-2.7 -10.7l1.1 0l-3.0 -11.0l-3.0 11.0l1.1 0l-2.7 10.7l1.6 0l-2.4 10.7z"/></g><g fill="#0c1b30"><path d="M600 188v-26l26-18 26 18v26z"/><path d="M700 188v-20l20-14 20 14v20z"/><path d="M790 190v-24l24-16 24 16v24z"/></g><g fill="#ffcf7a"><rect class="win" x="612" y="168" width="7" height="8" rx="1"/><rect class="win" x="632" y="168" width="7" height="8" rx="1"/><rect class="win" x="716" y="172" width="8" height="8" rx="1"/><rect class="win" x="802" y="172" width="7" height="8" rx="1"/><rect class="win" x="820" y="172" width="7" height="8" rx="1"/></g><g fill="#eef4fc"><path d="M598 164l28-20 28 20-4 1-24-16-24 16z"/><path d="M698 170l22-16 22 16-3 1-19-13-19 13z"/><path d="M788 168l26-18 26 18-4 1-22-15-22 15z"/></g><path fill="url(#sn)" d="M0 196C120 182 230 204 360 192S600 178 720 194 980 206 1100 190 1330 184 1440 196V220H0z"/></svg>
 </div>
 
 <main>
@@ -476,12 +521,18 @@ fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.
   var x=c.getContext("2d"), f=[], W=0, H=0;
   function size(){var r=c.getBoundingClientRect();W=c.width=r.width;H=c.height=r.height;}
   size(); window.addEventListener("resize",size);
-  for(var i=0;i<90;i++) f.push({x:Math.random(),y:Math.random(),r:Math.random()*2.2+.6,s:Math.random()*.35+.15,d:Math.random()*Math.PI*2});
+  var N=Math.min(260,Math.round(W*H/5200));
+  for(var i=0;i<N;i++){var z=Math.random(); f.push({x:Math.random()*W,y:Math.random()*H,z:z,r:.6+z*z*3.6,s:.25+z*1.25,d:Math.random()*6.28,a:.35+z*.6});}
+  var t=0;
   (function tick(){
-    x.clearRect(0,0,W,H); x.fillStyle="rgba(255,250,240,.75)";
-    for(var i=0;i<f.length;i++){var p=f[i]; p.y+=p.s/H*1.6; p.d+=.01; p.x+=Math.sin(p.d)*.0004;
-      if(p.y>1.02){p.y=-.02;p.x=Math.random();}
-      x.beginPath(); x.arc(p.x*W,p.y*H,p.r,0,6.283); x.fill();}
+    t+=.004; var wind=Math.sin(t)*.35+.15;
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<f.length;i++){var p=f[i]; p.y+=p.s; p.d+=.012+p.z*.01; p.x+=Math.sin(p.d)*.35*p.z+wind*p.z;
+      if(p.y>H+6){p.y=-6;p.x=Math.random()*W;} if(p.x>W+6)p.x=-6; if(p.x<-6)p.x=W+6;
+      x.globalAlpha=p.a; x.fillStyle="#fff";
+      if(p.r>2.6){x.shadowColor="rgba(255,255,255,.9)";x.shadowBlur=6;}else{x.shadowBlur=0;}
+      x.beginPath(); x.arc(p.x,p.y,p.r,0,6.283); x.fill();}
+    x.globalAlpha=1;
     requestAnimationFrame(tick);
   })();
 })();
