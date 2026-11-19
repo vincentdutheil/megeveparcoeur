@@ -1,0 +1,41 @@
+/* Styles de la liste d'agenda, partagés par les pages « Que faire » (copie des règles de l'accueil) */
+:root{--ember:#c27a34}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:8px 16px;border-radius:999px;font:700 .9rem var(--body);cursor:pointer}
+.tab:hover{border-color:var(--ember)}
+.tab[aria-pressed="true"]{background:var(--night);border-color:var(--night);color:#fbf3e6}
+.agenda{display:grid;gap:12px}
+.ev{display:grid;grid-template-columns:130px 1fr auto;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:0 4px 14px rgba(60,40,20,.05)}
+.date{font-family:var(--display);color:var(--ember);line-height:1.1}
+.date b{display:block;font-size:1.55rem;font-weight:600}
+.date span{font-family:var(--body);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.ev h3{font-family:var(--body);font-weight:800;font-size:1.05rem}
+.ev p{margin:3px 0 0;color:var(--muted);font-size:.95rem}
+.month{font-family:var(--display);font-size:1.5rem;font-weight:500;margin:26px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
+.month::after{content:"";flex:1;height:1px;background:var(--line)}
+.month:first-child{margin-top:0}
+.ev .meta{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.ev a.more{font-size:.85rem;font-weight:800;color:var(--heart);text-decoration:none;white-space:nowrap}
+.ev a.more:hover{text-decoration:underline}
+.place{font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#24384f;color:#fff}
+.ag-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ag-stats span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:700;color:var(--ink)}
+.ag-stats b{color:var(--heart)}
+.place.Demi-Quartier{background:#5b4a86}
+.place.Combloux{background:var(--pine)}
+.place.Praz-sur-Arly{background:#8a5a24}
+.ev .hour{font-weight:700;color:var(--ink)}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;margin:-10px 0 6px;scrollbar-width:none}
+.quick::-webkit-scrollbar{display:none}
+.qf{flex:none;border:1.5px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:700 .88rem var(--body);cursor:pointer;white-space:nowrap}
+.qf[aria-pressed="true"]{background:var(--heart);border-color:var(--heart);color:#fff}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;align-items:center}
+.acts .tg{font-size:.72rem;font-weight:800;color:var(--pine);background:rgba(63,97,80,.1);border-radius:999px;padding:3px 9px}
+.act,.acts .menu button{font:700 .8rem var(--body);border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 11px;cursor:pointer}
+.act:hover{border-color:var(--heart);color:var(--heart)}
+.addw{position:relative}
+.acts .menu{position:absolute;left:0;top:calc(100% + 6px);z-index:5;display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 12px 30px rgba(10,20,40,.18);min-width:190px}
+.acts .menu[hidden]{display:none}
+.acts .menu button{text-align:left;border-radius:10px}
+.ev.hl{outline:3px solid var(--glow);outline-offset:3px}
+@media (max-width:560px){.ev{grid-template-columns:1fr;gap:6px}.ev .meta{flex-direction:row;align-items:center;justify-content:space-between}}

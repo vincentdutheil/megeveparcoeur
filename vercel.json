@@ -1,5 +1,13 @@
 {
-  "crons": [
-    { "path": "/api/newsletter", "schedule": "30 16 * * 4" }
-  ]
+ "crons": [
+  {
+   "path": "/api/newsletter",
+   "schedule": "30 16 * * 4"
+  }
+ ],
+ "git": {
+  "deploymentEnabled": {
+   "propositions": false
+  }
+ }
 }

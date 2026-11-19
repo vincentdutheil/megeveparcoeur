@@ -77,6 +77,7 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <button role="tab" data-tab="tPhotos" aria-selected="true">📷 Photos</button>
     <button role="tab" data-tab="tAgenda" aria-selected="false">📅 Agenda</button>
     <button role="tab" data-tab="tVis" aria-selected="false">🖼️ Visuels Instagram</button>
+    <button role="tab" data-tab="tProp" aria-selected="false">📨 Propositions <span id="pcount" class="pill" style="display:none"></span></button>
   </div>
   <div id="tPhotos">
   <section class="box">
@@ -115,6 +116,14 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <p class="muted">Cliquez sur un événement pour le modifier. Cochez « Vérifié par Vincent » : la mise à jour automatique du jeudi ne le modifiera ni ne le supprimera jamais. Les événements que vous ajoutez ici sont protégés automatiquement.</p>
   </section>
   <div id="alist"></div>
+  </div>
+
+  <div id="tProp" class="hidden">
+  <section class="box">
+    <h2>Propositions d'événements</h2>
+    <p class="muted">Les événements envoyés par les organisateurs depuis le formulaire « Proposer un événement » du site. « Ajouter à l'agenda » le place dans l'onglet Agenda (vérifiez, complétez la catégorie, puis « Publier ») ; la proposition est alors retirée de cette liste. L'e-mail de l'organisateur n'est jamais publié.</p>
+  </section>
+  <div id="plist"><p class="muted">Chargement…</p></div>
   </div>
 
   <div id="tVis" class="hidden">
@@ -162,6 +171,7 @@ async function connect(){
     $("login").classList.add("hidden");$("app").classList.remove("hidden");$("bar").classList.remove("hidden");
     render();
     loadAgenda().catch(()=>{});
+    loadProps().catch(()=>{});
   }catch(e){$("loginErr").textContent="Connexion impossible : vérifiez la clé. ("+e.message.slice(0,80)+")";store("mpc_tok",null);}
 }
 function cats(){return [...new Set(photos.filter(p=>!p._del).map(p=>p.cat))];}
@@ -253,6 +263,7 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   document.querySelectorAll(".tabs button").forEach(x=>{x.setAttribute("aria-selected",x===b);$(x.dataset.tab).classList.add("hidden");});
   $(b.dataset.tab).classList.remove("hidden");
   if(b.dataset.tab==="tVis") loadVis();
+  if(b.dataset.tab==="tProp") loadProps();
 });
 
 /* ---------- Agenda ---------- */
@@ -323,6 +334,40 @@ async function publishAgenda(){
   const r=await gh("/contents/"+ADATA,{method:"PUT",body:JSON.stringify({message:"Mise à jour de l'agenda depuis l'admin",content:b64(JSON.stringify(clean,null,1)+"\n"),sha:agendaSha,branch:BRANCH})});
   agendaSha=r.content.sha; agenda=clean; aChanged=false; renderAgenda();
 }
+
+/* ---------- Propositions d'événements (branche « propositions ») ---------- */
+const PFILE="data/propositions.json", PBRANCH="propositions";
+let props=[], propsSha="";
+async function loadProps(){
+  try{const f=await gh("/contents/"+PFILE+"?ref="+PBRANCH);propsSha=f.sha;props=JSON.parse(dec(f.content));}
+  catch(e){if(String(e.message).startsWith("404")){props=[];propsSha="";}else{$("plist").innerHTML='<p class="muted">Impossible de charger les propositions ('+esc(e.message.slice(0,80))+').</p>';return;}}
+  renderProps();
+}
+function renderProps(){
+  const n=props.length,c=$("pcount");c.textContent=n;c.style.display=n?"":"none";
+  $("plist").innerHTML=n?props.map((p,k)=>`<section class="box" data-k="${k}">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><b style="font-size:1.05rem">${esc(p.t)}</b><span class="pill">${esc(p.lieu)}</span>${p.lang==="en"?'<span class="pill">EN</span>':""}</div>
+    <p style="margin:6px 0">${fmt(p.d)}${p.d2&&p.d2!==p.d?" → "+fmt(p.d2):""}${p.h?" · "+esc(p.h):""}${p.where?" · "+esc(p.where):""}</p>
+    <p style="margin:6px 0;white-space:pre-wrap">${esc(p.x)}</p>
+    ${p.u?`<p style="margin:6px 0"><a href="${esc(p.u)}" target="_blank" rel="noopener">${esc(p.u)}</a></p>`:""}
+    <p class="muted" style="margin:6px 0">Envoyé par ${esc(p.name||"—")} · <a href="mailto:${esc(p.mail)}">${esc(p.mail)}</a> · le ${fmt((p.at||"").slice(0,10))}</p>
+    <div style="display:flex;gap:10px;margin-top:10px"><button data-pa="add">➕ Ajouter à l'agenda</button><button class="danger" data-pa="no">Refuser</button></div>
+  </section>`).join(""):'<p class="muted">Aucune proposition en attente. 🎉</p>';
+}
+async function saveProps(msg){
+  const r=await gh("/contents/"+PFILE,{method:"PUT",body:JSON.stringify({message:msg,branch:PBRANCH,sha:propsSha,content:b64(JSON.stringify(props,null,1)+"\n")})});
+  propsSha=r.content.sha;
+}
+$("plist").addEventListener("click",async e=>{const a=e.target.dataset.pa;if(!a)return;const k=+e.target.closest("[data-k]").dataset.k,p=props[k];
+  if(a==="no"&&!confirm("Refuser et supprimer cette proposition ?"))return;
+  e.target.disabled=true;
+  if(a==="add"){const ev={d:p.d,lieu:p.lieu,cat:"Fête",t:p.t,x:(p.x||"")+(p.where?" ("+p.where+")":""),u:p.u||"",v:true,_new:true,_mod:true};
+    if(p.d2&&p.d2!==p.d)ev.d2=p.d2; if(p.h)ev.h=p.h; agenda.unshift(ev); aOpen=0; $("ap").value="all";$("aq").value="";$("al").value=""; aMark(); renderAgenda();}
+  props.splice(k,1);
+  try{await saveProps((a==="add"?"Proposition ajoutée à l'agenda : ":"Proposition refusée : ")+p.t.slice(0,60));}catch(err){alert("Erreur d'enregistrement des propositions : "+err.message.slice(0,120));}
+  renderProps();
+  if(a==="add")document.querySelector('.tabs button[data-tab="tAgenda"]').click();
+});
 
 /* ---------- Visuels Instagram ---------- */
 let visLoaded=false;

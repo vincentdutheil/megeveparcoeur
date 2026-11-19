@@ -68,7 +68,7 @@ def rewrite_links(html, path):
     # liens absolus vers les pages du site
     html = re.sub(r'href="/((?:%s)/[^"]*)"' % SUB, r'href="/en/\1"', html)
     html = re.sub(r'(?<!<base )href="/(#[^"]*)?"', lambda m: f'href="/en/{m.group(1) or ""}"', html)
-    return html.replace('href="__FR__"', 'href="/"')
+    return html.replace('href="__FR__"', 'href="/"').replace('href="__EN__', 'href="/en/')
 
 
 # ---------------------------------------------------------------- textes communs
@@ -213,6 +213,11 @@ HOME = [
     ('aria-label="Photo suivante"', 'aria-label="Next photo"'),
     ('<span class="xmas">Joyeuses fêtes depuis Megève ✨</span>', '<span class="xmas">Happy holidays from Megève ✨</span>'),
     ('© Megève par cœur · Photos et textes de Vincent ·', '© Megève par cœur · Photos and words by Vincent ·'),
+    ('<b>Idées de sorties</b><div class="ag-ideas"><a href="/que-faire/ce-week-end/">🎉 Ce week-end</a><a href="/que-faire/avec-des-enfants/">🧒 Avec des enfants</a><a href="/que-faire/quand-il-pleut/">☔ Quand il pleut</a><a href="/que-faire/gratuit/">🆓 Gratuit</a><a href="/venir/">🚗 Venir &amp; se déplacer</a></div>',
+     '<b>Ideas</b><div class="ag-ideas"><a href="__EN__things-to-do/this-weekend/">🎉 This weekend</a><a href="__EN__things-to-do/with-kids/">🧒 With kids</a><a href="__EN__things-to-do/rainy-day/">☔ Rainy day</a><a href="__EN__things-to-do/free/">🆓 Free</a><a href="__EN__getting-here/">🚗 Getting here &amp; around</a></div>'),
+    ('<a class="ag-prop" href="/proposer/">📝 Vous organisez un événement ? <u>Proposez-le</u></a>', '<a class="ag-prop" href="__EN__submit-event/">📝 Organising an event? <u>Submit it</u></a>'),
+    ('<a href="/que-faire/">Que faire ?</a> · <a href="/venir/">Venir</a> · <a href="/proposer/">Proposer un événement</a>',
+     '<a href="__EN__things-to-do/">Things to do</a> · <a href="__EN__getting-here/">Getting here</a> · <a href="__EN__submit-event/">Submit an event</a>'),
     ('<a href="en/">English</a>', '<a href="__FR__" lang="fr" hreflang="fr">Français</a>'),
     ('toLocaleDateString("fr-FR"', 'toLocaleDateString("en-GB"'),
     ('aria-label="Agrandir : ${esc(i.t)}"', 'aria-label="Enlarge: ${esc(i.t)}"'),

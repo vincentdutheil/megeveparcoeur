@@ -24,3 +24,21 @@
     setTimeout(()=>bar(en?"<b>Megève par cœur on your phone</b>Agenda, snow & webcams in one tap.":"<b>Megève par cœur sur ton téléphone</b>Agenda, neige et webcams en un geste.",async()=>{deferred.prompt();await deferred.userChoice.catch(()=>{});document.getElementById("mpc-inst")?.remove();}),6000);});
   if(ios&&innerWidth<820) setTimeout(()=>bar(en?"<b>Add to your home screen</b>Tap <span aria-label='Share'>⬆︎</span> Share, then “Add to Home Screen”.":"<b>Ajoute l'appli à ton écran d'accueil</b>Touche <span aria-label='Partager'>⬆︎</span> Partager, puis « Sur l'écran d'accueil »."),8000);
 })();
+
+/* Statistiques de visites (Vercel Web Analytics : sans cookies, pas de bandeau) + quelques clics utiles */
+(function(){
+  if(location.hostname==="localhost"||location.hostname==="127.0.0.1") return;
+  window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
+  const s=document.createElement("script");s.defer=true;s.src="/_vercel/insights/script.js";document.head.appendChild(s);
+  document.addEventListener("click",e=>{const a=e.target.closest("a[href]");if(!a)return;const h=a.getAttribute("href")||"";
+    let n=null;
+    if(/instagram\.com/.test(h)) n="instagram";
+    else if(/coupedesbanquesgenevoises/.test(h)) n="boutique_externe";
+    else if(/skaping\.com/.test(h)) n="webcam_ouverte";
+    else if(/google\.com\/maps/.test(h)) n="itineraire";
+    else if(a.classList.contains("more")) n="agenda_plus_infos";
+    if(n) try{window.va("event",{name:n});}catch(_){}
+  },true);
+  document.addEventListener("submit",e=>{if(e.target&&e.target.id==="nl-form") try{window.va("event",{name:"newsletter_envoi"});}catch(_){}
+    if(e.target&&e.target.id==="pr-form") try{window.va("event",{name:"proposition_evenement"});}catch(_){}},true);
+})();

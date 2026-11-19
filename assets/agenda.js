@@ -46,7 +46,8 @@ function weekend(){const t=localToday(),wd=new Date(t+"T12:00:00").getDay();
   if(wd===6) return [t,addDays(t,1)]; if(wd===0) return [t,t];
   const sat=addDays(t,6-wd); return [addDays(sat,-1),addDays(sat,1)];} // vendredi → dimanche
 
-let A=[], lieu="all", quick="all";
+const PRESET=(document.getElementById("agenda-list")||{dataset:{}}).dataset.q||"";
+let A=[], lieu="all", quick=PRESET||"all";
 function filtered(){const t=localToday();
   return A.filter(e=>(e.d2||e.d)>=t && (lieu==="all"||e.lieu===lieu) && (
     quick==="all" ? true :
@@ -92,6 +93,7 @@ function onClick(ev){const b=ev.target.closest("button[data-a]");
   if(b.dataset.a==="add"){const m=b.nextElementSibling,open=m.hidden;document.querySelectorAll(".acts .menu").forEach(x=>{x.hidden=true;});m.hidden=!open;b.setAttribute("aria-expanded",open);return;}
   document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});
   if(b.dataset.a==="gcal") window.open(gcalUrl(e),"_blank","noopener");
+  try{window.va&&window.va("event",{name:"agenda_"+b.dataset.a});}catch(_){}
   if(b.dataset.a==="ics") icsFile(e);
   if(b.dataset.a==="wa") window.open("https://wa.me/?text="+encodeURIComponent(T.waText(title(e),dateText(e)+" · "+e.lieu)+" "+link),"_blank","noopener");
   if(b.dataset.a==="share"){const data={title:title(e),text:dateText(e)+" · "+e.lieu,url:link};
@@ -101,7 +103,7 @@ function onClick(ev){const b=ev.target.closest("button[data-a]");
 
 /* Données structurées Google : un schema.org/Event par événement à venir */
 function jsonLd(){const t=localToday();
-  const evs=A.filter(e=>(e.d2||e.d)>=t).slice(0,300).map(e=>{const hm=hhmm(e.h),one=!e.d2||e.d2===e.d;
+  const evs=(PRESET?filtered():A.filter(e=>(e.d2||e.d)>=t)).slice(0,300).map(e=>{const hm=hhmm(e.h),one=!e.d2||e.d2===e.d;
     const o={"@context":"https://schema.org","@type":"Event",name:title(e),description:desc(e)||title(e),
       startDate:hm&&one?`${e.d}T${hm[0]}:${hm[1]}`:e.d, endDate:e.d2||e.d,
       eventStatus:"https://schema.org/EventScheduled",eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",
@@ -116,13 +118,14 @@ function jsonLd(){const t=localToday();
 function mount(){
   const tabs=document.getElementById("ag-tabs"), q=document.getElementById("ag-quick");
   tabs&&tabs.addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;tabs.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-pressed",x===b));lieu=b.dataset.l;render();});
-  if(q){q.innerHTML=Object.entries(T.q).map(([k,v])=>`<button type="button" class="qf" data-q="${k}" aria-pressed="${k==="all"}">${{all:"✨",today:"☀️",we:"🎉",free:"🆓",kids:"🧒",rain:"☔"}[k]} ${v}</button>`).join("");
+  if(q){q.innerHTML=Object.entries(T.q).map(([k,v])=>`<button type="button" class="qf" data-q="${k}" aria-pressed="${k===quick}">${{all:"✨",today:"☀️",we:"🎉",free:"🆓",kids:"🧒",rain:"☔"}[k]} ${v}</button>`).join("");
+    if(PRESET){const pb=q.querySelector('[aria-pressed="true"]');if(pb)q.scrollLeft=pb.offsetLeft-q.offsetLeft-16;}
     q.addEventListener("click",e=>{const b=e.target.closest(".qf");if(!b)return;q.querySelectorAll(".qf").forEach(x=>x.setAttribute("aria-pressed",x===b));quick=b.dataset.q;render();});}
   document.getElementById("agenda-list").addEventListener("click",onClick);
   document.addEventListener("click",e=>{if(!e.target.closest(".addw"))document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});});
-  fetch((LANG==="en"?"../":"")+"data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{A=d;render();jsonLd();
+  fetch("/data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{A=d;render();jsonLd();
     const t=localToday(),st=document.getElementById("ag-stats");
-    if(st)st.innerHTML=T.upcoming(d.filter(e=>(e.d2||e.d)>=t).length)+T.villages(new Set(d.map(e=>e.lieu)).size)+T.weekly;
+    if(st)st.innerHTML=T.upcoming(PRESET?filtered().length:d.filter(e=>(e.d2||e.d)>=t).length)+T.villages(new Set(d.map(e=>e.lieu)).size)+T.weekly;
     if(location.hash.startsWith("#e-")){const el=document.getElementById(location.hash.slice(1));if(el){el.classList.add("hl");el.scrollIntoView({block:"center"});}}
   }).catch(()=>{document.getElementById("agenda-list").innerHTML='<p class="note">⚠️</p>';});
 }
