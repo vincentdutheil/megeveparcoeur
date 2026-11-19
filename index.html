@@ -247,6 +247,9 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .ev a.more{font-size:.85rem;font-weight:800;color:var(--heart);text-decoration:none;white-space:nowrap}
 .ev a.more:hover{text-decoration:underline}
 .place{font-size:.7rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:#24384f;color:#fff}
+.ag-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.ag-stats span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:700;color:var(--ink)}
+.ag-stats b{color:var(--heart)}
 .place.Demi-Quartier{background:#5b4a86}
 .place.Combloux{background:var(--pine)}
 .place.Praz-sur-Arly{background:#8a5a24}
@@ -399,6 +402,7 @@ footer a{color:#fbf3e6}
         <div class="kicker">Megève, Demi-Quartier, Combloux &amp; Praz-sur-Arly</div>
         <h2>L'agenda de Megève</h2>
         <p>Les temps forts de Megève et des villages voisins : Demi-Quartier, Combloux et Praz-sur-Arly. Dates sous réserve : vérifiez sur le lien de chaque événement avant de venir.</p>
+        <p class="ag-stats" id="ag-stats" aria-live="polite"></p>
       </div>
       <div class="tabs" role="group" aria-label="Filtrer par village" id="ag-tabs">
         <button class="tab" aria-pressed="true" data-l="all">Tout</button>
@@ -525,7 +529,7 @@ function renderAgenda(){
 }
 document.getElementById("ag-tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;
   document.querySelectorAll("#ag-tabs .tab").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));lieu=b.dataset.l;renderAgenda();});
-fetch("data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{agenda=d;renderAgenda();}).catch(()=>{document.getElementById("agenda-list").innerHTML='<p class="note">L\'agenda n\'a pas pu se charger. Rechargez la page.</p>';});
+fetch("data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{agenda=d;renderAgenda();const t=new Date().toISOString().slice(0,10),n=d.filter(e=>(e.d2||e.d)>=t).length,v=new Set(d.map(e=>e.lieu)).size;const st=document.getElementById("ag-stats");if(st)st.innerHTML=`<span><b>${n}</b> événements à venir</span><span><b>${v}</b> villages</span><span>🔄 Mis à jour chaque jeudi</span>`;}).catch(()=>{document.getElementById("agenda-list").innerHTML='<p class="note">L\'agenda n\'a pas pu se charger. Rechargez la page.</p>';});
 fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.sort((a,b)=>(b.date||"").localeCompare(a.date||"")); buildTabs(); render("all");})
   .catch(()=>{g.innerHTML='<p class="note">La galerie n\'a pas pu se charger. Rechargez la page.</p>';});
 </script>
