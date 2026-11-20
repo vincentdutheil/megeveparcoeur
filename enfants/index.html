@@ -977,7 +977,7 @@ const GEN = {
       if (k === 1) { const a = R(30, 99) * 10, b = R(11, a / 10 - 1) * 10; return q(`${a} − ${b}`, a - b); }
       if (k <= 3) { const a = pick(TABLES[L]), b = R(2, 12); return q(`${a} × ${b}`, a * b); }
       if (k === 4) { const a = R(3, 99), m = pick([10, 100]); return q(`${a} × ${m}`, a * m); }
-      if (k === 5) { const b = pick(TABLES[L]), a = R(2, 10); return q(`${a * b} ÷ ${b}`, a); }
+      if (k === 5) { if (L === 6) { const a = R(12, 89), b = R(11, 99); return q(`${a} + ${b}`, a + b); } const b = pick(TABLES[L]), a = R(2, 10); return q(`${a * b} ÷ ${b}`, a); } // pas de division à la Fléchette
       if (k === 6) { const a = R(12, 60) * 2; return q(`La moitié de ${a}`, a / 2, true); }
       const a = R(1, 19) * 50; return q(`${a} + ? = 1000`, 1000 - a); }
     const k = R(0, 7);
@@ -1008,7 +1008,7 @@ const GEN = {
       if (k === 4) { const a = R(20, 50), b = R(10, 30), c = R(5, 15); return t(`${n} a ${a} €. ${Il(n)} reçoit ${b} € de sa mamie, puis dépense ${c} € pour un bonnet. Combien a-t-${il(n)} maintenant ?`, a + b - c, "€"); }
       if (k === 5) { const a = R(40, 90); return t(`Une luge coûte ${a} €. ${n} a déjà 20 €. Combien lui manque-t-il ?`, a - 20, "€"); }
       const a = R(2, 5), b = 5; return t(`${a} enfants ont chacun ${b} doigts dans un gant. Combien de doigts en tout ?`, a * b, "doigts"); }
-    if (L <= 7) { const k = R(0, 15);
+    if (L <= 7) { let k; do { k = R(0, 15); } while (L === 6 && [2, 9, 14].includes(k)); // Fléchette : pas de problèmes de partage (division)
       if (k === 0) { const p = R(3, 8), c = R(28, 64); return t(`${n} achète ${p} forfaits de ski à ${c} € chacun. Combien paie-t-${il(n)} en tout ?`, p * c, "€"); }
       if (k === 1) { const s = R(4, 9) * 100 + R(0, 9) * 10, o = R(120, s - 50); return t(`Le parking du Palais a ${s} places. Ce matin, ${o} voitures sont garées. Combien reste-t-il de places libres ?`, s - o, "places"); }
       if (k === 2) { const g = R(3, 9), p = R(6, 12); return t(`${g * p} enfants de l'école de ski sont répartis en ${g} groupes égaux. Combien y a-t-il d'enfants dans chaque groupe ?`, p, "enfants"); }
@@ -1235,7 +1235,8 @@ function gameScreen() {
   bindBack();
   const cv = $("#gc"), x = cv.getContext("2d"), Wc = cv.width, Hc = cv.height;
   const lanes = [Wc * .3, Wc * .7], skY = Hc * .26;
-  const GBASE = 46 + L * 8; // Ourson : ~9 s pour réfléchir · Flèche d'or : ~3,5 s
+  const GL = L <= 1 ? L : L <= 3 ? L - 1 : L - 2; // en descente, on calcule de tête et vite : calculs un peu plus simples que les exercices
+  const GBASE = 40 + L * 5; // Ourson : ~10 s pour réfléchir · Fléchette : ~6,5 s · Flèche d'or : ~5 s
   let lane = 0, sx = lanes[0], lives = 3, score = 0, gate = null, speed = 0, last = 0, crash = 0, trees = [], trail = [], flakes = [], running = false;
   for (let i = 0; i < 14; i++) trees.push({ x: Math.random() < .5 ? R(6, 50) : R(Wc - 50, Wc - 6), y: Math.random() * Hc, s: R(16, 28) });
   for (let i = 0; i < 40; i++) flakes.push({ x: Math.random() * Wc, y: Math.random() * Hc, r: Math.random() * 2 + .6 });
@@ -1245,19 +1246,19 @@ function gameScreen() {
   const key = e => { if (!document.body.contains(cv)) { removeEventListener("keydown", key); return; } if (e.key === "ArrowLeft") { setLane(0); e.preventDefault(); } if (e.key === "ArrowRight") { setLane(1); e.preventDefault(); } };
   addEventListener("keydown", key);
   function newGate() {
-    let qq; do { qq = GEN.mental(); } while (typeof qq.answer !== "number");
+    const save = L; L = GL; let qq; do { qq = GEN.mental(); } while (typeof qq.answer !== "number"); L = save;
     const a = qq.answer; let w, tries = 0;
     // mauvaise réponse proche, plus piégeuse aux niveaux élevés (±1, ±10, chiffres inversés…)
     do {
       tries++;
       if (L <= 1) w = a + (Math.random() < .5 ? -1 : 1) * R(1, 3);
-      else if (L <= 4) w = a + (Math.random() < .5 ? -1 : 1) * pick([1, 2, 10]);
+      else if (L <= 7) w = a + (Math.random() < .5 ? -1 : 1) * pick([1, 2, 10]);
       else { const r = Math.random(); w = r < .3 ? a + (Math.random() < .5 ? -1 : 1) * pick([1, 2]) : r < .6 ? a + (Math.random() < .5 ? -10 : 10) : r < .8 && a > 9 ? +String(a).split("").reverse().join("") : a + (Math.random() < .5 ? -1 : 1) * Math.max(2, Math.round(a * .1)); }
     } while ((w === a || w < 0) && tries < 30);
     if (w === a || w < 0) w = a + 1;
     const good = R(0, 1); gate = { y: Hc + 40, vals: good ? [w, a] : [a, w], good, q: qq.expr || qq.html.replace(/<[^>]+>/g, "") };
     $("#gq").innerHTML = (qq.expr || qq.html.replace(/<[^>]+>/g, "").replace(" = ?", "")) + " = ?";
-    speed = Math.min(GBASE + 70, GBASE + score * 3); // vitesse selon la médaille, qui monte un peu à chaque porte
+    speed = Math.min(GBASE + 40, GBASE + score * 2); // vitesse selon la médaille, qui monte un peu à chaque porte
   }
   function drawSkier() {
     const tilt = (lanes[lane] - sx) / 60;
