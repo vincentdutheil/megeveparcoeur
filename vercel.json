@@ -9,5 +9,7 @@
   "deploymentEnabled": {
    "propositions": false
   }
- }
+ },
+ "buildCommand": "node tools/build.mjs",
+ "outputDirectory": "dist"
 }

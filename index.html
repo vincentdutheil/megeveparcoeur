@@ -74,6 +74,7 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 .hero .kicker{color:var(--glow)}
 .hero h1{font-size:clamp(2.3rem,6.4vw,4.6rem);white-space:nowrap;font-weight:600}
 .hero h1 .h{color:#ff7b80;font-style:italic;font-weight:500}
+.hero h1 .sub{display:block;white-space:normal;font-family:var(--body);font-size:clamp(1rem,2.1vw,1.25rem);font-weight:700;letter-spacing:.01em;color:#cfe0f5;margin-top:10px}
 .hero p{max-width:42ch;font-size:1.12rem;opacity:.92;margin:16px 0 28px}
 /* Boule de Noël en verre, suspendue par un ruban rouge, la vidéo à l'intérieur */
 .hang{position:relative;justify-self:center;align-self:start;width:min(100%,370px);--ball:100%}
@@ -247,7 +248,7 @@ footer .xmas{display:block;font-family:var(--display);font-style:italic;font-siz
 .date{font-family:var(--display);color:var(--ember);line-height:1.1}
 .date b{display:block;font-size:1.55rem;font-weight:600}
 .date span{font-family:var(--body);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
-.ev h3{font-family:var(--body);font-weight:800;font-size:1.05rem}
+.ev h3{font-family:var(--body);font-weight:800;font-size:1.05rem}.ev h3 a{color:inherit;text-decoration:none}.ev h3 a:hover{color:var(--heart);text-decoration:underline}
 .ev p{margin:3px 0 0;color:var(--muted);font-size:.95rem}
 .month{font-family:var(--display);font-size:1.5rem;font-weight:500;margin:26px 0 4px;color:var(--ink);display:flex;align-items:center;gap:12px}
 .month::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -385,7 +386,7 @@ footer a{color:#fbf3e6}
   <div class="wrap hero-grid">
     <div style="position:relative;z-index:2">
       <div class="kicker">Megève &amp; ses alentours</div>
-      <h1>Megève <span class="h">par cœur</span></h1>
+      <h1>Megève <span class="h">par cœur</span><span class="sub">Agenda, neige &amp; bons plans à Megève et alentours</span></h1>
       <p>Pour les amoureux de Megève : la région en randonnée, à vélo, à ski ou en trail, et les bons moments du village, saison après saison.</p>
       <div class="btns">
       <a class="btn primary" href="https://www.instagram.com/megeveparcoeur/"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>Suivre @megeveparcoeur</a>
@@ -612,7 +613,7 @@ fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.
 (function(){
   var v=document.getElementById("hero-vid"), rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var big=window.matchMedia("(min-width: 861px)").matches && (window.devicePixelRatio||1)>1.2;
-  v.src=big?"videos/hero-hd.mp4":"videos/hero.mp4";
+  v.src=big?"videos/hero-sq-hd.mp4":"videos/hero-sq.mp4";
   if(rm){v.removeAttribute("autoplay");v.pause();}
   var c=document.getElementById("snow"); if(!c||rm) return;
   var x=c.getContext("2d"), f=[], W=0, H=0;

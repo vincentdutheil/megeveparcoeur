@@ -27,6 +27,12 @@ const pad=n=>String(n).padStart(2,"0");
 function localToday(){const n=new Date();return `${n.getFullYear()}-${pad(n.getMonth()+1)}-${pad(n.getDate())}`;}
 function addDays(s,k){const d=new Date(s+"T12:00:00");d.setDate(d.getDate()+k);return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;}
 function slug(e){return "e-"+e.d+"-"+(e.t||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,40);}
+/* page de l'événement (créée au déploiement par tools/build.mjs, même règle) */
+let DUP={};
+const strip=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const pbase=e=>{const t=strip(e.t);return e.d+"-"+(t.length<=60?t:t.slice(0,60).replace(/-[^-]*$/,""));};
+const pslug=e=>pbase(e)+(DUP[pbase(e)]>1?"-"+strip(e.lieu):"");
+const evUrl=e=>SITE+(LANG==="en"?"/en":"")+"/agenda/"+pslug(e)+"/";
 const title=e=>LANG==="en"&&e.t_en?e.t_en:e.t, desc=e=>LANG==="en"&&e.x_en?e.x_en:e.x;
 function hhmm(h){if(!h)return null;const m=String(h).match(/(\d{1,2})\s*h\s*(\d{2})?/i);if(!m)return null;return [pad(+m[1]),m[2]||"00"];}
 function dParts(s){const [y,m,d]=s.split("-").map(Number);return {y,m,d};}
@@ -63,7 +69,7 @@ function render(){
     if(key!==cur){cur=key;html+=`<h3 class="month">${key.charAt(0).toUpperCase()+key.slice(1)}</h3>`;}
     const L=dLabel(e), id=slug(e), tags=[isFree(e)?(LANG==="en"?"Free":"Gratuit"):"",isKids(e)?(LANG==="en"?"Kids":"Enfants"):""].filter(Boolean);
     html+=`<article class="ev" id="${id}"><div class="date"><b>${L.big}</b><span>${L.small}</span></div>
-      <div><h3>${esc(title(e))}</h3><p>${e.h?`<span class="hour">${esc(e.h)} · </span>`:""}${esc(desc(e))}</p>
+      <div><h3><a href="${evUrl(e).slice(SITE.length)}">${esc(title(e))}</a></h3><p>${e.h?`<span class="hour">${esc(e.h)} · </span>`:""}${esc(desc(e))}</p>
         <div class="acts">${tags.map(x=>`<span class="tg">${x}</span>`).join("")}
           <span class="addw"><button type="button" class="act" data-a="add" data-id="${id}" aria-expanded="false">${T.add}</button>
             <span class="menu" hidden><button type="button" data-a="gcal" data-id="${id}">${T.gcal}</button><button type="button" data-a="ics" data-id="${id}">${T.ics}</button></span></span>
@@ -76,20 +82,20 @@ function render(){
 const byId=id=>A.find(e=>slug(e)===id);
 function gcalUrl(e){const hm=hhmm(e.h),d=e.d.replace(/-/g,""),end=(e.d2||e.d);
   const dates=hm&&(!e.d2||e.d2===e.d)?`${d}T${hm[0]}${hm[1]}00/${d}T${pad((+hm[0]+2)%24)}${hm[1]}00`:`${d}/${addDays(end,1).replace(/-/g,"")}`;
-  const p=new URLSearchParams({action:"TEMPLATE",text:title(e),dates,details:(desc(e)||"")+"\n\n"+(e.u||PAGE+"#"+slug(e)),location:`${e.lieu}, ${CP[e.lieu]||""} France`,ctz:"Europe/Paris"});
+  const p=new URLSearchParams({action:"TEMPLATE",text:title(e),dates,details:(desc(e)||"")+"\n\n"+evUrl(e),location:`${e.lieu}, ${CP[e.lieu]||""} France`,ctz:"Europe/Paris"});
   return "https://calendar.google.com/calendar/render?"+p;}
 function icsFile(e){const hm=hhmm(e.h),d=e.d.replace(/-/g,""),one=!e.d2||e.d2===e.d;
   const icsEsc=s=>String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
   const lines=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Megeve par coeur//Agenda//FR","CALSCALE:GREGORIAN","BEGIN:VEVENT",
     "UID:"+slug(e)+"@megeveparcoeur.fr","DTSTAMP:"+new Date().toISOString().replace(/[-:]/g,"").slice(0,15)+"Z",
     ...(hm&&one?["DTSTART;TZID=Europe/Paris:"+d+"T"+hm[0]+hm[1]+"00","DURATION:PT2H"]:["DTSTART;VALUE=DATE:"+d,"DTEND;VALUE=DATE:"+addDays(e.d2||e.d,1).replace(/-/g,"")]),
-    "SUMMARY:"+icsEsc(title(e)),"DESCRIPTION:"+icsEsc((desc(e)||"")+"\n"+(e.u||"")),"LOCATION:"+icsEsc(e.lieu+", France"),"URL:"+(e.u||PAGE+"#"+slug(e)),"END:VEVENT","END:VCALENDAR"];
+    "SUMMARY:"+icsEsc(title(e)),"DESCRIPTION:"+icsEsc((desc(e)||"")+"\n"+(e.u||"")),"LOCATION:"+icsEsc(e.lieu+", France"),"URL:"+evUrl(e),"END:VEVENT","END:VCALENDAR"];
   const blob=new Blob([lines.join("\r\n")],{type:"text/calendar;charset=utf-8"}),a=document.createElement("a");
   a.href=URL.createObjectURL(blob);a.download=slug(e).slice(2)+".ics";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);}
 
 function onClick(ev){const b=ev.target.closest("button[data-a]");
   if(!b){document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});return;}
-  const e=byId(b.dataset.id); if(!e) return; const link=PAGE+"#"+slug(e);
+  const e=byId(b.dataset.id); if(!e) return; const link=evUrl(e);
   if(b.dataset.a==="add"){const m=b.nextElementSibling,open=m.hidden;document.querySelectorAll(".acts .menu").forEach(x=>{x.hidden=true;});m.hidden=!open;b.setAttribute("aria-expanded",open);return;}
   document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});
   if(b.dataset.a==="gcal") window.open(gcalUrl(e),"_blank","noopener");
@@ -108,7 +114,7 @@ function jsonLd(){const t=localToday();
       startDate:hm&&one?`${e.d}T${hm[0]}:${hm[1]}`:e.d, endDate:e.d2||e.d,
       eventStatus:"https://schema.org/EventScheduled",eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",
       location:{"@type":"Place",name:e.lieu,address:{"@type":"PostalAddress",addressLocality:e.lieu,postalCode:CP[e.lieu]||"",addressRegion:"Haute-Savoie",addressCountry:"FR"}},
-      image:[SITE+"/videos/hero-poster.jpg"],url:PAGE+"#"+slug(e),inLanguage:LANG};
+      image:[SITE+"/videos/hero-poster.jpg"],url:evUrl(e),inLanguage:LANG};
     if(isFree(e)) o.isAccessibleForFree=true;
     if(e.u) o.sameAs=e.u;
     return o;});
@@ -123,7 +129,7 @@ function mount(){
     q.addEventListener("click",e=>{const b=e.target.closest(".qf");if(!b)return;q.querySelectorAll(".qf").forEach(x=>x.setAttribute("aria-pressed",x===b));quick=b.dataset.q;render();});}
   document.getElementById("agenda-list").addEventListener("click",onClick);
   document.addEventListener("click",e=>{if(!e.target.closest(".addw"))document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});});
-  fetch("/data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{A=d;render();jsonLd();
+  fetch("/data/agenda.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{A=d;DUP={};A.forEach(e=>{const k=pbase(e);DUP[k]=(DUP[k]||0)+1;});render();jsonLd();
     const t=localToday(),st=document.getElementById("ag-stats");
     if(st)st.innerHTML=T.upcoming(PRESET?filtered().length:d.filter(e=>(e.d2||e.d)>=t).length)+T.villages(new Set(d.map(e=>e.lieu)).size)+T.weekly;
     if(location.hash.startsWith("#e-")){const el=document.getElementById(location.hash.slice(1));if(el){el.classList.add("hl");el.scrollIntoView({block:"center"});}}

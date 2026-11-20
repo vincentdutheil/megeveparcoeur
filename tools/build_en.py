@@ -151,6 +151,7 @@ HOME = [
      "<title>Megève par cœur · What's on, snow, webcams in Megève, Combloux, Demi-Quartier, Praz-sur-Arly</title>"),
     ('''content="Que faire à Megève ce week-end ? L'agenda le plus complet de Megève, Combloux, Demi-Quartier et Praz-sur-Arly : marchés, concerts, spectacles, sorties enfants, mis à jour chaque jeudi. Plus météo, neige et webcams."''',
      '''content="What's on in Megève this weekend? The most complete events guide for Megève, Combloux, Demi-Quartier and Praz-sur-Arly: markets, concerts, shows, kids' activities, updated every Thursday. Plus snow forecast, webcams, walks and a map."'''),
+    ('<span class="sub">Agenda, neige &amp; bons plans à Megève et alentours</span>', '<span class="sub">What\'s on, snow &amp; local tips in Megève and around</span>'),
     ('<div class="kicker">Megève &amp; ses alentours</div>', '<div class="kicker">Megève &amp; around</div>'),
     ('<p>Pour les amoureux de Megève : la région en randonnée, à vélo, à ski ou en trail, et les bons moments du village, saison après saison.</p>',
      '<p>For everyone who loves Megève: the area on foot, by bike, on skis or trail running, and the best moments in the village, season after season.</p>'),
