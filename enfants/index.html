@@ -14,7 +14,7 @@
 <meta property="og:image" content="https://www.megeveparcoeur.fr/videos/hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:opsz,wght@6..12,600;6..12,800;6..12,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Nunito+Sans:opsz,wght@6..12,600;6..12,800;6..12,900&display=swap" rel="stylesheet">
 <style>
 :root{--wood:#5b3a24;--wood2:#3d2617;--dark:#2a1810;--cream:#fff8ef;--paper:#fffdf8;--ink:#2b1d14;--muted:#7a6656;--line:#ead9c6;--ember:#e8722a;--fire:#f4a62a;--red:#b8322a;--ok:#2e8b4e;--ko:#c0392b;--gold:#e7b53c;--blue:#2b4c7e;
   --display:"Fraunces",Georgia,serif;--body:"Nunito Sans",system-ui,sans-serif;--chalk:"Caveat","Comic Sans MS",cursive}
@@ -55,6 +55,26 @@ h1 small{display:block;font-family:var(--body);font-size:clamp(.9rem,2.6vw,1.05r
 .board .chalk{position:absolute;bottom:8px;right:12px;display:flex;gap:8px;align-items:center}
 .board .chalk button{background:none;border:1px dashed rgba(255,255,255,.35);border-radius:999px;color:#f4f1e8;font-family:var(--chalk);font-size:1.15rem;padding:2px 12px;cursor:pointer}
 .board .stick{position:absolute;bottom:-10px;left:22%;width:34px;height:8px;background:#fafafa;border-radius:3px;z-index:2}
+/* couverture de BD */
+.comics{display:grid;grid-template-columns:minmax(0,430px) 1fr;gap:18px;align-items:center;margin:0 0 18px}
+@media(max-width:760px){.comics{grid-template-columns:1fr}}
+.comics .side{color:#f7e6cf}.comics .side h2{font-family:var(--display);color:#fff3e0;font-size:1.6rem;margin:0 0 6px}.comics .side p{margin:0 0 12px;font-weight:600;opacity:.9}
+.cover{position:relative;aspect-ratio:3/4;border:6px solid #111;border-radius:6px;overflow:hidden;box-shadow:10px 10px 0 rgba(0,0,0,.45);color:#111;background:var(--cv,#e94e3c);display:flex;flex-direction:column;transform:rotate(-1.2deg)}
+.cover:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.18) 1.6px,transparent 1.8px);background-size:9px 9px;pointer-events:none}
+.cover .mast{position:relative;background:#111;color:#ffd23f;font-family:"Bangers",var(--display);font-size:clamp(1.8rem,7.5vw,2.6rem);white-space:nowrap;letter-spacing:.04em;line-height:1;padding:10px 12px 6px;display:flex;justify-content:space-between;align-items:flex-end}
+.cover .mast small{font-family:var(--body);font-size:.72rem;letter-spacing:0;color:#fff;font-weight:900;text-align:right;line-height:1.25}
+.cover .tag{position:relative;align-self:flex-start;margin:10px 12px 0;background:#fff;border:3px solid #111;font-family:"Bangers",var(--display);font-size:1.1rem;letter-spacing:.06em;padding:2px 10px;transform:rotate(-3deg)}
+.cover .burst{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:120px}
+.cover .burst span{display:flex;align-items:center;justify-content:center;width:min(52%,190px);aspect-ratio:1;background:#ffd23f;font-size:clamp(3.2rem,15vw,5rem);
+  clip-path:polygon(50% 0,61% 22%,85% 8%,78% 33%,100% 40%,80% 56%,95% 78%,69% 75%,64% 100%,50% 82%,36% 100%,31% 75%,5% 78%,20% 56%,0 40%,22% 33%,15% 8%,39% 22%)}
+.cover .head{position:relative;margin:0 12px;background:#fff8c4;border:3px solid #111;font-family:"Bangers",var(--display);font-size:clamp(1.3rem,5.4vw,1.7rem);letter-spacing:.03em;line-height:1.05;padding:6px 10px;text-transform:uppercase}
+.cover .bubble{position:relative;margin:12px 12px 14px;background:#fff;border:3px solid #111;border-radius:22px;padding:10px 14px;font-weight:800;font-size:clamp(.92rem,3.6vw,1.02rem);line-height:1.35}
+.cover .bubble:after{content:"";position:absolute;top:-16px;left:34px;border:8px solid transparent;border-bottom:10px solid #111}
+.cover .foot{position:relative;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0 12px 12px}
+.cover .foot a{background:#111;color:#ffd23f;text-decoration:none;font-family:"Bangers",var(--display);letter-spacing:.06em;font-size:1.25rem;padding:6px 14px;border-radius:4px}
+.cover .foot .price{font-weight:900;font-size:.75rem;background:#fff;border:2px solid #111;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.05;transform:rotate(8deg)}
+.nextc{background:#ffd23f;color:#111;border:3px solid #111;font-family:"Bangers",var(--display);letter-spacing:.06em;font-size:1.3rem;padding:8px 18px;border-radius:6px;cursor:pointer;box-shadow:4px 4px 0 #111}
+.nextc:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #111}
 /* niveaux */
 .levels{background:var(--cream);border-radius:22px;padding:14px 14px 10px;margin:0 0 16px;box-shadow:0 12px 30px rgba(0,0,0,.25)}
 .levels h2{font-family:var(--display);font-size:1.15rem;margin:0 4px 8px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
@@ -135,8 +155,7 @@ footer{color:#f3cf9b;text-align:center;font-size:.85rem;padding:10px 0 30px;opac
       <div class="lab" id="blab">La pensée du jour</div>
       <blockquote id="bq"></blockquote>
       <cite id="bc"></cite>
-      <a class="more hidden" id="bm" target="_blank" rel="noopener">En savoir plus →</a>
-      <div class="chalk"><button id="bnext" type="button">↻ une autre</button></div>
+            <div class="chalk"><button id="bnext" type="button">↻ une autre</button></div>
       <span class="stick" aria-hidden="true"></span>
     </div>
     <div class="scene" aria-hidden="true">
@@ -227,6 +246,22 @@ footer{color:#f3cf9b;text-align:center;font-size:.85rem;padding:10px 0 30px;opac
     </div>
   </div>
 
+  <section class="comics" aria-labelledby="cvh">
+    <article class="cover" id="cover" aria-live="polite">
+      <div class="mast">LE SAVAIS-TU ?<small id="cvn">N° 01</small></div>
+      <div class="tag" id="cvt">SPORT</div>
+      <div class="burst"><span id="cvi" aria-hidden="true">⛷️</span></div>
+      <div class="head" id="cvh"></div>
+      <div class="bubble" id="cvx"></div>
+      <div class="foot"><a id="cvl" href="#" target="_blank" rel="noopener">LIRE LA SUITE →</a><span class="price">Prix :<br>1 sourire</span></div>
+    </article>
+    <div class="side">
+      <h2>Le coin des anecdotes</h2>
+      <p>Des histoires vraies de sport, de sciences et de montagne. Pour chaque numéro, « Lire la suite » ouvre l'article complet.</p>
+      <button class="nextc" id="cvnext" type="button">NUMÉRO SUIVANT ↻</button>
+    </div>
+  </section>
+
   <section class="levels" aria-labelledby="lvh">
     <h2 id="lvh">Ta médaille <span id="lvsub"></span></h2>
     <div class="lvls" id="lvls" role="group" aria-label="Choisir son niveau"></div>
@@ -297,46 +332,92 @@ function confetti() {
    Tableau noir : pensées et anecdotes
    ====================================================================== */
 const QUOTES = [ // uniquement de vraies citations, avec leur auteur
+  // enfance
   ["Toutes les grandes personnes ont d'abord été des enfants. (Mais peu d'entre elles s'en souviennent.)", "Antoine de Saint-Exupéry, Le Petit Prince"],
   ["On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.", "Antoine de Saint-Exupéry, Le Petit Prince"],
+  ["Le génie n'est que l'enfance retrouvée à volonté.", "Charles Baudelaire, Le Peintre de la vie moderne"],
+  ["La nature veut que les enfants soient enfants avant que d'être hommes.", "Jean-Jacques Rousseau, Émile ou De l'éducation"],
+  ["L'enfance a des manières de voir, de penser, de sentir qui lui sont propres.", "Jean-Jacques Rousseau, Émile ou De l'éducation"],
+  ["Les jeux des enfants ne sont pas jeux, et les faut juger en eux comme leurs plus sérieuses actions.", "Michel de Montaigne, Essais"],
+  // parents
+  ["Lorsque l'enfant paraît, le cercle de famille applaudit à grands cris.", "Victor Hugo, Les Feuilles d'automne"],
+  ["Travaillez, prenez de la peine : c'est le fonds qui manque le moins.", "Jean de La Fontaine, Le Laboureur et ses enfants"],
+  ["Il y a deux choses durables que nous pouvons espérer laisser à nos enfants : des racines, et des ailes.", "Hodding Carter, journaliste américain"],
+  // montagne
+  ["Les montagnes m'appellent, et je dois y aller.", "John Muir, naturaliste, lettre de 1873"],
+  ["Dans chaque promenade avec la nature, on reçoit bien plus que ce que l'on cherche.", "John Muir, naturaliste"],
+  ["Le haut connaît le bas, le bas ne connaît pas le haut.", "René Daumal, Le Mont Analogue"],
+  ["Parce qu'il est là.", "George Mallory, à qui l'on demandait pourquoi gravir l'Everest (1923)"],
+  ["Jamais je n'ai tant pensé, tant existé, tant vécu, tant été moi, que dans les voyages que j'ai faits seul et à pied.", "Jean-Jacques Rousseau, Les Confessions"],
   ["Ce que j'ai fait, je te le jure, jamais aucune bête ne l'aurait fait.", "Henri Guillaumet, perdu dans les Andes, cité par Saint-Exupéry dans Terre des hommes"],
+  ["Un voyage de mille lieues commence par un premier pas.", "Lao Tseu, Tao Te King"],
+  // école et éducation
+  ["L'éducation est l'arme la plus puissante qu'on puisse utiliser pour changer le monde.", "Nelson Mandela"],
+  ["Un enfant, un enseignant, un livre et un stylo peuvent changer le monde.", "Malala Yousafzai, discours à l'ONU (2013)"],
+  ["L'esprit n'est pas un vase qu'il faut remplir, mais un feu qu'il faut allumer.", "Plutarque, De la manière d'écouter"],
+  ["Les racines de l'éducation sont amères, mais ses fruits sont doux.", "Aristote, rapporté par Diogène Laërce"],
+  ["Plutôt la tête bien faite que bien pleine.", "Michel de Montaigne, Essais"],
+  ["L'imagination est plus importante que le savoir.", "Albert Einstein, entretien de 1929"],
+  ["Sans votre enseignement, et votre exemple, rien de tout cela ne serait arrivé.", "Albert Camus, lettre à son instituteur après son prix Nobel (1957)"],
+  ["Science sans conscience n'est que ruine de l'âme.", "François Rabelais, Pantagruel"],
+  ["Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.", "Sénèque, Lettres à Lucilius"],
   ["Rien ne sert de courir ; il faut partir à point.", "Jean de La Fontaine, Le Lièvre et la Tortue"],
   ["Patience et longueur de temps font plus que force ni que rage.", "Jean de La Fontaine, Le Lion et le Rat"],
   ["On a souvent besoin d'un plus petit que soi.", "Jean de La Fontaine, Le Lion et le Rat"],
   ["Aide-toi, le Ciel t'aidera.", "Jean de La Fontaine, Le Chartier embourbé"],
-  ["Travaillez, prenez de la peine : c'est le fonds qui manque le moins.", "Jean de La Fontaine, Le Laboureur et ses enfants"],
-  ["Lorsque l'enfant paraît, le cercle de famille applaudit à grands cris.", "Victor Hugo, Les Feuilles d'automne"],
-  ["L'enfance a des manières de voir, de penser, de sentir qui lui sont propres.", "Jean-Jacques Rousseau, Émile ou De l'éducation"],
-  ["Plutôt la tête bien faite que bien pleine.", "Michel de Montaigne, Essais"],
-  ["Ce n'est pas parce que les choses sont difficiles que nous n'osons pas, c'est parce que nous n'osons pas qu'elles sont difficiles.", "Sénèque, Lettres à Lucilius"],
-  ["Un voyage de mille lieues commence par un premier pas.", "Lao Tseu, Tao Te King"],
-  ["La vie, c'est comme une bicyclette : il faut avancer pour ne pas perdre l'équilibre.", "Albert Einstein, lettre à son fils Eduard (1930)"],
+  // sport
   ["L'important dans la vie, ce n'est point le triomphe, mais le combat ; l'essentiel, ce n'est pas d'avoir vaincu, mais de s'être bien battu.", "Pierre de Coubertin, fondateur des Jeux olympiques modernes"],
   ["Plus vite, plus haut, plus fort.", "Henri Didon, devise reprise par les Jeux olympiques"],
   ["J'ai échoué encore et encore dans ma vie. Et c'est pour ça que je réussis.", "Michael Jordan, champion de basket"],
-  ["Les montagnes m'appellent, et je dois y aller.", "John Muir, naturaliste, lettre de 1873"]
+  ["Le talent fait gagner des matchs, mais l'esprit d'équipe et l'intelligence font gagner des championnats.", "Michael Jordan, champion de basket"],
+  ["Tu rates 100 % des tirs que tu ne tentes pas.", "Wayne Gretzky, champion de hockey sur glace"],
+  ["« Sans effort », c'est un mythe.", "Roger Federer, discours à l'université de Dartmouth (2024)"],
+  ["La vie, c'est comme une bicyclette : il faut avancer pour ne pas perdre l'équilibre.", "Albert Einstein, lettre à son fils Eduard (1930)"]
 ];
-const FACTS = [
-  ["Les tout premiers Jeux olympiques d'hiver ont eu lieu à Chamonix, juste à côté de Megève, en 1924.", "https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27hiver_de_1924"],
-  ["Le mont Blanc a été gravi pour la première fois en 1786 par Jacques Balmat et Michel Paccard.", "https://fr.wikipedia.org/wiki/Mont_Blanc"],
-  ["Un flocon de neige a presque toujours six branches : c'est la forme que prend l'eau quand elle gèle en cristaux.", "https://fr.wikipedia.org/wiki/Flocon_de_neige"],
-  ["La glace est transparente, mais la neige est blanche : ses milliers de petits cristaux renvoient la lumière dans tous les sens.", "https://fr.wikipedia.org/wiki/Neige"],
-  ["Émile Allais, champion de Megève, a gagné trois titres de champion du monde de ski en 1937 : descente, slalom et combiné.", "https://fr.wikipedia.org/wiki/%C3%89mile_Allais"],
-  ["Aux Jeux olympiques de Grenoble, en 1968, Jean-Claude Killy a gagné les trois épreuves de ski alpin.", "https://fr.wikipedia.org/wiki/Jean-Claude_Killy"],
-  ["En haut du mont Blanc, l'eau bout vers 85 °C au lieu de 100 °C : là-haut, l'air appuie moins fort.", "https://fr.wikipedia.org/wiki/Point_d%27%C3%A9bullition"],
-  ["Pendant l'hiver, la marmotte hiberne : son cœur ralentit à quelques battements par minute.", "https://fr.wikipedia.org/wiki/Marmotte_des_Alpes"],
-  ["Le signe « = » a été inventé en 1557 par Robert Recorde : pour lui, rien n'est plus égal que deux traits parallèles.", "https://fr.wikipedia.org/wiki/Signe_%C3%A9gal"],
-  ["La table de multiplication s'appelle aussi la « table de Pythagore ».", "https://fr.wikipedia.org/wiki/Table_de_multiplication"],
-  ["Le chiffre zéro nous vient des mathématiciens indiens, il y a plus de 1 300 ans.", "https://fr.wikipedia.org/wiki/0_(nombre)"],
-  ["En ski de vitesse, les meilleurs dépassent les 250 km/h : plus vite qu'une voiture sur l'autoroute !", "https://fr.wikipedia.org/wiki/Ski_de_vitesse"],
-  ["Le tunnel du Mont-Blanc, entre la France et l'Italie, mesure 11,6 km.", "https://fr.wikipedia.org/wiki/Tunnel_du_Mont-Blanc"],
-  ["Le chamois peut vivre à plus de 3 000 mètres d'altitude et grimpe les pentes les plus raides.", "https://fr.wikipedia.org/wiki/Chamois"]
+const FACTS = [ // [catégorie, icône, titre, texte, lien]
+  ["Sport", "⛷️", "Chamonix 1924 : les premiers JO d'hiver !", "Les tout premiers Jeux olympiques d'hiver ont eu lieu à Chamonix, juste à côté de Megève, en 1924.", "https://fr.wikipedia.org/wiki/Jeux_olympiques_d%27hiver_de_1924"],
+  ["Sport", "🏅", "Le champion de Megève", "Émile Allais, skieur de Megève, a été trois fois champion du monde en 1937 : en descente, en slalom et au combiné.", "https://fr.wikipedia.org/wiki/%C3%89mile_Allais"],
+  ["Sport", "🥇", "Killy rafle tout !", "Aux Jeux olympiques de Grenoble, en 1968, Jean-Claude Killy a gagné les trois épreuves de ski alpin.", "https://fr.wikipedia.org/wiki/Jean-Claude_Killy"],
+  ["Sport", "💨", "Plus vite qu'une voiture !", "En ski de vitesse, les meilleurs skieurs dépassent les 250 km/h, plus vite qu'une voiture sur l'autoroute.", "https://fr.wikipedia.org/wiki/Ski_de_vitesse"],
+  ["Sport", "🎿", "Voler à skis", "En saut à ski, les meilleurs volent sur plus de 250 mètres : plus de deux terrains de foot et demi !", "https://fr.wikipedia.org/wiki/Saut_%C3%A0_ski"],
+  ["Sport", "🏃", "Le mystère des 42,195 km", "Aux Jeux de Londres, en 1908, le marathon a été rallongé pour finir devant la loge royale. Sa distance de 42,195 km est restée.", "https://fr.wikipedia.org/wiki/Marathon_(sport)"],
+  ["Sport", "🚴", "Le premier Tour de France", "Le tout premier Tour de France a eu lieu en 1903. Les coureurs roulaient parfois toute la nuit !", "https://fr.wikipedia.org/wiki/Tour_de_France_1903"],
+  ["Sport", "🏀", "Le basket et les paniers de pêches", "Le basket a été inventé en 1891 par James Naismith. Les premiers paniers étaient des cageots à pêches !", "https://fr.wikipedia.org/wiki/James_Naismith"],
+  ["Sport", "⚽", "La première Coupe du monde", "La première Coupe du monde de football s'est jouée en Uruguay en 1930, et c'est l'Uruguay qui l'a gagnée.", "https://fr.wikipedia.org/wiki/Coupe_du_monde_de_football_1930"],
+  ["Sport", "⭕", "Les cinq anneaux", "Pierre de Coubertin a dessiné les anneaux olympiques en 1913 : cinq anneaux entrelacés, sur fond blanc.", "https://fr.wikipedia.org/wiki/Symboles_olympiques"],
+  ["Montagne", "🏔️", "Le premier sur le mont Blanc", "Le mont Blanc a été gravi pour la première fois en 1786, par Jacques Balmat et Michel Paccard.", "https://fr.wikipedia.org/wiki/Mont_Blanc"],
+  ["Montagne", "🧊", "Une mer… de glace !", "La Mer de Glace, au-dessus de Chamonix, est le plus grand glacier de France.", "https://fr.wikipedia.org/wiki/Mer_de_Glace"],
+  ["Montagne", "🚇", "Un tunnel sous le géant", "Le tunnel du Mont-Blanc relie la France et l'Italie : il mesure 11,6 km.", "https://fr.wikipedia.org/wiki/Tunnel_du_Mont-Blanc"],
+  ["Montagne", "🐐", "Le roi de la grimpe", "Le chamois vit parfois à plus de 3 000 mètres et grimpe sur les pentes les plus raides.", "https://fr.wikipedia.org/wiki/Chamois"],
+  ["Montagne", "😴", "La grande sieste de la marmotte", "Pendant l'hiver, la marmotte hiberne : son cœur ralentit à quelques battements par minute.", "https://fr.wikipedia.org/wiki/Marmotte_des_Alpes"],
+  ["Science", "❄️", "Six branches, toujours !", "Un flocon de neige a presque toujours six branches : c'est la forme que prend l'eau quand elle gèle en cristaux.", "https://fr.wikipedia.org/wiki/Flocon_de_neige"],
+  ["Science", "⚪", "Pourquoi la neige est blanche ?", "La glace est transparente, mais la neige est blanche : ses milliers de petits cristaux renvoient la lumière dans tous les sens.", "https://fr.wikipedia.org/wiki/Neige"],
+  ["Science", "🫖", "L'eau bout plus tôt là-haut", "En haut du mont Blanc, l'eau bout vers 85 °C au lieu de 100 °C, parce que l'air y appuie moins fort.", "https://fr.wikipedia.org/wiki/Point_d%27%C3%A9bullition"],
+  ["Science", "🟰", "Qui a inventé le signe = ?", "Robert Recorde, en 1557 : pour lui, rien n'est plus égal que deux traits parallèles.", "https://fr.wikipedia.org/wiki/Signe_%C3%A9gal"],
+  ["Science", "0️⃣", "Le zéro vient d'Inde", "Le chiffre zéro nous vient des mathématiciens indiens, il y a plus de 1 300 ans.", "https://fr.wikipedia.org/wiki/0_(nombre)"],
+  ["Science", "✖️", "La table de Pythagore", "La table de multiplication s'appelle aussi la « table de Pythagore ».", "https://fr.wikipedia.org/wiki/Table_de_multiplication"],
+  ["Science", "☀️", "8 minutes depuis le Soleil", "La lumière du Soleil met environ 8 minutes pour arriver jusqu'à nous.", "https://fr.wikipedia.org/wiki/Soleil"],
+  ["Science", "⚡", "Plus chaud que le Soleil !", "Un éclair est plusieurs fois plus chaud que la surface du Soleil.", "https://fr.wikipedia.org/wiki/%C3%89clair_(m%C3%A9t%C3%A9orologie)"],
+  ["Science", "📅", "Pourquoi un 29 février ?", "La Terre met environ 365 jours et 6 heures pour faire le tour du Soleil. Tous les 4 ans, on ajoute un jour pour rattraper le retard !", "https://fr.wikipedia.org/wiki/Ann%C3%A9e_bissextile"],
+  ["Science", "❤️", "100 000 battements", "Ton cœur bat environ 100 000 fois par jour, sans jamais prendre de vacances.", "https://fr.wikipedia.org/wiki/C%C5%93ur"],
+  ["Science", "🐝", "Les abeilles, championnes de géométrie", "Les alvéoles des ruches sont des hexagones : c'est la forme qui range le plus de miel avec le moins de cire.", "https://fr.wikipedia.org/wiki/Abeille"]
 ];
+const CCOL = { Sport: "#e94e3c", Science: "#3a7bd5", Montagne: "#2e9e5b" };
+let fi = -1;
+function coverShow() {
+  let k; do { k = R(0, FACTS.length - 1); } while (k === fi && FACTS.length > 1); fi = k;
+  const [c, ic, h, x2, u] = FACTS[k], cv = $("#cover");
+  cv.style.setProperty("--cv", CCOL[c] || "#e94e3c");
+  $("#cvt").textContent = c.toUpperCase(); $("#cvi").textContent = ic; $("#cvh").textContent = h; $("#cvx").textContent = x2;
+  $("#cvl").href = u; $("#cvn").innerHTML = `N° ${String(k + 1).padStart(2, "0")}<br>${c}`;
+  cv.animate([{ transform: "rotate(-1.2deg) scale(.96)", opacity: .4 }, { transform: "rotate(-1.2deg) scale(1)", opacity: 1 }], { duration: 350, easing: "ease-out" });
+}
+$("#cvnext").onclick = coverShow;
+coverShow();
 function boardShow() {
-  const fact = Math.random() < .45, b = $("#board");
-  if (fact) { const [t, u] = pick(FACTS); $("#blab").textContent = "Le savais-tu ?"; $("#bq").textContent = t; $("#bc").textContent = ""; $("#bm").href = u; $("#bm").classList.remove("hidden"); }
-  else { const [t, a] = pick(QUOTES); $("#blab").textContent = "La pensée du jour"; $("#bq").textContent = "« " + t + " »"; $("#bc").textContent = "— " + a; $("#bm").classList.add("hidden"); }
-  b.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
+  const [t, a] = pick(QUOTES);
+  $("#bq").textContent = "« " + t + " »"; $("#bc").textContent = "— " + a;
+  $("#board").animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500 });
 }
 $("#bnext").onclick = boardShow;
 boardShow();
