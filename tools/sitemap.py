@@ -8,7 +8,7 @@ P = [("/", "/en/", "weekly", 1.0), ("/meteo/", "/en/meteo/", "daily", .8), ("/we
 for fr, en in [("ce-week-end", "this-weekend"), ("aujourd-hui", "today"), ("avec-des-enfants", "with-kids"), ("quand-il-pleut", "rainy-day"), ("gratuit", "free")]:
     P.append((f"/que-faire/{fr}/", f"/en/things-to-do/{en}/", "daily", .8))
 P += [("/balades/", "/en/balades/", "monthly", .7), ("/carte/", "/en/carte/", "monthly", .6), ("/venir/", "/en/getting-here/", "monthly", .6),
-      ("/proposer/", "/en/submit-event/", "monthly", .4), ("/boutique/", "/en/boutique/", "monthly", .5), ("/maths/", None, "monthly", .6)]
+      ("/proposer/", "/en/submit-event/", "monthly", .4), ("/boutique/", "/en/boutique/", "monthly", .5), ("/enfants/", None, "monthly", .6)]
 out = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
 for fr, en, f, pr in P:
     alt = "" if not en else f'<xhtml:link rel="alternate" hreflang="fr" href="{S}{fr}"/><xhtml:link rel="alternate" hreflang="en" href="{S}{en}"/>'

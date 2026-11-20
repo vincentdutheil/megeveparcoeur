@@ -16,9 +16,9 @@ SITE = "https://www.megeveparcoeur.fr"
 SUB = "meteo|webcams|balades|carte|boutique"
 
 NAV_FR = [("#agenda", "Agenda"), ("meteo/", "Météo &amp; neige"), ("webcams/", "Webcams"), ("balades/", "Balades"),
-          ("carte/", "Carte"), ("#galerie", "Galerie"), ("maths/", "Maths des frileux"), ("boutique/", "Boutique")]
+          ("carte/", "Carte"), ("#galerie", "Galerie"), ("enfants/", "Le coin des enfants"), ("boutique/", "Boutique")]
 NAV_EN = [("#agenda", "What's on"), ("meteo/", "Snow &amp; weather"), ("webcams/", "Webcams"), ("balades/", "Walks"),
-          ("carte/", "Map"), ("#galerie", "Gallery"), ("maths/", "Kids' maths (FR)"), ("boutique/", "Shop")]
+          ("carte/", "Map"), ("#galerie", "Gallery"), ("enfants/", "Kids' corner (FR)"), ("boutique/", "Shop")]
 
 
 def nav(items, prefix, path, other):
@@ -26,7 +26,7 @@ def nav(items, prefix, path, other):
     li = []
     for href, label in items:
         cur = ' aria-current="page"' if href == path else ''
-        h = "/maths/" if href == "maths/" else f"{prefix}{href}"
+        h = "/enfants/" if href == "enfants/" else f"{prefix}{href}"
         li.append(f'      <li><a href="{h}"{cur}>{label}</a></li>')
     h, l, lang = other
     li.append(f'      <li><a class="lang" href="{h}" lang="{lang}" hreflang="{lang}">{l}</a></li>')
