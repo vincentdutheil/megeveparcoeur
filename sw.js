@@ -1,5 +1,5 @@
 /* Service worker Megève par cœur : le site s'ouvre même sans réseau (dernière version vue). */
-const V="mpc-v6";
+const V="mpc-v7";
 const SHELL=["/","/meteo/","/webcams/","/assets/agenda.js","/assets/app.js","/img/logo.png","/img/icon-192.png","/videos/hero-poster.jpg"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL).catch(()=>{})));self.skipWaiting();});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==V).map(x=>caches.delete(x)))).then(()=>self.clients.claim()));});
