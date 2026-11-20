@@ -118,6 +118,14 @@ module.exports = async (req, res) => {
         await redis("HSET", "push:subs", idOf(s.endpoint), JSON.stringify({ sub: { endpoint: s.endpoint, keys: s.keys || {} }, topics, lang: b.lang === "en" ? "en" : "fr", at: new Date().toISOString() }));
         return send(200, { ok: true, topics });
       }
+      if (b.action === "test") { // notification de test, envoyée seulement à l'appareil qui la demande
+        const id = idOf(b.endpoint), v = await redis("HGET", "push:subs", id);
+        if (!v) return send(404, { ok: false, error: "abonnement introuvable" });
+        const sub = JSON.parse(v), en = sub.lang === "en";
+        await redis("SET", "push:msg:" + id, JSON.stringify(en ? { title: "🔔 It works!", body: "Megève par cœur notifications are on. See you Friday for the weekend programme ❄️", url: "/en/app/", tag: "test" } : { title: "🔔 Ça marche !", body: "Les notifications Megève par cœur sont activées. Rendez-vous vendredi pour le programme du week-end ❄️", url: "/app/", tag: "test" }), "EX", "3600");
+        const st = await pushTo(sub.sub);
+        return send(200, { ok: st >= 200 && st < 300, status: st });
+      }
       if (b.action === "unsubscribe") { await redis("HDEL", "push:subs", idOf(b.endpoint)); return send(200, { ok: true }); }
       return send(400, { ok: false, error: "action" });
     }

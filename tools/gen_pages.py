@@ -427,11 +427,11 @@ APP = {
    installed="✅ L'appli est installée sur cet appareil. Bienvenue !", installBtn="📲 Installer l'appli",
    t_we="🎉 Le programme du week-end", t_we2="Chaque vendredi après-midi : les sorties du week-end à Megève et alentours.",
    t_snow="❄️ Les alertes neige", t_snow2="Quand une belle chute de neige est annoncée en altitude.",
-   on="🔔 Activer les notifications", off="Désactiver", save="Enregistrer mes choix",
+   on="🔔 Activer les notifications", off="Désactiver", save="Enregistrer mes choix", test="Recevoir une notification de test",
    s_ok="✅ Les notifications sont activées sur cet appareil.", s_saved="✅ C'est noté !", s_denied="Les notifications sont bloquées pour ce site. Autorise-les dans les réglages de ton navigateur, puis réessaie.",
    s_ios="Sur iPhone, les notifications marchent seulement dans l'appli installée : ajoute d'abord Megève par cœur à ton écran d'accueil (voir ci-dessus), puis ouvre-la depuis son icône.",
    s_no="Ton navigateur ne gère pas les notifications. Essaie avec Chrome (Android) ou Safari (iPhone, iOS 16.4 ou plus récent).",
-   s_err="Oups, l'activation n'a pas marché. Réessaie dans un instant.", s_offd="Notifications désactivées.",
+   s_err="Oups, l'activation n'a pas marché. Réessaie dans un instant.", s_offd="Notifications désactivées.", s_test="📨 Envoyée ! Elle arrive dans quelques secondes.",
    feats=[("⭐", "Mes sorties", "Touche ☆ sur un événement de l'agenda pour le garder dans « Mes sorties »."), ("📶", "Même sans réseau", "Les dernières pages vues restent consultables en montagne, même sans 4G."),
           ("⚡", "Raccourcis", "Appui long sur l'icône : agenda, ce week-end, neige, webcams, coin des enfants."), ("🔒", "Respect de la vie privée", "Pas de compte, pas de pub, pas de pistage. Les favoris restent sur ton téléphone.")]),
  "en": dict(title="The Megève par cœur app · events, snow and notifications on your phone",
@@ -445,11 +445,11 @@ APP = {
    installed="✅ The app is installed on this device. Welcome!", installBtn="📲 Install the app",
    t_we="🎉 The weekend programme", t_we2="Every Friday afternoon: what's on this weekend in and around Megève.",
    t_snow="❄️ Snow alerts", t_snow2="When a good snowfall is forecast up the mountain.",
-   on="🔔 Turn on notifications", off="Turn off", save="Save my choices",
+   on="🔔 Turn on notifications", off="Turn off", save="Save my choices", test="Send me a test notification",
    s_ok="✅ Notifications are on for this device.", s_saved="✅ Saved!", s_denied="Notifications are blocked for this site. Allow them in your browser settings, then try again.",
    s_ios="On iPhone, notifications only work in the installed app: first add Megève par cœur to your home screen (see above), then open it from its icon.",
    s_no="Your browser doesn't support notifications. Try Chrome (Android) or Safari (iPhone, iOS 16.4 or later).",
-   s_err="Oops, that didn't work. Please try again in a moment.", s_offd="Notifications turned off.",
+   s_err="Oops, that didn't work. Please try again in a moment.", s_offd="Notifications turned off.", s_test="📨 Sent! It should arrive in a few seconds.",
    feats=[("⭐", "My picks", "Tap ☆ on any event to save it to “My picks”."), ("📶", "Works offline", "The last pages you viewed stay available in the mountains, even without signal."),
           ("⚡", "Shortcuts", "Long-press the icon: events, this weekend, snow, webcams, kids' corner."), ("🔒", "Privacy first", "No account, no ads, no tracking. Your favourites stay on your phone.")]),
 }
@@ -472,7 +472,7 @@ def app_pages():
   <h2>{d["notif"]}</h2>
   <label class="tp"><input type="checkbox" id="t-we" checked><span><b>{d["t_we"]}</b><small>{d["t_we2"]}</small></span></label>
   <label class="tp"><input type="checkbox" id="t-snow" checked><span><b>{d["t_snow"]}</b><small>{d["t_snow2"]}</small></span></label>
-  <div class="row"><button class="big" id="n-on">{d["on"]}</button><button class="ghost hidden" id="n-save">{d["save"]}</button><button class="ghost hidden" id="n-off">{d["off"]}</button></div>
+  <div class="row"><button class="big" id="n-on">{d["on"]}</button><button class="ghost hidden" id="n-save">{d["save"]}</button><button class="ghost hidden" id="n-test">{d["test"]}</button><button class="ghost hidden" id="n-off">{d["off"]}</button></div>
   <p class="msg" id="n-msg" aria-live="polite"></p>
 </section>
 <section class="box"><h2>{d["what"]}</h2><div class="feats">{feats}</div></section>"""
@@ -484,7 +484,7 @@ def app_pages():
                ".tp input{width:22px;height:22px;margin-top:2px;accent-color:var(--heart)}.tp b{display:block}.tp small{color:var(--muted);font-size:.9rem}"
                ".msg{font-weight:700;margin:12px 0 0}.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ft{background:var(--wool);border-radius:16px;padding:14px}"
                ".ft span{font-size:1.6rem}.ft b{display:block;margin:4px 0}.ft p{margin:0;color:var(--muted);font-size:.92rem}@media(max-width:600px){.feats{grid-template-columns:1fr}}")
-        M = json.dumps({k: d[k] for k in ("s_ok", "s_saved", "s_denied", "s_ios", "s_no", "s_err", "s_offd")}, ensure_ascii=False)
+        M = json.dumps({k: d[k] for k in ("s_ok", "s_saved", "s_denied", "s_ios", "s_no", "s_err", "s_offd", "s_test")}, ensure_ascii=False)
         js = f"""<script>
 (function(){{
 const M={M}, LANG="{lang}", $=id=>document.getElementById(id), show=(id,on=true)=>$(id).classList.toggle("hidden",!on);
@@ -502,7 +502,7 @@ try{{const t=JSON.parse(localStorage.getItem("mpc-push-topics")||"null");if(t){{
 const supported="serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
 const b64=s=>{{const p="=".repeat((4-s.length%4)%4),r=atob((s+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from([...r].map(c=>c.charCodeAt(0)));}};
 async function current(){{if(!supported)return null;const reg=await navigator.serviceWorker.getRegistration();return reg?reg.pushManager.getSubscription():null;}}
-function ui(on){{show("n-on",!on);show("n-save",on);show("n-off",on);}}
+function ui(on){{show("n-on",!on);show("n-save",on);show("n-test",on);show("n-off",on);}}
 async function save(sub){{const r=await fetch("/api/push",{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify({{action:"subscribe",sub,topics:topics(),lang:LANG}})}});const j=await r.json();if(!j.ok)throw new Error(j.error);try{{localStorage.setItem("mpc-push-topics",JSON.stringify(topics()));}}catch(_){{}}}}
 current().then(s=>{{if(s){{ui(true);msg(M.s_ok);}}}}).catch(()=>{{}});
 $("n-on").onclick=async()=>{{
@@ -519,6 +519,7 @@ $("n-on").onclick=async()=>{{
   }}catch(e){{msg(M.s_err,true);}}
 }};
 $("n-save").onclick=async()=>{{try{{const s=await current();if(s){{await save(s.toJSON());msg(M.s_saved);}}}}catch(e){{msg(M.s_err,true);}}}};
+$("n-test").onclick=async()=>{{try{{const s=await current();if(!s)return;const r=await (await fetch("/api/push",{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify({{action:"test",endpoint:s.endpoint}})}})).json();msg(r.ok?M.s_test:M.s_err,!r.ok);}}catch(e){{msg(M.s_err,true);}}}};
 $("n-off").onclick=async()=>{{try{{const s=await current();if(s){{await fetch("/api/push",{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify({{action:"unsubscribe",endpoint:s.endpoint}})}});await s.unsubscribe();}}ui(false);msg(M.s_offd);}}catch(e){{msg(M.s_err,true);}}}};
 }})();
 </script>"""
