@@ -952,30 +952,24 @@ boardShow();
 /* ======================================================================
    Son du feu (créé en direct, pas de fichier)
    ====================================================================== */
-let AC = null, fireOn = false, fireNodes = null, crackT = null;
-function noiseBuf(sec) { const b = AC.createBuffer(1, AC.sampleRate * sec, AC.sampleRate), d = b.getChannelData(0); let last = 0; for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; last = (last + .02 * w) / 1.02; d[i] = last * 3.5; } return b; }
-function startFire() {
-  AC = AC || new (window.AudioContext || window.webkitAudioContext)(); AC.resume();
-  const src = AC.createBufferSource(); src.buffer = noiseBuf(4); src.loop = true;
-  const lp = AC.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 520;
-  const g = AC.createGain(); g.gain.value = 0; g.gain.linearRampToValueAtTime(.55, AC.currentTime + 1.2);
-  src.connect(lp).connect(g).connect(AC.destination); src.start();
-  fireNodes = { src, g };
-  const white = AC.createBuffer(1, AC.sampleRate * .05, AC.sampleRate); const wd = white.getChannelData(0); for (let i = 0; i < wd.length; i++) wd[i] = Math.random() * 2 - 1;
-  (function crackle() {
-    if (!fireOn) return;
-    const n = Math.random() < .2 ? R(2, 5) : 1;
-    for (let k = 0; k < n; k++) {
-      const s = AC.createBufferSource(); s.buffer = white;
-      const hp = AC.createBiquadFilter(); hp.type = "bandpass"; hp.frequency.value = 1200 + Math.random() * 3500; hp.Q.value = .8;
-      const gg = AC.createGain(), t0 = AC.currentTime + k * .012 + Math.random() * .01, v = .08 + Math.random() * .35;
-      gg.gain.setValueAtTime(v, t0); gg.gain.exponentialRampToValueAtTime(.0001, t0 + .008 + Math.random() * .03);
-      s.connect(hp).connect(gg).connect(AC.destination); s.start(t0); s.stop(t0 + .06);
-    }
-    crackT = setTimeout(crackle, 40 + Math.random() * (Math.random() < .3 ? 600 : 180));
-  })();
+let AC = null, fireOn = false, fireNodes = null, fireBuf = null;
+async function loadFire() {
+  if (fireBuf) return fireBuf;
+  const data = await (await fetch("/sons/feu.mp3")).arrayBuffer();
+  fireBuf = await new Promise((ok, ko) => AC.decodeAudioData(data, ok, ko));
+  return fireBuf;
 }
-function stopFire() { if (fireNodes) { const { src, g } = fireNodes; g.gain.linearRampToValueAtTime(0, AC.currentTime + .5); setTimeout(() => src.stop(), 600); fireNodes = null; } clearTimeout(crackT); }
+async function startFire() {
+  AC = AC || new (window.AudioContext || window.webkitAudioContext)(); AC.resume();
+  let buf; try { buf = await loadFire(); } catch (e) { return; }
+  if (!fireOn || fireNodes) return;
+  const src = AC.createBufferSource(); src.buffer = buf; src.loop = true;
+  src.loopStart = .06; src.loopEnd = buf.duration - .06;   // évite le silence d'encodage du MP3
+  const g = AC.createGain(); g.gain.setValueAtTime(0, AC.currentTime); g.gain.linearRampToValueAtTime(.8, AC.currentTime + 1.5);
+  src.connect(g).connect(AC.destination); src.start(0, .06 + Math.random() * 30);
+  fireNodes = { src, g };
+}
+function stopFire() { if (fireNodes) { const { src, g } = fireNodes; g.gain.cancelScheduledValues(AC.currentTime); g.gain.setValueAtTime(g.gain.value, AC.currentTime); g.gain.linearRampToValueAtTime(0, AC.currentTime + .6); setTimeout(() => src.stop(), 700); fireNodes = null; } }
 $("#snd").onclick = () => { fireOn = !fireOn; $("#snd").setAttribute("aria-pressed", fireOn); $("#snd").textContent = fireOn ? "🔥 Feu" : "🔇 Feu"; fireOn ? startFire() : stopFire(); };
 
 /* ======================================================================
