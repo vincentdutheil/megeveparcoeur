@@ -88,6 +88,9 @@ footer{background:var(--night);color:#cfd8e6;padding:24px 0 40px;font-size:.92re
 footer a{color:#fff}
 @media (max-width:980px){.grid.c3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:700px){.scene{height:120px}.hero{padding-bottom:100px}.sun{width:56px;height:56px;bottom:62px;right:8%}.grid,.grid.c3{grid-template-columns:1fr}.tools .in{display:none}.tools{justify-content:center}}
+
+/* menu en une ligne qui défile sur mobile */
+@media(max-width:720px){.nav ul{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav ul::-webkit-scrollbar{display:none}.nav ul li{flex:0 0 auto;white-space:nowrap}}
 </style>
 </head>
 <body>

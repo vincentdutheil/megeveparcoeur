@@ -31,3 +31,6 @@ header.top{background:var(--night);color:#fbf3e6;position:relative;z-index:3}
 footer{background:var(--night);color:#cfd8e6;padding:24px 0 40px;font-size:.92rem}
 footer a{color:#fff}
 @media (max-width:700px){.scene{height:110px}.hero{padding-bottom:90px}}
+
+/* menu en une ligne qui défile sur mobile */
+@media(max-width:720px){.nav ul{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav ul::-webkit-scrollbar{display:none}.nav ul li{flex:0 0 auto;white-space:nowrap}}

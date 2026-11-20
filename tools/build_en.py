@@ -220,6 +220,7 @@ HOME = [
     ('<a class="ag-prop" href="/proposer/">📝 Vous organisez un événement ? <u>Proposez-le</u></a>', '<a class="ag-prop" href="__EN__submit-event/">📝 Organising an event? <u>Submit it</u></a>'),
     ('<a href="/que-faire/">Que faire ?</a> · <a href="/venir/">Venir</a> · <a href="/proposer/">Proposer un événement</a>',
      '<a href="__EN__things-to-do/">Things to do</a> · <a href="__EN__getting-here/">Getting here</a> · <a href="__EN__submit-event/">Submit an event</a>'),
+    ('<a href="/app/">📲 L\'appli</a>', '<a href="__EN__app/">📲 The app</a>'),
     ('<a href="en/">English</a>', '<a href="__FR__" lang="fr" hreflang="fr">Français</a>'),
     ('toLocaleDateString("fr-FR"', 'toLocaleDateString("en-GB"'),
     ('aria-label="Agrandir : ${esc(i.t)}"', 'aria-label="Enlarge: ${esc(i.t)}"'),

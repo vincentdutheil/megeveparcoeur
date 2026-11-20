@@ -9,14 +9,84 @@
   "background_color": "#0a1424",
   "theme_color": "#0a1424",
   "icons": [
-    {"src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
-    {"src": "/img/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
-    {"src": "/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+    {
+      "src": "/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
   ],
   "shortcuts": [
-    {"name": "Agenda", "url": "/#agenda"},
-    {"name": "Météo & neige", "url": "/meteo/"},
-    {"name": "Webcams", "url": "/webcams/"}
+    {
+      "name": "Agenda",
+      "url": "/#agenda",
+      "icons": [
+        {
+          "src": "/img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Ce week-end",
+      "url": "/que-faire/ce-week-end/"
+    },
+    {
+      "name": "Météo & neige",
+      "url": "/meteo/"
+    },
+    {
+      "name": "Webcams",
+      "url": "/webcams/"
+    },
+    {
+      "name": "Le coin des enfants",
+      "url": "/enfants/"
+    }
+  ],
+  "id": "/",
+  "categories": [
+    "travel",
+    "lifestyle",
+    "weather"
+  ],
+  "screenshots": [
+    {
+      "src": "/img/app/screen-agenda.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "L'agenda de Megève"
+    },
+    {
+      "src": "/img/app/screen-weekend.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Que faire ce week-end"
+    },
+    {
+      "src": "/img/app/screen-enfants.png",
+      "sizes": "780x1688",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Le coin des enfants"
+    }
   ]
 }

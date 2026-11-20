@@ -10,14 +10,14 @@ const T={
       days:["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],
       season:"Toute la saison", until:"Jusqu'au", to:"au", more:"Plus d'infos ↗", none:"Aucun événement pour ce choix. Essayez un autre filtre.",
       add:"📅 Ajouter à mon agenda", gcal:"Google Agenda", ics:"iPhone, Outlook (.ics)", wa:"💬 WhatsApp", share:"↗ Partager", copied:"Lien copié ✓",
-      q:{all:"Tout",today:"Aujourd'hui",we:"Ce week-end",free:"Gratuit",kids:"Avec des enfants",rain:"S'il pleut"},
+      q:{all:"Tout",fav:"Mes sorties",today:"Aujourd'hui",we:"Ce week-end",free:"Gratuit",kids:"Avec des enfants",rain:"S'il pleut"},nofav:"Touche ☆ sur un événement pour le garder dans « Mes sorties ».",favon:"Retirer de mes sorties",favoff:"Garder dans mes sorties",
       waText:(e,dt)=>`${e} · ${dt}\nTout l'agenda de Megève & alentours :`, upcoming:n=>`<span><b>${n}</b> événements à venir</span>`, villages:n=>`<span><b>${n}</b> villages</span>`, weekly:"<span>🔄 Mis à jour chaque jeudi</span>"},
   en:{months:["January","February","March","April","May","June","July","August","September","October","November","December"],
       mc:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
       days:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
       season:"All season", until:"Until", to:"to", more:"More info ↗", none:"No events for this choice. Try another filter.",
       add:"📅 Add to calendar", gcal:"Google Calendar", ics:"iPhone, Outlook (.ics)", wa:"💬 WhatsApp", share:"↗ Share", copied:"Link copied ✓",
-      q:{all:"All",today:"Today",we:"This weekend",free:"Free",kids:"With kids",rain:"Rainy day"},
+      q:{all:"All",fav:"My picks",today:"Today",we:"This weekend",free:"Free",kids:"With kids",rain:"Rainy day"},nofav:"Tap ☆ on an event to save it to “My picks”.",favon:"Remove from my picks",favoff:"Save to my picks",
       waText:(e,dt)=>`${e} · ${dt}\nWhat's on in Megève & around:`, upcoming:n=>`<span><b>${n}</b> upcoming events</span>`, villages:n=>`<span><b>${n}</b> villages</span>`, weekly:"<span>🔄 Updated every Thursday</span>"}
 }[LANG];
 const CP={"Megève":"74120","Demi-Quartier":"74120","Praz-sur-Arly":"74120","Combloux":"74920"};
@@ -54,9 +54,13 @@ function weekend(){const t=localToday(),wd=new Date(t+"T12:00:00").getDay();
 
 const PRESET=(document.getElementById("agenda-list")||{dataset:{}}).dataset.q||"";
 let A=[], lieu="all", quick=PRESET||"all";
+/* « Mes sorties » : favoris gardés sur l'appareil */
+let FAV=[];try{FAV=JSON.parse(localStorage.getItem("mpc-favs")||"[]");}catch(_){}
+const isFav=id=>FAV.includes(id);
+function toggleFav(id){FAV=isFav(id)?FAV.filter(x=>x!==id):[...FAV,id];try{localStorage.setItem("mpc-favs",JSON.stringify(FAV));}catch(_){}}
 function filtered(){const t=localToday();
   return A.filter(e=>(e.d2||e.d)>=t && (lieu==="all"||e.lieu===lieu) && (
-    quick==="all" ? true :
+    quick==="all" ? true : quick==="fav" ? isFav(slug(e)) :
     quick==="today" ? overlaps(e,t,t) :
     quick==="we" ? (()=>{const [a,b]=weekend();return overlaps(e,a,b);})() :
     quick==="free" ? isFree(e) : quick==="kids" ? isKids(e) : quick==="rain" ? isRain(e) : true))
@@ -74,10 +78,11 @@ function render(){
           <span class="addw"><button type="button" class="act" data-a="add" data-id="${id}" aria-expanded="false">${T.add}</button>
             <span class="menu" hidden><button type="button" data-a="gcal" data-id="${id}">${T.gcal}</button><button type="button" data-a="ics" data-id="${id}">${T.ics}</button></span></span>
           <button type="button" class="act" data-a="wa" data-id="${id}">${T.wa}</button>
-          <button type="button" class="act" data-a="share" data-id="${id}">${T.share}</button></div></div>
+          <button type="button" class="act" data-a="share" data-id="${id}">${T.share}</button>
+          <button type="button" class="act fav" data-a="fav" data-id="${id}" aria-pressed="${isFav(id)}" title="${isFav(id)?T.favon:T.favoff}">${isFav(id)?"⭐":"☆"}</button></div></div>
       <div class="meta"><span class="place ${esc(e.lieu)}">${esc(e.lieu)}</span>${e.u?`<a class="more" href="${esc(e.u)}" target="_blank" rel="noopener">${T.more}</a>`:""}</div></article>`;
   }
-  document.getElementById("agenda-list").innerHTML=html||`<p class="note">${T.none}</p>`;
+  document.getElementById("agenda-list").innerHTML=html||`<p class="note">${quick==="fav"?T.nofav:T.none}</p>`;
 }
 const byId=id=>A.find(e=>slug(e)===id);
 function gcalUrl(e){const hm=hhmm(e.h),d=e.d.replace(/-/g,""),end=(e.d2||e.d);
@@ -96,6 +101,7 @@ function icsFile(e){const hm=hhmm(e.h),d=e.d.replace(/-/g,""),one=!e.d2||e.d2===
 function onClick(ev){const b=ev.target.closest("button[data-a]");
   if(!b){document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});return;}
   const e=byId(b.dataset.id); if(!e) return; const link=evUrl(e);
+  if(b.dataset.a==="fav"){toggleFav(b.dataset.id);const on=isFav(b.dataset.id);b.textContent=on?"⭐":"☆";b.setAttribute("aria-pressed",on);b.title=on?T.favon:T.favoff;if(quick==="fav")render();return;}
   if(b.dataset.a==="add"){const m=b.nextElementSibling,open=m.hidden;document.querySelectorAll(".acts .menu").forEach(x=>{x.hidden=true;});m.hidden=!open;b.setAttribute("aria-expanded",open);return;}
   document.querySelectorAll(".acts .menu").forEach(m=>{m.hidden=true;});
   if(b.dataset.a==="gcal") window.open(gcalUrl(e),"_blank","noopener");
@@ -124,7 +130,7 @@ function jsonLd(){const t=localToday();
 function mount(){
   const tabs=document.getElementById("ag-tabs"), q=document.getElementById("ag-quick");
   tabs&&tabs.addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;tabs.querySelectorAll(".tab").forEach(x=>x.setAttribute("aria-pressed",x===b));lieu=b.dataset.l;render();});
-  if(q){q.innerHTML=Object.entries(T.q).map(([k,v])=>`<button type="button" class="qf" data-q="${k}" aria-pressed="${k===quick}">${{all:"✨",today:"☀️",we:"🎉",free:"🆓",kids:"🧒",rain:"☔"}[k]} ${v}</button>`).join("");
+  if(q){q.innerHTML=Object.entries(T.q).map(([k,v])=>`<button type="button" class="qf" data-q="${k}" aria-pressed="${k===quick}">${{all:"✨",fav:"⭐",today:"☀️",we:"🎉",free:"🆓",kids:"🧒",rain:"☔"}[k]} ${v}</button>`).join("");
     if(PRESET){const pb=q.querySelector('[aria-pressed="true"]');if(pb)q.scrollLeft=pb.offsetLeft-q.offsetLeft-16;}
     q.addEventListener("click",e=>{const b=e.target.closest(".qf");if(!b)return;q.querySelectorAll(".qf").forEach(x=>x.setAttribute("aria-pressed",x===b));quick=b.dataset.q;render();});}
   document.getElementById("agenda-list").addEventListener("click",onClick);

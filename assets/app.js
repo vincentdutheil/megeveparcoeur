@@ -10,7 +10,7 @@
   function bar(html,onYes){
     if(seen||document.getElementById("mpc-inst")) return;
     const d=document.createElement("div");d.id="mpc-inst";d.setAttribute("role","dialog");d.setAttribute("aria-label",en?"Install the app":"Installer l'appli");
-    d.innerHTML=`<img src="/img/icon-192.png" alt=""><div class="tx">${html}</div>${onYes?`<button class="y">${en?"Install":"Installer"}</button>`:""}<button class="n" aria-label="${en?"Close":"Fermer"}">✕</button>`;
+    d.innerHTML=`<img src="/img/icon-192.png" alt=""><div class="tx">${html}</div>${onYes?`<button class="y">${en?"Install":"Installer"}</button>`:`<a class="y" href="${en?"/en/app/":"/app/"}" style="text-decoration:none">${en?"How?":"Comment ?"}</a>`}<button class="n" aria-label="${en?"Close":"Fermer"}">✕</button>`;
     const st=document.createElement("style");st.textContent=`#mpc-inst{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;max-width:520px;margin:0 auto;display:flex;align-items:center;gap:12px;background:#0a1424;color:#f4f8ff;border-radius:18px;padding:12px 14px;box-shadow:0 14px 40px rgba(0,0,0,.4);font:600 .9rem/1.35 "Nunito Sans",system-ui,sans-serif;animation:mpcup .4s ease}
 #mpc-inst img{width:42px;height:42px;border-radius:10px}#mpc-inst .tx{flex:1}#mpc-inst b{display:block;font-size:1rem}
 #mpc-inst .y{background:#c8323d;color:#fff;border:0;border-radius:999px;padding:9px 14px;font:800 .88rem inherit;cursor:pointer}

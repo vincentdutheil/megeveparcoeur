@@ -3,6 +3,14 @@
   {
    "path": "/api/newsletter",
    "schedule": "30 16 * * 4"
+  },
+  {
+   "path": "/api/push-we",
+   "schedule": "0 15 * * 5"
+  },
+  {
+   "path": "/api/push-snow",
+   "schedule": "0 16 * * *"
   }
  ],
  "git": {

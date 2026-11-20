@@ -19,8 +19,8 @@ NAV = {
            ("/en/carte/", "Map"), ("/en/#galerie", "Gallery"), ("/enfants/", "Kids' corner (FR)"), ("/en/boutique/", "Shop")],
 }
 FOOT = {
-    "fr": '<a href="/">Accueil</a> · <a href="/#agenda">Agenda</a> · <a href="/que-faire/">Que faire ?</a> · <a href="/venir/">Venir &amp; se déplacer</a> · <a href="/proposer/">Proposer un événement</a> · <a href="/meteo/">Météo &amp; neige</a>',
-    "en": '<a href="/en/">Home</a> · <a href="/en/#agenda">What\'s on</a> · <a href="/en/things-to-do/">Things to do</a> · <a href="/en/getting-here/">Getting here</a> · <a href="/en/submit-event/">Submit an event</a> · <a href="/en/meteo/">Snow &amp; weather</a>',
+    "fr": '<a href="/">Accueil</a> · <a href="/#agenda">Agenda</a> · <a href="/que-faire/">Que faire ?</a> · <a href="/venir/">Venir &amp; se déplacer</a> · <a href="/proposer/">Proposer un événement</a> · <a href="/app/">📲 L\'appli</a> · <a href="/meteo/">Météo &amp; neige</a>',
+    "en": '<a href="/en/">Home</a> · <a href="/en/#agenda">What\'s on</a> · <a href="/en/things-to-do/">Things to do</a> · <a href="/en/getting-here/">Getting here</a> · <a href="/en/submit-event/">Submit an event</a> · <a href="/en/app/">📲 The app</a> · <a href="/en/meteo/">Snow &amp; weather</a>',
 }
 
 
@@ -414,5 +414,116 @@ f.addEventListener("submit",async e=>{{e.preventDefault();const d=Object.fromEnt
                          d["h1"], d["intro"], body, css=css, js=js))
 
 
+# =====================================================================  L'APPLI (installation + notifications)
+APP = {
+ "fr": dict(title="L'appli Megève par cœur · agenda, neige et notifications sur ton téléphone",
+   desc="Installe gratuitement l'appli Megève par cœur sur iPhone ou Android : l'agenda de Megève, la neige, les webcams, tes sorties favorites et des notifications pour le week-end et la neige.",
+   h1="Megève par cœur <em>dans ta poche</em>",
+   intro="L'agenda, la neige, les webcams et tes sorties préférées, sur ton écran d'accueil. Gratuit, sans pub, sans passer par l'App Store.",
+   inst="Installer l'appli", notif="Les notifications", what="Ce que fait l'appli",
+   ios=["Ouvre megeveparcoeur.fr dans <b>Safari</b>.", "Touche le bouton <b>Partager</b> <span class=\"ic\">⬆︎</span> en bas de l'écran.", "Choisis <b>« Sur l'écran d'accueil »</b>, puis <b>Ajouter</b>.", "Ouvre l'appli depuis sa nouvelle icône ❤ pour activer les notifications."],
+   android=["Ouvre megeveparcoeur.fr dans <b>Chrome</b>.", "Touche le bouton <b>Installer</b> ci-dessous, ou le menu <b>⋮</b> puis <b>« Installer l'application »</b>.", "L'appli apparaît sur ton écran d'accueil, comme les autres."],
+   desktop="Sur ordinateur, Chrome et Edge proposent aussi d'installer l'appli (icône ⊕ dans la barre d'adresse). Mais c'est surtout sur téléphone qu'elle est pratique !",
+   installed="✅ L'appli est installée sur cet appareil. Bienvenue !", installBtn="📲 Installer l'appli",
+   t_we="🎉 Le programme du week-end", t_we2="Chaque vendredi après-midi : les sorties du week-end à Megève et alentours.",
+   t_snow="❄️ Les alertes neige", t_snow2="Quand une belle chute de neige est annoncée en altitude.",
+   on="🔔 Activer les notifications", off="Désactiver", save="Enregistrer mes choix",
+   s_ok="✅ Les notifications sont activées sur cet appareil.", s_saved="✅ C'est noté !", s_denied="Les notifications sont bloquées pour ce site. Autorise-les dans les réglages de ton navigateur, puis réessaie.",
+   s_ios="Sur iPhone, les notifications marchent seulement dans l'appli installée : ajoute d'abord Megève par cœur à ton écran d'accueil (voir ci-dessus), puis ouvre-la depuis son icône.",
+   s_no="Ton navigateur ne gère pas les notifications. Essaie avec Chrome (Android) ou Safari (iPhone, iOS 16.4 ou plus récent).",
+   s_err="Oups, l'activation n'a pas marché. Réessaie dans un instant.", s_offd="Notifications désactivées.",
+   feats=[("⭐", "Mes sorties", "Touche ☆ sur un événement de l'agenda pour le garder dans « Mes sorties »."), ("📶", "Même sans réseau", "Les dernières pages vues restent consultables en montagne, même sans 4G."),
+          ("⚡", "Raccourcis", "Appui long sur l'icône : agenda, ce week-end, neige, webcams, coin des enfants."), ("🔒", "Respect de la vie privée", "Pas de compte, pas de pub, pas de pistage. Les favoris restent sur ton téléphone.")]),
+ "en": dict(title="The Megève par cœur app · events, snow and notifications on your phone",
+   desc="Install the free Megève par cœur app on iPhone or Android: Megève events, snow, webcams, your favourite outings and notifications for the weekend and fresh snow.",
+   h1="Megève par cœur <em>in your pocket</em>",
+   intro="Events, snow, webcams and your favourite outings on your home screen. Free, no ads, no App Store needed.",
+   inst="Install the app", notif="Notifications", what="What the app does",
+   ios=["Open megeveparcoeur.fr in <b>Safari</b>.", "Tap the <b>Share</b> button <span class=\"ic\">⬆︎</span> at the bottom of the screen.", "Choose <b>“Add to Home Screen”</b>, then <b>Add</b>.", "Open the app from its new ❤ icon to turn on notifications."],
+   android=["Open megeveparcoeur.fr in <b>Chrome</b>.", "Tap the <b>Install</b> button below, or the <b>⋮</b> menu then <b>“Install app”</b>.", "The app appears on your home screen like any other."],
+   desktop="On a computer, Chrome and Edge can install the app too (⊕ icon in the address bar). But it's most handy on your phone!",
+   installed="✅ The app is installed on this device. Welcome!", installBtn="📲 Install the app",
+   t_we="🎉 The weekend programme", t_we2="Every Friday afternoon: what's on this weekend in and around Megève.",
+   t_snow="❄️ Snow alerts", t_snow2="When a good snowfall is forecast up the mountain.",
+   on="🔔 Turn on notifications", off="Turn off", save="Save my choices",
+   s_ok="✅ Notifications are on for this device.", s_saved="✅ Saved!", s_denied="Notifications are blocked for this site. Allow them in your browser settings, then try again.",
+   s_ios="On iPhone, notifications only work in the installed app: first add Megève par cœur to your home screen (see above), then open it from its icon.",
+   s_no="Your browser doesn't support notifications. Try Chrome (Android) or Safari (iPhone, iOS 16.4 or later).",
+   s_err="Oops, that didn't work. Please try again in a moment.", s_offd="Notifications turned off.",
+   feats=[("⭐", "My picks", "Tap ☆ on any event to save it to “My picks”."), ("📶", "Works offline", "The last pages you viewed stay available in the mountains, even without signal."),
+          ("⚡", "Shortcuts", "Long-press the icon: events, this weekend, snow, webcams, kids' corner."), ("🔒", "Privacy first", "No account, no ads, no tracking. Your favourites stay on your phone.")]),
+}
+
+
+def app_pages():
+    for lang in ("fr", "en"):
+        d = APP[lang]
+        path, alt = ("/app/", "/en/app/") if lang == "fr" else ("/en/app/", "/app/")
+        ol = lambda items: "<ol class=\"steps\">" + "".join(f"<li>{x}</li>" for x in items) + "</ol>"
+        feats = "".join(f'<div class="ft"><span>{i}</span><b>{t}</b><p>{x}</p></div>' for i, t, x in d["feats"])
+        body = f"""<section class="box lift" id="inst">
+  <h2>{d["inst"]}</h2>
+  <p class="ok hidden" id="i-done">{d["installed"]}</p>
+  <div id="i-ios" class="hidden"><p class="plat">🍏 iPhone / iPad</p>{ol(d["ios"])}</div>
+  <div id="i-and" class="hidden"><p class="plat">🤖 Android</p>{ol(d["android"])}<button class="big hidden" id="i-btn">{d["installBtn"]}</button></div>
+  <div id="i-desk" class="hidden"><p class="plat">🍏 iPhone</p>{ol(d["ios"])}<p class="plat">🤖 Android</p>{ol(d["android"])}<p class="note">{d["desktop"]}</p><button class="big hidden" id="i-btn2">{d["installBtn"]}</button></div>
+</section>
+<section class="box" id="notif">
+  <h2>{d["notif"]}</h2>
+  <label class="tp"><input type="checkbox" id="t-we" checked><span><b>{d["t_we"]}</b><small>{d["t_we2"]}</small></span></label>
+  <label class="tp"><input type="checkbox" id="t-snow" checked><span><b>{d["t_snow"]}</b><small>{d["t_snow2"]}</small></span></label>
+  <div class="row"><button class="big" id="n-on">{d["on"]}</button><button class="ghost hidden" id="n-save">{d["save"]}</button><button class="ghost hidden" id="n-off">{d["off"]}</button></div>
+  <p class="msg" id="n-msg" aria-live="polite"></p>
+</section>
+<section class="box"><h2>{d["what"]}</h2><div class="feats">{feats}</div></section>"""
+        css = (".steps{margin:6px 0 14px;padding-left:22px}.steps li{margin:8px 0;line-height:1.5}.steps .ic{display:inline-block;border:1.5px solid var(--line);border-radius:6px;padding:0 6px;font-weight:800}"
+               ".plat{font-weight:900;margin:10px 0 0}.ok{font-weight:800;color:#1f7a45;background:#eaf6ee;border-radius:12px;padding:10px 14px}.hidden{display:none!important}"
+               ".big{background:var(--heart);color:#fff;border:0;border-radius:999px;padding:13px 22px;font:800 1rem var(--body);cursor:pointer}"
+               ".ghost{background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:11px 18px;font:800 .95rem var(--body);cursor:pointer;color:var(--ink)}"
+               ".row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.tp{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line);cursor:pointer}"
+               ".tp input{width:22px;height:22px;margin-top:2px;accent-color:var(--heart)}.tp b{display:block}.tp small{color:var(--muted);font-size:.9rem}"
+               ".msg{font-weight:700;margin:12px 0 0}.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ft{background:var(--wool);border-radius:16px;padding:14px}"
+               ".ft span{font-size:1.6rem}.ft b{display:block;margin:4px 0}.ft p{margin:0;color:var(--muted);font-size:.92rem}@media(max-width:600px){.feats{grid-template-columns:1fr}}")
+        M = json.dumps({k: d[k] for k in ("s_ok", "s_saved", "s_denied", "s_ios", "s_no", "s_err", "s_offd")}, ensure_ascii=False)
+        js = f"""<script>
+(function(){{
+const M={M}, LANG="{lang}", $=id=>document.getElementById(id), show=(id,on=true)=>$(id).classList.toggle("hidden",!on);
+const ua=navigator.userAgent, ios=/iphone|ipad|ipod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1), android=/android/i.test(ua);
+const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+if(standalone) show("i-done"); else if(ios) show("i-ios"); else if(android) show("i-and"); else show("i-desk");
+let deferred=null;
+addEventListener("beforeinstallprompt",e=>{{e.preventDefault();deferred=e;show("i-btn");show("i-btn2");}});
+["i-btn","i-btn2"].forEach(id=>$(id).onclick=async()=>{{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;show("i-btn",false);show("i-btn2",false);}});
+addEventListener("appinstalled",()=>{{["i-ios","i-and","i-desk"].forEach(x=>show(x,false));show("i-done");}});
+// notifications
+const msg=(t,err)=>{{$("n-msg").textContent=t;$("n-msg").style.color=err?"var(--heart)":"";}};
+const topics=()=>[$("t-we").checked?"we":null,$("t-snow").checked?"snow":null].filter(Boolean);
+try{{const t=JSON.parse(localStorage.getItem("mpc-push-topics")||"null");if(t){{$("t-we").checked=t.includes("we");$("t-snow").checked=t.includes("snow");}}}}catch(_){{}}
+const supported="serviceWorker" in navigator&&"PushManager" in window&&"Notification" in window;
+const b64=s=>{{const p="=".repeat((4-s.length%4)%4),r=atob((s+p).replace(/-/g,"+").replace(/_/g,"/"));return Uint8Array.from([...r].map(c=>c.charCodeAt(0)));}};
+async function current(){{if(!supported)return null;const reg=await navigator.serviceWorker.getRegistration();return reg?reg.pushManager.getSubscription():null;}}
+function ui(on){{show("n-on",!on);show("n-save",on);show("n-off",on);}}
+async function save(sub){{const r=await fetch("/api/push",{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify({{action:"subscribe",sub,topics:topics(),lang:LANG}})}});const j=await r.json();if(!j.ok)throw new Error(j.error);try{{localStorage.setItem("mpc-push-topics",JSON.stringify(topics()));}}catch(_){{}}}}
+current().then(s=>{{if(s){{ui(true);msg(M.s_ok);}}}}).catch(()=>{{}});
+$("n-on").onclick=async()=>{{
+  if(ios&&!standalone){{msg(M.s_ios,true);return;}}
+  if(!supported){{msg(M.s_no,true);return;}}
+  try{{
+    const perm=await Notification.requestPermission();
+    if(perm!=="granted"){{msg(M.s_denied,true);return;}}
+    const reg=await navigator.serviceWorker.register("/sw.js");await navigator.serviceWorker.ready;
+    const k=await (await fetch("/api/push?key")).json();
+    const sub=await reg.pushManager.subscribe({{userVisibleOnly:true,applicationServerKey:b64(k.key)}});
+    await save(sub.toJSON());ui(true);msg(M.s_ok);
+    try{{window.va&&window.va("event",{{name:"notifications_on"}});}}catch(_){{}}
+  }}catch(e){{msg(M.s_err,true);}}
+}};
+$("n-save").onclick=async()=>{{try{{const s=await current();if(s){{await save(s.toJSON());msg(M.s_saved);}}}}catch(e){{msg(M.s_err,true);}}}};
+$("n-off").onclick=async()=>{{try{{const s=await current();if(s){{await fetch("/api/push",{{method:"POST",headers:{{"Content-Type":"application/json"}},body:JSON.stringify({{action:"unsubscribe",endpoint:s.endpoint}})}});await s.unsubscribe();}}ui(false);msg(M.s_offd);}}catch(e){{msg(M.s_err,true);}}}};
+}})();
+</script>"""
+        write(path, page(lang, path, alt, d["title"], H.escape(d["desc"]), "📲 " + ("L'appli" if lang == "fr" else "The app"), d["h1"], d["intro"], body, css=css, js=js))
+
+
 if __name__ == "__main__":
-    qf_pages(); venir_pages(); prop_pages()
+    qf_pages(); venir_pages(); prop_pages(); app_pages()
