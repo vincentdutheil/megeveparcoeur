@@ -5,7 +5,10 @@
   if(standalone) return;
   const en=document.documentElement.lang==="en";
   let seen=false; try{seen=localStorage.getItem("mpc-install")==="no";}catch(e){}
-  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!/crios|fxios/i.test(navigator.userAgent);
+  const ua=navigator.userAgent;
+  // navigateur intégré d'Instagram, Facebook, TikTok… : on ne peut pas y installer l'appli
+  const inApp=/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\/|Twitter|TikTok|musical_ly|BytedanceWebview|Snapchat|Pinterest|LinkedInApp/i.test(ua);
+  const ios=/iphone|ipad|ipod/i.test(ua)&&!/crios|fxios/i.test(ua)&&!inApp;
   let deferred=null;
   function bar(html,onYes){
     if(seen||document.getElementById("mpc-inst")) return;
@@ -22,6 +25,7 @@
   }
   addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;
     setTimeout(()=>bar(en?"<b>Megève par cœur on your phone</b>Agenda, snow & webcams in one tap.":"<b>Megève par cœur sur ton téléphone</b>Agenda, neige et webcams en un geste.",async()=>{deferred.prompt();await deferred.userChoice.catch(()=>{});document.getElementById("mpc-inst")?.remove();}),6000);});
+  if(inApp&&innerWidth<820) setTimeout(()=>bar(en?"<b>Want the app?</b>First open this site in your browser (menu ⋯ then “Open in browser”).":"<b>Envie de l'appli ?</b>Ouvre d'abord le site dans ton navigateur (menu ⋯ puis « Ouvrir dans le navigateur »)."),8000);
   if(ios&&innerWidth<820) setTimeout(()=>bar(en?"<b>Add to your home screen</b>Tap <span aria-label='Share'>⬆︎</span> Share, then “Add to Home Screen”.":"<b>Ajoute l'appli à ton écran d'accueil</b>Touche <span aria-label='Partager'>⬆︎</span> Partager, puis « Sur l'écran d'accueil »."),8000);
 })();
 

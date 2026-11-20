@@ -421,6 +421,9 @@ APP = {
    h1="Megève par cœur <em>dans ta poche</em>",
    intro="L'agenda, la neige, les webcams et tes sorties préférées, sur ton écran d'accueil. Gratuit, sans pub, sans passer par l'App Store.",
    inst="Installer l'appli", notif="Les notifications", what="Ce que fait l'appli",
+   inapp="👋 Tu es dans le navigateur d'Instagram (ou d'une autre appli). Il ne permet pas d'installer Megève par cœur : ouvre d'abord le site dans ton vrai navigateur.",
+   inapp_ios="Touche les <b>trois petits points ⋯</b> en haut à droite, puis <b>« Ouvrir dans le navigateur externe »</b> (ou « Ouvrir dans Safari »).",
+   inapp_and="Touche le bouton ci-dessous, ou les <b>trois petits points ⋮</b> en haut à droite, puis <b>« Ouvrir dans Chrome »</b>.", inapp_btn="🌐 Ouvrir dans Chrome",
    ios=["Ouvre megeveparcoeur.fr dans <b>Safari</b>.", "Touche le bouton <b>Partager</b> <span class=\"ic\">⬆︎</span> en bas de l'écran.", "Choisis <b>« Sur l'écran d'accueil »</b>, puis <b>Ajouter</b>.", "Ouvre l'appli depuis sa nouvelle icône ❤ pour activer les notifications."],
    android=["Ouvre megeveparcoeur.fr dans <b>Chrome</b>.", "Touche le bouton <b>Installer</b> ci-dessous, ou le menu <b>⋮</b> puis <b>« Installer l'application »</b>.", "L'appli apparaît sur ton écran d'accueil, comme les autres."],
    desktop="Sur ordinateur, Chrome et Edge proposent aussi d'installer l'appli (icône ⊕ dans la barre d'adresse). Mais c'est surtout sur téléphone qu'elle est pratique !",
@@ -439,6 +442,9 @@ APP = {
    h1="Megève par cœur <em>in your pocket</em>",
    intro="Events, snow, webcams and your favourite outings on your home screen. Free, no ads, no App Store needed.",
    inst="Install the app", notif="Notifications", what="What the app does",
+   inapp="👋 You're in Instagram's browser (or another app's). It can't install Megève par cœur: first open the site in your real browser.",
+   inapp_ios="Tap the <b>three dots ⋯</b> at the top right, then <b>“Open in external browser”</b> (or “Open in Safari”).",
+   inapp_and="Tap the button below, or the <b>three dots ⋮</b> at the top right, then <b>“Open in Chrome”</b>.", inapp_btn="🌐 Open in Chrome",
    ios=["Open megeveparcoeur.fr in <b>Safari</b>.", "Tap the <b>Share</b> button <span class=\"ic\">⬆︎</span> at the bottom of the screen.", "Choose <b>“Add to Home Screen”</b>, then <b>Add</b>.", "Open the app from its new ❤ icon to turn on notifications."],
    android=["Open megeveparcoeur.fr in <b>Chrome</b>.", "Tap the <b>Install</b> button below, or the <b>⋮</b> menu then <b>“Install app”</b>.", "The app appears on your home screen like any other."],
    desktop="On a computer, Chrome and Edge can install the app too (⊕ icon in the address bar). But it's most handy on your phone!",
@@ -464,6 +470,7 @@ def app_pages():
         body = f"""<section class="box lift" id="inst">
   <h2>{d["inst"]}</h2>
   <p class="ok hidden" id="i-done">{d["installed"]}</p>
+  <div id="i-inapp" class="hidden warn"><p>{d["inapp"]}</p><p id="i-inapp-ios" class="hidden">{d["inapp_ios"]}</p><p id="i-inapp-and" class="hidden">{d["inapp_and"]}</p><a class="big hidden" id="i-chrome" href="#">{d["inapp_btn"]}</a></div>
   <div id="i-ios" class="hidden"><p class="plat">🍏 iPhone / iPad</p>{ol(d["ios"])}</div>
   <div id="i-and" class="hidden"><p class="plat">🤖 Android</p>{ol(d["android"])}<button class="big hidden" id="i-btn">{d["installBtn"]}</button></div>
   <div id="i-desk" class="hidden"><p class="plat">🍏 iPhone</p>{ol(d["ios"])}<p class="plat">🤖 Android</p>{ol(d["android"])}<p class="note">{d["desktop"]}</p><button class="big hidden" id="i-btn2">{d["installBtn"]}</button></div>
@@ -477,6 +484,7 @@ def app_pages():
 </section>
 <section class="box"><h2>{d["what"]}</h2><div class="feats">{feats}</div></section>"""
         css = (".steps{margin:6px 0 14px;padding-left:22px}.steps li{margin:8px 0;line-height:1.5}.steps .ic{display:inline-block;border:1.5px solid var(--line);border-radius:6px;padding:0 6px;font-weight:800}"
+               ".warn{background:#fff4e5;border:1px solid #f3c27a;border-radius:14px;padding:12px 16px;margin:0 0 10px}.warn p{margin:6px 0}.warn .big{display:inline-block;text-decoration:none;margin-top:6px}"
                ".plat{font-weight:900;margin:10px 0 0}.ok{font-weight:800;color:#1f7a45;background:#eaf6ee;border-radius:12px;padding:10px 14px}.hidden{display:none!important}"
                ".big{background:var(--heart);color:#fff;border:0;border-radius:999px;padding:13px 22px;font:800 1rem var(--body);cursor:pointer}"
                ".ghost{background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:11px 18px;font:800 .95rem var(--body);cursor:pointer;color:var(--ink)}"
@@ -490,7 +498,10 @@ def app_pages():
 const M={M}, LANG="{lang}", $=id=>document.getElementById(id), show=(id,on=true)=>$(id).classList.toggle("hidden",!on);
 const ua=navigator.userAgent, ios=/iphone|ipad|ipod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1), android=/android/i.test(ua);
 const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
-if(standalone) show("i-done"); else if(ios) show("i-ios"); else if(android) show("i-and"); else show("i-desk");
+const inApp=/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Line\\/|Twitter|TikTok|musical_ly|BytedanceWebview|Snapchat|Pinterest|LinkedInApp/i.test(ua);
+if(standalone) show("i-done");
+else if(inApp){{show("i-inapp");if(android){{show("i-inapp-and");const c=$("i-chrome");c.href="intent://"+location.host+location.pathname+"#Intent;scheme=https;package=com.android.chrome;end";show("i-chrome");}}else show("i-inapp-ios");}}
+else if(ios) show("i-ios"); else if(android) show("i-and"); else show("i-desk");
 let deferred=null;
 addEventListener("beforeinstallprompt",e=>{{e.preventDefault();deferred=e;show("i-btn");show("i-btn2");}});
 ["i-btn","i-btn2"].forEach(id=>$(id).onclick=async()=>{{if(!deferred)return;deferred.prompt();await deferred.userChoice;deferred=null;show("i-btn",false);show("i-btn2",false);}});
