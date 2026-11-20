@@ -85,6 +85,7 @@ h1 small{display:block;font-family:var(--body);font-size:clamp(.9rem,2.6vw,1.05r
 .lv:hover{transform:translateY(-2px)}.lv[aria-pressed=true]{border-color:var(--ember);background:#fff1e1;box-shadow:0 4px 0 #e0b98f}
 .lv b{font-size:.78rem;line-height:1.1;text-align:center}.lv small{font-size:.7rem;color:var(--muted);font-weight:800}
 .lv svg{width:52px;height:62px}
+.lvprog{margin:2px 6px 4px;font-weight:700;color:var(--muted);font-size:.9rem}
 /* cartes */
 .card{background:var(--paper);border-radius:24px;padding:18px;box-shadow:0 14px 34px rgba(0,0,0,.28);margin:0 0 16px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
@@ -126,6 +127,10 @@ svg.shape{display:block;margin:6px auto;max-width:100%}
 .op input.r{height:28px;font-size:.95rem;color:var(--red);border-style:dashed;background:#fff8f6}
 .op .rlab{font-size:.62rem;white-space:nowrap;color:var(--muted);font-weight:800;justify-content:flex-end;padding-right:4px}
 .op .sign{color:var(--ember)}
+.potence{display:flex;align-items:flex-start;gap:0}.potence .pl{padding:0 10px 0 0;border-right:4px solid var(--ink)}.potence .pr{padding:0 0 0 10px}
+.potence .pr .line{margin:4px 0 6px}.op input.scratch{height:30px;font-size:1rem;border-style:dashed;color:var(--muted);background:#fffaf3}
+.rest{display:flex;align-items:center;gap:8px;margin-top:12px;font-weight:900}.rest input{width:70px;height:46px;text-align:center;font-size:1.4rem;font-weight:900;border:2px solid var(--line);border-radius:10px;background:#fffaf3}
+.rest input.good{border-color:var(--ok);background:#eaf6ee}.rest input.bad{border-color:var(--ko);background:#fdecea}
 @media(max-width:430px){.op{--cw:35px}.op .c:not(.rlab){font-size:1.45rem}.op input{font-size:1.35rem}.card{padding:16px 12px}}.op .line{grid-column:1/-1;height:4px;background:var(--ink);border-radius:2px;margin:2px 0}
 .op input.good{border-color:var(--ok);background:#eaf6ee}.op input.bad{border-color:var(--ko);background:#fdecea}
 /* jeu */
@@ -719,6 +724,7 @@ footer{color:#f3cf9b;text-align:center;font-size:.85rem;padding:10px 0 30px;opac
   <section class="levels" aria-labelledby="lvh">
     <h2 id="lvh">Ta médaille <span id="lvsub"></span></h2>
     <div class="lvls" id="lvls" role="group" aria-label="Choisir son niveau"></div>
+    <p class="lvprog" id="lvprog"></p>
   </section>
 
   <h2 style="font-family:var(--display);color:#fff3e0;font-size:1.5rem;margin:6px 4px 10px">🧮 Les maths des frileux</h2>
@@ -741,13 +747,27 @@ const store = { get(k, d) { try { const v = localStorage.getItem("cm-" + k); ret
                 set(k, v) { try { localStorage.setItem("cm-" + k, JSON.stringify(v)); } catch (e) {} } };
 
 /* ---------- niveaux (médailles) ---------- */
-const LEVELS = [
-  { n: "Ourson", g: "CP", m: "bear" }, { n: "Flocon", g: "CP", m: "flake" },
-  { n: "1re étoile", g: "CE1", m: "star", k: 1 }, { n: "2e étoile", g: "CE1", m: "star", k: 2 },
-  { n: "3e étoile", g: "CE2", m: "star", k: 3 }, { n: "Étoile d'or", g: "CE2", m: "gold" },
-  { n: "Fléchette", g: "CM1", m: "arrow", c: "#3a78c9" }, { n: "Flèche de bronze", g: "CM1", m: "arrow", c: "#b8733e" },
-  { n: "Flèche d'argent", g: "CM2", m: "arrow", c: "#aab4be" }, { n: "Flèche de vermeil", g: "CM2", m: "arrow", c: "#d08a4a" },
-  { n: "Flèche d'or", g: "Au-delà", m: "arrow", c: "#e7b53c" }
+const LEVELS = [ // deux médailles par classe : début / fin d'année (France · Suisse romande)
+  { n: "Ourson", g: "CP · 3P", m: "bear" }, { n: "Flocon", g: "CP · 3P", m: "flake" },
+  { n: "1re étoile", g: "CE1 · 4P", m: "star", k: 1 }, { n: "2e étoile", g: "CE1 · 4P", m: "star", k: 2 },
+  { n: "3e étoile", g: "CE2 · 5P", m: "star", k: 3 }, { n: "Étoile d'or", g: "CE2 · 5P", m: "gold" },
+  { n: "Fléchette", g: "CM1 · 6P", m: "arrow", c: "#3a78c9" }, { n: "Flèche de bronze", g: "CM1 · 6P", m: "arrow", c: "#b8733e" },
+  { n: "Flèche d'argent", g: "CM2 · 7P", m: "arrow", c: "#aab4be" }, { n: "Flèche de vermeil", g: "CM2 · 7P", m: "arrow", c: "#d08a4a" },
+  { n: "Flèche d'or", g: "6e · 8P", m: "arrow", c: "#e7b53c" }
+];
+// ce qu'on travaille à chaque médaille (d'après les repères des programmes 2024-2025 de l'Éducation nationale)
+const PROG = [
+  "Début de CP : nombres jusqu'à 20, additions et soustractions simples, compléments à 10.",
+  "Fin de CP : nombres jusqu'à 100, doubles, addition posée.",
+  "Début de CE1 : nombres jusqu'à 1 000, tables de 2, 5 et 10, additions posées.",
+  "Fin de CE1 : tables de 2 à 5 et de 10, soustraction posée, premières fractions (moitié, quart).",
+  "Début de CE2 : nombres jusqu'à 10 000, tables jusqu'à 6, multiplication posée par un chiffre.",
+  "Fin de CE2 : toutes les tables jusqu'à 10, multiplication posée d'une centaine par un chiffre, fractions.",
+  "Début de CM1 : grands nombres, tables jusqu'à 12, multiplication posée par 2 chiffres. Pas encore de division.",
+  "Fin de CM1 : la division arrive (posée, par un chiffre), fractions plus grandes que 1.",
+  "Début de CM2 : nombres jusqu'au million, division posée de milliers par un chiffre.",
+  "Fin de CM2 : division posée par 2 chiffres, multiplication par 3 chiffres, sommes de fractions.",
+  "Au-delà (6e) : de grands calculs, pour les champions !"
 ];
 let L = store.get("level", 6);
 function medal(lv) {
@@ -764,6 +784,7 @@ function star(cx, cy, r, f) { let p = ""; for (let i = 0; i < 10; i++) { const a
 function drawLevels() {
   $("#lvls").innerHTML = LEVELS.map((lv, i) => `<button class="lv" data-i="${i}" aria-pressed="${i === L}">${medal(lv)}<b>${lv.n}</b><small>${lv.g}</small></button>`).join("");
   $("#lvsub").textContent = `${LEVELS[L].n} · ${LEVELS[L].g}`;
+  $("#lvprog").textContent = PROG[L];
   $("#lvls").querySelectorAll(".lv").forEach(b => b.onclick = () => { L = +b.dataset.i; store.set("level", L); drawLevels(); home(); });
   const cur = $("#lvls").querySelector('[aria-pressed="true"]'); if (cur) cur.parentNode.scrollLeft = cur.offsetLeft - cur.parentNode.clientWidth / 2 + cur.offsetWidth / 2;
 }
@@ -953,7 +974,7 @@ const NAMES = ["Léo", "Emma", "Hugo", "Jade", "Louis", "Chloé", "Tom", "Lina",
 const BOYS = ["Léo", "Hugo", "Louis", "Tom", "Nathan"];
 const il = n => BOYS.includes(n) ? "il" : "elle", Il = n => BOYS.includes(n) ? "Il" : "Elle";
 const TABLES = [[], [], [2, 5, 10], [2, 3, 4, 5, 10], [2, 3, 4, 5, 6, 10], [2, 3, 4, 5, 6, 7, 8, 9, 10], [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [3, 4, 6, 7, 8, 9, 11, 12], [6, 7, 8, 9, 11, 12], [6, 7, 8, 9, 11, 12], [7, 8, 9, 11, 12]];
-const has = { mul: () => L >= 2, frac: () => L >= 4, mes: () => L >= 3, posMul: () => L >= 3 };
+const has = { mul: () => L >= 2, frac: () => L >= 3, mes: () => L >= 2, posAdd: () => L >= 1, posSub: () => L >= 3, posMul: () => L >= 4, posDiv: () => L >= 7 };
 function q(expr, ans, word) { return { html: `<p class="q"${word ? ' style="font-size:2.05rem"' : ""}>${expr}${word ? "" : " = ?"}</p>`, answer: ans, kind: "num", expr }; }
 function t(text, ans, unit) { return { html: `<p class="qtext">${text}</p>`, answer: ans, kind: "num", unit }; }
 const GEN = {
@@ -1039,15 +1060,19 @@ const GEN = {
     const v = R(3, 6) * 4, m = R(1, 4); return t(`${n} descend des pistes à ${v} km/h pendant ${m * 15} minutes. Quelle distance parcourt-${il(n)} ? (indice : ${m * 15} min, c'est ${m === 4 ? "1 heure" : m + " quart" + (m > 1 ? "s" : "") + " d'heure"})`, v * m / 4, "km");
   },
   fraction() {
-    const k = R(0, L >= 8 ? 4 : 3);
-    if (k === 0) { const d = pick([2, 3, 4, 5, 6, 8, 10]), n = R(1, d - 1); return { html: `<p class="qtext">Quelle fraction de la barre est coloriée ?</p>${barSvg(n, d)}`, answer: [n, d], kind: "frac", say: `${n}/${d}` }; }
-    if (k === 1) { const d = pick([2, 3, 4, 5, 10]), n = d === 2 ? 1 : R(1, d - 1), m = R(2, L >= 8 ? 20 : 9) * d; return { html: `<p class="q" style="font-size:2.2rem">${fr(n, d)} de ${m}</p><p class="hint">Astuce : divise par ${d}${n > 1 ? ", puis multiplie par " + n : ""}.</p>`, answer: n * m / d, kind: "num" }; }
-    if (k === 2) { const d = pick([3, 4, 5, 6, 8, 10]); let a = R(1, d + 2), b = R(1, d + 2); if (Math.random() < .2) b = a; return { html: `<p class="qtext">Compare les deux fractions.</p><p class="q">${fr(a, d)} <span style="color:var(--muted)">?</span> ${fr(b, d)}</p>`, answer: a < b ? "<" : a > b ? ">" : "=", kind: "cmp" }; }
+    // CE1 : moitié, tiers, quart · CE2 : fractions d'une unité · CM1 : fractions > 1 · CM2 : sommes
+    const ds = L <= 3 ? [2, 3, 4] : L <= 5 ? [2, 3, 4, 5, 6, 8, 10] : [2, 3, 4, 5, 6, 8, 10];
+    const k = L <= 3 ? pick([0, 0, 1]) : L <= 5 ? R(0, 2) : R(0, L >= 9 ? 4 : 3);
+    if (k === 0) { const d = pick(ds), n = R(1, d - 1); return { html: `<p class="qtext">Quelle fraction de la barre est coloriée ?</p>${barSvg(n, d)}`, answer: [n, d], kind: "frac", say: `${n}/${d}` }; }
+    if (k === 1) { const d = L <= 3 ? pick([2, 4]) : pick([2, 3, 4, 5, 10]), n = L <= 5 || d === 2 ? 1 : R(1, d - 1), m = R(2, L >= 8 ? 20 : 9) * d;
+      const say = L <= 3 ? `${d === 2 ? "La moitié" : "Le quart"} de ${m}` : null;
+      return { html: say ? `<p class="q" style="font-size:2.2rem">${say}</p>` : `<p class="q" style="font-size:2.2rem">${fr(n, d)} de ${m}</p><p class="hint">Astuce : divise par ${d}${n > 1 ? ", puis multiplie par " + n : ""}.</p>`, answer: n * m / d, kind: "num" }; }
+    if (k === 2) { const d = pick([3, 4, 5, 6, 8, 10]); let a = R(1, L <= 5 ? d - 1 : d + 2), b = R(1, L <= 5 ? d - 1 : d + 2); if (Math.random() < .2) b = a; return { html: `<p class="qtext">Compare les deux fractions.</p><p class="q">${fr(a, d)} <span style="color:var(--muted)">?</span> ${fr(b, d)}</p>`, answer: a < b ? "<" : a > b ? ">" : "=", kind: "cmp" }; }
     if (k === 3) { const d = pick([2, 3, 4, 5, 8]), a = R(1, 2 * d); return { html: `<p class="qtext">Compare la fraction avec 1.</p><p class="q">${fr(a, d)} <span style="color:var(--muted)">?</span> 1</p>`, answer: a < d ? "<" : a > d ? ">" : "=", kind: "cmp" }; }
     const d = pick([4, 6, 8, 10]), a = R(1, d - 2), b = R(1, d - a - 1); return { html: `<p class="qtext">Calcule (réponds par le numérateur).</p><p class="q">${fr(a, d)} + ${fr(b, d)} = <span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1"><span>?</span><span style="width:1.3em;border-top:4px solid currentColor;margin:4px 0"></span><span>${d}</span></span></p>`, answer: a + b, kind: "num" };
   },
   mesure() {
-    const k = R(0, L >= 6 ? 6 : 3);
+    const k = R(0, L >= 6 ? 6 : L >= 4 ? 5 : 3); // CE1 : m/cm, h/min, €, km · CE2 : kg/g, h et min · CM1 : L/cL
     if (k === 0) { const m = R(2, 9); return { html: `<p class="q" style="font-size:2.1rem">${m} m = ? cm</p>`, answer: m * 100, kind: "num", unit: "cm" }; }
     if (k === 1) { const h = R(1, 3); return { html: `<p class="q" style="font-size:2.1rem">${h} h = ? min</p>`, answer: h * 60, kind: "num", unit: "min" }; }
     if (k === 2) { const e = R(1, 9); return { html: `<p class="q" style="font-size:2.1rem">${e} € = ? centimes</p>`, answer: e * 100, kind: "num", unit: "c" }; }
@@ -1075,12 +1100,13 @@ function home() {
     ${tile("jeu", "⛷️", "La descente des calculs", "Choisis la bonne porte pour descendre la piste !", bestG ? "Record : " + bestG : "Nouveau !")}
     ${tile("chrono", "⏱️", "Calcul mental", "1 minute pour en réussir un max !", best ? "Record : " + best : "")}
     ${tile("tables", "✖️", "Tables de multiplication", "De 2 à 12 : choisis tes tables.", has.mul() ? "" : lock(2), !has.mul())}
-    ${tile("posee-add", "➕", "Addition posée", "Avec les cases pour les retenues.")}
-    ${tile("posee-sub", "➖", "Soustraction posée", "Avec les cases pour les retenues.")}
-    ${tile("posee-mul", "🧮", "Multiplication posée", "Avec les lignes intermédiaires.", has.posMul() ? "" : lock(3), !has.posMul())}
+    ${tile("posee-add", "➕", "Addition posée", "Avec les cases pour les retenues.", has.posAdd() ? "" : lock(1), !has.posAdd())}
+    ${tile("posee-sub", "➖", "Soustraction posée", "Avec les cases pour les retenues.", has.posSub() ? "" : lock(3), !has.posSub())}
+    ${tile("posee-mul", "🧮", "Multiplication posée", "Avec les lignes intermédiaires.", has.posMul() ? "" : lock(4), !has.posMul())}
+    ${tile("posee-div", "➗", "Division posée", "Avec la potence et le reste.", has.posDiv() ? "" : lock(7), !has.posDiv())}
     ${tile("problemes", "🏔️", "Problèmes", "Des histoires à la montagne.")}
-    ${tile("fractions", "🍕", "Fractions", "Colorier, comparer, calculer.", has.frac() ? "" : lock(4), !has.frac())}
-    ${tile("mesures", "📏", "Mesures", "Mètres, minutes, kilos…", has.mes() ? "" : lock(3), !has.mes())}
+    ${tile("fractions", "🍕", "Fractions", "Colorier, comparer, calculer.", has.frac() ? "" : lock(3), !has.frac())}
+    ${tile("mesures", "📏", "Mesures", "Mètres, minutes, kilos…", has.mes() ? "" : lock(2), !has.mes())}
     ${tile("melange", "🎲", "Un peu de tout", "Un mélange surprise de 12 questions.")}
   </div></div>`;
   app.querySelectorAll(".mode:not([disabled])").forEach(b => b.onclick = () => MODES[b.dataset.m]());
@@ -1140,18 +1166,23 @@ function series(title, gen, total, { timed = 0, onEnd } = {}) {
 function makeOp(kind) {
   const num = d => R(10 ** (d - 1), 10 ** d - 1);
   if (kind === "posee-add") {
-    if (L === 0) { const a = R(11, 44), b = R(11, 44); if ((a % 10) + (b % 10) > 9) return makeOp(kind); return { nums: [a, b], sign: "+", res: a + b }; }
-    const spec = [[2, 2], [2, 2], [2, 3], [3, 2], [3, 2], [3, 3], [3, 3], [4, 3], [4, 3], [5, 3], [5, 4]][L], nums = Array.from({ length: spec[1] }, () => num(spec[0] - (Math.random() < .3 && spec[0] > 2 ? 1 : 0)));
-    return { nums, sign: "+", res: nums.reduce((s, x) => s + x, 0) };
+    // CP : 2 nombres à 2 chiffres (< 100) · CE1 : < 1 000 · CE2 : < 10 000 · CM1 : jusqu'à 999 999 · CM2 et + : grands nombres
+    if (L <= 1) { const a = R(11, 69), b = R(11, 99 - a); return { nums: [a, b], sign: "+", res: a + b }; }
+    const spec = { 2: [2, 3, 2], 3: [2, 3, 3], 4: [3, 4, 2], 5: [3, 4, 3], 6: [4, 5, 2], 7: [4, 5, 3], 8: [5, 6, 3], 9: [5, 6, 3], 10: [5, 6, 4] }[L];
+    const nums = Array.from({ length: spec[2] }, () => num(R(spec[0], spec[1])));
+    const res = nums.reduce((s2, x) => s2 + x, 0);
+    if (L === 2 && res >= 1000 || L <= 5 && L >= 4 && res >= 10000 || L <= 7 && L >= 6 && res >= 1000000) return makeOp(kind);
+    return { nums, sign: "+", res };
   }
   if (kind === "posee-sub") {
-    if (L === 0) { const a = R(21, 99), b = R(10, a - 1); if (b % 10 > a % 10) return makeOp(kind); return { nums: [a, b], sign: "−", res: a - b }; }
-    if (L <= 2) { const a = R(30, 99), b = R(11, a - 5); return { nums: [a, b], sign: "−", res: a - b }; }
-    if (L <= 4) { const a = R(200, 999), b = R(101, a - 20); return { nums: [a, b], sign: "−", res: a - b }; }
-    if (L <= 6) { const a = Math.random() < .5 ? R(3, 9) * 100 + pick([0, R(1, 9)]) : R(300, 999), b = R(111, a - 30); return { nums: [a, b], sign: "−", res: a - b }; }
-    const d = [4, 4, 5, 5, 6][L - 6] || 6, a = R(2 * 10 ** (d - 1), 10 ** d - 1), b = R(10 ** (d - 1), a - 10 ** (d - 2)); return { nums: [a, b], sign: "−", res: a - b };
+    // CE1 : nombres < 1 000 · CE2 : < 10 000, avec des zéros · CM1 : jusqu'à 999 999 · CM2 et + : grands nombres
+    if (L === 3) { const a = R(120, 999), b = R(21, a - 10); return { nums: [a, b], sign: "−", res: a - b }; }
+    if (L === 4) { const a = Math.random() < .5 ? R(3, 9) * 100 + pick([0, R(1, 9)]) : R(300, 999), b = R(111, a - 30); return { nums: [a, b], sign: "−", res: a - b }; }
+    const d = { 5: 4, 6: 5, 7: 6, 8: 6, 9: 7, 10: 7 }[L] || 4;
+    const a = R(2 * 10 ** (d - 1), 10 ** d - 1), b = R(10 ** (d - 2), a - 10 ** (d - 2)); return { nums: [a, b], sign: "−", res: a - b };
   }
-  const spec = [null, null, [2, 1], [2, 1], [3, 1], [3, 1], [3, 2], [3, 2], [4, 2], [4, 2], [4, 3]][L] || [2, 1];
+  // multiplication : CE2 par 1 chiffre · CM1 par 2 chiffres · CM2 par 2 ou 3 chiffres
+  const spec = { 4: [2, 1], 5: [3, 1], 6: [3, 2], 7: [3, 2], 8: [4, 2], 9: [3, 3], 10: [4, 3] }[L] || [2, 1];
   const a = num(spec[0]); let b; do { b = spec[1] === 1 ? R(2, 9) : num(spec[1]); } while (String(b).includes("0")); // pas de 0 dans le 2e nombre
   const bd = String(b).split("").reverse().map(Number);
   return { nums: [a, b], sign: "×", res: a * b, partial: bd.length > 1 ? bd.map((d, i) => a * d * 10 ** i) : null };
@@ -1209,6 +1240,62 @@ function poseScreen(kind) {
       tries++; if (tries === 1) { done++; $("#ps").textContent = `${good} / ${done}`; }
       fb.className = "fb ko"; fb.textContent = tries < 3 ? "❌ Pas encore ! Les cases rouges sont à corriger. Vérifie tes retenues 😉" : `La bonne réponse était ${nf(cur.res)}. On en fait un autre ?`;
       if (tries >= 3) setTimeout(render, 3200);
+    }
+  }
+  render();
+}
+
+/* ---------- division posée (potence) ---------- */
+function divScreen() {
+  stop();
+  let done = 0, good = 0, tries = 0, cur;
+  function make() {
+    // CM1 : centaines ÷ 1 chiffre · CM2 : milliers ÷ 1 chiffre, puis ÷ 2 chiffres · 6e : grands nombres ÷ 2 chiffres
+    const spec = { 7: [3, 1], 8: [4, 1], 9: [3, 2], 10: [4, 2] }[L] || [3, 1];
+    const b = spec[1] === 1 ? R(2, 9) : R(11, 39), a = R(10 ** (spec[0] - 1), 10 ** spec[0] - 1);
+    if (a < b * 10) return make();
+    return { a, b, q: Math.floor(a / b), r: a % b };
+  }
+  function render() {
+    cur = make(); tries = 0;
+    const A = String(cur.a), B = String(cur.b), ql = String(cur.q).length, W = A.length;
+    let left = `<div class="op" style="grid-template-columns:repeat(${W},var(--cw,42px))">` + A.split("").map(c => `<div class="c">${c}</div>`).join("");
+    for (let r = 0; r < Math.min(2 * ql, 8); r++) for (let c = 0; c < W; c++) left += `<input class="r scratch" inputmode="numeric" maxlength="1" aria-label="brouillon" autocomplete="off">`;
+    left += `</div>`;
+    let right = `<div class="op" style="grid-template-columns:repeat(${Math.max(B.length, ql)},var(--cw,42px))">` + B.split("").map(c => `<div class="c">${c}</div>`).join("") + "<div></div>".repeat(Math.max(0, ql - B.length)) + `<div class="line"></div>`;
+    for (let c = 0; c < ql; c++) right += `<input class="d" data-row="q" data-col="${c}" inputmode="numeric" maxlength="1" aria-label="chiffre du quotient" autocomplete="off">`;
+    right += `</div><label class="rest">Reste <input id="rest" inputmode="numeric" maxlength="3" autocomplete="off"></label>`;
+    app.innerHTML = `<div class="card">${topbar("Division posée", `<span class="pill" id="ps">${good} / ${done}</span>`)}
+      <p class="hint" style="margin-top:0">Niveau ${LEVELS[L].n} · ${LEVELS[L].g} · les calculs changent à chaque fois</p>
+      <div class="pose"><div class="potence"><div class="pl">${left}</div><div class="pr">${right}</div></div></div>
+      <p class="hint">Écris le quotient sous le diviseur (de gauche à droite), puis le reste. Les petites cases à gauche servent de brouillon pour les soustractions.</p>
+      <div class="fb" id="fb" aria-live="polite"></div>
+      <div class="row"><button class="go" id="chk">Vérifier</button><button class="go alt" id="new">Nouveau calcul</button></div></div>`;
+    bindBack();
+    const ins = [...app.querySelectorAll('input.d[data-row="q"]')];
+    ins.forEach((inp, i) => {
+      inp.addEventListener("input", () => { inp.value = inp.value.replace(/\D/g, "").slice(-1); inp.classList.remove("good", "bad"); if (inp.value && ins[i + 1]) ins[i + 1].focus(); else if (inp.value) $("#rest").focus(); });
+      inp.addEventListener("keydown", e => { if (e.key === "Backspace" && !inp.value && ins[i - 1]) { ins[i - 1].focus(); e.preventDefault(); } if (e.key === "Enter") { e.preventDefault(); check(); } });
+    });
+    $("#rest").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); check(); } });
+    app.querySelectorAll("input.scratch").forEach(r => r.addEventListener("input", () => r.value = r.value.replace(/\D/g, "").slice(-1)));
+    if (ins[0]) ins[0].focus();
+    $("#chk").onclick = check; $("#new").onclick = render;
+  }
+  function check() {
+    const ins = [...app.querySelectorAll('input.d[data-row="q"]')], qs = ins.map(x => x.value || " ").join("").trim(), fb = $("#fb");
+    if (!qs) { fb.className = "fb ko"; fb.textContent = "Écris le quotient sous le diviseur."; return; }
+    const qv = /\s/.test(qs) ? NaN : +qs, rv = +($("#rest").value || 0), Q = String(cur.q);
+    ins.forEach((x, i) => { x.classList.toggle("good", x.value === Q[i]); x.classList.toggle("bad", x.value !== Q[i]); });
+    $("#rest").classList.toggle("good", rv === cur.r); $("#rest").classList.toggle("bad", rv !== cur.r);
+    if (qv === cur.q && rv === cur.r) {
+      if (tries === 0) { good++; addStars(3); } done++;
+      fb.className = "fb ok"; fb.textContent = "✅ " + pick(PRAISE) + ` ${nf(cur.a)} = ${cur.b} × ${nf(cur.q)}${cur.r ? " + " + cur.r : ""}`;
+      confetti(); $("#ps").textContent = `${good} / ${done}`; $("#chk").disabled = true; setTimeout(render, 2600);
+    } else {
+      tries++;
+      fb.className = "fb ko"; fb.textContent = tries < 3 ? (qv === cur.q ? "❌ Le quotient est juste, vérifie le reste (il doit être plus petit que " + cur.b + ")." : "❌ Pas encore ! Les cases rouges sont à corriger.") : `La réponse était ${nf(cur.q)}, reste ${cur.r}. On en fait une autre ?`;
+      if (tries >= 3) { done++; $("#ps").textContent = `${good} / ${done}`; setTimeout(render, 3400); }
     }
   }
   render();
@@ -1324,7 +1411,7 @@ const MODES = {
   jeu: gameScreen,
   chrono: () => series("Calcul mental", GEN.mental, 999, { timed: 60 }),
   tables: tablesScreen,
-  "posee-sub": () => poseScreen("posee-sub"), "posee-mul": () => poseScreen("posee-mul"), "posee-add": () => poseScreen("posee-add"),
+  "posee-sub": () => poseScreen("posee-sub"), "posee-mul": () => poseScreen("posee-mul"), "posee-add": () => poseScreen("posee-add"), "posee-div": divScreen,
   problemes: () => series("Problèmes", GEN.probleme, L <= 1 ? 6 : 10),
   fractions: () => series("Fractions", GEN.fraction, 10),
   mesures: () => series("Mesures", GEN.mesure, 10),
