@@ -35,7 +35,7 @@ const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLow
 async function searchAudio(auth, q) {
   const tok = auth.userToken || auth.pageToken;
   const j = await graph("/ig_audio", { audio_type: "music", user_id: auth.igId, search_query: q, access_token: tok });
-  return (j.data || []).map(a => ({ audio_id: a.audio_id || a.id, title: a.title, artist: a.display_artist, duration_ms: a.duration_in_ms }));
+  return (j.audio || j.data || []).map(a => ({ audio_id: a.audio_id || a.id, title: a.title, artist: a.display_artist, duration_ms: a.duration_in_ms, link: a.on_platform_audio_preview_link }));
 }
 
 module.exports = async (req, res) => {
