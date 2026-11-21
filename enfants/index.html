@@ -775,8 +775,8 @@ const PROG = [
   "Début de CE2 : nombres jusqu'à 10 000, tables jusqu'à 6, multiplication posée par un chiffre.",
   "Fin de CE2 : toutes les tables jusqu'à 10, multiplication posée d'une centaine par un chiffre, fractions.",
   "Début de CM1 : grands nombres, tables jusqu'à 12, multiplication posée par 2 chiffres. Pas encore de division.",
-  "Fin de CM1 : la division arrive (posée, par un chiffre), fractions plus grandes que 1.",
-  "Début de CM2 : nombres jusqu'au million, division posée de milliers par un chiffre.",
+  "Fin de CM1 : la division arrive (posée, par un chiffre), additions et soustractions de nombres à virgule, fractions plus grandes que 1.",
+  "Début de CM2 : nombres jusqu'au million, division posée de milliers par un chiffre, nombre à virgule multiplié par un chiffre.",
   "Fin de CM2 : division posée par 2 chiffres, multiplication par 3 chiffres, sommes de fractions.",
   "Au-delà (6e) : de grands calculs, pour les champions !"
 ];
@@ -980,7 +980,7 @@ const NAMES = ["Léo", "Emma", "Hugo", "Jade", "Louis", "Chloé", "Tom", "Lina",
 const BOYS = ["Léo", "Hugo", "Louis", "Tom", "Nathan"];
 const il = n => BOYS.includes(n) ? "il" : "elle", Il = n => BOYS.includes(n) ? "Il" : "Elle";
 const TABLES = [[], [], [2, 5, 10], [2, 3, 4, 5, 10], [2, 3, 4, 5, 6, 10], [2, 3, 4, 5, 6, 7, 8, 9, 10], [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], [3, 4, 6, 7, 8, 9, 11, 12], [6, 7, 8, 9, 11, 12], [6, 7, 8, 9, 11, 12], [7, 8, 9, 11, 12]];
-const has = { mul: () => L >= 2, frac: () => L >= 3, mes: () => L >= 2, posAdd: () => L >= 1, posSub: () => L >= 3, posMul: () => L >= 4, posDiv: () => L >= 7 };
+const has = { mul: () => L >= 2, frac: () => L >= 3, mes: () => L >= 2, posAdd: () => L >= 1, posSub: () => L >= 3, posMul: () => L >= 4, posDiv: () => L >= 7, dec: () => L >= 7 };
 function q(expr, ans, word) { return { html: `<p class="q"${word ? ' style="font-size:2.05rem"' : ""}>${expr}${word ? "" : " = ?"}</p>`, answer: ans, kind: "num", expr }; }
 function t(text, ans, unit) { return { html: `<p class="qtext">${text}</p>`, answer: ans, kind: "num", unit }; }
 const GEN = {
@@ -1110,6 +1110,7 @@ function home() {
     ${tile("posee-sub", "➖", "Soustraction posée", "Avec les cases pour les retenues.", has.posSub() ? "" : lock(3), !has.posSub())}
     ${tile("posee-mul", "🧮", "Multiplication posée", "Avec les lignes intermédiaires.", has.posMul() ? "" : lock(4), !has.posMul())}
     ${tile("posee-div", "➗", "Division posée", "Avec la potence et le reste.", has.posDiv() ? "" : lock(7), !has.posDiv())}
+    ${tile("posee-dec", "🔢", "Nombres à virgule", "Additions, soustractions et multiplications avec la virgule.", has.dec() ? "" : lock(7), !has.dec())}
     ${tile("problemes", "🏔️", "Problèmes", "Des histoires à la montagne.")}
     ${tile("fractions", "🍕", "Fractions", "Colorier, comparer, calculer.", has.frac() ? "" : lock(3), !has.frac())}
     ${tile("mesures", "📏", "Mesures", "Mètres, minutes, kilos…", has.mes() ? "" : lock(2), !has.mes())}
@@ -1246,6 +1247,84 @@ function poseScreen(kind) {
       tries++; if (tries === 1) { done++; $("#ps").textContent = `${good} / ${done}`; }
       fb.className = "fb ko"; fb.textContent = tries < 3 ? "❌ Pas encore ! Les cases rouges sont à corriger. Vérifie tes retenues 😉" : `La bonne réponse était ${nf(cur.res)}. On en fait un autre ?`;
       if (tries >= 3) setTimeout(render, 3200);
+    }
+  }
+  render();
+}
+
+/* ---------- nombres à virgule posés (CM1 : + et − · CM2 : × par un entier) ---------- */
+function decScreen() {
+  stop();
+  let done = 0, good = 0, tries = 0, cur, tmo;
+  const fmt = (v, p) => { const t = String(v).padStart(p + 1, "0"); return p ? t.slice(0, -p) + "," + t.slice(-p) : t; };
+  const dnum = (maxInt, p) => { let f; do { f = R(1, 10 ** p - 1); } while (f % 10 === 0); return R(L >= 8 ? 0 : 1, maxInt) * 10 ** p + f; };
+  function make() {
+    const ops = L >= 8 ? ["+", "−", "×"] : ["+", "−"], op = pick(ops);
+    if (op === "×") {
+      const p = L >= 9 ? R(1, 2) : 1, a = dnum(L >= 10 ? 99 : 30, p), b = R(2, 9), res = a * b;
+      if (res % 10 === 0 || a < 10 ** p) return make();
+      return { op, rows: [fmt(a, p), String(b)], res: fmt(res, p), mode: "right" };
+    }
+    const maxP = L >= 8 ? 3 : 2, pa = R(1, maxP), pb = R(1, maxP), P = Math.max(pa, pb), mx = L >= 8 ? 999 : 99;
+    const a = dnum(mx, pa), b = dnum(mx, pb);
+    const A = a * 10 ** (P - pa), B = b * 10 ** (P - pb);
+    if (op === "−" && A <= B) return make();
+    const res = op === "+" ? A + B : A - B;
+    if (res % 10 === 0 || A === B) return make();
+    return { op, rows: [fmt(a, pa), fmt(b, pb)], res: fmt(res, P), mode: "comma", P };
+  }
+  function render() {
+    clearTimeout(tmo); cur = make(); tries = 0;
+    let W, place;
+    if (cur.mode === "comma") {
+      const intLen = s => s.split(",")[0].length, ni = Math.max(...cur.rows.map(intLen), intLen(cur.res)), cc = 1 + ni;
+      W = cc + 1 + cur.P;
+      place = str => { const out = Array(W).fill(""), [ip, dp = ""] = str.split(","); [...ip].forEach((ch, i) => out[cc - ip.length + i] = ch); if (str.includes(",")) out[cc] = ","; [...dp].forEach((ch, i) => out[cc + 1 + i] = ch); return out; };
+    } else {
+      W = Math.max(...cur.rows.map(r => r.length), cur.res.length) + 1;
+      place = str => { const out = Array(W).fill(""); [...str].forEach((ch, i) => out[W - str.length + i] = ch); return out; };
+    }
+    const want = place(cur.res), first = want.findIndex(x => x !== ""), isComma = c => want[c] === ",";
+    const retRow = lab => { let r = ""; for (let c = 0; c < W; c++) r += c === 0 ? `<div class="c rlab">${lab}</div>` : isComma(c) ? `<div class="c"></div>` : `<input class="r" inputmode="numeric" maxlength="2" aria-label="retenue" autocomplete="off">`; return r; };
+    let h = `<div class="op" style="grid-template-columns:repeat(${W},var(--cw,42px))">` + retRow("ret.");
+    cur.rows.forEach((r, li) => {
+      place(r).forEach((ch, c) => h += c === 0 && li === cur.rows.length - 1 ? `<div class="c sign">${cur.op}</div>` : `<div class="c">${ch}</div>`);
+      if (cur.op === "−" && li === 0) for (let c = 0; c < W; c++) h += c === 0 ? `<div class="c rlab"></div>` : isComma(c) ? `<div class="c"></div>` : `<input class="r" inputmode="numeric" maxlength="2" aria-label="retenue du bas" autocomplete="off">`;
+    });
+    h += `<div class="line"></div>`;
+    for (let c = 0; c < W; c++) h += c < first ? `<div class="c"></div>` : isComma(c) ? `<div class="c">,</div>` : `<input class="d" data-col="${c}" inputmode="numeric" maxlength="1" aria-label="chiffre" autocomplete="off">`;
+    h += `</div>`;
+    const tip = cur.mode === "comma" ? "Les virgules sont bien les unes sous les autres. S'il manque un chiffre après la virgule, c'est comme un 0 !" : "Calcule comme si la virgule n'existait pas, puis mets autant de chiffres après la virgule dans le résultat qu'en haut.";
+    app.innerHTML = `<div class="card">${topbar("Nombres à virgule", `<span class="pill" id="ps">${good} / ${done}</span>`)}
+      <p class="hint" style="margin-top:0">Niveau ${LEVELS[L].n} · les calculs changent à chaque fois</p>
+      <div class="pose">${h}</div>
+      <p class="hint">${tip} Commence par la droite : le curseur avance tout seul vers la gauche.</p>
+      <div class="fb" id="fb" aria-live="polite"></div>
+      <div class="row"><button class="go" id="chk">Vérifier</button><button class="go alt" id="new">Nouveau calcul</button></div></div>`;
+    bindBack();
+    const ins = [...app.querySelectorAll("input.d")], at = c => ins.find(x => +x.dataset.col === c);
+    const prev = c => { for (let k = c - 1; k >= first; k--) if (at(k)) return at(k); }, next = c => { for (let k = c + 1; k < W; k++) if (at(k)) return at(k); };
+    ins.forEach(inp => {
+      const c = +inp.dataset.col;
+      inp.addEventListener("input", () => { inp.value = inp.value.replace(/\D/g, "").slice(-1); inp.classList.remove("good", "bad"); if (inp.value) prev(c)?.focus(); });
+      inp.addEventListener("keydown", e => { const go = t => { if (t) { t.focus(); e.preventDefault(); } };
+        if (e.key === "ArrowLeft") go(prev(c)); if (e.key === "ArrowRight") go(next(c)); if (e.key === "Backspace" && !inp.value) go(next(c)); if (e.key === "Enter") { e.preventDefault(); check(); } });
+    });
+    app.querySelectorAll("input.r").forEach(r => r.addEventListener("input", () => r.value = r.value.replace(/\D/g, "").slice(0, 2)));
+    ins[ins.length - 1]?.focus();
+    $("#chk").onclick = check; $("#new").onclick = render;
+  }
+  function check() {
+    const want = [...app.querySelectorAll("input.d")], fb = $("#fb"), exp = cur.res.replace(",", "");
+    if (want.every(x => !x.value)) { fb.className = "fb ko"; fb.textContent = "Écris ton résultat dans la dernière ligne."; return; }
+    let ok = true; want.forEach((x, i) => { const g = x.value === exp[i]; x.classList.toggle("good", g); x.classList.toggle("bad", !g); if (!g) ok = false; });
+    if (ok) {
+      if (tries === 0) { good++; done++; addStars(2); }
+      fb.className = "fb ok"; fb.textContent = "✅ " + pick(PRAISE); confetti(); $("#ps").textContent = `${good} / ${done}`; $("#chk").disabled = true; tmo = setTimeout(render, 2200);
+    } else {
+      tries++; if (tries === 1) { done++; $("#ps").textContent = `${good} / ${done}`; }
+      fb.className = "fb ko"; fb.textContent = tries < 3 ? "❌ Pas encore ! Les cases rouges sont à corriger. Attention à la virgule 😉" : `La bonne réponse était ${cur.res}. On en fait un autre ?`;
+      if (tries >= 3) tmo = setTimeout(render, 3200);
     }
   }
   render();
@@ -1417,7 +1496,7 @@ const MODES = {
   jeu: gameScreen,
   chrono: () => series("Calcul mental", GEN.mental, 999, { timed: 60 }),
   tables: tablesScreen,
-  "posee-sub": () => poseScreen("posee-sub"), "posee-mul": () => poseScreen("posee-mul"), "posee-add": () => poseScreen("posee-add"), "posee-div": divScreen,
+  "posee-sub": () => poseScreen("posee-sub"), "posee-mul": () => poseScreen("posee-mul"), "posee-add": () => poseScreen("posee-add"), "posee-div": divScreen, "posee-dec": decScreen,
   problemes: () => series("Problèmes", GEN.probleme, L <= 1 ? 6 : 10),
   fractions: () => series("Fractions", GEN.fraction, 10),
   mesures: () => series("Mesures", GEN.mesure, 10),
