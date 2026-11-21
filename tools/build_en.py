@@ -13,12 +13,12 @@ import re, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.megeveparcoeur.fr"
-SUB = "meteo|webcams|balades|carte|boutique"
+SUB = "meteo|webcams|galerie|balades|carte|boutique"
 
-NAV_FR = [("#agenda", "Agenda"), ("meteo/", "Météo &amp; neige"), ("webcams/", "Webcams"), ("balades/", "Balades"),
-          ("carte/", "Carte"), ("#galerie", "Galerie"), ("enfants/", "Le coin des enfants"), ("boutique/", "Boutique")]
-NAV_EN = [("#agenda", "What's on"), ("meteo/", "Snow &amp; weather"), ("webcams/", "Webcams"), ("balades/", "Walks"),
-          ("carte/", "Map"), ("#galerie", "Gallery"), ("enfants/", "Kids' corner (FR)"), ("boutique/", "Shop")]
+NAV_FR = [("#agenda", "Agenda"), ("meteo/", "Météo &amp; neige"), ("webcams/", "Webcams"), ("galerie/", "Galerie"), ("balades/", "Balades"),
+          ("carte/", "Carte"), ("enfants/", "Le coin des enfants"), ("boutique/", "Boutique")]
+NAV_EN = [("#agenda", "What's on"), ("meteo/", "Snow &amp; weather"), ("webcams/", "Webcams"), ("galerie/", "Gallery"), ("balades/", "Walks"),
+          ("carte/", "Map"), ("enfants/", "Kids' corner (FR)"), ("boutique/", "Shop")]
 
 
 def nav(items, prefix, path, other):
@@ -27,6 +27,7 @@ def nav(items, prefix, path, other):
     for href, label in items:
         cur = ' aria-current="page"' if href == path else ''
         h = "/enfants/" if href == "enfants/" else f"{prefix}{href}"
+        if href.startswith("#"): cur = ""
         li.append(f'      <li><a href="{h}"{cur}>{label}</a></li>')
     h, l, lang = other
     li.append(f'      <li><a class="lang" href="{h}" lang="{lang}" hreflang="{lang}">{l}</a></li>')
@@ -156,9 +157,14 @@ HOME = [
     ('<div class="kicker">Megève &amp; ses alentours</div>', '<div class="kicker">Megève &amp; around</div>'),
     ('<p>Pour les amoureux de Megève : la région en randonnée, à vélo, à ski ou en trail, et les bons moments du village, saison après saison.</p>',
      '<p>For everyone who loves Megève: the area on foot, by bike, on skis or trail running, and the best moments in the village, season after season.</p>'),
-    ('Suivre @megeveparcoeur</a>', 'Follow @megeveparcoeur</a>'),
-    (">Voir l'agenda de Megève</a>", ">See what's on in Megève</a>"),
-    (">📬 L'agenda par e-mail</a>", ">📬 Events by email</a>"),
+    ("</svg>Voir l'agenda</a>", "</svg>See what's on</a>"),
+    ("</svg>L'agenda par e-mail</a>", "</svg>Events by email</a>"),
+    ('</svg>Suivre sur Instagram</a>', '</svg>Follow on Instagram</a>'),
+    ('<a class="propose" href="/proposer/">', '<a class="propose" href="__EN__submit-event/">'),
+    ('<b>Vous organisez un événement à Megève ou aux alentours ?</b>', '<b>Organising an event in or around Megève?</b>'),
+    ("<span>Concert, marché, expo, fête de village… Proposez-le en 2 minutes : il rejoint l'agenda et la newsletter du jeudi, gratuitement.</span>",
+     "<span>Concert, market, exhibition, village fête… Submit it in 2 minutes: it goes into the events guide and the Thursday newsletter, free of charge.</span>"),
+    ('<span class="pb">Proposer un événement →</span>', '<span class="pb">Submit an event →</span>'),
     ('aria-label="Secouer la boule à neige"', 'aria-label="Shake the snow globe"'),
     ('aria-label="La place du village de Megève sous la neige, la nuit, dans une boule de Noël"',
      'aria-label="Megève village square under the snow at night, inside a Christmas bauble"'),
@@ -188,27 +194,6 @@ HOME = [
     ('aria-label="Filtrer par village"', 'aria-label="Filter by village"'),
     ('data-l="all">Tout</button>', 'data-l="all">All</button>'),
     ('aria-label="Filtres rapides"', 'aria-label="Quick filters"'),
-    ('<div class="kicker">Coups de cœur</div>', '<div class="kicker">Our favourites</div>'),
-    ('<h2>Nos balades préférées</h2>', '<h2>Our favourite walks</h2>'),
-    ("<p>Les itinéraires qu'on refait chaque année, à pied, à vélo ou en raquettes.</p>",
-     '<p>The routes we come back to every year, on foot, by bike or on snowshoes.</p>'),
-    ('<div class="meta">Rando · Patrimoine</div><h3>Le chemin du Calvaire</h3><p>Une promenade au-dessus du village, entre alpages et vieilles fermes, avec vue sur toute la vallée.</p>',
-     '<div class="meta">Hike · Heritage</div><h3>Le chemin du Calvaire</h3><p>A walk above the village, between pastures and old farms, with a view over the whole valley.</p>'),
-    ('<div class="meta">Rando · Panorama</div><h3>Les crêtes du Mont Joly</h3><p>Le grand classique pour les panoramas : le massif du Mont-Blanc en face, les Aravis dans le dos.</p>',
-     '<div class="meta">Hike · Viewpoint</div><h3>The Mont Joly ridges</h3><p>The great classic for views: the Mont Blanc massif in front of you, the Aravis behind.</p>'),
-    ("<div class=\"meta\">Ski · Raquettes</div><h3>La Côte 2000</h3><p>Le secteur le plus sauvage du domaine, idéal pour une journée au calme loin de l'agitation du village.</p>",
-     '<div class="meta">Ski · Snowshoes</div><h3>La Côte 2000</h3><p>The wildest part of the ski area, perfect for a quiet day away from the bustle of the village.</p>'),
-    ('>🗺️ La carte des beaux coins</a>', '>🗺️ Map of our favourite spots</a>'),
-    ('>🥾 Balades &amp; raquettes balisées</a>', '>🥾 Signposted walks &amp; snowshoe trails</a>'),
-    ('<div class="kicker" style="color:#ff8a97">Boutique solidaire</div>', '<div class="kicker" style="color:#ff8a97">Charity shop</div>'),
-    ('<h2>Portez Megève sur le cœur</h2>', '<h2>Wear Megève close to your heart</h2>'),
-    ('<p>En partenariat avec la Coupe des Banques Genevoises : casquettes, tours de cou, tasses et protections solaires, dont 100 % des bénéfices sont reversés à une association, annoncée prochainement.</p>',
-     '<p>In partnership with the Coupe des Banques Genevoises: caps, neck warmers, mugs and sun protection, with 100% of profits going to a charity, to be announced soon.</p>'),
-    ('>Découvrir la boutique →</a>', '>Visit the shop →</a>'),
-    ('aria-label="Produits prévus"', 'aria-label="Planned products"'),
-    ('</svg>Casquette</div>', '</svg>Cap</div>'),
-    ('</svg>Tour de cou</div>', '</svg>Neck warmer</div>'),
-    ('</svg>Tasse</div>', '</svg>Mug</div>'),
     ('aria-label="Photo agrandie"', 'aria-label="Enlarged photo"'),
     ('aria-label="Fermer"', 'aria-label="Close"'),
     ('aria-label="Photo précédente"', 'aria-label="Previous photo"'),
@@ -511,8 +496,23 @@ BOUTIQUE = [
     ('>Instagram : @megeveparcoeur</a>', '>Instagram: @megeveparcoeur</a>'),
 ]
 
+def galerie_special(html):
+    return html.replace('<a href="/en/galerie/">English</a>', '<a href="/galerie/" lang="fr" hreflang="fr">Français</a>')
+
+
+GALERIE_ONLY = [
+    ('<title>Galerie photos · Megève, Combloux, Praz au fil des saisons · Megève par cœur</title>',
+     '<title>Photo gallery · Megève, Combloux, Praz through the seasons · Megève par cœur</title>'),
+    ('content="Les photos de Megève au fil des saisons : panoramas, balades, événements du village, et vos plus belles photos partagées avec @megeveparcoeur."',
+     'content="Photos of Megève through the seasons: views, walks, village events, and your best photos shared with @megeveparcoeur."'),
+    ('<h1>Megève <span class="h">en images</span></h1>', '<h1>Megève <span class="h">in pictures</span></h1>'),
+    ('<p>Les photos et petits films de Vincent, et les vôtres : Megève, Combloux, Demi-Quartier et Praz-sur-Arly au fil des saisons.</p>',
+     "<p>Vincent's photos and short films, and yours: Megève, Combloux, Demi-Quartier and Praz-sur-Arly through the seasons.</p>"),
+]
+
 PAGES = [
     ("", HOME, [], home_special),
+    ("galerie/", HOME + GALERIE_ONLY, [], galerie_special),
     ("meteo/", METEO, [], None),
     ("webcams/", WEBCAMS, [], None),
     ("balades/", BALADES, BALADES_ALL, None),
@@ -522,6 +522,7 @@ PAGES = [
 
 
 def build():
+    used = set()
     for path, pairs, glob, special in PAGES:
         src = os.path.join(ROOT, path, "index.html")
         fr = open(src, encoding="utf-8").read()
@@ -533,7 +534,11 @@ def build():
         # --- page EN
         en = fr2.replace('<html lang="fr">', '<html lang="en">', 1)
         en = head_links(en, path, "en")
-        en = apply(en, pairs, path or "accueil")
+        if path in ("", "galerie/"):  # l'accueil et la galerie se partagent le dictionnaire HOME
+            used |= {fr for fr, _ in pairs if fr in en}
+            en = apply(en, pairs, path or "accueil", strict=False)
+        else:
+            en = apply(en, pairs, path or "accueil")
         for a, b in glob:
             en = en.replace(a, b)
         if special:
@@ -545,6 +550,9 @@ def build():
         os.makedirs(os.path.dirname(dst), exist_ok=True)
         open(dst, "w", encoding="utf-8").write(en)
         print("ok", "/en/" + path)
+    missing = [fr for fr, _ in HOME + GALERIE_ONLY if fr not in used]
+    if missing:
+        sys.exit("[accueil/galerie] textes introuvables : " + " | ".join(m[:70] for m in missing))
 
 
 if __name__ == "__main__":

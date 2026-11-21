@@ -361,6 +361,23 @@ footer a{color:#fbf3e6}
 
 /* menu en une ligne qui défile sur mobile */
 @media(max-width:720px){.nav ul{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav ul::-webkit-scrollbar{display:none}.nav ul li{flex:0 0 auto;white-space:nowrap}}
+.btns{display:grid;grid-template-columns:repeat(3,max-content);gap:12px}
+.btn{justify-content:center;min-height:52px;padding:0 22px;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.cta{background:var(--heart);color:#fff;box-shadow:0 10px 26px rgba(200,50,61,.38)}
+.btn.mail{background:#fbf3e6;color:#12284a;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.btn.insta{color:#fff;background:rgba(255,255,255,.07);border:1.5px solid transparent;background-image:linear-gradient(#13284a,#13284a),linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);background-origin:border-box;background-clip:padding-box,border-box}
+.btn.insta:hover{background-image:linear-gradient(135deg,#fa7e1e,#d62976,#962fbf),linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+@media(max-width:900px){.btns{grid-template-columns:1fr 1fr}.btn.insta{grid-column:1/-1}}
+@media(max-width:520px){.btns{grid-template-columns:1fr}.btn{width:100%}}
+#proposer-bloc{padding:40px 0 28px}
+.propose{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--heart);border-radius:20px;padding:20px 24px;text-decoration:none;color:var(--ink);box-shadow:0 10px 30px rgba(18,40,74,.08);transition:transform .15s,box-shadow .15s}
+.propose:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(18,40,74,.14)}
+.propose .pi{font-size:2rem}.propose .pt b{display:block;font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:4px}
+.propose .pt span{color:var(--muted)}
+.propose .pb{background:var(--heart);color:#fff;font-weight:800;border-radius:999px;padding:12px 20px;white-space:nowrap}
+@media(max-width:760px){.propose{grid-template-columns:auto 1fr}.propose .pb{grid-column:1/-1;text-align:center}}
+#lettre{padding-top:8px}#lettre .nl{margin:0}
 </style>
 </head>
 <body>
@@ -375,9 +392,9 @@ footer a{color:#fbf3e6}
       <li><a href="/#agenda">Agenda</a></li>
       <li><a href="/meteo/">Météo &amp; neige</a></li>
       <li><a href="/webcams/">Webcams</a></li>
+      <li><a href="/galerie/">Galerie</a></li>
       <li><a href="/balades/">Balades</a></li>
       <li><a href="/carte/">Carte</a></li>
-      <li><a href="/#galerie">Galerie</a></li>
       <li><a href="/enfants/">Le coin des enfants</a></li>
       <li><a href="/boutique/">Boutique</a></li>
       <li><a class="lang" href="/en/" lang="en" hreflang="en">EN</a></li>
@@ -394,9 +411,9 @@ footer a{color:#fbf3e6}
       <h1>Megève <span class="h">par cœur</span><span class="sub">Agenda, neige &amp; bons plans à Megève et alentours</span></h1>
       <p>Pour les amoureux de Megève : la région en randonnée, à vélo, à ski ou en trail, et les bons moments du village, saison après saison.</p>
       <div class="btns">
-      <a class="btn primary" href="https://www.instagram.com/megeveparcoeur/"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>Suivre @megeveparcoeur</a>
-      <a class="btn ghost" href="#agenda">Voir l'agenda de Megève</a>
-      <a class="btn ghost" href="#newsletter">📬 L'agenda par e-mail</a>
+      <a class="btn cta" href="#agenda"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Voir l'agenda</a>
+      <a class="btn mail" href="#newsletter"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg>L'agenda par e-mail</a>
+      <a class="btn insta" href="https://www.instagram.com/megeveparcoeur/"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>Suivre sur Instagram</a>
     </div>
     </div>
     <div class="hang">
@@ -434,50 +451,15 @@ footer a{color:#fbf3e6}
 </div>
 
 <main>
-<section id="a-la-une">
-  <div class="wrap feature">
-    <video src="videos/toquicimes.mp4" poster="videos/toquicimes-poster.jpg" controls playsinline preload="metadata" aria-label="Mini-film : Les Toquicimes à Megève"></video>
-    <div>
-      <div class="kicker">À la une</div>
-      <h2>Les Toquicimes en images</h2>
-      <p>Une minute au cœur du festival gastronomique de Megève : les chefs, le marché des producteurs, les saveurs du terroir. Filmé et monté par Vincent.</p>
-      <span class="credit">♪ Musique originale : <b>Akhilleus</b></span>
-    </div>
-  </div>
-</section>
-
-<div class="deco" aria-hidden="true"><svg viewBox="0 0 220 56"><path d="M6 50L48 20 66 32 96 8 122 30 140 18 176 44 214 50" fill="none" stroke="#6f93bf" stroke-width="1.8" stroke-linejoin="round"/><path d="M96 8l-10 8 5-1 5 4 5-5 6 2zM48 20l-7 5 4 0 3 2 4-3 4 1z" fill="#6f93bf" opacity=".55"/><g fill="#3f6150"><path d="M30 52l8-14-4 1 6-10-3 1 5-9 5 9-3-1 6 10-4-1 8 14z"/><path d="M182 52l6-11-3 1 5-8-2 1 4-7 4 7-2-1 5 8-3-1 6 11z"/><path d="M196 52l5-9-3 1 4-6-2 1 3-6 3 6-2-1 4 6-3-1 5 9z"/></g><circle cx="160" cy="12" r="3" fill="#e0b25a"/></svg></div>
-<section id="vos-photos" style="padding-top:8px">
+<section id="proposer-bloc">
   <div class="wrap">
-    <div class="fans">
-      <div class="fans-hd">
-        <div class="kicker">Vos photos</div>
-        <h2>Megève vue par vous</h2>
-        <p>Partagez vos plus belles photos de Megève, Combloux, Demi-Quartier ou Praz avec <b>#megeveparcoeur</b> ou en identifiant <b>@megeveparcoeur</b> : chaque semaine, nos coups de cœur sont publiés ici et sur Instagram, avec votre nom.</p>
-        <a class="btn" href="https://www.instagram.com/megeveparcoeur/" target="_blank" rel="noopener">📷 Partager sur Instagram</a>
-      </div>
-      <div class="fans-grid" id="fans-grid"><p class="fans-empty">Les premières photos de la communauté arrivent bientôt. La vôtre sera peut-être la première ✨</p></div>
-    </div>
+    <a class="propose" href="/proposer/">
+      <span class="pi" aria-hidden="true">📝</span>
+      <span class="pt"><b>Vous organisez un événement à Megève ou aux alentours ?</b><span>Concert, marché, expo, fête de village… Proposez-le en 2 minutes : il rejoint l'agenda et la newsletter du jeudi, gratuitement.</span></span>
+      <span class="pb">Proposer un événement →</span>
+    </a>
   </div>
 </section>
-<section id="galerie" style="padding-top:8px">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="kicker">Galerie</div>
-        <h2>Megève au fil des saisons</h2>
-        <p>Les photos de Vincent, prises au fil des balades : lever de soleil sur le Mont-Blanc, forêts d'automne et rendez-vous du village.</p>
-      </div>
-      <div class="tabs" role="group" aria-label="Filtrer les photos" id="tabs"></div>
-    </div>
-    <div class="gallery" id="gallery"></div>
-    <p class="note">Touchez une photo pour l'agrandir.</p>
-  </div>
-</section>
-
-
-
-<div class="deco" aria-hidden="true"><svg viewBox="0 0 220 56"><path d="M6 50L48 20 66 32 96 8 122 30 140 18 176 44 214 50" fill="none" stroke="#6f93bf" stroke-width="1.8" stroke-linejoin="round"/><path d="M96 8l-10 8 5-1 5 4 5-5 6 2zM48 20l-7 5 4 0 3 2 4-3 4 1z" fill="#6f93bf" opacity=".55"/><g fill="#3f6150"><path d="M30 52l8-14-4 1 6-10-3 1 5-9 5 9-3-1 6 10-4-1 8 14z"/><path d="M182 52l6-11-3 1 5-8-2 1 4-7 4 7-2-1 5 8-3-1 6 11z"/><path d="M196 52l5-9-3 1 4-6-2 1 3-6 3 6-2-1 4 6-3-1 5 9z"/></g><circle cx="160" cy="12" r="3" fill="#e0b25a"/></svg></div>
 <section id="agenda" style="padding-top:8px">
   <div class="wrap">
     <div class="sec-head">
@@ -495,17 +477,6 @@ footer a{color:#fbf3e6}
         <button class="tab" aria-pressed="false" data-l="Praz-sur-Arly">Praz-sur-Arly</button>
       </div>
     </div>
-    <div class="nl" id="newsletter">
-  <div><div class="kicker" style="color:#f3c27a">📬 Chaque jeudi</div>
-    <h2>L'agenda de la semaine par e-mail</h2>
-    <p>Tous les rendez-vous de Megève, Combloux, Demi-Quartier et Praz, dans ta boîte mail le jeudi. Gratuit, sans pub, désinscription en un clic.</p></div>
-  <form id="nl-form" novalidate>
-    <div class="row"><input type="email" name="email" required autocomplete="email" placeholder="ton@email.fr" aria-label="E-mail"><button type="submit">Je m'inscris</button></div>
-    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="c"><input type="checkbox" name="consent" required> J'accepte de recevoir l'agenda de Megève par cœur par e-mail. Mon adresse n'est utilisée que pour cet envoi.</label>
-    <div class="msg" id="nl-msg" aria-live="polite"></div>
-  </form>
-</div>
     <div class="quick" id="ag-quick" role="group" aria-label="Filtres rapides"></div>
     <div class="agenda" id="agenda-list"></div>
     <div class="ag-more">
@@ -517,52 +488,23 @@ footer a{color:#fbf3e6}
 </section>
 
 <div class="deco" aria-hidden="true"><svg viewBox="0 0 220 56"><path d="M6 50L48 20 66 32 96 8 122 30 140 18 176 44 214 50" fill="none" stroke="#6f93bf" stroke-width="1.8" stroke-linejoin="round"/><path d="M96 8l-10 8 5-1 5 4 5-5 6 2zM48 20l-7 5 4 0 3 2 4-3 4 1z" fill="#6f93bf" opacity=".55"/><g fill="#3f6150"><path d="M30 52l8-14-4 1 6-10-3 1 5-9 5 9-3-1 6 10-4-1 8 14z"/><path d="M182 52l6-11-3 1 5-8-2 1 4-7 4 7-2-1 5 8-3-1 6 11z"/><path d="M196 52l5-9-3 1 4-6-2 1 3-6 3 6-2-1 4 6-3-1 5 9z"/></g><circle cx="160" cy="12" r="3" fill="#e0b25a"/></svg></div>
-<section id="coups-de-coeur" style="padding-top:8px">
+<section id="lettre">
   <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="kicker">Coups de cœur</div>
-        <h2>Nos balades préférées</h2>
-        <p>Les itinéraires qu'on refait chaque année, à pied, à vélo ou en raquettes.</p>
-      </div>
-    </div>
-    <div class="cards">
-      <article class="card"><div class="meta">Rando · Patrimoine</div><h3>Le chemin du Calvaire</h3><p>Une promenade au-dessus du village, entre alpages et vieilles fermes, avec vue sur toute la vallée.</p></article>
-      <article class="card"><div class="meta">Rando · Panorama</div><h3>Les crêtes du Mont Joly</h3><p>Le grand classique pour les panoramas : le massif du Mont-Blanc en face, les Aravis dans le dos.</p></article>
-      <article class="card"><div class="meta">Ski · Raquettes</div><h3>La Côte 2000</h3><p>Le secteur le plus sauvage du domaine, idéal pour une journée au calme loin de l'agitation du village.</p></article>
-    </div>
-    <div class="cc-links"><a href="carte/">🗺️ La carte des beaux coins</a><a href="balades/">🥾 Balades &amp; raquettes balisées</a></div>
-  </div>
-</section>
-
-<div class="deco" aria-hidden="true"><svg viewBox="0 0 220 56"><path d="M6 50L48 20 66 32 96 8 122 30 140 18 176 44 214 50" fill="none" stroke="#6f93bf" stroke-width="1.8" stroke-linejoin="round"/><path d="M96 8l-10 8 5-1 5 4 5-5 6 2zM48 20l-7 5 4 0 3 2 4-3 4 1z" fill="#6f93bf" opacity=".55"/><g fill="#3f6150"><path d="M30 52l8-14-4 1 6-10-3 1 5-9 5 9-3-1 6 10-4-1 8 14z"/><path d="M182 52l6-11-3 1 5-8-2 1 4-7 4 7-2-1 5 8-3-1 6 11z"/><path d="M196 52l5-9-3 1 4-6-2 1 3-6 3 6-2-1 4 6-3-1 5 9z"/></g><circle cx="160" cy="12" r="3" fill="#e0b25a"/></svg></div>
-<section id="boutique" style="padding-top:8px">
-  <div class="wrap">
-    <div class="shop">
-      <div>
-        <div class="kicker" style="color:#ff8a97">Boutique solidaire</div>
-        <h2>Portez Megève sur le cœur</h2>
-        <p>En partenariat avec la Coupe des Banques Genevoises : casquettes, tours de cou, tasses et protections solaires, dont 100 % des bénéfices sont reversés à une association, annoncée prochainement.</p>
-        <a class="soon" href="boutique/" style="text-decoration:none">Découvrir la boutique →</a>
-      </div>
-      <div class="items" aria-label="Produits prévus">
-        <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 40c0-13 10-23 22-23s22 10 22 23z" fill="#fff" opacity=".9"/><path d="M8 40h40c6 0 10 2 10 5H8z" fill="#fff"/><path d="M32 33c-3-2.2-5-4-5-6a2.5 2.5 0 015-1 2.5 2.5 0 015 1c0 2-2 3.8-5 6z" fill="#d6283c"/></svg>Casquette</div>
-        <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><ellipse cx="32" cy="18" rx="16" ry="6" fill="none" stroke="#fff" stroke-width="4"/><path d="M16 18v26c0 3.3 7.2 6 16 6s16-2.7 16-6V18" fill="#fff" opacity=".9"/><path d="M32 40c-3-2.2-5-4-5-6a2.5 2.5 0 015-1 2.5 2.5 0 015 1c0 2-2 3.8-5 6z" fill="#d6283c"/></svg>Tour de cou</div>
-        <div class="item"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 20h28v22a10 10 0 01-10 10h-8a10 10 0 01-10-10z" fill="#fff" opacity=".9"/><path d="M44 26h4a6 6 0 010 12h-4" stroke="#fff" stroke-width="3" fill="none"/><path d="M30 40c-3-2-5-3.6-5-5.4a2.5 2.5 0 015-1 2.5 2.5 0 015 1c0 1.8-2 3.4-5 5.4z" fill="#d6283c"/></svg>Tasse</div>
-      </div>
-    </div>
+<div class="nl" id="newsletter">
+  <div><div class="kicker" style="color:#f3c27a">📬 Chaque jeudi</div>
+    <h2>L'agenda de la semaine par e-mail</h2>
+    <p>Tous les rendez-vous de Megève, Combloux, Demi-Quartier et Praz, dans ta boîte mail le jeudi. Gratuit, sans pub, désinscription en un clic.</p></div>
+  <form id="nl-form" novalidate>
+    <div class="row"><input type="email" name="email" required autocomplete="email" placeholder="ton@email.fr" aria-label="E-mail"><button type="submit">Je m'inscris</button></div>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="c"><input type="checkbox" name="consent" required> J'accepte de recevoir l'agenda de Megève par cœur par e-mail. Mon adresse n'est utilisée que pour cet envoi.</label>
+    <div class="msg" id="nl-msg" aria-live="polite"></div>
+  </form>
+</div>
   </div>
 </section>
 </main>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo agrandie">
-  <button class="x" id="lb-x" aria-label="Fermer">✕</button>
-  <button class="nav prev" id="lb-prev" aria-label="Photo précédente">‹</button>
-  <img id="lb-img" alt="">
-  <video id="lb-vid" controls playsinline></video>
-  <button class="nav next" id="lb-next" aria-label="Photo suivante">›</button>
-  <p id="lb-cap"></p>
-</div>
 
 <svg class="foot-peaks" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#1b3354" d="M0 120V78L110 40 190 66 300 18 380 58 470 34 590 80 700 26 800 70 900 46 1010 84 1120 22 1210 64 1320 40 1440 70V120z"/><g fill="#e3edf9" opacity=".8"><path d="M300 18l-20 14 9-1 9 6 8-8 12 4z"/><path d="M700 26l-22 16 10-2 10 7 8-9 13 4z"/><path d="M1120 22l-22 16 10-2 9 6 9-8 13 4z"/></g><path fill="var(--night)" d="M0 120V100C140 88 260 104 400 96S660 84 800 98 1100 108 1240 94 1380 90 1440 96V120z"/><g fill="var(--night)"><path d="M40 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M62 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M90 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M230 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M250 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M520 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M548 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M860 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M884 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M1180 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M1206 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M1236 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M1380 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/><path d="M1404 100l9-16h-4l7-12h-3l6-11 6 11h-3l7 12h-4l9 16z"/></g></svg>
 <footer>
@@ -574,51 +516,11 @@ footer a{color:#fbf3e6}
 </footer>
 
 <script>
-let items = [];
-
-const g = document.getElementById("gallery");
-let shown = [];
-function fmtDate(d){try{return new Date(d).toLocaleDateString("fr-FR",{day:"numeric",month:"long",year:"numeric"})}catch(e){return ""}}
-function esc(t){return t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
-function render(f){
-  shown = items.filter(i => f==="all" || i.cat===f);
-  g.innerHTML = shown.map((i,k) =>
-    `<figure class="ph" style="margin:0"><button data-k="${k}" aria-label="Agrandir : ${esc(i.t)}"><img src="${i.thumb}" alt="${esc(i.t)}" loading="lazy">${i.video?'<span class="play"></span>':""}</button><span class="tag">${esc(i.ev || i.cat)}</span><figcaption>${esc(i.t)}${i.date?`<small>${fmtDate(i.date)}</small>`:""}</figcaption></figure>`
-  ).join("");
-}
-const tabs=document.getElementById("tabs");
-function buildTabs(){
-  const cats=[...new Set(items.map(i=>i.cat))];
-  tabs.innerHTML=["all",...cats].map((c,k)=>`<button class="tab" aria-pressed="${k===0}" data-f="${esc(c)}">${c==="all"?"Tout":esc(c)}</button>`).join("");
-}
-tabs.addEventListener("click", e => { const b=e.target.closest(".tab"); if(!b) return;
-  tabs.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-pressed", x===b ? "true" : "false"));
-  render(b.dataset.f);
-});
-const lb=document.getElementById("lb"), lbImg=document.getElementById("lb-img"), lbCap=document.getElementById("lb-cap"), lbVid=document.getElementById("lb-vid");
-let cur=0, lastFocus=null;
-function show(k){cur=(k+shown.length)%shown.length; const i=shown[cur]; lbVid.pause(); if(i.video){lb.classList.add("vid"); lbVid.src=i.src; lbVid.poster=i.thumb; lbImg.removeAttribute("src");} else {lb.classList.remove("vid"); lbVid.removeAttribute("src"); lbImg.src=i.src; lbImg.alt=i.t;} lbCap.textContent=(i.ev ? i.ev+" · " : "")+i.t+(i.date?" · "+fmtDate(i.date):"")+(i.by?" · 📷 "+i.by:"");}
-function openLb(k){lastFocus=document.activeElement; show(k); lb.classList.add("open"); document.getElementById("lb-x").focus();}
-function closeLb(){lb.classList.remove("open"); lbVid.pause(); lbVid.removeAttribute("src"); lbImg.removeAttribute("src"); if(lastFocus) lastFocus.focus();}
-g.addEventListener("click", e => { const b=e.target.closest("button[data-k]"); if(b) openLb(+b.dataset.k); });
-document.getElementById("lb-x").onclick=closeLb;
-document.getElementById("lb-prev").onclick=()=>show(cur-1);
-document.getElementById("lb-next").onclick=()=>show(cur+1);
-lb.addEventListener("click", e => { if(e.target===lb) closeLb(); });
-document.addEventListener("keydown", e => { if(!lb.classList.contains("open")) return; if(e.key==="Escape") closeLb(); if(e.key==="ArrowLeft") show(cur-1); if(e.key==="ArrowRight") show(cur+1); });
-let tx=null; lb.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
-lb.addEventListener("touchend",e=>{ if(tx===null) return; const dx=e.changedTouches[0].clientX-tx; if(Math.abs(dx)>50) show(cur+(dx<0?1:-1)); tx=null; });
-
-fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{const f=d.filter(p=>p.by&&!p.video).slice(0,6);if(!f.length)return;
-  document.getElementById("fans-grid").innerHTML=f.map(p=>`<a href="https://www.instagram.com/${encodeURIComponent(p.by.replace(/^@/,""))}/" target="_blank" rel="noopener" title="${esc(p.t||"")}"><img src="${esc(p.thumb)}" alt="${esc(p.t||"Photo de "+p.by)}" loading="lazy"><span>📷 ${esc(p.by)}</span></a>`).join("");}).catch(()=>{});
-fetch("data/photos.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{items=d.sort((a,b)=>(b.date||"").localeCompare(a.date||"")); buildTabs(); render("all");})
-  .catch(()=>{g.innerHTML='<p class="note">La galerie n\'a pas pu se charger. Rechargez la page.</p>';});
-</script>
-<script>
 (function(){
   var v=document.getElementById("hero-vid"), rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var big=window.matchMedia("(min-width: 861px)").matches && (window.devicePixelRatio||1)>1.2;
   v.src=big?"videos/hero-sq-hd.mp4":"videos/hero-sq.mp4";
+  var slow=function(){v.defaultPlaybackRate=.6;v.playbackRate=.6;}; slow(); v.addEventListener("loadedmetadata",slow); v.addEventListener("play",slow);
   if(rm){v.removeAttribute("autoplay");v.pause();}
   var c=document.getElementById("snow"); if(!c||rm) return;
   var x=c.getContext("2d"), f=[], W=0, H=0;
