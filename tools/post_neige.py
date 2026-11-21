@@ -3,7 +3,7 @@
 Usage : python3 tools/post_neige.py FICHIER.json [--audio musique.mp3]
 FICHIER.json :
  {"date":"AAAA-MM-JJ", "periode":"du 22 au 28 novembre",
-  "items":[["Megève", 52], ["Combloux", 48], ...]   (cm cumulés sur 7 jours, triés ou non),
+  "items":[["Megève", 42, 4], ...]   ([station, cm prévus sur 7 jours, cm de neige au sol aujourd'hui]),
   "photo":"photos/xxx.jpg" (une photo de Vincent, jamais une photo d'abonné),
   "source":"Prévisions Open-Meteo · cumul sur 7 jours · vers 1 500 m",
   "apercu": true (facultatif : bandeau « aperçu, chiffres d'exemple »)}
@@ -21,14 +21,16 @@ HOME = {"Megève", "Combloux", "Demi-Quartier", "Praz-sur-Arly"}
 
 def page(c, H, shown=None):
     e = lambda s: html.escape(str(s))
-    items = sorted(c["items"], key=lambda x: -x[1])[:11]
+    items = sorted(c["items"], key=lambda x: -x[1])[:12]
     n = len(items) if shown is None else shown
     story = H == 1920
     rows = ""
-    for i, (name, cm) in enumerate(items):
+    for i, it in enumerate(items):
+        name, cm, sol = it[0], it[1], (it[2] if len(it) > 2 else None)
         cls = "row home" if name in HOME else "row"
         vis = "" if i >= len(items) - n else " style=\"visibility:hidden\""
-        rows += f'<div class="{cls}"{vis}><span class="n">{i+1}.</span> {e(name)} <b>{round(cm)} cm</b></div>'
+        sol_s = f'<i>{round(sol)} cm</i>' if sol is not None else '<i>—</i>'
+        rows += f'<div class="{cls}"{vis}><span class="nm"><span class="n">{i+1}.</span> {e(name)}</span>{sol_s}<b>+{round(cm)} cm</b></div>'
     photo = (R / c["photo"]).resolve().as_uri()
     ap = '<div class="ap">APERÇU · chiffres d\'exemple</div>' if c.get("apercu") else ""
     top = 150 if story else 70
@@ -42,17 +44,22 @@ background:linear-gradient(180deg,rgba(8,20,40,.55) 0%,rgba(8,20,40,.15) 35%,rgb
 h1{{margin-top:{30 if story else 22}px;background:#0c1a34;color:#fff;font-weight:800;text-align:center;line-height:1.12;
 font-size:{58 if story else 50}px;padding:{22 if story else 18}px 40px;border-radius:22px;max-width:960px;box-shadow:0 14px 34px rgba(0,0,0,.35)}}
 h1 small{{display:block;font-size:.5em;font-weight:700;color:#bcd3f2;margin-top:8px;letter-spacing:.02em}}
-.list{{margin-top:{40 if story else 28}px;display:flex;flex-direction:column;align-items:center;gap:{18 if story else 12}px}}
-.row{{background:#fff;color:#0c1a34;font-weight:800;font-size:{46 if story else 39}px;border-radius:16px;padding:{10 if story else 7}px 26px;box-shadow:0 8px 20px rgba(0,0,0,.25)}}
-.row .n{{font-weight:700;opacity:.65}} .row b{{color:#1f4f9a}}
-.row.home{{background:#c8323d;color:#fff}} .row.home b{{color:#fff}}
-.foot{{position:absolute;left:0;right:0;bottom:{230 if story else 40}px;text-align:center;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6)}}
+.list{{margin-top:{30 if story else 22}px;display:flex;flex-direction:column;gap:{14 if story else 9}px;width:960px}}
+.row,.hd{{display:grid;grid-template-columns:1fr 190px 190px;align-items:center;gap:12px}}
+.row{{background:#fff;color:#0c1a34;font-weight:800;font-size:{38 if story else 33}px;border-radius:16px;padding:{11 if story else 7}px 14px {11 if story else 7}px 24px;box-shadow:0 8px 20px rgba(0,0,0,.25)}}
+.nm{{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}.row .n{{font-weight:700;opacity:.6}}
+.row i,.row b{{text-align:center;border-radius:12px;padding:4px 0;font-style:normal}}
+.row i{{background:#eef2f8;color:#55657e;font-weight:700}} .row b{{background:#1f4f9a;color:#fff}}
+.row.home{{background:#c8323d;color:#fff}} .row.home i{{background:rgba(255,255,255,.2);color:#fff}} .row.home b{{background:#fff;color:#c8323d}}
+.hd{{color:#fff;font-weight:800;font-size:{24 if story else 21}px;text-transform:uppercase;letter-spacing:.06em;text-shadow:0 2px 8px rgba(0,0,0,.6);padding:0 14px 0 24px}}
+.hd span{{text-align:center}}
+.foot{{position:absolute;left:40px;right:40px;bottom:{230 if story else 40}px;text-align:center;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6)}}
 .src{{font-size:{24 if story else 21}px;font-weight:600;opacity:.92}}
 .url{{font-size:{34 if story else 30}px;font-weight:800;margin-top:8px}}
 .ap{{position:absolute;top:{top-50 if story else 18}px;right:24px;background:#ffd84a;color:#000;font-weight:800;font-size:22px;padding:8px 16px;border-radius:999px}}
 </style>{ap}<div class="wrap"><div class="brand"><img src="{(R/'img/logo-rond.png').as_uri()}">Megève par cœur</div>
-<h1>❄️ Combien de neige cette semaine&nbsp;?<small>{e(c['periode'])} · Pays du Mont-Blanc &amp; Val d'Arly</small></h1>
-<div class="list">{rows}</div></div>
+<h1>❄️ La neige cette semaine<small>{e(c['periode'])} · Pays du Mont-Blanc &amp; Val d'Arly</small></h1>
+<div class="list"><div class="hd"><span></span><span>Au sol</span><span>Prévu 7 j</span></div>{rows}</div></div>
 <div class="foot"><div class="src">{e(c.get('source','Prévisions Open-Meteo · cumul sur 7 jours'))} · les prévisions évoluent</div><div class="url">megeveparcoeur.fr/meteo</div></div>"""
 
 
@@ -69,7 +76,7 @@ def main():
     c = json.load(open(sys.argv[1], encoding="utf-8")); day = c["date"]
     audio = sys.argv[sys.argv.index("--audio") + 1] if "--audio" in sys.argv else None
     out = R / "instagram"; out.mkdir(exist_ok=True)
-    n = min(11, len(c["items"]))
+    n = min(12, len(c["items"]))
     tmp = pathlib.Path(tempfile.mkdtemp())
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
