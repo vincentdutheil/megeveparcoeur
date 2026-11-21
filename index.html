@@ -462,6 +462,7 @@ footer a{color:#fbf3e6}
 <main>
 <section id="proposer-bloc">
   <div class="wrap">
+    <div id="snowbox" hidden></div>
     <a class="propose" href="/proposer/">
       <span class="pi" aria-hidden="true">📝</span>
       <span class="pt"><b>Vous organisez un événement ?</b><span>Proposez-le en 2 minutes : il rejoint l'agenda et la newsletter du jeudi, gratuitement.</span></span>
@@ -622,5 +623,6 @@ f.addEventListener("submit",async e=>{e.preventDefault();const d=new FormData(f)
   catch(err){m.classList.add("err");m.textContent=M.err;}
   f.querySelector("button").disabled=false;m.scrollIntoView({block:"center",behavior:"smooth"});});})();
 </script>
+<script src="/assets/neige.js" defer></script>
 </body>
 </html>

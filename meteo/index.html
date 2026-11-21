@@ -147,6 +147,7 @@ footer a{color:#fff}
   <div class="alert" id="alert" hidden><div class="in"><div class="ic" id="aIc">❄️</div><div><b id="aT"></b><p id="aP"></p></div></div></div>
   <div class="grid" id="grid"><p class="skel">Chargement de la météo…</p></div>
   <div class="legend"><span>📏 <b>Au sol</b> : hauteur de neige estimée par les modèles</span><span>🆕 <b>Tombée 24 h</b> : neige fraîche des dernières 24 h</span><span>📅 <b>À venir 7 j</b> : cumul des chutes prévues</span></div>
+  <section class="cls" id="neige"><div id="classement" hidden></div></section>
   <p class="note">Estimations des modèles météo (Météo-France, ECMWF…) fournies par <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, mises à jour plusieurs fois par jour. Elles peuvent différer de l'enneigement mesuré sur les pistes : pour l'ouverture des pistes et les bulletins officiels, consultez <a href="https://meteofrance.com/meteo-montagne" target="_blank" rel="noopener">Météo-France montagne</a> et les offices de tourisme de <a href="https://www.megeve-tourisme.fr/" target="_blank" rel="noopener">Megève</a>, <a href="https://www.combloux.com/" target="_blank" rel="noopener">Combloux</a> et <a href="https://www.prazsurarly.com/" target="_blank" rel="noopener">Praz-sur-Arly</a>.</p>
 </main>
 
@@ -240,5 +241,6 @@ for(let i=0;i<120;i++){const z=Math.random();f.push({x:Math.random()*W2,y:Math.r
 (function t(){x.clearRect(0,0,W2,H2);x.fillStyle="#fff";for(const p of f){p.y+=p.s;p.d+=.01;p.x+=Math.sin(p.d)*.4*p.z;if(p.y>H2+5){p.y=-5;p.x=Math.random()*W2;}x.globalAlpha=.35+p.z*.6;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();}requestAnimationFrame(t);})();})();
 </script>
 <script src="/assets/app.js" defer></script>
+<script src="/assets/neige.js" defer></script>
 </body>
 </html>
