@@ -45,6 +45,15 @@ module.exports = async (req, res) => {
     const s = await redis("GET", "ig:auth"); const auth = s ? JSON.parse(s) : null;
     if (!auth) return send(503, { ok: false, error: "Instagram n'est pas connecté (admin → Identifications → Connecter Instagram)" });
 
+    if (url.searchParams.has("diag")) {
+      let perms = null;
+      try {
+        const app = process.env.META_APP_ID + "|" + process.env.META_APP_SECRET;
+        const d = await graph("/debug_token", { input_token: auth.userToken || auth.pageToken, access_token: app });
+        perms = d.data && d.data.scopes;
+      } catch (e) { perms = "erreur : " + e.message; }
+      return send(200, { ok: true, connected_at: auth.at, username: auth.username, userToken: !!auth.userToken, perms });
+    }
     if (url.searchParams.has("audio")) {
       const q = (url.searchParams.get("audio") || "").slice(0, 100);
       return send(200, { ok: true, query: q, results: await searchAudio(auth, q) });
