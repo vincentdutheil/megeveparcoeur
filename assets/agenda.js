@@ -114,14 +114,15 @@ function onClick(ev){const b=ev.target.closest("button[data-a]");
 }
 
 /* Données structurées Google : un schema.org/Event par événement à venir */
+const tzOff = d => { try { const m = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Paris", timeZoneName: "shortOffset" }).format(new Date(d + "T12:00:00Z")).match(/GMT([+-]\d+)/); const h = m ? +m[1] : 1; return (h < 0 ? "-" : "+") + String(Math.abs(h)).padStart(2, "0") + ":00"; } catch (e) { return "+01:00"; } };
 function jsonLd(){const t=localToday();
   const evs=(PRESET?filtered():A.filter(e=>(e.d2||e.d)>=t)).slice(0,300).map(e=>{const hm=hhmm(e.h),one=!e.d2||e.d2===e.d;
     const o={"@context":"https://schema.org","@type":"Event",name:title(e),description:desc(e)||title(e),
-      startDate:hm&&one?`${e.d}T${hm[0]}:${hm[1]}`:e.d, endDate:e.d2||e.d,
+      startDate:hm&&one?`${e.d}T${hm[0]}:${hm[1]}:00${tzOff(e.d)}`:e.d, endDate:e.d2||e.d,
       eventStatus:"https://schema.org/EventScheduled",eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",
       location:{"@type":"Place",name:e.lieu,address:{"@type":"PostalAddress",addressLocality:e.lieu,postalCode:CP[e.lieu]||"",addressRegion:"Haute-Savoie",addressCountry:"FR"}},
       image:[SITE+"/videos/hero-poster.jpg"],url:evUrl(e),inLanguage:LANG};
-    if(isFree(e)) o.isAccessibleForFree=true;
+    if(isFree(e)){o.isAccessibleForFree=true;o.offers={"@type":"Offer",price:0,priceCurrency:"EUR",availability:"https://schema.org/InStock",url:e.u||new URL(evUrl(e),location.origin).href};}
     if(e.u) o.sameAs=e.u;
     return o;});
   let s=document.getElementById("ld-events"); if(!s){s=document.createElement("script");s.type="application/ld+json";s.id="ld-events";document.head.appendChild(s);}

@@ -80,14 +80,15 @@ const title = (e, L) => L === "en" && e.t_en ? e.t_en : e.t;
 const desc = (e, L) => L === "en" && e.x_en ? e.x_en : e.x;
 const evUrl = (e, L) => (L === "en" ? "/en" : "") + "/agenda/" + pslug(e) + "/";
 const hhmm = h => { if (!h) return null; const m = String(h).match(/(\d{1,2})\s*h\s*(\d{2})?/i); return m ? [pad(+m[1]), m[2] || "00"] : null; };
+const tzOff = d => { try { const m = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Paris", timeZoneName: "shortOffset" }).format(new Date(d + "T12:00:00Z")).match(/GMT([+-]\d+)/); const h = m ? +m[1] : 1; return (h < 0 ? "-" : "+") + String(Math.abs(h)).padStart(2, "0") + ":00"; } catch (e) { return "+01:00"; } };
 function ld(e, L) {
   const hm = hhmm(e.h), one = !e.d2 || e.d2 === e.d;
   const o = { "@context": "https://schema.org", "@type": "Event", name: title(e, L), description: desc(e, L) || title(e, L),
-    startDate: hm && one ? `${e.d}T${hm[0]}:${hm[1]}` : e.d, endDate: e.d2 || e.d,
+    startDate: hm && one ? `${e.d}T${hm[0]}:${hm[1]}:00${tzOff(e.d)}` : e.d, endDate: e.d2 || e.d,
     eventStatus: "https://schema.org/EventScheduled", eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: { "@type": "Place", name: e.lieu, address: { "@type": "PostalAddress", addressLocality: e.lieu, postalCode: CP[e.lieu] || "", addressRegion: "Haute-Savoie", addressCountry: "FR" } },
     image: [SITE + "/videos/hero-poster.jpg"], url: SITE + evUrl(e, L), inLanguage: L };
-  if (isFree(e)) o.isAccessibleForFree = true;
+  if (isFree(e)) { o.isAccessibleForFree = true; o.offers = { "@type": "Offer", price: 0, priceCurrency: "EUR", availability: "https://schema.org/InStock", url: e.u || SITE + evUrl(e, L) }; }
   if (e.u) o.sameAs = e.u;
   return o;
 }
