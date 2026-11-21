@@ -759,11 +759,11 @@ const store = { get(k, d) { try { const v = localStorage.getItem("cm-" + k); ret
 
 /* ---------- niveaux (médailles) ---------- */
 const LEVELS = [ // deux médailles par classe : début / fin d'année (France · Suisse romande)
-  { n: "Ourson", g: "CP · 3P", m: "bear" }, { n: "Flocon", g: "CP · 3P", m: "flake", img: "flocon" },
+  { n: "Ourson", g: "CP · 3P", m: "bear", img: "ourson" }, { n: "Flocon", g: "CP · 3P", m: "flake", img: "flocon" },
   { n: "1re étoile", g: "CE1 · 4P", m: "star", k: 1, img: "etoile-1" }, { n: "2e étoile", g: "CE1 · 4P", m: "star", k: 2, img: "etoile-2" },
   { n: "3e étoile", g: "CE2 · 5P", m: "star", k: 3, img: "etoile-3" }, { n: "Étoile d'or", g: "CE2 · 5P", m: "gold", img: "etoile-or" },
   { n: "Fléchette", g: "CM1 · 6P", m: "arrow", c: "#3a78c9", img: "flechette" }, { n: "Flèche de bronze", g: "CM1 · 6P", m: "arrow", c: "#b8733e", img: "fleche-bronze" },
-  { n: "Flèche d'argent", g: "CM2 · 7P", m: "arrow", c: "#aab4be" }, { n: "Flèche de vermeil", g: "CM2 · 7P", m: "arrow", c: "#d08a4a", img: "fleche-vermeil" },
+  { n: "Flèche d'argent", g: "CM2 · 7P", m: "arrow", c: "#aab4be", img: "fleche-argent" }, { n: "Flèche de vermeil", g: "CM2 · 7P", m: "arrow", c: "#d08a4a", img: "fleche-vermeil" },
   { n: "Flèche d'or", g: "6e · 8P", m: "arrow", c: "#e7b53c", img: "fleche-or" }
 ];
 // ce qu'on travaille à chaque médaille (d'après les repères des programmes 2024-2025 de l'Éducation nationale)
