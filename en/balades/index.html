@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Walks & snowshoe trails in Megève, Combloux, Praz-sur-Arly · Megève par cœur</title>
+<title>Walks, hikes, snowshoeing & ski touring · Megève, Combloux, Praz · Megève par cœur</title>
 <link rel="canonical" href="https://www.megeveparcoeur.fr/en/balades/">
 <link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/balades/">
 <link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/balades/">
 <link rel="alternate" hreflang="x-default" href="https://www.megeveparcoeur.fr/balades/">
-<meta name="description" content="Signposted walks and snowshoe trails around Megève, Combloux, Demi-Quartier and Praz-sur-Arly: time, elevation gain, distance and starting point.">
+<meta name="description" content="Signposted snowshoe trails, ski touring routes and summer hikes around Megève, Combloux, Demi-Quartier and Praz-sur-Arly: time, climb, distance and starting point.">
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0a1424">
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Megève ❤">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
-<meta property="og:title" content="Walks & snowshoe trails in Megève, Combloux, Praz-sur-Arly · Megève par cœur">
+<meta property="og:title" content="Walks, hikes, snowshoeing & ski touring · Megève, Combloux, Praz · Megève par cœur">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
 .walk .type{margin:0;color:var(--muted);font-size:.9rem;font-weight:700}
 .walk p{margin:0}
 .lv{font-size:.75rem;font-weight:800;border-radius:999px;padding:4px 10px;background:#e3f3ea;color:#1d6b43}
-.lv.Moderate{background:#e6eefb;color:#1f4f9a}.lv.Challenging{background:#fbe6e6;color:#a01f2a}
+.lv.Modéré{background:#e6eefb;color:#1f4f9a}.lv.Sportif{background:#fbe6e6;color:#a01f2a}
 .facts{display:flex;gap:10px;margin:4px 0}
 .facts div{flex:1;background:var(--wool);border-radius:14px;padding:8px;text-align:center}
 .facts b{display:block;font-family:var(--display);font-size:1.3rem;color:var(--pine);font-weight:600}
@@ -51,6 +51,20 @@
 .fv-map{display:inline-block;margin-top:16px;font-weight:800;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px}
 .all-h{font-family:var(--display);font-size:clamp(1.4rem,3vw,1.8rem);margin:0 0 14px}
 @media(max-width:820px){.fv{grid-template-columns:1fr}}
+.season{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px}
+.sz{display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;border:2px solid var(--line);border-radius:22px;padding:16px 18px;background:var(--card);font:inherit;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.sz:hover{transform:translateY(-2px)}
+.sz-i{font-size:2rem;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--wool)}
+.sz b{display:block;font-family:var(--display);font-size:1.3rem;font-weight:600}.sz small{display:block;color:var(--muted);font-weight:600;font-size:.85rem;margin-top:2px}
+.sz.hiver[aria-pressed="true"]{border-color:#3f6fb0;background:linear-gradient(135deg,#eaf2fd,#fff);box-shadow:0 12px 28px rgba(31,79,154,.18)}
+.sz.hiver[aria-pressed="true"] .sz-i{background:#d6e5fa}
+.sz.ete[aria-pressed="true"]{border-color:#c98a1c;background:linear-gradient(135deg,#fdf4e2,#fff);box-shadow:0 12px 28px rgba(160,110,20,.18)}
+.sz.ete[aria-pressed="true"] .sz-i{background:#fae6bd}
+.bar .count{margin-left:auto;font-weight:800;color:var(--pine);font-size:.9rem}
+.empty{text-align:center;color:var(--muted);font-weight:700;padding:20px}
+.safe.ete{background:linear-gradient(120deg,#8a5a24,#b87a2a)}
+[hidden]{display:none!important}
+@media(max-width:640px){.season{grid-template-columns:1fr}.sz{padding:12px 14px}.sz-i{width:46px;height:46px;font-size:1.6rem}}
 </style>
 </head>
 <body>
@@ -73,8 +87,8 @@
 <section class="hero">
   <div class="wrap">
     <div class="kicker">🌲 Megève · Combloux · Demi-Quartier · Praz-sur-Arly</div>
-    <h1>Walks &amp; <em>snowshoes</em></h1>
-    <p>Signposted routes, easy to find and designed to enjoy the mountains without skis: with the family in the village, or on snowshoes facing Mont Blanc.</p>
+    <h1>Walks, hikes &amp; <em>snowshoes</em></h1>
+    <p>Snowshoes or ski touring in winter, hiking through the alpine pastures in summer: signposted routes between Megève, Combloux, Demi-Quartier and Praz-sur-Arly, with time, climb and starting point.</p>
   </div>
   <svg class="scene" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#7f9cc0" opacity=".8" d="M0 130L120 72 210 100 340 22 430 76 560 40 690 98 820 12 930 76 1050 46 1180 92 1300 50 1440 80V200H0z"/>
@@ -96,95 +110,500 @@
     </div>
     <a class="fv-map" href="/en/carte/">🗺️ Map of our favourite spots</a>
   </section>
-  <h2 class="all-h">Signposted routes</h2>
+  <h2 class="all-h">Signposted routes, season by season</h2>
+<!--WALKS-->
+  <div class="season" id="season" role="group" aria-label="Pick your season">
+    <button class="sz hiver" data-s="hiver" aria-pressed="true"><span class="sz-i" aria-hidden="true">❄️</span><span><b>Winter walks</b><small>Snowshoes, ski touring &amp; walks in the snow · 23 routes</small></span></button>
+    <button class="sz ete" data-s="ete" aria-pressed="false"><span class="sz-i" aria-hidden="true">☀️</span><span><b>Summer walks</b><small>Hikes &amp; walks in the alpine pastures · 33 routes</small></span></button>
+  </div>
   <div class="bar" id="bar">
-    <span class="lab">Village</span><div class="pills" data-k="v"><button class="pill" data-x="" aria-pressed="true">All</button><button class="pill" data-x="Megève" aria-pressed="false">Megève</button><button class="pill" data-x="Combloux" aria-pressed="false">Combloux</button><button class="pill" data-x="Praz-sur-Arly" aria-pressed="false">Praz-sur-Arly</button></div>
-    <span class="lab">Level</span><div class="pills" data-k="l"><button class="pill" data-x="" aria-pressed="true">All</button><button class="pill" data-x="Easy" aria-pressed="false">Easy</button><button class="pill" data-x="Moderate" aria-pressed="false">Moderate</button><button class="pill" data-x="Challenging" aria-pressed="false">Challenging</button></div>
+    <span class="lab" data-in="hiver">Activity</span><div class="pills" data-k="t" data-in="hiver"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">All</button><button class="pill" data-x="raq" data-in="hiver" aria-pressed="false">❄️ Snowshoes</button><button class="pill" data-x="skr" data-in="hiver" aria-pressed="false">🎿 Ski touring</button><button class="pill" data-x="pied" data-in="hiver" aria-pressed="false">🚶 On foot</button></div>
+    <span class="lab">Village</span><div class="pills" data-k="v"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">All</button><button class="pill" data-x="Megève" data-in="hiver ete" aria-pressed="false">Megève</button><button class="pill" data-x="Combloux" data-in="hiver ete" aria-pressed="false">Combloux</button><button class="pill" data-x="Demi-Quartier" data-in="hiver" aria-pressed="false">Demi-Quartier</button><button class="pill" data-x="Praz-sur-Arly" data-in="hiver ete" aria-pressed="false">Praz-sur-Arly</button></div>
+    <span class="lab">Level</span><div class="pills" data-k="l"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">All</button><button class="pill" data-x="f" data-in="hiver ete" aria-pressed="false">Easy</button><button class="pill" data-x="m" data-in="hiver ete" aria-pressed="false">Moderate</button><button class="pill" data-x="s" data-in="hiver ete" aria-pressed="false">Challenging</button></div>
+    <span class="count" id="count" aria-live="polite"></span>
   </div>
   <div class="list" id="list">
-<article class="walk" data-v="Megève" data-t="On foot" data-l="Easy">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Easy">Easy</span></div>
-  <h2>🥾 9 fountains, 2 streams, 4 bridges</h2>
-  <p class="type">On foot · start: Megève village centre</p>
-  <div class="facts"><div><b>1h15</b><span>Time</span></div><div><b>18 m</b><span>Climb</span></div><div><b>1.0 km</b><span>Distance</span></div></div>
-  <p>A short loop through old Megève, from fountain to fountain: the church, the old bridge, Place de la Résistance, the footbridge over the stream. Ideal with children or at the end of the day, under the Christmas lights.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-hiver-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Église+Saint-Jean-Baptiste+Megève" target="_blank" rel="noopener">📍 Starting point</a></div>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🎿 Rand'Arbois</h2>
+  <p class="type">Ski touring · start: Mont d'Arbois, route Edmond de Rothschild</p>
+  <div class="facts"><div><b>1h45</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>3.6 km</b><span>Distance</span></div></div>
+  <p>The route to get started: a steady climb on the Mont d'Arbois side, back down on the pistes.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5697480-rand-arbois" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mont+d%27Arbois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Combloux" data-t="Snowshoes" data-l="Easy">
-  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Easy">Easy</span></div>
-  <h2>❄️ Le Vernay – Châble d'en bas</h2>
-  <p class="type">Snowshoes · start: La Cry car park, Combloux</p>
-  <div class="facts"><div><b>1h40</b><span>Time</span></div><div><b>3.5 km</b><span>Distance</span></div></div>
-  <p>A gentle loop, first alongside the slopes and then wilder through the forest, via Beauregard, Le Châble d'en bas and Le Vernay.</p>
-  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/103246-itineraire-raquettes-le-vernay-chable-d-en-bas" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🎿 Randoroche</h2>
+  <p class="type">Ski touring · start: Rochebrune cable car</p>
+  <div class="facts"><div><b>2h15</b><span>Time</span></div><div><b>≈ 700 m</b><span>Climb</span></div><div><b>3.8 km</b><span>Distance</span></div></div>
+  <p>For experienced skiers: a steep, sustained climb to the top of Rochebrune.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5697476-randoroche" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Combloux" data-t="Snowshoes" data-l="Easy">
-  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Easy">Easy</span></div>
-  <h2>❄️ The P'tits Loups trail</h2>
-  <p class="type">Snowshoes · start: Cross-country ski trails, Combloux</p>
-  <div class="facts"><div><b>45 min</b><span>Time</span></div><div><b>2 km</b><span>Distance</span></div></div>
-  <p>The ultimate family route: an easy loop with games for children, along the cross-country ski trails (walk beside the tracks).</p>
-  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/623096-itineraire-raquettes-la-randonnee-des-p-tits-loups" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Pistes+de+ski+de+fond+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🎿 La Charlotte</h2>
+  <p class="type">Ski touring · start: Le Jaillet area</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>455 m</b><span>Climb</span></div><div><b>2.8 km</b><span>Distance</span></div></div>
+  <p>A lovely climb through the forest up to the top of the Jaillet gondola, at 1,575 m.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-ski-de-randonnee-la-charlotte/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Megève" data-t="Snowshoes" data-l="Moderate">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Moderate">Moderate</span></div>
-  <h2>❄️ L'Elise Allais</h2>
-  <p class="type">Snowshoes · start: Portes du Mont-Blanc ski area (Le Jaillet)</p>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🎿 L'Elise Allais</h2>
+  <p class="type">Ski touring · start: Les Frasses car park</p>
   <div class="facts"><div><b>40 min</b><span>Time</span></div><div><b>155 m</b><span>Climb</span></div><div><b>2.5 km</b><span>Distance</span></div></div>
-  <p>One of the signposted snowshoe trails of the Portes du Mont-Blanc, through the woods and along the slopes. Short, but with some climbing.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-lelise-allais/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Starting point</a></div>
+  <p>Short and accessible: from Les Frasses car park to the top of the Jaillet gondola.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-ski-de-randonnee-lelise-allais-megeve-fr-5885458/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+des+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Megève" data-t="Snowshoes" data-l="Moderate">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Moderate">Moderate</span></div>
-  <h2>❄️ From upper Jaillet to the Col du Jaillet</h2>
-  <p class="type">Snowshoes · start: Top station of the Jaillet gondola</p>
-  <div class="facts"><div><b>2h</b><span>Time</span></div><div><b>212 m</b><span>Climb</span></div><div><b>6.0 km</b><span>Distance</span></div></div>
-  <p>Forest, woodland and a mountain pass: a lovely walk with views of the Mont Blanc range, the Aravis and Megève below. Out and back on the same path; viewpoint indicator and picnic area. The free Meg'bus stops at the gondola.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-du-jaillet-superieur-au-col-du-jaillet/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Starting point</a></div>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🎿 La Cabane des Frasses</h2>
+  <p class="type">Ski touring · start: Bel Ava piste</p>
+  <div class="facts"><div><b>35 min</b><span>Time</span></div><div><b>180 m</b><span>Climb</span></div><div><b>1.8 km</b><span>Distance</span></div></div>
+  <p>A short climb from the Bel Ava piste towards the Col du Jaillet path, perfect for a first try.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5621716-itineraire-ski-de-randonnee-cabane-des-frasses" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Combloux" data-t="Snowshoes" data-l="Moderate">
-  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Moderate">Moderate</span></div>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Demi-Quartier" data-l="f">
+  <div class="top"><span class="chip Demi-Quartier">Demi-Quartier</span><span class="lv Facile">Easy</span></div>
+  <h2>🎿 Chez Fernand</h2>
+  <p class="type">Ski touring · start: La Fouettaz car park</p>
+  <div class="facts"><div><b>40 min</b><span>Time</span></div><div><b>200 m</b><span>Climb</span></div><div><b>1.2 km</b><span>Distance</span></div></div>
+  <p>From La Fouettaz car park along the Ravine path: short and sweet, facing Mont Blanc.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-ski-de-randonnee-chez-fernand/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Fouettaz+Demi-Quartier" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="f">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Easy</span></div>
+  <h2>🎿 La Ravine à Claudius</h2>
+  <p class="type">Ski touring · start: Beauregard farm</p>
+  <div class="facts"><div><b>30 min</b><span>Time</span></div><div><b>145 m</b><span>Climb</span></div><div><b>2 km</b><span>Distance</span></div></div>
+  <p>From Beauregard farm to the top of the Jaillet gondola, at a gentle pace.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-ski-de-randonnee-la-ravine-a-claudius-combloux-fr-5885329/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Beauregard+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🎿 Le Plan des Dames</h2>
+  <p class="type">Ski touring · start: Cuchet / La Cry</p>
+  <div class="facts"><div><b>1h45</b><span>Time</span></div><div><b>612 m</b><span>Climb</span></div><div><b>5 km</b><span>Distance</span></div></div>
+  <p>From Cuchet to the Sommet des Salles (1,757 m), Combloux's highest point, via the Plan des Dames.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/622734-itineraire-ski-de-randonnee-le-plan-des-dames" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🎿 La Crève-Cœur</h2>
+  <p class="type">Ski touring · start: Le Bouchet car park (1,020 m)</p>
+  <div class="facts"><div><b>2h30</b><span>Time</span></div><div><b>737 m</b><span>Climb</span></div><div><b>5.6 km</b><span>Distance</span></div></div>
+  <p>Combloux's longest: away from the pistes, in peace and quiet, from Le Bouchet to the Sommet des Salles.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/622736-itineraire-ski-de-randonnee-la-creve-coeur" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Bouchet+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>🎿 “La Drè Yo”, on the martens' trail</h2>
+  <p class="type">Ski touring · start: Bottom of the slopes, opposite the ESF chalet</p>
+  <div class="facts"><div><b>2 à 3 h</b><span>Time</span></div><div><b>≈ 630 m</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Praz's marked route: starts below Le Serasson restaurant, way down on the pistes.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/ski-touring" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=ESF+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="f">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Easy</span></div>
+  <h2>❄️ Le Vernay – Châble d'en bas</h2>
+  <p class="type">Snowshoes · start: La Cry car park</p>
+  <div class="facts"><div><b>1h40</b><span>Time</span></div><div><b>160 m</b><span>Climb</span></div><div><b>3.5 km</b><span>Distance</span></div></div>
+  <p>A gentle loop, first alongside the slopes and then wilder through the forest, via Beauregard, Le Châble d'en bas and Le Vernay.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/103246-itineraire-raquettes-le-vernay-chable-d-en-bas" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="f">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Easy</span></div>
+  <h2>❄️ The P'tits Loups trail</h2>
+  <p class="type">Snowshoes · start: Cross-country ski trails</p>
+  <div class="facts"><div><b>45 min</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>2 km</b><span>Distance</span></div></div>
+  <p>The ultimate family route: a loop with games for children, along the cross-country ski trails (walk beside the tracks).</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/623096-itineraire-raquettes-la-randonnee-des-p-tits-loups" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Pistes+de+ski+de+fond+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Moderate</span></div>
   <h2>❄️ Combloux – Megève link</h2>
-  <p class="type">Snowshoes · start: La Cry car park, Combloux</p>
-  <div class="facts"><div><b>1h45</b><span>Time</span></div><div><b>160 m</b><span>Climb</span></div><div><b>4.0 km</b><span>Distance</span></div></div>
-  <p>A route through alpine pastures facing Mont Blanc, via Cuchet, Maison Neuve, La Fouettaz and Odier, to the Jaillet gondola in Megève. One way only: plan your return.</p>
-  <div class="links"><a href="https://www.combloux.com/itineraires/itineraire-raquettes-liaison-megeve/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+  <p class="type">Snowshoes · start: La Cry car park</p>
+  <div class="facts"><div><b>1h45</b><span>Time</span></div><div><b>160 m</b><span>Climb</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>Through alpine pastures facing Mont Blanc, via Cuchet, Maison Neuve, La Fouettaz and Odier, to the Jaillet gondola. One way only: plan your return.</p>
+  <div class="links"><a href="https://www.combloux.com/itineraires/itineraire-raquettes-liaison-megeve/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Megève" data-t="Snowshoes" data-l="Challenging">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Challenging">Challenging</span></div>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Challenging</span></div>
+  <h2>❄️ Sommet des Salles loop</h2>
+  <p class="type">Snowshoes · start: La Cry car park</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Forests and pastures up to Combloux's highest point, with the Croix des Salles viewpoint. Up via the Plan des Dames, down via the Crève-Cœur.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-raquettes-boucle-du-sommet-des-salles-combloux-fr-5982688/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>❄️ L'Elise Allais</h2>
+  <p class="type">Snowshoes · start: Le Jaillet area</p>
+  <div class="facts"><div><b>40 min</b><span>Time</span></div><div><b>155 m</b><span>Climb</span></div><div><b>2.5 km</b><span>Distance</span></div></div>
+  <p>One of the marked snowshoe trails of the Portes du Mont-Blanc, through the woods and along the slopes. Short, but with some climbing.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-lelise-allais/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>❄️ La Charlotte</h2>
+  <p class="type">Snowshoes · start: Jaillet gondola car park</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>455 m</b><span>Climb</span></div><div><b>2.2 km</b><span>Distance</span></div></div>
+  <p>A proper snowshoe climb, from the Jaillet station to the top of the gondola.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-raquettes-la-charlotte-megeve-fr-6083140/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>❄️ Upper Jaillet to the Col du Jaillet</h2>
+  <p class="type">Snowshoes · start: Top of the Jaillet gondola</p>
+  <div class="facts"><div><b>2h</b><span>Time</span></div><div><b>212 m</b><span>Climb</span></div><div><b>6 km</b><span>Distance</span></div></div>
+  <p>Forest, woodland and a pass, with views of Mont Blanc, the Aravis and Megève below. Out and back; viewpoint indicator and picnic area.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-du-jaillet-superieur-au-col-du-jaillet/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>❄️ Le Leutellet</h2>
+  <p class="type">Snowshoes · start: Chalet de la Livraz (1,400 m)</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>On the quiet Livraz plateau, with views of Rochebrune, Mont Joly and the altiport.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/6353540-itineraire-raquette-le-leutellet" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Livraz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
   <h2>❄️ Pierrot du Col</h2>
-  <p class="type">Snowshoes · start: Portes du Mont-Blanc ski area</p>
+  <p class="type">Snowshoes · start: Top of the Jaillet gondola</p>
   <div class="facts"><div><b>1h</b><span>Time</span></div><div><b>278 m</b><span>Climb</span></div><div><b>4.8 km</b><span>Distance</span></div></div>
-  <p>For experienced snowshoers: an ungroomed trail climbing up to 1,853 m. The way down follows the groomed slopes.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquettes-pierrot-du-col/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Starting point</a></div>
+  <p>For experienced snowshoers: an ungroomed trail up to the Christomet, at 1,853 m. Down on the groomed slopes.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquettes-pierrot-du-col/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
-<article class="walk" data-v="Praz-sur-Arly" data-t="Snowshoes" data-l="Easy">
-  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Easy">Easy</span></div>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Easy</span></div>
   <h2>❄️ The Evettes trail</h2>
   <p class="type">Snowshoes · start: Praz-sur-Arly</p>
-  
-  <p>A free signposted trail through forest and clearings, with beautiful views of the Aravis and the Val d'Arly. Open to everyone aged 10 and over.</p>
-  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Office+de+tourisme+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Marked and free, through forest and clearings, with beautiful views of the Aravis and the Val d'Arly. For everyone aged 10 and over.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Office+de+tourisme+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>❄️ Cassioz and Thouvassières</h2>
+  <p class="type">Snowshoes · start: Ski area car park</p>
+  <div class="facts"><div><b>1h40</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>A round trip of about 1h40 from the ski area, between hamlets and forest.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Praz-sur-Arly+domaine+skiable+parking" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="pied" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🚶 9 fountains, 2 streams, 4 bridges</h2>
+  <p class="type">On foot · start: Village centre</p>
+  <div class="facts"><div><b>1h15</b><span>Time</span></div><div><b>18 m</b><span>Climb</span></div><div><b>1 km</b><span>Distance</span></div></div>
+  <p>A short loop through old Megève, from fountain to fountain: the church, the old bridge, Place de la Résistance, the footbridge over the stream. Ideal at dusk, under the Christmas lights.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-hiver-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise+Saint-Jean-Baptiste+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="pied" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🚶 La Livraz footpaths</h2>
+  <p class="type">On foot · start: La Livraz Nordic area</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>22.5 km</b><span>Distance</span></div></div>
+  <p>22.5 km of groomed paths for walkers, free, on the Nordic plateau: just snow boots, no snowshoes needed.</p>
+  <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Site+nordique+de+la+Livraz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 The lake loop</h2>
+  <p class="type">Hike · start: Megève lake</p>
+  <div class="facts"><div><b>20 min</b><span>Time</span></div><div><b>50 m</b><span>Climb</span></div><div><b>1.2 km</b><span>Distance</span></div></div>
+  <p>A short walk around the lake, perfect as a first outing with little ones.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-pieton-boucle-du-lac/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+de+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 9 fountains, 2 streams, 4 bridges</h2>
+  <p class="type">Hike · start: Village centre</p>
+  <div class="facts"><div><b>1h15</b><span>Time</span></div><div><b>18 m</b><span>Climb</span></div><div><b>1 km</b><span>Distance</span></div></div>
+  <p>From fountain to fountain in old Megève: the church, the old bridge and the footbridge over the stream.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise+Saint-Jean-Baptiste+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 The Calvaire path</h2>
+  <p class="type">Hike · start: Village centre</p>
+  <div class="facts"><div><b>1h</b><span>Time</span></div><div><b>155 m</b><span>Climb</span></div><div><b>1.6 km</b><span>Distance</span></div></div>
+  <p>The Calvaire chapels above the village, with a view over the whole valley.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/le-chemin-du-calvaire/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Calvaire+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 The Calvaire nature trail</h2>
+  <p class="type">Hike · start: Le Calvaire</p>
+  <div class="facts"><div><b>1h</b><span>Time</span></div><div><b>80 m</b><span>Climb</span></div><div><b>1.8 km</b><span>Distance</span></div></div>
+  <p>A short loop around the Calvaire, to discover plants and wildlife with the family.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/sentier-nature-du-calvaire/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Calvaire+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 The Fanou path</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h</b><span>Time</span></div><div><b>38 m</b><span>Climb</span></div><div><b>2.5 km</b><span>Distance</span></div></div>
+  <p>An almost flat stroll, easy with an all-terrain pushchair.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/le-chemin-de-fanou/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Le Moulin Contant</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h05</b><span>Time</span></div><div><b>116 m</b><span>Climb</span></div><div><b>3.8 km</b><span>Distance</span></div></div>
+  <p>Along the water to the old mill, between meadows and forest.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-moulin-contant/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 The Croix du Bouchet loop</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>103 m</b><span>Climb</span></div><div><b>4.4 km</b><span>Distance</span></div></div>
+  <p>An easy, sunny loop with Mont Blanc in sight.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-boucle-de-la-croix-du-bouchet/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Croix+du+Bouchet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Vauvray – Ormaret</h2>
+  <p class="type">Hike · start: Near the Palais</p>
+  <div class="facts"><div><b>2h</b><span>Time</span></div><div><b>192 m</b><span>Climb</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>Via the Chemin des Ânes and the little Vauvray road: very easy, with a superb view of the Mont Blanc range.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-vauvray-ormaret/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Palais+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Chemin de Lady – Les Granges</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>133 m</b><span>Climb</span></div><div><b>5.6 km</b><span>Distance</span></div></div>
+  <p>A pretty walk from hamlet to hamlet, with no difficulty.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-chemin-de-lady-les-granges/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Le Planellet – Les Pettoreaux via Le Stepan</h2>
+  <p class="type">Hike · start: Le Planellet</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>135 m</b><span>Climb</span></div><div><b>4.2 km</b><span>Distance</span></div></div>
+  <p>At the foot of Mont d'Arbois, via the hamlet of Les Pettoreaux: a walk that is mostly downhill.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-planellet-les-pettoreaux-par-le-stepan/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Planellet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Le Jaillet – Villard / Villaret</h2>
+  <p class="type">Hike · start: Le Jaillet area</p>
+  <div class="facts"><div><b>2h</b><span>Time</span></div><div><b>172 m</b><span>Climb</span></div><div><b>4.3 km</b><span>Distance</span></div></div>
+  <p>A quiet corner of Megève, where Mont Blanc slowly comes into view.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-au-jaillet-villard-villaret/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 The Belle au Bois waterfall</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>A refreshing walk to the waterfall, ideal on a hot day.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-la-cascade-de-la-belle-au-bois/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cascade+de+la+Belle+au+Bois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 Lac de Javen</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>307 m</b><span>Climb</span></div><div><b>4.4 km</b><span>Distance</span></div></div>
+  <p>A climb through the forest to the little mountain lake of Javen, a perfect picnic spot.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-lac-de-javen/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+de+Javen+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 Chalet de la Vieille</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Time</span></div><div><b>472 m</b><span>Climb</span></div><div><b>5.6 km</b><span>Distance</span></div></div>
+  <p>A steady climb to the high pastures and the Chalet de la Vieille.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-chalet-de-la-vieille/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 Along the Rochebrune ridge</h2>
+  <p class="type">Hike · start: Rochebrune</p>
+  <div class="facts"><div><b>2h30</b><span>Time</span></div><div><b>427 m</b><span>Climb</span></div><div><b>4.2 km</b><span>Distance</span></div></div>
+  <p>An easy-to-reach, very scenic ridge, popular with families.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-ete-sur-la-crete-de-rochebrune/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 The Tétras-Lyre trail</h2>
+  <p class="type">Hike · start: Le Jaillet</p>
+  <div class="facts"><div><b>2h30</b><span>Time</span></div><div><b>213 m</b><span>Climb</span></div><div><b>2.3 km</b><span>Distance</span></div></div>
+  <p>On the Jaillet ridge, with Mont Blanc, the Aravis, the Beaufortain and the Vanoise in the distance.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/sentier-du-tetras-lyre/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 From upper Jaillet down to the village</h2>
+  <p class="type">Hike · start: Top of the Jaillet gondola</p>
+  <div class="facts"><div><b>2h30</b><span>Time</span></div><div><b>79 m</b><span>Climb</span></div><div><b>6 km</b><span>Distance</span></div></div>
+  <p>Ride up the gondola, walk back down to the village (531 m of descent).</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraires-rando-du-jaillet-superieur-au-village/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 To Le Leutaz</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>3h</b><span>Time</span></div><div><b>265 m</b><span>Climb</span></div><div><b>10 km</b><span>Distance</span></div></div>
+  <p>A long walk to the Leutaz valley, its chalets and pastures.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-au-leutaz/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Leutaz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 Mont d'Arbois – Mont Joux</h2>
+  <p class="type">Hike · start: Mont d'Arbois</p>
+  <div class="facts"><div><b>3h45</b><span>Time</span></div><div><b>673 m</b><span>Climb</span></div><div><b>11.7 km</b><span>Distance</span></div></div>
+  <p>The must-do: up to Mont Joux (1,958 m), with Mont Blanc straight ahead.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-mont-darbois-mont-joux/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mont+d%27Arbois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 The Christomet via Les Frasses and Mont Platard</h2>
+  <p class="type">Hike · start: Les Frasses</p>
+  <div class="facts"><div><b>3h30</b><span>Time</span></div><div><b>709 m</b><span>Climb</span></div><div><b>9.8 km</b><span>Distance</span></div></div>
+  <p>A fine climb to the Christomet and its 360° view over the Aravis and Mont Blanc.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-christomet-par-les-frasses-et-le-mont-platard/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 From the village to Rochebrune – Côte 2000</h2>
+  <p class="type">Hike · start: Rochebrune car park</p>
+  <div class="facts"><div><b>4h</b><span>Time</span></div><div><b>806 m</b><span>Climb</span></div><div><b>15.2 km</b><span>Distance</span></div></div>
+  <p>A big loop through the Rochebrune massif to Côte 2000, the wildest corner.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-ete-boucle-du-village-a-rochebrune-cote-2000/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 Col de Véry</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>4h</b><span>Time</span></div><div><b>908 m</b><span>Climb</span></div><div><b>14 km</b><span>Distance</span></div></div>
+  <p>A proper mountain hike up to the Col de Véry, between Megève and the Beaufortain.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/randonnee-col-de-very/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 Col du Jaillet – Petit Croisse Baulet</h2>
+  <p class="type">Hike · start: Col du Jaillet</p>
+  <div class="facts"><div><b>5h30</b><span>Time</span></div><div><b>962 m</b><span>Climb</span></div><div><b>14.5 km</b><span>Distance</span></div></div>
+  <p>The great ridge above Megève and Combloux, between the Aravis and the Arve valley.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-col-du-jaillet-petit-croisse-baulet/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Col+du+Jaillet" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 Mont Joly</h2>
+  <p class="type">Hike · start: Megève</p>
+  <div class="facts"><div><b>8h</b><span>Time</span></div><div><b>1,300 m</b><span>Climb</span></div><div><b>16.6 km</b><span>Distance</span></div></div>
+  <p>For experienced walkers: via the Hermance chalets to the summit (2,525 m) and its viewpoint indicator, facing Mont Blanc, the Beaufortain, the Aravis and the Bauges.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/randonnee-du-mont-joly/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 Champet – Balancerie</h2>
+  <p class="type">Hike · start: Combloux tourist office</p>
+  <div class="facts"><div><b>2h</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>4.5 km</b><span>Distance</span></div></div>
+  <p>A loop from the village along little paths to Ormaret and its chapel, facing Mont Blanc, among working farms.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/balade-pedestre-panoramique-champet-balancerie-combloux-fr-5866473/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Office+de+tourisme+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 Prapacot and Planset pastures</h2>
+  <p class="type">Hike · start: Les Intages car park</p>
+  <div class="facts"><div><b>1h40</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>5.1 km</b><span>Distance</span></div></div>
+  <p>A quiet loop among pastures and old buildings, with views of the Arve valley and the Fiz. No water on the way: bring your own.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/boucle-pedestre-alpages-de-prapacot-et-de-planset-combloux-fr-5866955/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Intages+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Moderate</span></div>
+  <h2>🥾 La P'tite Ravine – Fouettaz</h2>
+  <p class="type">Hike · start: Cuchet car park</p>
+  <div class="facts"><div><b>2h15</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>5.7 km</b><span>Distance</span></div></div>
+  <p>A family loop through forest and pasture, with wide views of the Mont Blanc range. Free shuttle to Cuchet.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/randonnee-pedestre-boucle-la-petite-ravine-fouettaz-combloux-fr-6338454/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cuchet+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 La Croix des Salles</h2>
+  <p class="type">Hike · start: Cuchet car park</p>
+  <div class="facts"><div><b>3h30</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>9.1 km</b><span>Distance</span></div></div>
+  <p>A half-day up to the top of the ski area and the Croix des Salles, with a 360° view of Mont Blanc, the Aravis and the Fiz. Back via Lac du Jaillet.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/randonnee-pedestre-la-croix-des-salles-combloux-fr-5865341/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cuchet+Combloux" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Le Mont du Villard</h2>
+  <p class="type">Hike · start: Route de Bellevarde</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>A short walk between Praz and Megève, with a fine view of Mont Blanc.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/petites-balades-le-mont-du-villard-praz-sur-arly-fr-5869510/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Route+de+Bellevarde+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Les Granges</h2>
+  <p class="type">Hike · start: Praz-sur-Arly</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>A short Val d'Arly walk, between hamlets and meadows.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/petites-balades-les-granges-praz-sur-arly-fr-5868388/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Easy</span></div>
+  <h2>🥾 Lac des Evettes</h2>
+  <p class="type">Hike · start: Les Grabilles car park</p>
+  <div class="facts"><div><b>—</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>The little lake among the fir trees, with the Étoiles and Tétras Randos fun trails, suitable from age 3-4.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/a-la-une/praz-sur-arly/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+des+Evettes+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>🥾 The Smugglers' path</h2>
+  <p class="type">Hike · start: Crêt du Midi chairlift</p>
+  <div class="facts"><div><b>2h30</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>The chairlift takes you up to 1,700 m in 10 minutes; from there, the Smugglers' path heads off across the pastures.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/hiking" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9si%C3%A8ge+du+Cr%C3%AAt+du+Midi+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="s">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Sportif">Challenging</span></div>
+  <h2>🥾 Le Crêt du Midi</h2>
+  <p class="type">Hike · start: Praz-sur-Arly</p>
+  <div class="facts"><div><b>4h50</b><span>Time</span></div><div><b>—</b><span>Climb</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>For experienced walkers (3h up): a superb view of all the surrounding mountains, in the heart of the Praz pastures.</p>
+  <div class="links"><a href="https://www.savoie-mont-blanc.com/en/walking/confirmed-walkers-le-cret-du-midi-180155/" target="_blank" rel="noopener">Official route &amp; map ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cr%C3%AAt+du+Midi+Praz-sur-Arly" target="_blank" rel="noopener">📍 Starting point</a></div>
 </article>
   </div>
-  <div class="safe">
+  <p class="empty" id="empty" hidden>No route matches these filters.</p>
+  <div class="safe" data-in="hiver">
     <h3>⛑️ Before you go</h3>
-    <ul>
-      <li>Trails inside the ski area are only open during lift hours, and never at night.</li>
-      <li>Stay on the marked routes (purple markers for snowshoes), and do not walk in the cross-country ski tracks.</li>
-      <li>Check the <a href="/en/meteo/">snow &amp; weather</a> and the <a href="/en/webcams/">webcams</a>, and ask the tourist office which trails are open.</li>
-      <li>Snowshoe hire at the village sports shops; guided outings with the mountain guide offices.</li>
-    </ul>
+    <ul><li>Routes inside the ski area are only open during lift hours (9am–4.30pm), never at night: the snow groomers are out.</li><li>Ski touring: yellow markers, way down on the pistes; a contribution of €5 a day or €50 a season is suggested on the Portes du Mont-Blanc. Routes open depending on snow, roughly mid-December to late March.</li><li>Snowshoes: purple markers; never walk in the cross-country ski tracks.</li><li>A route may close after heavy snowfall or when there is avalanche risk: check the <a href="/en/meteo/">snow &amp; weather</a> and the <a href="/en/webcams/">webcams</a>, and ask at the tourist office.</li><li>Never go alone, and tell someone your route; gear hire at the sports shops, guided outings with the ESF and the mountain guide offices.</li></ul>
   </div>
-  <p class="note" style="margin-top:16px">Times and elevation gains as given by the tourist offices, for guidance only. Sources: Megève Tourisme, Combloux tourist office, Praz-sur-Arly tourist office, Haute-Savoie Tourisme.</p>
+  <div class="safe ete" data-in="ete" hidden>
+    <h3>⛑️ Before you go</h3>
+    <ul><li>Mountain weather changes fast: check the <a href="/en/meteo/">forecast</a> before you set off and take a warm, waterproof layer.</li><li>Plenty of water, good shoes, sun cream: many trails have no water point at all.</li><li>In the pastures, close the gates, keep your dog on a lead, and walk around herds and their guard dogs.</li><li>The summer gondolas and chairlifts (Jaillet, Mont d'Arbois, Rochebrune, Crêt du Midi) cut many climbs short: check their opening dates.</li><li>The “Belvédères du Mont-Blanc” map (over 50 routes, 300 km of trails) is on sale at the Praz-sur-Arly tourist office.</li></ul>
+  </div>
+  <p class="note" style="margin-top:16px">Times, climbs and distances as given by the tourist offices, for guidance only; “—” when the official page does not say. Sources: Megève Tourisme, Combloux and Praz-sur-Arly tourist offices, Haute-Savoie Tourisme, Haute-Savoie Mont-Blanc Tourisme, Savoie Mont Blanc.</p>
+<script>
+(function(){
+const N="routes";const st={s:"hiver",t:"",v:"",l:""};
+const ws=[...document.querySelectorAll(".walk")];
+function run(){let n=0;ws.forEach(w=>{const h=w.dataset.s!==st.s||(st.t&&w.dataset.t!==st.t)||(st.v&&w.dataset.v!==st.v)||(st.l&&w.dataset.l!==st.l);w.hidden=h;if(!h)n++;});
+  document.getElementById("count").textContent=n+" "+N;document.getElementById("empty").hidden=n>0;}
+function reset(g){g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",!x.dataset.x));st[g.dataset.k]="";}
+function season(s,push){st.s=s;document.querySelectorAll("#season .sz").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===s));
+  document.body.dataset.season=s;
+  document.querySelectorAll("[data-in]").forEach(x=>{if(x.classList.contains("pill")&&!x.dataset.x)return;x.hidden=!x.dataset.in.split(" ").includes(s);});
+  document.querySelectorAll("#bar .pills").forEach(g=>{const on=g.querySelector('.pill[aria-pressed="true"]');if(on&&on.hidden)reset(g);if(g.hidden)reset(g);});
+  if(push)history.replaceState(null,"","#"+s);run();}
+document.getElementById("season").addEventListener("click",e=>{const b=e.target.closest(".sz");if(b)season(b.dataset.s,true);});
+document.getElementById("bar").addEventListener("click",e=>{const b=e.target.closest(".pill");if(!b)return;const g=b.parentElement;g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",x===b));st[g.dataset.k]=b.dataset.x;run();});
+const h=location.hash.slice(1),m=new Date().getMonth()+1;
+season(h==="ete"||h==="hiver"?h:(m>=5&&m<=10?"ete":"hiver"),false);
+})();
+</script>
+<!--/WALKS-->
 </main>
 <svg class="foot-peaks" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path fill="#1b3354" d="M0 110V70L110 34 190 56 300 12 380 50 470 28 590 70 700 20 800 62 900 40 1010 74 1120 16 1210 56 1320 34 1440 62V110z"/><g fill="#e3edf9" opacity=".8"><path d="M300 12l-20 14 9-1 9 6 8-8 12 4z"/><path d="M700 20l-22 16 10-2 10 7 8-9 13 4z"/><path d="M1120 16l-22 16 10-2 9 6 9-8 13 4z"/></g><path fill="var(--night)" d="M0 110V92C140 80 260 96 400 88S660 76 800 90 1100 100 1240 86 1380 82 1440 88V110z"/></svg>
 <footer><div class="wrap">© Megève par cœur · <a href="/en/">Home</a> · <a href="/en/#agenda">What's on</a> · <a href="/en/meteo/">Snow &amp; weather</a> · <a href="/en/webcams/">Webcams</a> · <a href="/en/balades/">Walks</a> · <a href="/en/carte/">Map</a></div></footer>
 <script src="/assets/app.js" defer></script>
-<script>
-const st={v:"",l:""};
-document.getElementById("bar").addEventListener("click",e=>{const b=e.target.closest(".pill");if(!b)return;const g=b.parentElement;g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",x===b));st[g.dataset.k]=b.dataset.x;
-  document.querySelectorAll(".walk").forEach(w=>{w.hidden=(st.v&&w.dataset.v!==st.v)||(st.l&&w.dataset.l!==st.l);});});
-</script>
 </body>
 </html>

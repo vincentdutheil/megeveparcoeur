@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Balades & raquettes à Megève, Combloux, Praz-sur-Arly · Megève par cœur</title>
+<title>Balades, randonnées, raquettes & ski de rando · Megève, Combloux, Praz · Megève par cœur</title>
 <link rel="canonical" href="https://www.megeveparcoeur.fr/balades/">
 <link rel="alternate" hreflang="fr" href="https://www.megeveparcoeur.fr/balades/">
 <link rel="alternate" hreflang="en" href="https://www.megeveparcoeur.fr/en/balades/">
 <link rel="alternate" hreflang="x-default" href="https://www.megeveparcoeur.fr/balades/">
-<meta name="description" content="Balades à pied et itinéraires raquettes balisés autour de Megève, Combloux, Demi-Quartier et Praz-sur-Arly : durée, dénivelé, distance et point de départ.">
+<meta name="description" content="Raquettes, ski de randonnée et randonnées d'été balisés autour de Megève, Combloux, Demi-Quartier et Praz-sur-Arly : durée, dénivelé, distance et point de départ.">
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0a1424">
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-title" content="Megève ❤">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta property="og:image" content="https://www.megeveparcoeur.fr/img/logo.png">
-<meta property="og:title" content="Balades & raquettes à Megève, Combloux, Praz-sur-Arly · Megève par cœur">
+<meta property="og:title" content="Balades, randonnées, raquettes & ski de rando · Megève, Combloux, Praz · Megève par cœur">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -51,6 +51,20 @@
 .fv-map{display:inline-block;margin-top:16px;font-weight:800;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px}
 .all-h{font-family:var(--display);font-size:clamp(1.4rem,3vw,1.8rem);margin:0 0 14px}
 @media(max-width:820px){.fv{grid-template-columns:1fr}}
+.season{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px}
+.sz{display:flex;align-items:center;gap:14px;text-align:left;cursor:pointer;border:2px solid var(--line);border-radius:22px;padding:16px 18px;background:var(--card);font:inherit;color:inherit;transition:transform .15s,box-shadow .15s,border-color .15s}
+.sz:hover{transform:translateY(-2px)}
+.sz-i{font-size:2rem;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;flex:none;background:var(--wool)}
+.sz b{display:block;font-family:var(--display);font-size:1.3rem;font-weight:600}.sz small{display:block;color:var(--muted);font-weight:600;font-size:.85rem;margin-top:2px}
+.sz.hiver[aria-pressed="true"]{border-color:#3f6fb0;background:linear-gradient(135deg,#eaf2fd,#fff);box-shadow:0 12px 28px rgba(31,79,154,.18)}
+.sz.hiver[aria-pressed="true"] .sz-i{background:#d6e5fa}
+.sz.ete[aria-pressed="true"]{border-color:#c98a1c;background:linear-gradient(135deg,#fdf4e2,#fff);box-shadow:0 12px 28px rgba(160,110,20,.18)}
+.sz.ete[aria-pressed="true"] .sz-i{background:#fae6bd}
+.bar .count{margin-left:auto;font-weight:800;color:var(--pine);font-size:.9rem}
+.empty{text-align:center;color:var(--muted);font-weight:700;padding:20px}
+.safe.ete{background:linear-gradient(120deg,#8a5a24,#b87a2a)}
+[hidden]{display:none!important}
+@media(max-width:640px){.season{grid-template-columns:1fr}.sz{padding:12px 14px}.sz-i{width:46px;height:46px;font-size:1.6rem}}
 </style>
 </head>
 <body>
@@ -73,8 +87,8 @@
 <section class="hero">
   <div class="wrap">
     <div class="kicker">🌲 Megève · Combloux · Demi-Quartier · Praz-sur-Arly</div>
-    <h1>Balades &amp; <em>raquettes</em></h1>
-    <p>Des itinéraires balisés, faciles à trouver et pensés pour profiter de la montagne sans skis : en famille dans le village ou en raquettes face au Mont-Blanc.</p>
+    <h1>Balades, randos &amp; <em>raquettes</em></h1>
+    <p>L'hiver en raquettes ou en ski de randonnée, l'été en randonnée dans les alpages : des itinéraires balisés entre Megève, Combloux, Demi-Quartier et Praz-sur-Arly, avec durée, dénivelé et point de départ.</p>
   </div>
   <svg class="scene" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#7f9cc0" opacity=".8" d="M0 130L120 72 210 100 340 22 430 76 560 40 690 98 820 12 930 76 1050 46 1180 92 1300 50 1440 80V200H0z"/>
@@ -96,95 +110,500 @@
     </div>
     <a class="fv-map" href="../carte/">🗺️ La carte des beaux coins</a>
   </section>
-  <h2 class="all-h">Les itinéraires balisés</h2>
+  <h2 class="all-h">Les itinéraires balisés, saison par saison</h2>
+<!--WALKS-->
+  <div class="season" id="season" role="group" aria-label="Choisis ta saison">
+    <button class="sz hiver" data-s="hiver" aria-pressed="true"><span class="sz-i" aria-hidden="true">❄️</span><span><b>Balades hivernales</b><small>Raquettes, ski de rando &amp; balades dans la neige · 23 itinéraires</small></span></button>
+    <button class="sz ete" data-s="ete" aria-pressed="false"><span class="sz-i" aria-hidden="true">☀️</span><span><b>Balades estivales</b><small>Randonnées &amp; balades dans les alpages · 33 itinéraires</small></span></button>
+  </div>
   <div class="bar" id="bar">
-    <span class="lab">Village</span><div class="pills" data-k="v"><button class="pill" data-x="" aria-pressed="true">Tous</button><button class="pill" data-x="Megève" aria-pressed="false">Megève</button><button class="pill" data-x="Combloux" aria-pressed="false">Combloux</button><button class="pill" data-x="Praz-sur-Arly" aria-pressed="false">Praz-sur-Arly</button></div>
-    <span class="lab">Niveau</span><div class="pills" data-k="l"><button class="pill" data-x="" aria-pressed="true">Tous</button><button class="pill" data-x="Facile" aria-pressed="false">Facile</button><button class="pill" data-x="Modéré" aria-pressed="false">Modéré</button><button class="pill" data-x="Sportif" aria-pressed="false">Sportif</button></div>
+    <span class="lab" data-in="hiver">Activité</span><div class="pills" data-k="t" data-in="hiver"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">Tous</button><button class="pill" data-x="raq" data-in="hiver" aria-pressed="false">❄️ Raquettes</button><button class="pill" data-x="skr" data-in="hiver" aria-pressed="false">🎿 Ski de rando</button><button class="pill" data-x="pied" data-in="hiver" aria-pressed="false">🚶 À pied</button></div>
+    <span class="lab">Village</span><div class="pills" data-k="v"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">Tous</button><button class="pill" data-x="Megève" data-in="hiver ete" aria-pressed="false">Megève</button><button class="pill" data-x="Combloux" data-in="hiver ete" aria-pressed="false">Combloux</button><button class="pill" data-x="Demi-Quartier" data-in="hiver" aria-pressed="false">Demi-Quartier</button><button class="pill" data-x="Praz-sur-Arly" data-in="hiver ete" aria-pressed="false">Praz-sur-Arly</button></div>
+    <span class="lab">Niveau</span><div class="pills" data-k="l"><button class="pill" data-x="" data-in="hiver ete" aria-pressed="true">Tous</button><button class="pill" data-x="f" data-in="hiver ete" aria-pressed="false">Facile</button><button class="pill" data-x="m" data-in="hiver ete" aria-pressed="false">Modéré</button><button class="pill" data-x="s" data-in="hiver ete" aria-pressed="false">Sportif</button></div>
+    <span class="count" id="count" aria-live="polite"></span>
   </div>
   <div class="list" id="list">
-<article class="walk" data-v="Megève" data-t="À pied" data-l="Facile">
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
   <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
-  <h2>🥾 9 fontaines, 2 torrents, 4 ponts</h2>
-  <p class="type">À pied · départ : Centre du village de Megève</p>
-  <div class="facts"><div><b>1h15</b><span>Durée</span></div><div><b>18 m</b><span>Dénivelé +</span></div><div><b>1,0 km</b><span>Distance</span></div></div>
-  <p>Une petite boucle dans le vieux Megève, de fontaine en fontaine : l'église, le vieux pont, la place de la Résistance, la passerelle sur le torrent. Idéale avec des enfants ou en fin de journée, sous les illuminations.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-hiver-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Église+Saint-Jean-Baptiste+Megève" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <h2>🎿 Rand'Arbois</h2>
+  <p class="type">Ski de rando · départ : Mont d'Arbois, route Edmond de Rothschild</p>
+  <div class="facts"><div><b>1h45</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>3,6 km</b><span>Distance</span></div></div>
+  <p>L'itinéraire pour débuter : une montée régulière sur le secteur du Mont d'Arbois, retour par les pistes.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5697480-rand-arbois" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mont+d%27Arbois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
-<article class="walk" data-v="Combloux" data-t="Raquettes" data-l="Facile">
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🎿 Randoroche</h2>
+  <p class="type">Ski de rando · départ : Téléphérique de Rochebrune</p>
+  <div class="facts"><div><b>2h15</b><span>Durée</span></div><div><b>≈ 700 m</b><span>Dénivelé +</span></div><div><b>3,8 km</b><span>Distance</span></div></div>
+  <p>Pour skieurs aguerris : une montée raide et soutenue jusqu'en haut de Rochebrune.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5697476-randoroche" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🎿 La Charlotte</h2>
+  <p class="type">Ski de rando · départ : Secteur du Jaillet</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>455 m</b><span>Dénivelé +</span></div><div><b>2,8 km</b><span>Distance</span></div></div>
+  <p>Une belle montée en forêt jusqu'à l'arrivée de la télécabine du Jaillet, à 1 575 m.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-ski-de-randonnee-la-charlotte/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🎿 L'Elise Allais</h2>
+  <p class="type">Ski de rando · départ : Parking des Frasses</p>
+  <div class="facts"><div><b>40 min</b><span>Durée</span></div><div><b>155 m</b><span>Dénivelé +</span></div><div><b>2,5 km</b><span>Distance</span></div></div>
+  <p>Court et accessible : du parking des Frasses jusqu'au sommet de la télécabine du Jaillet.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-ski-de-randonnee-lelise-allais-megeve-fr-5885458/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+des+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🎿 La Cabane des Frasses</h2>
+  <p class="type">Ski de rando · départ : Piste du Bel Ava</p>
+  <div class="facts"><div><b>35 min</b><span>Durée</span></div><div><b>180 m</b><span>Dénivelé +</span></div><div><b>1,8 km</b><span>Distance</span></div></div>
+  <p>Une petite montée de la piste du Bel Ava vers le chemin du col du Jaillet, parfaite pour un premier essai.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/5621716-itineraire-ski-de-randonnee-cabane-des-frasses" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Demi-Quartier" data-l="f">
+  <div class="top"><span class="chip Demi-Quartier">Demi-Quartier</span><span class="lv Facile">Facile</span></div>
+  <h2>🎿 Chez Fernand</h2>
+  <p class="type">Ski de rando · départ : Parking de la Fouettaz</p>
+  <div class="facts"><div><b>40 min</b><span>Durée</span></div><div><b>200 m</b><span>Dénivelé +</span></div><div><b>1,2 km</b><span>Distance</span></div></div>
+  <p>Du parking de la Fouettaz par le chemin de la Ravine : court, efficace, face au Mont-Blanc.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-ski-de-randonnee-chez-fernand/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Fouettaz+Demi-Quartier" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="f">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Facile</span></div>
+  <h2>🎿 La Ravine à Claudius</h2>
+  <p class="type">Ski de rando · départ : Ferme de Beauregard</p>
+  <div class="facts"><div><b>30 min</b><span>Durée</span></div><div><b>145 m</b><span>Dénivelé +</span></div><div><b>2 km</b><span>Distance</span></div></div>
+  <p>De la ferme de Beauregard jusqu'au sommet de la télécabine du Jaillet, en douceur.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-ski-de-randonnee-la-ravine-a-claudius-combloux-fr-5885329/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Beauregard+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🎿 Le Plan des Dames</h2>
+  <p class="type">Ski de rando · départ : Cuchet / La Cry</p>
+  <div class="facts"><div><b>1h45</b><span>Durée</span></div><div><b>612 m</b><span>Dénivelé +</span></div><div><b>5 km</b><span>Distance</span></div></div>
+  <p>De Cuchet au sommet des Salles (1 757 m), le point culminant de Combloux, par le Plan des Dames.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/622734-itineraire-ski-de-randonnee-le-plan-des-dames" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🎿 La Crève-Cœur</h2>
+  <p class="type">Ski de rando · départ : Parking du Bouchet (1 020 m)</p>
+  <div class="facts"><div><b>2h30</b><span>Durée</span></div><div><b>737 m</b><span>Dénivelé +</span></div><div><b>5,6 km</b><span>Distance</span></div></div>
+  <p>Le plus long de Combloux : loin des pistes, au calme, du Bouchet jusqu'au sommet des Salles.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-ski/622736-itineraire-ski-de-randonnee-la-creve-coeur" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Bouchet+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="skr" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>🎿 « La Drè Yo », sur la trace des Martres</h2>
+  <p class="type">Ski de rando · départ : Front de neige, face au chalet de l'ESF</p>
+  <div class="facts"><div><b>2 à 3 h</b><span>Durée</span></div><div><b>≈ 630 m</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>L'itinéraire balisé de Praz : départ sous le restaurant Le Serasson, descente par les pistes.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/ski-touring" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=ESF+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="f">
   <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Facile</span></div>
   <h2>❄️ Le Vernay – Châble d'en bas</h2>
-  <p class="type">Raquettes · départ : Parking de la Cry, Combloux</p>
-  <div class="facts"><div><b>1h40</b><span>Durée</span></div><div><b>3,5 km</b><span>Distance</span></div></div>
+  <p class="type">Raquettes · départ : Parking de la Cry</p>
+  <div class="facts"><div><b>1h40</b><span>Durée</span></div><div><b>160 m</b><span>Dénivelé +</span></div><div><b>3,5 km</b><span>Distance</span></div></div>
   <p>Une boucle tranquille, d'abord en bord de piste puis plus sauvage à travers la forêt, par Beauregard, le Châble d'en bas et le Vernay.</p>
-  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/103246-itineraire-raquettes-le-vernay-chable-d-en-bas" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/103246-itineraire-raquettes-le-vernay-chable-d-en-bas" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
-<article class="walk" data-v="Combloux" data-t="Raquettes" data-l="Facile">
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="f">
   <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Facile">Facile</span></div>
   <h2>❄️ La randonnée des P'tits Loups</h2>
-  <p class="type">Raquettes · départ : Pistes de ski de fond, Combloux</p>
-  <div class="facts"><div><b>45 min</b><span>Durée</span></div><div><b>2 km</b><span>Distance</span></div></div>
-  <p>Le circuit familial par excellence : une boucle verte avec des jeux pour les enfants, le long des pistes de ski de fond (on marche à côté des traces).</p>
-  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/623096-itineraire-raquettes-la-randonnee-des-p-tits-loups" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Pistes+de+ski+de+fond+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <p class="type">Raquettes · départ : Pistes de ski de fond</p>
+  <div class="facts"><div><b>45 min</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>2 km</b><span>Distance</span></div></div>
+  <p>Le circuit familial par excellence : une boucle avec des jeux pour les enfants, le long des pistes de ski de fond (on marche à côté des traces).</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/623096-itineraire-raquettes-la-randonnee-des-p-tits-loups" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Pistes+de+ski+de+fond+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
-<article class="walk" data-v="Megève" data-t="Raquettes" data-l="Modéré">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
-  <h2>❄️ L'Elise Allais</h2>
-  <p class="type">Raquettes · départ : Domaine des Portes du Mont-Blanc (Le Jaillet)</p>
-  <div class="facts"><div><b>40 min</b><span>Durée</span></div><div><b>155 m</b><span>Dénivelé +</span></div><div><b>2,5 km</b><span>Distance</span></div></div>
-  <p>Un des itinéraires raquettes balisés des Portes du Mont-Blanc, à travers bois et le long des pistes. Court, mais avec un peu de montée.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-lelise-allais/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Point de départ</a></div>
-</article>
-<article class="walk" data-v="Megève" data-t="Raquettes" data-l="Modéré">
-  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
-  <h2>❄️ Du Jaillet supérieur au col du Jaillet</h2>
-  <p class="type">Raquettes · départ : Gare supérieure de la télécabine du Jaillet</p>
-  <div class="facts"><div><b>2h</b><span>Durée</span></div><div><b>212 m</b><span>Dénivelé +</span></div><div><b>6,0 km</b><span>Distance</span></div></div>
-  <p>Forêt, sous-bois et col : une très belle balade avec vue sur la chaîne du Mont-Blanc, les Aravis et Megève en contrebas. Aller-retour par le même chemin ; table d'orientation et aire de pique-nique. Le Meg'bus gratuit dessert la télécabine.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-du-jaillet-superieur-au-col-du-jaillet/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Point de départ</a></div>
-</article>
-<article class="walk" data-v="Combloux" data-t="Raquettes" data-l="Modéré">
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="m">
   <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Modéré</span></div>
   <h2>❄️ Liaison Combloux – Megève</h2>
-  <p class="type">Raquettes · départ : Parking de la Cry, Combloux</p>
-  <div class="facts"><div><b>1h45</b><span>Durée</span></div><div><b>160 m</b><span>Dénivelé +</span></div><div><b>4,0 km</b><span>Distance</span></div></div>
-  <p>Un itinéraire en alpage face au Mont-Blanc, par Cuchet, Maison Neuve, la Fouettaz et Odier, jusqu'à la télécabine du Jaillet à Megève. Aller simple : prévoyez le retour.</p>
-  <div class="links"><a href="https://www.combloux.com/itineraires/itineraire-raquettes-liaison-megeve/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <p class="type">Raquettes · départ : Parking de la Cry</p>
+  <div class="facts"><div><b>1h45</b><span>Durée</span></div><div><b>160 m</b><span>Dénivelé +</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>En alpage face au Mont-Blanc, par Cuchet, Maison Neuve, la Fouettaz et Odier, jusqu'à la télécabine du Jaillet. Aller simple : prévoyez le retour.</p>
+  <div class="links"><a href="https://www.combloux.com/itineraires/itineraire-raquettes-liaison-megeve/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
-<article class="walk" data-v="Megève" data-t="Raquettes" data-l="Sportif">
+<article class="walk" data-s="hiver" data-t="raq" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Sportif</span></div>
+  <h2>❄️ Boucle du sommet des Salles</h2>
+  <p class="type">Raquettes · départ : Parking de la Cry</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Forêts et alpages jusqu'au point culminant de Combloux, avec le belvédère de la Croix des Salles. Montée par le Plan des Dames, descente par la Crève-Cœur.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-raquettes-boucle-du-sommet-des-salles-combloux-fr-5982688/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Parking+de+la+Cry+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>❄️ L'Elise Allais</h2>
+  <p class="type">Raquettes · départ : Secteur du Jaillet</p>
+  <div class="facts"><div><b>40 min</b><span>Durée</span></div><div><b>155 m</b><span>Dénivelé +</span></div><div><b>2,5 km</b><span>Distance</span></div></div>
+  <p>Un des itinéraires raquettes balisés des Portes du Mont-Blanc, à travers bois et le long des pistes. Court, mais avec un peu de montée.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-lelise-allais/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>❄️ La Charlotte</h2>
+  <p class="type">Raquettes · départ : Parking de la télécabine du Jaillet</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>455 m</b><span>Dénivelé +</span></div><div><b>2,2 km</b><span>Distance</span></div></div>
+  <p>Une vraie montée en raquettes, de la gare du Jaillet jusqu'en haut de la télécabine.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/itineraire-raquettes-la-charlotte-megeve-fr-6083140/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>❄️ Du Jaillet supérieur au col du Jaillet</h2>
+  <p class="type">Raquettes · départ : Haut de la télécabine du Jaillet</p>
+  <div class="facts"><div><b>2h</b><span>Durée</span></div><div><b>212 m</b><span>Dénivelé +</span></div><div><b>6 km</b><span>Distance</span></div></div>
+  <p>Forêt, sous-bois et col, avec vue sur le Mont-Blanc, les Aravis et Megève en contrebas. Aller-retour ; table d'orientation et aire de pique-nique.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquette-du-jaillet-superieur-au-col-du-jaillet/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>❄️ Le Leutellet</h2>
+  <p class="type">Raquettes · départ : Chalet de la Livraz (1 400 m)</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Au calme du plateau de la Livraz, avec vue sur Rochebrune, le Mont Joly et l'altiport.</p>
+  <div class="links"><a href="https://www.haute-savoie-tourisme.org/nature/itineraires-raquettes/6353540-itineraire-raquette-le-leutellet" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=La+Livraz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Megève" data-l="s">
   <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
   <h2>❄️ Pierrot du Col</h2>
-  <p class="type">Raquettes · départ : Domaine des Portes du Mont-Blanc</p>
+  <p class="type">Raquettes · départ : Haut de la télécabine du Jaillet</p>
   <div class="facts"><div><b>1h</b><span>Durée</span></div><div><b>278 m</b><span>Dénivelé +</span></div><div><b>4,8 km</b><span>Distance</span></div></div>
-  <p>Pour raquettistes confirmés : un itinéraire non damé qui monte jusqu'à 1 853 m. La descente se fait par les pistes damées.</p>
-  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquettes-pierrot-du-col/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Télécabine+du+Jaillet+Megève" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <p>Pour raquettistes confirmés : un itinéraire non damé jusqu'au Christomet, à 1 853 m. Descente par les pistes damées.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-raquettes-pierrot-du-col/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
-<article class="walk" data-v="Praz-sur-Arly" data-t="Raquettes" data-l="Facile">
+<article class="walk" data-s="hiver" data-t="raq" data-v="Praz-sur-Arly" data-l="f">
   <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Facile</span></div>
   <h2>❄️ Le sentier des Evettes</h2>
   <p class="type">Raquettes · départ : Praz-sur-Arly</p>
-  
-  <p>Un itinéraire balisé et gratuit à travers forêt et clairières, avec de belles vues sur les Aravis et le Val d'Arly. Accessible à tous, dès 10 ans.</p>
-  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Office+de+tourisme+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Balisé et gratuit, à travers forêt et clairières, avec de belles vues sur les Aravis et le Val d'Arly. Accessible à tous, dès 10 ans.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Office+de+tourisme+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="raq" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>❄️ Cassioz et Thouvassières</h2>
+  <p class="type">Raquettes · départ : Parking du domaine skiable</p>
+  <div class="facts"><div><b>1h40</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Une boucle d'environ 1h40 aller-retour au départ du domaine, entre hameaux et forêt.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/snowshoeing" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Praz-sur-Arly+domaine+skiable+parking" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="pied" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🚶 9 fontaines, 2 torrents, 4 ponts</h2>
+  <p class="type">À pied · départ : Centre du village</p>
+  <div class="facts"><div><b>1h15</b><span>Durée</span></div><div><b>18 m</b><span>Dénivelé +</span></div><div><b>1 km</b><span>Distance</span></div></div>
+  <p>Une petite boucle dans le vieux Megève, de fontaine en fontaine : l'église, le vieux pont, la place de la Résistance, la passerelle sur le torrent. Idéale en fin de journée, sous les illuminations.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/itineraires/itineraire-hiver-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise+Saint-Jean-Baptiste+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="hiver" data-t="pied" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🚶 Les sentiers piétons de la Livraz</h2>
+  <p class="type">À pied · départ : Site nordique de la Livraz</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>22,5 km</b><span>Distance</span></div></div>
+  <p>22,5 km de chemins damés pour les piétons, gratuits, sur le plateau nordique : on marche en chaussures de neige, sans raquettes.</p>
+  <div class="links"><a href="https://www.google.com/maps/search/?api=1&amp;query=Site+nordique+de+la+Livraz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 La boucle du lac</h2>
+  <p class="type">Randonnée · départ : Lac de Megève</p>
+  <div class="facts"><div><b>20 min</b><span>Durée</span></div><div><b>50 m</b><span>Dénivelé +</span></div><div><b>1,2 km</b><span>Distance</span></div></div>
+  <p>Le petit tour du lac, pour une première sortie avec les tout-petits.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-pieton-boucle-du-lac/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+de+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 9 fontaines, 2 torrents, 4 ponts</h2>
+  <p class="type">Randonnée · départ : Centre du village</p>
+  <div class="facts"><div><b>1h15</b><span>Durée</span></div><div><b>18 m</b><span>Dénivelé +</span></div><div><b>1 km</b><span>Distance</span></div></div>
+  <p>De fontaine en fontaine dans le vieux Megève : l'église, le vieux pont et la passerelle sur le torrent.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-9-fontaines-2-torrents-4-ponts/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise+Saint-Jean-Baptiste+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le chemin du Calvaire</h2>
+  <p class="type">Randonnée · départ : Centre du village</p>
+  <div class="facts"><div><b>1h</b><span>Durée</span></div><div><b>155 m</b><span>Dénivelé +</span></div><div><b>1,6 km</b><span>Distance</span></div></div>
+  <p>Les chapelles du Calvaire au-dessus du village, et la vue sur toute la vallée.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/le-chemin-du-calvaire/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Calvaire+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le sentier nature du Calvaire</h2>
+  <p class="type">Randonnée · départ : Le Calvaire</p>
+  <div class="facts"><div><b>1h</b><span>Durée</span></div><div><b>80 m</b><span>Dénivelé +</span></div><div><b>1,8 km</b><span>Distance</span></div></div>
+  <p>Une boucle courte autour du Calvaire, pour découvrir la faune et la flore en famille.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/sentier-nature-du-calvaire/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Calvaire+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le chemin de Fanou</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h</b><span>Durée</span></div><div><b>38 m</b><span>Dénivelé +</span></div><div><b>2,5 km</b><span>Distance</span></div></div>
+  <p>Une promenade presque à plat, facile avec une poussette tout-terrain.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/le-chemin-de-fanou/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le Moulin Contant</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h05</b><span>Durée</span></div><div><b>116 m</b><span>Dénivelé +</span></div><div><b>3,8 km</b><span>Distance</span></div></div>
+  <p>Au fil de l'eau jusqu'au vieux moulin, entre prés et forêt.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-moulin-contant/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 La boucle de la Croix du Bouchet</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>103 m</b><span>Dénivelé +</span></div><div><b>4,4 km</b><span>Distance</span></div></div>
+  <p>Une boucle facile et ensoleillée, avec le Mont-Blanc en ligne de mire.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-boucle-de-la-croix-du-bouchet/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Croix+du+Bouchet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Vauvray – Ormaret</h2>
+  <p class="type">Randonnée · départ : Près du Palais</p>
+  <div class="facts"><div><b>2h</b><span>Durée</span></div><div><b>192 m</b><span>Dénivelé +</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>Par le chemin des Ânes et la petite route de Vauvray : très facile, et un magnifique point de vue sur la chaîne du Mont-Blanc.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-vauvray-ormaret/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Palais+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le chemin de Lady – Les Granges</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>133 m</b><span>Dénivelé +</span></div><div><b>5,6 km</b><span>Distance</span></div></div>
+  <p>Une jolie balade de hameau en hameau, sans difficulté.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-chemin-de-lady-les-granges/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le Planellet – Les Pettoreaux par le Stepan</h2>
+  <p class="type">Randonnée · départ : Le Planellet</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>135 m</b><span>Dénivelé +</span></div><div><b>4,2 km</b><span>Distance</span></div></div>
+  <p>Au pied du Mont d'Arbois, par le hameau des Pettoreaux : une balade surtout en descente.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-planellet-les-pettoreaux-par-le-stepan/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Planellet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="f">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le Jaillet – Villard / Villaret</h2>
+  <p class="type">Randonnée · départ : Secteur du Jaillet</p>
+  <div class="facts"><div><b>2h</b><span>Durée</span></div><div><b>172 m</b><span>Dénivelé +</span></div><div><b>4,3 km</b><span>Distance</span></div></div>
+  <p>Un secteur calme de Megève, où le Mont-Blanc se dévoile au fil du chemin.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-au-jaillet-villard-villaret/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 La cascade de la Belle au Bois</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>4 km</b><span>Distance</span></div></div>
+  <p>Une balade rafraîchissante jusqu'à la cascade, idéale par grosse chaleur.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-la-cascade-de-la-belle-au-bois/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cascade+de+la+Belle+au+Bois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Le lac de Javen</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>307 m</b><span>Dénivelé +</span></div><div><b>4,4 km</b><span>Distance</span></div></div>
+  <p>Une montée en forêt jusqu'au petit lac de montagne de Javen, coin pique-nique parfait.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-lac-de-javen/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+de+Javen+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Le chalet de la Vieille</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>1h30</b><span>Durée</span></div><div><b>472 m</b><span>Dénivelé +</span></div><div><b>5,6 km</b><span>Distance</span></div></div>
+  <p>Une montée franche vers les alpages et le chalet de la Vieille.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-chalet-de-la-vieille/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Sur la crête de Rochebrune</h2>
+  <p class="type">Randonnée · départ : Rochebrune</p>
+  <div class="facts"><div><b>2h30</b><span>Durée</span></div><div><b>427 m</b><span>Dénivelé +</span></div><div><b>4,2 km</b><span>Distance</span></div></div>
+  <p>Une crête facile d'accès et très panoramique, appréciée des familles.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-ete-sur-la-crete-de-rochebrune/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Le sentier du Tétras-Lyre</h2>
+  <p class="type">Randonnée · départ : Le Jaillet</p>
+  <div class="facts"><div><b>2h30</b><span>Durée</span></div><div><b>213 m</b><span>Dénivelé +</span></div><div><b>2,3 km</b><span>Distance</span></div></div>
+  <p>Sur la crête du Jaillet, avec le Mont-Blanc, les Aravis, le Beaufortain et la Vanoise au loin.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/sentier-du-tetras-lyre/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Du Jaillet supérieur au village</h2>
+  <p class="type">Randonnée · départ : Haut de la télécabine du Jaillet</p>
+  <div class="facts"><div><b>2h30</b><span>Durée</span></div><div><b>79 m</b><span>Dénivelé +</span></div><div><b>6 km</b><span>Distance</span></div></div>
+  <p>On monte en télécabine, on redescend à pied jusqu'au village (531 m de descente).</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraires-rando-du-jaillet-superieur-au-village/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9cabine+du+Jaillet+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="m">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Au Leutaz</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>3h</b><span>Durée</span></div><div><b>265 m</b><span>Dénivelé +</span></div><div><b>10 km</b><span>Distance</span></div></div>
+  <p>Une longue balade jusqu'au vallon du Leutaz, ses chalets et ses alpages.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-au-leutaz/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Le+Leutaz+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Le Mont d'Arbois – Mont Joux</h2>
+  <p class="type">Randonnée · départ : Mont d'Arbois</p>
+  <div class="facts"><div><b>3h45</b><span>Durée</span></div><div><b>673 m</b><span>Dénivelé +</span></div><div><b>11,7 km</b><span>Distance</span></div></div>
+  <p>L'incontournable : jusqu'au Mont Joux (1 958 m), avec le Mont-Blanc droit devant.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-mont-darbois-mont-joux/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Mont+d%27Arbois+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Le Christomet par les Frasses et le Mont Platard</h2>
+  <p class="type">Randonnée · départ : Les Frasses</p>
+  <div class="facts"><div><b>3h30</b><span>Durée</span></div><div><b>709 m</b><span>Dénivelé +</span></div><div><b>9,8 km</b><span>Distance</span></div></div>
+  <p>Une belle montée jusqu'au Christomet et sa vue à 360° sur les Aravis et le Mont-Blanc.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-le-christomet-par-les-frasses-et-le-mont-platard/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Frasses+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Du village à Rochebrune – Côte 2000</h2>
+  <p class="type">Randonnée · départ : Parking de Rochebrune</p>
+  <div class="facts"><div><b>4h</b><span>Durée</span></div><div><b>806 m</b><span>Dénivelé +</span></div><div><b>15,2 km</b><span>Distance</span></div></div>
+  <p>Une grande boucle par le massif de Rochebrune jusqu'à la Côte 2000, le coin le plus sauvage.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-ete-boucle-du-village-a-rochebrune-cote-2000/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9ph%C3%A9rique+de+Rochebrune+Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Le col de Véry</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>4h</b><span>Durée</span></div><div><b>908 m</b><span>Dénivelé +</span></div><div><b>14 km</b><span>Distance</span></div></div>
+  <p>Une vraie randonnée de montagne jusqu'au col de Véry, entre Megève et le Beaufortain.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/randonnee-col-de-very/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Col du Jaillet – Petit Croisse Baulet</h2>
+  <p class="type">Randonnée · départ : Col du Jaillet</p>
+  <div class="facts"><div><b>5h30</b><span>Durée</span></div><div><b>962 m</b><span>Dénivelé +</span></div><div><b>14,5 km</b><span>Distance</span></div></div>
+  <p>La grande crête au-dessus de Megève et Combloux, entre Aravis et vallée de l'Arve.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/itineraire-rando-col-du-jaillet-petit-croisse-baulet/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Col+du+Jaillet" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Megève" data-l="s">
+  <div class="top"><span class="chip Megève">Megève</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Le Mont Joly</h2>
+  <p class="type">Randonnée · départ : Megève</p>
+  <div class="facts"><div><b>8h</b><span>Durée</span></div><div><b>1 300 m</b><span>Dénivelé +</span></div><div><b>16,6 km</b><span>Distance</span></div></div>
+  <p>Pour marcheurs confirmés : par les chalets d'Hermance jusqu'au sommet (2 525 m) et sa table d'orientation, face au Mont-Blanc, au Beaufortain, aux Aravis et aux Bauges.</p>
+  <div class="links"><a href="https://www.megeve-tourisme.fr/en/itineraires/randonnee-du-mont-joly/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Meg%C3%A8ve" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Champet – Balancerie</h2>
+  <p class="type">Randonnée · départ : Office de tourisme de Combloux</p>
+  <div class="facts"><div><b>2h</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>4,5 km</b><span>Distance</span></div></div>
+  <p>Une boucle depuis le village par les petits chemins jusqu'à Ormaret et sa chapelle, face au Mont-Blanc, entre fermes et traditions agricoles.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/balade-pedestre-panoramique-champet-balancerie-combloux-fr-5866473/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Office+de+tourisme+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 Les alpages de Prapacot et de Planset</h2>
+  <p class="type">Randonnée · départ : Parking des Intages</p>
+  <div class="facts"><div><b>1h40</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>5,1 km</b><span>Distance</span></div></div>
+  <p>Une boucle tranquille entre alpages et vieux bâtis, avec vue sur la vallée de l'Arve et les Fiz. Pas de point d'eau : emportez de quoi boire.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/boucle-pedestre-alpages-de-prapacot-et-de-planset-combloux-fr-5866955/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Les+Intages+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="m">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Modéré">Modéré</span></div>
+  <h2>🥾 La P'tite Ravine – Fouettaz</h2>
+  <p class="type">Randonnée · départ : Parking de Cuchet</p>
+  <div class="facts"><div><b>2h15</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>5,7 km</b><span>Distance</span></div></div>
+  <p>Une boucle familiale en forêt et en alpage, avec de grandes vues sur la chaîne du Mont-Blanc. Navette gratuite jusqu'à Cuchet.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/randonnee-pedestre-boucle-la-petite-ravine-fouettaz-combloux-fr-6338454/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cuchet+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Combloux" data-l="s">
+  <div class="top"><span class="chip Combloux">Combloux</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 La Croix des Salles</h2>
+  <p class="type">Randonnée · départ : Parking de Cuchet</p>
+  <div class="facts"><div><b>3h30</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>9,1 km</b><span>Distance</span></div></div>
+  <p>Une demi-journée jusqu'au sommet du domaine et à la Croix des Salles, vue à 360° sur le Mont-Blanc, les Aravis et les Fiz. Retour par le lac du Jaillet.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/randonnee-pedestre-la-croix-des-salles-combloux-fr-5865341/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cuchet+Combloux" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le Mont du Villard</h2>
+  <p class="type">Randonnée · départ : Route de Bellevarde</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Une petite balade entre Praz et Megève, avec un beau panorama sur le Mont-Blanc.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/petites-balades-le-mont-du-villard-praz-sur-arly-fr-5869510/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Route+de+Bellevarde+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Les Granges</h2>
+  <p class="type">Randonnée · départ : Praz-sur-Arly</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Une petite balade du Val d'Arly, entre hameaux et prairies.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/offres/petites-balades-les-granges-praz-sur-arly-fr-5868388/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="f">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Facile">Facile</span></div>
+  <h2>🥾 Le lac des Evettes</h2>
+  <p class="type">Randonnée · départ : Parking des Grabilles</p>
+  <div class="facts"><div><b>—</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Le petit lac au milieu des sapins, avec les parcours ludiques Étoiles et Tétras Randos, accessibles dès 3-4 ans.</p>
+  <div class="links"><a href="https://hautesavoiemontblanc-tourisme.com/a-la-une/praz-sur-arly/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Lac+des+Evettes+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span></div>
+  <h2>🥾 Le chemin des Contrebandiers</h2>
+  <p class="type">Randonnée · départ : Télésiège du Crêt du Midi</p>
+  <div class="facts"><div><b>2h30</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Le télésiège monte à 1 700 m en 10 minutes ; de là, le chemin des Contrebandiers part à travers les alpages.</p>
+  <div class="links"><a href="https://www.prazsurarly.com/en/hiking" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=T%C3%A9l%C3%A9si%C3%A8ge+du+Cr%C3%AAt+du+Midi+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
+</article>
+<article class="walk" data-s="ete" data-t="rando" data-v="Praz-sur-Arly" data-l="s">
+  <div class="top"><span class="chip Praz-sur-Arly">Praz-sur-Arly</span><span class="lv Sportif">Sportif</span></div>
+  <h2>🥾 Le Crêt du Midi</h2>
+  <p class="type">Randonnée · départ : Praz-sur-Arly</p>
+  <div class="facts"><div><b>4h50</b><span>Durée</span></div><div><b>—</b><span>Dénivelé +</span></div><div><b>—</b><span>Distance</span></div></div>
+  <p>Pour marcheurs confirmés (3h de montée) : une vue superbe sur toutes les montagnes alentour, au cœur des alpages de Praz.</p>
+  <div class="links"><a href="https://www.savoie-mont-blanc.com/en/walking/confirmed-walkers-le-cret-du-midi-180155/" target="_blank" rel="noopener">Fiche officielle &amp; tracé ↗</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Cr%C3%AAt+du+Midi+Praz-sur-Arly" target="_blank" rel="noopener">📍 Point de départ</a></div>
 </article>
   </div>
-  <div class="safe">
+  <p class="empty" id="empty" hidden>Aucun itinéraire avec ces filtres.</p>
+  <div class="safe" data-in="hiver">
     <h3>⛑️ Avant de partir</h3>
-    <ul>
-      <li>Les itinéraires en domaine skiable ne sont ouverts qu'aux heures d'ouverture des pistes, et jamais la nuit.</li>
-      <li>Restez sur les tracés balisés (balisage violet pour la raquette), ne marchez pas dans les traces de ski de fond.</li>
-      <li>Vérifiez la <a href="/meteo/">météo &amp; la neige</a> et les <a href="/webcams/">webcams</a>, et renseignez-vous à l'office de tourisme sur l'ouverture des itinéraires.</li>
-      <li>Location de raquettes dans les magasins de sport des villages ; sorties accompagnées avec les bureaux des guides.</li>
-    </ul>
+    <ul><li>Les itinéraires en domaine skiable ne sont ouverts qu'aux heures d'ouverture des pistes (9h–16h30), et jamais la nuit : les dameuses circulent.</li><li>Ski de rando : balisage jaune, descente par les pistes ; une participation de 5 € la journée ou 50 € la saison est proposée sur les Portes du Mont-Blanc. Itinéraires ouverts selon l'enneigement, de mi-décembre à fin mars environ.</li><li>Raquettes : balisage violet ; ne marchez jamais dans les traces de ski de fond.</li><li>Un itinéraire peut être fermé après de fortes chutes de neige ou en cas de risque d'avalanche : vérifiez la <a href="/meteo/">météo &amp; la neige</a> et les <a href="/webcams/">webcams</a>, et renseignez-vous à l'office de tourisme.</li><li>Ne partez jamais seul, prévenez quelqu'un de votre itinéraire ; location de matériel dans les magasins de sport, sorties encadrées avec l'ESF et les bureaux des guides.</li></ul>
   </div>
-  <p class="note" style="margin-top:16px">Durées et dénivelés indiqués par les offices de tourisme, à titre indicatif. Sources : Megève Tourisme, Office de tourisme de Combloux, Office de tourisme de Praz-sur-Arly, Haute-Savoie Tourisme.</p>
+  <div class="safe ete" data-in="ete" hidden>
+    <h3>⛑️ Avant de partir</h3>
+    <ul><li>La météo change vite en montagne : regardez la <a href="/meteo/">météo</a> avant de partir et emportez une couche chaude et imperméable.</li><li>De l'eau en quantité, de bonnes chaussures, de la crème solaire : beaucoup de sentiers n'ont aucun point d'eau.</li><li>En alpage, refermez les clôtures, tenez votre chien en laisse et contournez les troupeaux et leurs chiens de protection.</li><li>Les télécabines et télésièges d'été (Jaillet, Mont d'Arbois, Rochebrune, Crêt du Midi) raccourcissent bien des montées : vérifiez leurs dates d'ouverture.</li><li>La carte « Belvédères du Mont-Blanc » (plus de 50 itinéraires, 300 km de sentiers) est en vente à l'office de tourisme de Praz-sur-Arly.</li></ul>
+  </div>
+  <p class="note" style="margin-top:16px">Durées, dénivelés et distances indiqués par les offices de tourisme, à titre indicatif ; « — » quand la fiche ne le précise pas. Sources : Megève Tourisme, offices de tourisme de Combloux et de Praz-sur-Arly, Haute-Savoie Tourisme, Haute-Savoie Mont-Blanc Tourisme, Savoie Mont Blanc.</p>
+<script>
+(function(){
+const N="itinéraires";const st={s:"hiver",t:"",v:"",l:""};
+const ws=[...document.querySelectorAll(".walk")];
+function run(){let n=0;ws.forEach(w=>{const h=w.dataset.s!==st.s||(st.t&&w.dataset.t!==st.t)||(st.v&&w.dataset.v!==st.v)||(st.l&&w.dataset.l!==st.l);w.hidden=h;if(!h)n++;});
+  document.getElementById("count").textContent=n+" "+N;document.getElementById("empty").hidden=n>0;}
+function reset(g){g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",!x.dataset.x));st[g.dataset.k]="";}
+function season(s,push){st.s=s;document.querySelectorAll("#season .sz").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===s));
+  document.body.dataset.season=s;
+  document.querySelectorAll("[data-in]").forEach(x=>{if(x.classList.contains("pill")&&!x.dataset.x)return;x.hidden=!x.dataset.in.split(" ").includes(s);});
+  document.querySelectorAll("#bar .pills").forEach(g=>{const on=g.querySelector('.pill[aria-pressed="true"]');if(on&&on.hidden)reset(g);if(g.hidden)reset(g);});
+  if(push)history.replaceState(null,"","#"+s);run();}
+document.getElementById("season").addEventListener("click",e=>{const b=e.target.closest(".sz");if(b)season(b.dataset.s,true);});
+document.getElementById("bar").addEventListener("click",e=>{const b=e.target.closest(".pill");if(!b)return;const g=b.parentElement;g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",x===b));st[g.dataset.k]=b.dataset.x;run();});
+const h=location.hash.slice(1),m=new Date().getMonth()+1;
+season(h==="ete"||h==="hiver"?h:(m>=5&&m<=10?"ete":"hiver"),false);
+})();
+</script>
+<!--/WALKS-->
 </main>
 <svg class="foot-peaks" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true"><path fill="#1b3354" d="M0 110V70L110 34 190 56 300 12 380 50 470 28 590 70 700 20 800 62 900 40 1010 74 1120 16 1210 56 1320 34 1440 62V110z"/><g fill="#e3edf9" opacity=".8"><path d="M300 12l-20 14 9-1 9 6 8-8 12 4z"/><path d="M700 20l-22 16 10-2 10 7 8-9 13 4z"/><path d="M1120 16l-22 16 10-2 9 6 9-8 13 4z"/></g><path fill="var(--night)" d="M0 110V92C140 80 260 96 400 88S660 76 800 90 1100 100 1240 86 1380 82 1440 88V110z"/></svg>
 <footer><div class="wrap">© Megève par cœur · <a href="/">Accueil</a> · <a href="/#agenda">Agenda</a> · <a href="/meteo/">Météo &amp; neige</a> · <a href="/webcams/">Webcams</a> · <a href="/balades/">Balades</a> · <a href="/carte/">Carte</a></div></footer>
 <script src="/assets/app.js" defer></script>
-<script>
-const st={v:"",l:""};
-document.getElementById("bar").addEventListener("click",e=>{const b=e.target.closest(".pill");if(!b)return;const g=b.parentElement;g.querySelectorAll(".pill").forEach(x=>x.setAttribute("aria-pressed",x===b));st[g.dataset.k]=b.dataset.x;
-  document.querySelectorAll(".walk").forEach(w=>{w.hidden=(st.v&&w.dataset.v!==st.v)||(st.l&&w.dataset.l!==st.l);});});
-</script>
 </body>
 </html>
