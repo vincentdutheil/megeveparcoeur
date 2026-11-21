@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,100;1,9..144,400..700,100&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/page.css">
 <style>
-.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:-30px 0 24px;position:relative;z-index:4;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 12px 30px rgba(10,20,40,.12)}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 24px;position:relative;z-index:4;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 12px 30px rgba(10,20,40,.12)}
 .bar .lab{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .list{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .walk{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px;box-shadow:0 8px 24px rgba(10,20,40,.06)}
@@ -42,6 +42,15 @@
 .safe{margin:26px 0 0;background:linear-gradient(120deg,var(--pine-2),var(--pine));color:#fff;border-radius:22px;padding:22px 24px}
 .safe h3{font-size:1.3rem;margin-bottom:6px}.safe ul{margin:0;padding-left:18px}.safe li{margin:4px 0}.safe a{color:#fff;font-weight:800}
 @media (max-width:760px){.list{grid-template-columns:1fr}}
+.faves{position:relative;z-index:4;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px;margin:-30px 0 34px;box-shadow:0 8px 24px rgba(10,20,40,.06)}
+.faves h2{font-family:var(--display);font-size:clamp(1.6rem,3.5vw,2.1rem);margin:0}.fv-lead{color:var(--muted);margin:6px 0 18px}
+.fv{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fv article{border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg,rgba(63,97,80,.06),transparent)}
+.fv .meta{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--pine)}
+.fv h3{font-family:var(--display);font-size:1.25rem;margin:6px 0}.fv p{margin:0;color:var(--muted);font-size:.95rem}
+.fv-map{display:inline-block;margin-top:16px;font-weight:800;text-decoration:none;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px}
+.all-h{font-family:var(--display);font-size:clamp(1.4rem,3vw,1.8rem);margin:0 0 14px}
+@media(max-width:820px){.fv{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -76,6 +85,18 @@
   </svg>
 </section>
 <main class="wrap">
+  <section class="faves" aria-labelledby="faves-h">
+    <div class="kicker">Coups de cœur</div>
+    <h2 id="faves-h">Nos balades préférées</h2>
+    <p class="fv-lead">Les itinéraires qu'on refait chaque année, à pied, à vélo ou en raquettes.</p>
+    <div class="fv">
+      <article><div class="meta">Rando · Patrimoine</div><h3>Le chemin du Calvaire</h3><p>Une promenade au-dessus du village, entre alpages et vieilles fermes, avec vue sur toute la vallée.</p></article>
+      <article><div class="meta">Rando · Panorama</div><h3>Les crêtes du Mont Joly</h3><p>Le grand classique pour les panoramas : le massif du Mont-Blanc en face, les Aravis dans le dos.</p></article>
+      <article><div class="meta">Ski · Raquettes</div><h3>La Côte 2000</h3><p>Le secteur le plus sauvage du domaine, idéal pour une journée au calme loin de l'agitation du village.</p></article>
+    </div>
+    <a class="fv-map" href="../carte/">🗺️ La carte des beaux coins</a>
+  </section>
+  <h2 class="all-h">Les itinéraires balisés</h2>
   <div class="bar" id="bar">
     <span class="lab">Village</span><div class="pills" data-k="v"><button class="pill" data-x="" aria-pressed="true">Tous</button><button class="pill" data-x="Megève" aria-pressed="false">Megève</button><button class="pill" data-x="Combloux" aria-pressed="false">Combloux</button><button class="pill" data-x="Praz-sur-Arly" aria-pressed="false">Praz-sur-Arly</button></div>
     <span class="lab">Niveau</span><div class="pills" data-k="l"><button class="pill" data-x="" aria-pressed="true">Tous</button><button class="pill" data-x="Facile" aria-pressed="false">Facile</button><button class="pill" data-x="Modéré" aria-pressed="false">Modéré</button><button class="pill" data-x="Sportif" aria-pressed="false">Sportif</button></div>

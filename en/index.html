@@ -372,11 +372,11 @@ footer a{color:#fbf3e6}
 @media(max-width:900px){.btns{grid-template-columns:1fr 1fr}.btn.insta{grid-column:1/-1}}
 @media(max-width:520px){.btns{grid-template-columns:1fr}.btn{width:100%}}
 #proposer-bloc{padding:40px 0 28px}
-.propose{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--heart);border-radius:20px;padding:20px 24px;text-decoration:none;color:var(--ink);box-shadow:0 10px 30px rgba(18,40,74,.08);transition:transform .15s,box-shadow .15s}
+.propose{max-width:780px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--heart);border-radius:18px;padding:14px 18px;text-decoration:none;color:var(--ink);box-shadow:0 10px 30px rgba(18,40,74,.08);transition:transform .15s,box-shadow .15s}
 .propose:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(18,40,74,.14)}
-.propose .pi{font-size:2rem}.propose .pt b{display:block;font-family:var(--display);font-size:1.25rem;font-weight:600;margin-bottom:4px}
-.propose .pt span{color:var(--muted)}
-.propose .pb{background:var(--heart);color:#fff;font-weight:800;border-radius:999px;padding:12px 20px;white-space:nowrap}
+.propose .pi{font-size:1.6rem}.propose .pt b{display:block;font-family:var(--display);font-size:1.08rem;font-weight:600;margin-bottom:2px}
+.propose .pt span{color:var(--muted);font-size:.9rem;line-height:1.45;display:block}
+.propose .pb{background:var(--heart);color:#fff;font-weight:800;font-size:.92rem;border-radius:999px;padding:10px 16px;white-space:nowrap}
 @media(max-width:760px){.propose{grid-template-columns:auto 1fr}.propose .pb{grid-column:1/-1;text-align:center}}
 #lettre{padding-top:8px}#lettre .nl{margin:0}
 </style>
@@ -436,7 +436,7 @@ footer a{color:#fbf3e6}
       <span class="cap" aria-hidden="true"></span>
       <svg class="holly" viewBox="0 0 110 50" aria-hidden="true"><defs><linearGradient id="hl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8a5e"/><stop offset="1" stop-color="#1f4a2c"/></linearGradient></defs><path d="M8 28c8-12 22-16 36-12-4 3-2 7-6 9 4 1 2 6 6 8-14 5-28 3-36-5 3-1 2-3 0 0z" fill="url(#hl)"/><path d="M10 28c12-4 22-6 32-10" stroke="#8fc29a" stroke-width="1.2" fill="none" opacity=".7"/><path d="M30 40c10-12 26-14 40-8-4 3-1 7-6 8 4 2 1 6 5 8-14 4-30 2-39-8z" fill="url(#hl)"/><circle cx="46" cy="22" r="5" fill="#c8323d"/><circle cx="54" cy="27" r="5" fill="#b22433"/><circle cx="45" cy="31" r="4.5" fill="#d63a47"/><circle cx="44.5" cy="20.5" r="1.4" fill="#fff" opacity=".8"/><circle cx="52.5" cy="25.5" r="1.4" fill="#fff" opacity=".8"/><circle cx="43.5" cy="29.8" r="1.2" fill="#fff" opacity=".8"/></svg>
       <div class="ball" role="button" tabindex="0" aria-label="Shake the snow globe">
-        <video id="hero-vid" poster="videos/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Megève village square under the snow at night, inside a Christmas bauble"></video>
+        <video id="hero-vid" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" poster="videos/hero-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Megève village square under the snow at night, inside a Christmas bauble"></video>
         <span class="pile" aria-hidden="true"></span>
         <canvas class="storm" aria-hidden="true"></canvas>
         <span class="frost" aria-hidden="true"></span>
@@ -456,8 +456,8 @@ footer a{color:#fbf3e6}
   <div class="wrap">
     <a class="propose" href="/en/submit-event/">
       <span class="pi" aria-hidden="true">📝</span>
-      <span class="pt"><b>Organising an event in or around Megève?</b><span>Concert, market, exhibition, village fête… Submit it in 2 minutes: it goes into the events guide and the Thursday newsletter, free of charge.</span></span>
-      <span class="pb">Submit an event →</span>
+      <span class="pt"><b>Organising an event?</b><span>Submit it in 2 minutes: it goes into the events guide and the Thursday newsletter, free of charge.</span></span>
+      <span class="pb">Submit →</span>
     </a>
   </div>
 </section>
