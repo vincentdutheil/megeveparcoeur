@@ -531,7 +531,7 @@ footer a{color:#fbf3e6}
   var v=document.getElementById("hero-vid"), rm=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var big=window.matchMedia("(min-width: 861px)").matches && (window.devicePixelRatio||1)>1.2;
   v.src=big?"videos/hero-sq-hd.mp4":"videos/hero-sq.mp4";
-  var slow=function(){v.defaultPlaybackRate=.6;v.playbackRate=.6;}; slow(); v.addEventListener("loadedmetadata",slow); v.addEventListener("play",slow);
+  var slow=function(){v.defaultPlaybackRate=.8;v.playbackRate=.8;}; slow(); v.addEventListener("loadedmetadata",slow); v.addEventListener("play",slow);
   if(rm){v.removeAttribute("autoplay");v.pause();}
   var c=document.getElementById("snow"); if(!c||rm) return;
   var x=c.getContext("2d"), f=[], W=0, H=0;
