@@ -97,12 +97,12 @@
  },
  {
   "d": "2026-11-19",
+  "d2": "2026-11-22",
   "lieu": "Megève",
   "cat": "Spectacle",
   "t": "Théâtre : « Petites comédies »",
   "x": "Les courtes pièces burlesques de Tchekhov jouées par la troupe Ancolie à l'auditorium du Palais : jeudi 19h30, vendredi et samedi 20h, dimanche 18h. 10 €, 5 € enfant, sur réservation.",
   "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies",
-  "d2": "2026-11-22",
   "t_en": "Theatre: Chekhov's short comedies",
   "x_en": "Chekhov's short farces performed by the Ancolie company at the Palais auditorium: Thursday 7.30pm, Friday and Saturday 8pm, Sunday 6pm. €10, children €5, booking required."
  },
@@ -174,9 +174,9 @@
  },
  {
   "d": "2026-11-22",
+  "h": "12h–18h",
   "lieu": "Combloux",
   "cat": "Gastronomie",
-  "h": "12h–18h",
   "t": "Repas choucroute",
   "x": "Choucroute, fromage, dessert et boisson, au 49 chemin des Passerands. Pensez à réserver.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/gastronomie/7525360-repas-choucroute",
@@ -566,12 +566,12 @@
  },
  {
   "d": "2026-12-12",
+  "h": "20h30",
   "lieu": "Megève",
   "cat": "Spectacle",
   "t": "The Black Blues Brothers",
   "x": "Acrobaties et musique : le spectacle « Let's twist again » au Palais.",
   "u": "https://spectacles-megeve.fr/programmation/",
-  "h": "20h30",
   "t_en": "The Black Blues Brothers",
   "x_en": "Acrobatics and music: the “Let's twist again” show at the Palais."
  },
@@ -724,12 +724,12 @@
  {
   "d": "2026-12-20",
   "d2": "2027-01-03",
+  "h": "9h30–13h",
   "lieu": "Megève",
   "cat": "Marché",
   "t": "Marché des producteurs locaux",
   "x": "Producteurs locaux le dimanche matin place du Village : les 20 et 27 décembre et le 3 janvier.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/manifestations-commerciales/marches/198712-marche-des-producteurs-locaux",
-  "h": "9h30–13h",
   "t_en": "Local producers' market",
   "x_en": "Local producers on Sunday mornings on Place du Village: 20 and 27 December and 3 January."
  },
@@ -769,12 +769,12 @@
  {
   "d": "2026-12-21",
   "d2": "2026-12-31",
+  "h": "10h–12h, 15h30–18h30",
   "lieu": "Megève",
   "cat": "Famille",
   "t": "Le Village de Noël",
   "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25). Fermé le 25 décembre ; bureau du Père Noël du 21 au 24.",
   "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/",
-  "h": "10h–12h, 15h30–18h30",
   "t_en": "Christmas Village",
   "x_en": "Elf workshops for children on the ice-rink esplanade, 10am–12pm and 3:30–6:30pm (closed on the 25th). Father Christmas's office from the 21st to the 24th."
  },
@@ -859,12 +859,12 @@
  {
   "d": "2026-12-22",
   "d2": "2027-03-23",
+  "h": "17h30",
   "lieu": "Praz-sur-Arly",
   "cat": "Famille",
   "t": "Visite du village aux lanternes",
   "x": "Une balade guidée à la lueur des lanternes dans les ruelles de Praz, en fin de journée. Inscription à l'office de tourisme.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/visite-guidee-de-praz-sur-arly-aux-lanternes",
-  "h": "17h30",
   "t_en": "Lantern-lit village tour",
   "x_en": "A guided walk by lantern light through the lanes of Praz, at the end of the day. Sign up at the tourist office."
  },
@@ -882,9 +882,9 @@
  {
   "d": "2026-12-23",
   "d2": "2026-12-30",
+  "h": "11h",
   "lieu": "Combloux",
   "cat": "Spectacle",
-  "h": "11h",
   "t": "La causerie du ski",
   "x": "Théâtre de rue gratuit sur le parvis de l'office de tourisme. Reprise du 10 février au 3 mars 2027.",
   "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski",
@@ -938,24 +938,24 @@
  {
   "d": "2026-12-23",
   "d2": "2026-12-30",
+  "h": "9h",
   "lieu": "Praz-sur-Arly",
   "cat": "Sport",
   "t": "Footing givré",
   "x": "Footing encadré d'environ 6 km, inscription à l'office de tourisme la veille.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/footing-givre",
-  "h": "9h",
   "t_en": "Frosty run",
   "x_en": "A guided run of about 6 km; sign up at the tourist office the day before."
  },
  {
   "d": "2026-12-24",
   "d2": "2027-03-04",
+  "h": "10h30",
   "lieu": "Praz-sur-Arly",
   "cat": "Famille",
   "t": "La chasse au reblochon",
   "x": "Un jeu de piste familial dans le village, sur le thème du célèbre fromage savoyard.",
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/chasse-au-reblochon-1",
-  "h": "10h30",
   "t_en": "The reblochon hunt",
   "x_en": "A family treasure trail through the village, all about the famous Savoyard cheese."
  },
@@ -983,9 +983,9 @@
  },
  {
   "d": "2026-12-24",
+  "h": "15h30",
   "lieu": "Combloux",
   "cat": "Noël",
-  "h": "15h30",
   "t": "Rencontre avec le Père Noël",
   "x": "Gratuit, au 2ᵉ étage de l'office de tourisme.",
   "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/meeting-santa-claus-combloux-en-6121761/",
@@ -1229,12 +1229,12 @@
  },
  {
   "d": "2026-12-31",
+  "h": "18h",
   "lieu": "Praz-sur-Arly",
   "cat": "Fête",
   "t": "Night Glow Show du Nouvel An",
   "x": "Les montgolfières de Praz s'illuminent à la tombée de la nuit au cœur du village. Selon la météo.",
   "u": "https://prazsurarly.labellemontagne.com/fr/evenements/",
-  "h": "18h",
   "t_en": "New Year Night Glow Show",
   "x_en": "The Praz hot-air balloons light up at nightfall in the heart of the village. Weather permitting."
  },
@@ -1351,12 +1351,12 @@
  },
  {
   "d": "2027-01-12",
+  "h": "19h30",
   "lieu": "Megève",
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Nantes",
   "x": "Match de Division 1 à la patinoire de Megève.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30",
   "t_en": "Ice hockey: Mont-Blanc vs Nantes",
   "x_en": "Division 1 match at the Megève ice rink."
  },
@@ -1460,12 +1460,12 @@
  },
  {
   "d": "2027-01-31",
+  "h": "7h30",
   "lieu": "Praz-sur-Arly",
   "cat": "Sport",
   "t": "La Dragonale Givrée",
   "x": "Le trail blanc de Praz-sur-Arly, sur des parcours enneigés autour du village.",
   "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/white-trail-la-dragonale-givree",
-  "h": "7h30",
   "t_en": "La Dragonale Givrée",
   "x_en": "Praz-sur-Arly's snow trail race, on snowy courses around the village."
  },
@@ -1494,9 +1494,9 @@
  },
  {
   "d": "2027-02-07",
+  "h": "17h",
   "lieu": "Combloux",
   "cat": "Spectacle",
-  "h": "17h",
   "t": "Magic Parade, spectacle de magie",
   "x": "Magie, illusion et jonglage pour toute la famille.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/culturels-artistiques/theatre/7562535-magic-parade-spectacle-de-magie",
@@ -1689,12 +1689,12 @@
  },
  {
   "d": "2027-02-16",
+  "h": "19h30",
   "lieu": "Megève",
   "cat": "Sport",
   "t": "Hockey : Mont-Blanc contre Tours",
   "x": "Match de Division 1 à Megève.",
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/5693047-edelweiss-domaine-evasion-mont-blanc",
-  "h": "19h30",
   "t_en": "Ice hockey: Mont-Blanc vs Tours",
   "x_en": "Division 1 match in Megève."
  },
@@ -1895,6 +1895,16 @@
   "u": "https://haute-savoie.planetekiosque.com/167-1925922-5-micro-folie-playlist-commentee-quot-femmes-artistes-quot.html",
   "t_en": "Micro-Folie “Women artists”",
   "x_en": "A guided selection of works by women artists, at the Palais."
+ },
+ {
+  "d": "2027-03-06",
+  "h": "8h30",
+  "lieu": "Combloux",
+  "cat": "Fête",
+  "t": "Coupe de ski des Banques Genevoises",
+  "x": "Evènement sportif et caritatif réunissant les collaborateurs des banques genevoises (Rendez vous au parking du cuchet)",
+  "u": "https://www.coupedesbanquesgenevoises.ch/",
+  "v": true
  },
  {
   "d": "2027-03-07",
