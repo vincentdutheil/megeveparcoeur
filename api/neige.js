@@ -9,7 +9,7 @@ const P = [
   ["Chamonix", 45.923, 6.870, 1800],
 ];
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
     const q = (i) => P.map(p => p[i]).join(",");
     const u = `https://api.open-meteo.com/v1/forecast?latitude=${q(1)}&longitude=${q(2)}&elevation=${q(3)}`
