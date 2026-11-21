@@ -71,6 +71,9 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
 .vis{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
 .vis a{align-self:start;display:block;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:600}
 .vis img{width:100%;display:block;background:#e5e9f0}.vis span{display:block;padding:8px 10px}
+.igc{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;font-size:.85rem}
+.igc img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#e5e9f0}.igc .b{padding:10px;display:grid;gap:6px}
+.igc p{margin:0;max-height:4.2em;overflow:hidden;color:#555}.igc .r{display:flex;gap:8px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -94,6 +97,7 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     <button role="tab" data-tab="tVis" aria-selected="false">🖼️ Visuels Instagram</button>
     <button role="tab" data-tab="tStats" aria-selected="false">📊 Statistiques</button>
     <button role="tab" data-tab="tProp" aria-selected="false">📨 Propositions <span id="pcount" class="pill" style="display:none"></span></button>
+    <button role="tab" data-tab="tIg" aria-selected="false">📸 Identifications <span id="igcount" class="pill" style="display:none"></span></button>
   </div>
   <div id="tPhotos">
   <section class="box">
@@ -142,6 +146,15 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
     </div>
     <div id="sbody"><p class="muted">Chargement…</p></div>
   </section>
+  </div>
+
+  <div id="tIg" class="hidden">
+  <section class="box">
+    <h2>Photos où @megeveparcoeur est identifié</h2>
+    <p class="muted">Les publications Instagram dans lesquelles votre compte est identifié. « Ajouter à Vos photos » la place dans l'onglet Photos avec le nom de son auteur (vérifiez la légende, puis « Publier ») ; rien n'est publié sans votre accord.</p>
+    <div id="igst" class="muted">Chargement…</div>
+  </section>
+  <div class="vis" id="iglist"></div>
   </div>
 
   <div id="tProp" class="hidden">
@@ -270,7 +283,7 @@ async function publishPhotos(){
       }
     }
     for(const p of photos.filter(p=>p._del)){tree.push({path:p.src,mode:"100644",type:"blob",sha:null});tree.push({path:p.thumb,mode:"100644",type:"blob",sha:null});}
-    const clean=photos.filter(p=>!p._del).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();if(p.by)o.by=p.by.trim();if(p.video)o.video=true;if(p.date)o.date=p.date;return o;});
+    const clean=photos.filter(p=>!p._del).sort((a,b)=>(b.date||"").localeCompare(a.date||"")).map(p=>{const o={src:p.src,thumb:p.thumb,t:p.t,cat:(p.cat||"Divers").trim()};if(p.ev)o.ev=p.ev.trim();if(p.by)o.by=p.by.trim();if(p.video)o.video=true;if(p.ig)o.ig=p.ig;if(p.date)o.date=p.date;return o;});
     tree.push({path:DATA,mode:"100644",type:"blob",content:JSON.stringify(clean,null,1)+"\n"});
     const t=await gh("/git/trees",{method:"POST",body:JSON.stringify({base_tree:head.tree.sha,tree})});
     const c=await gh("/git/commits",{method:"POST",body:JSON.stringify({message:"Mise à jour de la galerie depuis l'admin",tree:t.sha,parents:[ref.object.sha]})});
@@ -291,6 +304,7 @@ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{
   if(b.dataset.tab==="tVis") loadVis();
   if(b.dataset.tab==="tProp") loadProps();
   if(b.dataset.tab==="tStats") loadStats();
+  if(b.dataset.tab==="tIg") loadIg();
 });
 
 /* ---------- Agenda ---------- */
@@ -453,6 +467,45 @@ async function loadVis(){
     visLoaded=true;
   }catch(e){$("vis").innerHTML='<p class="err">Impossible de charger les visuels.</p>';}
 }
+
+/* ---------- Photos où le compte est identifié (Instagram) ---------- */
+let igItems=[];
+async function igApi(q,body){const r=await fetch("/api/ig"+q,{method:body?"POST":"GET",headers:{"X-GH-Token":token,...(body?{"Content-Type":"application/json"}:{})},body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({ok:false,error:"réponse illisible ("+r.status+")"}));if(!r.ok&&!j.error)j.error="erreur "+r.status;return j;}
+async function loadIg(){
+  $("igst").innerHTML="Chargement…";$("iglist").innerHTML="";
+  let j; try{j=await igApi("?list");}catch(e){$("igst").innerHTML='<span class="err">Impossible de joindre le serveur.</span>';return;}
+  if(!j.ok){$("igst").innerHTML='<span class="err">'+esc(j.error||"Erreur")+'</span>';return;}
+  if(!j.connected){
+    $("igst").innerHTML=j.configured?`<p>Instagram n'est pas encore connecté.</p><button id="igConn">🔗 Connecter Instagram</button>${j.error?`<p class="err">${esc(j.error)}</p>`:""}`
+      :'<p class="err">Il manque les variables META_APP_ID et META_APP_SECRET dans Vercel (puis Redeploy).</p>';
+    const b=$("igConn");if(b)b.onclick=igConnect;return;}
+  const added=new Set(photos.map(p=>p.ig).filter(Boolean));
+  igItems=(j.items||[]).filter(x=>!added.has(x.id));
+  const c=$("igcount");c.textContent=igItems.length;c.style.display=igItems.length?"":"none";
+  $("igst").innerHTML=`Connecté à <b>@${esc(j.username)}</b>. ${igItems.length?igItems.length+" publication(s) à trier.":"Aucune nouvelle publication où vous êtes identifié."} <button class="danger" id="igOff" style="margin-left:8px">Déconnecter</button>${j.error?`<p class="err">${esc(j.error)}</p>`:""}`;
+  $("igOff").onclick=async()=>{if(!confirm("Déconnecter Instagram du site ?"))return;await igApi("",{action:"disconnect"});loadIg();};
+  $("iglist").innerHTML=igItems.map((x,k)=>`<div class="igc" data-k="${k}"><a href="${esc(x.link)}" target="_blank" rel="noopener"><img src="${esc(x.preview||"")}" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+    <div class="b"><b>${esc(x.by)}</b><span class="muted">${esc((x.date||"").slice(0,10))}${x.type==="VIDEO"?" · vidéo (image de couverture)":""}</span><p>${esc(x.caption)}</p>
+    <div class="r"><button data-ig="add">➕ Ajouter à Vos photos</button><button class="danger" data-ig="no">Ignorer</button></div></div></div>`).join("");
+}
+async function igConnect(){const j=await igApi("",{action:"start"});if(j.ok&&j.url)location.href=j.url;else alert(j.error||"Erreur");}
+$("iglist").addEventListener("click",async e=>{const a=e.target.dataset.ig;if(!a)return;const card=e.target.closest("[data-k]"),x=igItems[+card.dataset.k];
+  e.target.disabled=true;
+  if(a==="no"){await igApi("",{action:"ignore",id:x.id});card.remove();return;}
+  try{
+    const r=await fetch("/api/ig?img="+x.id,{headers:{"X-GH-Token":token}});if(!r.ok)throw new Error("image "+r.status);
+    const blob=await r.blob(),big=await resize(blob,1600,.82),th=await resize(blob,640,.75);
+    const base=slug((x.by||"photo").replace(/^@/,""))+"-"+Date.now().toString(36);
+    const t=(x.caption||"").split("\n")[0].replace(/[#@]\S+/g,"").trim().slice(0,90);
+    photos.unshift({src:"photos/"+base+".jpg",thumb:"photos/"+base+"-thumb.jpg",t,cat:"Vos photos",date:(x.date||new Date().toISOString()).slice(0,16),by:x.by,ig:x.id,_new:true,_big:big,_th:th,_preview:th});
+    filter="all";markChanged();render();card.remove();
+    setStatus("Photo de "+x.by+" ajoutée à l'onglet Photos : vérifiez la légende puis cliquez sur « Publier ».","ok");
+  }catch(err){e.target.disabled=false;alert("Impossible de récupérer cette photo ("+err.message+").");}
+});
+(function(){const q=new URLSearchParams(location.search).get("ig");if(!q)return;history.replaceState(null,"",location.pathname);
+  const msg={ok:"Instagram est connecté ✓",refus:"Connexion Instagram annulée.",expire:"Le lien de connexion a expiré, réessayez.","aucun-compte":"Aucun compte Instagram professionnel trouvé sur vos pages Facebook.",erreur:"La connexion Instagram a échoué, réessayez."}[q]||q;
+  window.addEventListener("load",()=>setTimeout(()=>{const b=document.querySelector('.tabs button[data-tab="tIg"]');if(token&&b)b.click();setStatus(msg,q==="ok"?"ok":"err");},800));})();
 if(load("mpc_tok")) connect();
 </script>
 </body>
