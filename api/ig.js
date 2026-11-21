@@ -14,7 +14,7 @@ const crypto = require("crypto");
 const OWNER = "vincentdutheil", REPO = "megeveparcoeur", SITE = "https://www.megeveparcoeur.fr";
 const V = process.env.META_GRAPH_VERSION || "v23.0", GRAPH = "https://graph.facebook.com/" + V;
 const REDIRECT = SITE + "/api/ig-auth";
-const PERMS = "instagram_basic,instagram_manage_comments,pages_show_list,pages_read_engagement,business_management";
+const PERMS = "instagram_basic,instagram_content_publish,instagram_manage_comments,pages_show_list,pages_read_engagement,business_management";
 
 // ---- Redis (Upstash)
 const RURL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -63,7 +63,7 @@ async function callback(req, res, url) {
     const page = withIg.find(p => /megeveparcoeur/i.test(p.instagram_business_account.username || "")) || withIg[0];
     if (!page) return back("aucun-compte");
     await redis("SET", "ig:auth", JSON.stringify({ pageId: page.id, pageName: page.name, pageToken: page.access_token,
-      igId: page.instagram_business_account.id, username: page.instagram_business_account.username, at: new Date().toISOString() }));
+      igId: page.instagram_business_account.id, username: page.instagram_business_account.username, userToken: long.access_token, at: new Date().toISOString() }));
     return back("ok");
   } catch (e) {
     console.error("ig-auth", e.message);

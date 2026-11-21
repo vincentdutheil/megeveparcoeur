@@ -19,5 +19,10 @@
   }
  },
  "buildCommand": "node tools/build.mjs",
- "outputDirectory": "dist"
+ "outputDirectory": "dist",
+ "functions": {
+  "api/reel.js": {
+   "maxDuration": 60
+  }
+ }
 }
