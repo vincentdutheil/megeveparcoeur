@@ -54,6 +54,14 @@ module.exports = async (req, res) => {
       } catch (e) { perms = "erreur : " + e.message; }
       return send(200, { ok: true, connected_at: auth.at, username: auth.username, userToken: !!auth.userToken, perms });
     }
+    if (url.searchParams.has("raw")) {
+      const ver = url.searchParams.get("v") || V, type = url.searchParams.get("type") || "music";
+      const tok = url.searchParams.get("tok") === "page" ? auth.pageToken : (auth.userToken || auth.pageToken);
+      const u = new URL(`https://graph.facebook.com/${ver}/ig_audio`);
+      u.search = new URLSearchParams({ audio_type: type, user_id: auth.igId, access_token: tok, ...(url.searchParams.get("q") ? { search_query: url.searchParams.get("q") } : {}) });
+      const r2 = await fetch(u); const t = await r2.text();
+      return send(200, { ok: true, status: r2.status, body: t.slice(0, 1500) });
+    }
     if (url.searchParams.has("audio")) {
       const q = (url.searchParams.get("audio") || "").slice(0, 100);
       return send(200, { ok: true, query: q, results: await searchAudio(auth, q) });
