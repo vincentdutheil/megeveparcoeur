@@ -92,10 +92,10 @@ h1 small{display:block;font-family:var(--body);font-size:clamp(.9rem,2.6vw,1.05r
 .levels h2{font-family:var(--display);font-size:1.15rem;margin:0 4px 8px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .levels h2 span{font-family:var(--body);font-size:.85rem;color:var(--muted);font-weight:700}
 .lvls{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 10px;scroll-snap-type:x mandatory}
-.lv{flex:0 0 auto;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;width:92px;padding:8px 4px;border-radius:16px;border:2px solid transparent;background:#fff;cursor:pointer;transition:transform .15s}
+.lv{flex:0 0 auto;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;width:100px;padding:8px 4px;border-radius:16px;border:2px solid transparent;background:#fff;cursor:pointer;transition:transform .15s}
 .lv:hover{transform:translateY(-2px)}.lv[aria-pressed=true]{border-color:var(--ember);background:#fff1e1;box-shadow:0 4px 0 #e0b98f}
 .lv b{font-size:.78rem;line-height:1.1;text-align:center}.lv small{font-size:.7rem;color:var(--muted);font-weight:800}
-.lv svg{width:52px;height:62px}
+.lv svg{width:60px;height:76px}.lv img{width:76px;height:76px;object-fit:contain;filter:drop-shadow(0 2px 3px rgba(0,0,0,.18))}
 .lvprog{margin:2px 6px 4px;font-weight:700;color:var(--muted);font-size:.9rem}
 /* cartes */
 .card{background:var(--paper);border-radius:24px;padding:18px;box-shadow:0 14px 34px rgba(0,0,0,.28);margin:0 0 16px}
@@ -759,12 +759,12 @@ const store = { get(k, d) { try { const v = localStorage.getItem("cm-" + k); ret
 
 /* ---------- niveaux (médailles) ---------- */
 const LEVELS = [ // deux médailles par classe : début / fin d'année (France · Suisse romande)
-  { n: "Ourson", g: "CP · 3P", m: "bear" }, { n: "Flocon", g: "CP · 3P", m: "flake" },
-  { n: "1re étoile", g: "CE1 · 4P", m: "star", k: 1 }, { n: "2e étoile", g: "CE1 · 4P", m: "star", k: 2 },
-  { n: "3e étoile", g: "CE2 · 5P", m: "star", k: 3 }, { n: "Étoile d'or", g: "CE2 · 5P", m: "gold" },
-  { n: "Fléchette", g: "CM1 · 6P", m: "arrow", c: "#3a78c9" }, { n: "Flèche de bronze", g: "CM1 · 6P", m: "arrow", c: "#b8733e" },
-  { n: "Flèche d'argent", g: "CM2 · 7P", m: "arrow", c: "#aab4be" }, { n: "Flèche de vermeil", g: "CM2 · 7P", m: "arrow", c: "#d08a4a" },
-  { n: "Flèche d'or", g: "6e · 8P", m: "arrow", c: "#e7b53c" }
+  { n: "Ourson", g: "CP · 3P", m: "bear" }, { n: "Flocon", g: "CP · 3P", m: "flake", img: "flocon" },
+  { n: "1re étoile", g: "CE1 · 4P", m: "star", k: 1, img: "etoile-1" }, { n: "2e étoile", g: "CE1 · 4P", m: "star", k: 2, img: "etoile-2" },
+  { n: "3e étoile", g: "CE2 · 5P", m: "star", k: 3, img: "etoile-3" }, { n: "Étoile d'or", g: "CE2 · 5P", m: "gold", img: "etoile-or" },
+  { n: "Fléchette", g: "CM1 · 6P", m: "arrow", c: "#3a78c9", img: "flechette" }, { n: "Flèche de bronze", g: "CM1 · 6P", m: "arrow", c: "#b8733e", img: "fleche-bronze" },
+  { n: "Flèche d'argent", g: "CM2 · 7P", m: "arrow", c: "#aab4be" }, { n: "Flèche de vermeil", g: "CM2 · 7P", m: "arrow", c: "#d08a4a", img: "fleche-vermeil" },
+  { n: "Flèche d'or", g: "6e · 8P", m: "arrow", c: "#e7b53c", img: "fleche-or" }
 ];
 // ce qu'on travaille à chaque médaille (d'après les repères des programmes 2024-2025 de l'Éducation nationale)
 const PROG = [
@@ -782,6 +782,7 @@ const PROG = [
 ];
 let L = store.get("level", 6);
 function medal(lv) {
+  if (lv.img) return `<img src="/img/medailles/${lv.img}.webp" alt="" width="76" height="76" loading="lazy" decoding="async">`;
   const ring = lv.m === "gold" || lv.c === "#e7b53c" ? "#e7b53c" : lv.m === "arrow" ? lv.c : "#e8eef5";
   let inner = "";
   if (lv.m === "bear") inner = `<circle cx="30" cy="38" r="11" fill="#9a6232"/><circle cx="21" cy="29" r="5" fill="#9a6232"/><circle cx="39" cy="29" r="5" fill="#9a6232"/><circle cx="26" cy="37" r="1.8" fill="#222"/><circle cx="34" cy="37" r="1.8" fill="#222"/><ellipse cx="30" cy="42" rx="4" ry="3" fill="#e8c9a0"/>`;
