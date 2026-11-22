@@ -1,14 +1,1 @@
-[
- {
-  "t": "TEST — e-mail de modération (à refuser)",
-  "d": "2026-12-31",
-  "lieu": "Megève",
-  "where": "Test technique",
-  "x": "Ceci est un test technique de l'e-mail Publier / Refuser. Merci de cliquer sur Refuser.",
-  "name": "Test Claude",
-  "mail": "bonjour@megeveparcoeur.fr",
-  "lang": "fr",
-  "at": "2026-11-22T11:02:16.804Z",
-  "id": "e8d04222687ef332"
- }
-]
+[]
