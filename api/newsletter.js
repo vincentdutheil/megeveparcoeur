@@ -132,6 +132,20 @@ module.exports = async (req, res) => {
   if (url.searchParams.get("start")) start = url.searchParams.get("start");
   const mail = build(agenda, start, await meteo());
   if (url.searchParams.get("preview")) { res.setHeader("Content-Type", "text/html; charset=utf-8"); return res.end(mail.html.replace("{{ unsubscribe }}", "#")); }
+  // Test de délivrabilité : envoie la newsletter de la semaine à une adresse mail-tester.com (et seulement à ce domaine).
+  const test = (url.searchParams.get("test") || "").trim().toLowerCase();
+  if (test) {
+    if (!/^[a-z0-9._-]+@([a-z0-9-]+\.)*mail-tester\.com$/.test(test)) { res.statusCode = 400; return res.end("adresse de test refusée (mail-tester.com uniquement)"); }
+    const key = process.env.BREVO_API_KEY; if (!key) { res.statusCode = 503; return res.end("not configured"); }
+    const from = process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr";
+    const t = await fetch("https://api.brevo.com/v3/smtp/email", { method: "POST", headers: { "api-key": key, "Content-Type": "application/json", accept: "application/json" }, body: JSON.stringify({
+      sender: { name: "Megève par cœur", email: from }, replyTo: { email: from }, to: [{ email: test }], subject: mail.subject,
+      htmlContent: mail.html.replace("{{ unsubscribe }}", SITE + "/#newsletter"),
+      headers: { "List-Unsubscribe": "<mailto:" + from + "?subject=unsubscribe>" } }) });
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    if (!t.ok) { res.statusCode = 502; return res.end("échec : " + (await t.text()).slice(0, 300)); }
+    return res.end("test envoyé à " + test + " (" + mail.count + " événements)");
+  }
   const secret = process.env.CRON_SECRET, auth = req.headers.authorization || "";
   if (!secret || (auth !== "Bearer " + secret && url.searchParams.get("key") !== secret)) { res.statusCode = 401; return res.end("unauthorized"); }
   const key = process.env.BREVO_API_KEY, list = Number(process.env.BREVO_LIST_ID);
