@@ -54,6 +54,13 @@ module.exports = async (req, res) => {
       } catch (e) { perms = "erreur : " + e.message; }
       return send(200, { ok: true, connected_at: auth.at, username: auth.username, userToken: !!auth.userToken, perms });
     }
+    if (url.searchParams.has("meta")) {
+      const id = (url.searchParams.get("meta") || "").replace(/\D/g, "");
+      const u = new URL(`${GRAPH}/${id}`);
+      u.search = new URLSearchParams({ user_id: auth.igId, access_token: auth.userToken || auth.pageToken });
+      const r2 = await fetch(u); const t = await r2.text();
+      return send(200, { ok: r2.ok, status: r2.status, body: t.slice(0, 1500) });
+    }
     if (url.searchParams.has("raw")) {
       const ver = url.searchParams.get("v") || V, type = url.searchParams.get("type") || "music";
       const tok = url.searchParams.get("tok") === "page" ? auth.pageToken : (auth.userToken || auth.pageToken);
