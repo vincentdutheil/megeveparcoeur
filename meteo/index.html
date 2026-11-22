@@ -107,6 +107,8 @@ footer a{color:#fff}
 /* menu en une ligne qui défile sur mobile */
 @media(max-width:720px){.nav ul{flex-wrap:nowrap;overflow-x:auto;width:100%;gap:18px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.nav ul::-webkit-scrollbar{display:none}.nav ul li{flex:0 0 auto;white-space:nowrap}}
 </style>
+<link rel="stylesheet" href="/assets/ciel.css">
+<script src="/assets/ciel.js"></script>
 </head>
 <body>
 <header class="top">
@@ -237,7 +239,7 @@ show();
 window.mpcMeteo=()=>({zone,V,wc,summarize,load,data:cache[zone]});
 
 /* neige qui tombe dans le bandeau */
-(function(){const c=$("snow");if(!c||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const x=c.getContext("2d");let W2,H2,f=[];
+(function(){const c=$("snow");if(!c||matchMedia("(prefers-reduced-motion: reduce)").matches||document.documentElement.hasAttribute("data-ciel"))return;const x=c.getContext("2d");let W2,H2,f=[];
 function sz(){const r=c.getBoundingClientRect();W2=c.width=r.width;H2=c.height=r.height;}sz();addEventListener("resize",sz);
 for(let i=0;i<120;i++){const z=Math.random();f.push({x:Math.random()*W2,y:Math.random()*H2,z,r:.6+z*z*3,s:.3+z*1.1,d:Math.random()*6});}
 (function t(){x.clearRect(0,0,W2,H2);x.fillStyle="#fff";for(const p of f){p.y+=p.s;p.d+=.01;p.x+=Math.sin(p.d)*.4*p.z;if(p.y>H2+5){p.y=-5;p.x=Math.random()*W2;}x.globalAlpha=.35+p.z*.6;x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();}requestAnimationFrame(t);})();})();

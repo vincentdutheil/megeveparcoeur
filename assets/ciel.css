@@ -1,0 +1,158 @@
+/* Ciel vivant du bandeau (accueil, météo, webcams) : le décor suit l'heure et la météo réelle à Megève.
+   html[data-ciel]  = aube | jour | crepuscule | nuit
+   html[data-meteo] = clair | eclaircies | nuages | pluie | neige | brouillard | orage
+   Les attributs sont posés par assets/ciel.js ; sans JavaScript, chaque page garde son décor d'origine. */
+
+/* ---------- couleurs du ciel et des montagnes ---------- */
+html[data-ciel]{
+  --sky:radial-gradient(50% 40% at 34% 8%,rgba(150,190,255,.18),rgba(150,190,255,0) 70%),linear-gradient(180deg,#050c18 0%,#0b1c36 45%,#16345a 80%,#244a73 100%);
+  --mf1:#3a5d88;--mf2:#1c3556;--mn1:#27466e;--mn2:#132842;--tree:#0c1b30;--win:#ffcf7a;
+  --nuage:rgba(70,88,115,.6);--brume:rgba(120,136,158,.45)}
+html[data-ciel=nuit]:is([data-meteo=nuages],[data-meteo=pluie],[data-meteo=orage]){
+  --sky:linear-gradient(180deg,#080e18 0%,#111b2b 45%,#1d2b40 80%,#2a3a52 100%);--nuage:rgba(44,58,80,.9);
+  --mf1:#33465f;--mf2:#1d2b3e;--mn1:#25354b;--mn2:#141f2f}
+html[data-ciel=nuit][data-meteo=neige]{
+  --sky:linear-gradient(180deg,#0b1424 0%,#172843 45%,#2a4365 80%,#3b5679 100%);--nuage:rgba(58,76,104,.85)}
+html[data-ciel=nuit][data-meteo=brouillard]{
+  --sky:linear-gradient(180deg,#0b121d 0%,#18222f 45%,#2b3746 80%,#3a4757 100%);
+  --mf1:#3c4b5c;--mf2:#2e3b4a;--mn1:#2a3644;--mn2:#1f2935;--tree:#1a2430}
+
+html[data-ciel=aube]{
+  --sky:radial-gradient(60% 45% at 80% 92%,rgba(255,196,140,.45),rgba(255,196,140,0) 70%),linear-gradient(180deg,#132650 0%,#2c3c74 34%,#76689a 62%,#d99a8a 84%,#f6c39c 100%);
+  --mf1:#7a72a0;--mf2:#4b4c7c;--mn1:#4a4b78;--mn2:#2a3055;--tree:#151c36;--nuage:rgba(255,212,198,.72)}
+html[data-ciel=crepuscule]{
+  --sky:radial-gradient(60% 45% at 20% 92%,rgba(255,150,110,.45),rgba(255,150,110,0) 70%),linear-gradient(180deg,#0e1b40 0%,#2e3570 34%,#7a5486 62%,#d57c6a 84%,#f3a57e 100%);
+  --mf1:#77699a;--mf2:#474676;--mn1:#45446f;--mn2:#272b4f;--tree:#141a33;--nuage:rgba(255,196,180,.7)}
+html:is([data-ciel=aube],[data-ciel=crepuscule]):is([data-meteo=nuages],[data-meteo=pluie],[data-meteo=neige],[data-meteo=orage],[data-meteo=brouillard]){
+  --sky:linear-gradient(180deg,#1b2238 0%,#353a58 40%,#6b6176 72%,#a98a88 100%);--nuage:rgba(128,120,146,.85)}
+
+html[data-ciel=jour]{
+  --sky:radial-gradient(45% 40% at 84% 10%,rgba(255,246,214,.35),rgba(255,246,214,0) 70%),linear-gradient(180deg,#134d8c 0%,#2365a7 38%,#4a8ac5 68%,#8fbde3 90%,#c9e0f2 100%);
+  --mf1:#7397c2;--mf2:#4c719c;--mn1:#4a6d96;--mn2:#2d4c70;--tree:#183a33;--win:#3a5676;--nuage:rgba(255,255,255,.92)}
+html[data-ciel=jour][data-meteo=eclaircies]{
+  --sky:radial-gradient(45% 40% at 84% 10%,rgba(255,246,214,.28),rgba(255,246,214,0) 70%),linear-gradient(180deg,#1c4b80 0%,#30639b 38%,#5a8cbc 68%,#9bbcd9 92%,#c7d8e7 100%)}
+html[data-ciel=jour][data-meteo=nuages]{
+  --sky:linear-gradient(180deg,#34465b 0%,#4c5f76 40%,#6e8299 70%,#a3b3c4 100%);--nuage:rgba(226,232,240,.86)}
+html[data-ciel=jour]:is([data-meteo=pluie],[data-meteo=orage]){
+  --sky:linear-gradient(180deg,#222d3b 0%,#36465a 45%,#53647a 75%,#7c8da0 100%);--nuage:rgba(140,154,172,.92)}
+html[data-ciel=jour][data-meteo=neige]{
+  --sky:linear-gradient(180deg,#3d4f67 0%,#586e89 45%,#879cb3 75%,#c3d0de 100%);--nuage:rgba(212,222,234,.88)}
+html[data-ciel=jour][data-meteo=brouillard]{
+  --sky:linear-gradient(180deg,#3f4e60 0%,#5e6e80 45%,#8c9aa9 75%,#bcc6d0 100%);--brume:rgba(214,222,230,.5);
+  --mf1:#a3b0bd;--mf2:#8d9aa8;--mn1:#7c8b9a;--mn2:#667584;--tree:#4a5a5e}
+html[data-ciel=jour]:is([data-meteo=nuages],[data-meteo=pluie],[data-meteo=orage],[data-meteo=neige]){
+  --mf1:#8494a8;--mf2:#5f7088;--mn1:#5b6c82;--mn2:#3e4d62;--tree:#1f3631}
+
+html[data-ciel] .hero{background:var(--sky)}
+html[data-ciel=nuit] .hero#top{background:radial-gradient(70% 60% at 76% 42%,rgba(255,196,120,.16),rgba(255,196,120,0) 60%),var(--sky)}
+
+/* montagnes, sapins et chalets des trois bandeaux */
+html[data-ciel] .hero :is(#pf,#m1) stop:first-child{stop-color:var(--mf1)}
+html[data-ciel] .hero :is(#pf,#m1) stop:last-child{stop-color:var(--mf2)}
+html[data-ciel] .hero :is(#pm,#m2) stop:first-child{stop-color:var(--mn1)}
+html[data-ciel] .hero :is(#pm,#m2) stop:last-child{stop-color:var(--mn2)}
+html[data-ciel] .hero .peaks path[fill="#2a4a74"]{fill:var(--mn1)}
+html[data-ciel] .hero :is(g[fill="#0c1b30"],g[fill="#1d3d2d"]){fill:var(--tree)}
+html[data-ciel] .hero g[fill="#ffcf7a"]{fill:var(--win)}
+html[data-ciel=jour] .hero .peaks .win{animation:none}
+html[data-ciel] .hero :is(#pf,#m1,#pm,#m2) stop,html[data-ciel] .hero .peaks path,html[data-ciel] .hero g{transition:fill 1.2s,stop-color 1.2s}
+
+/* l'ancien décor fixe est remplacé par le ciel vivant */
+html[data-ciel] .hero#top::before,html[data-ciel] .hero#top::after{display:none}
+html[data-ciel] .hero > :is(.moon,.sun,#snow){display:none}
+
+/* lisibilité des textes sur les ciels clairs */
+html[data-ciel]:not([data-ciel=nuit]) .hero :is(h1,p,.kicker,.hint){text-shadow:0 1px 14px rgba(8,20,40,.38),0 1px 2px rgba(8,20,40,.3)}
+html[data-ciel=jour] .hero .kicker{color:#ffe4b5}
+html[data-ciel=jour] .hero h1 :is(.h,em){color:#ffa3a6}
+
+/* ---------- couches du décor ---------- */
+.ciel{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ciel-precip{position:absolute;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+
+/* étoiles (nuit claire) */
+.ciel-etoiles{position:absolute;inset:0;opacity:0;transition:opacity 1.5s}
+.ciel-etoiles::before,.ciel-etoiles::after{content:"";position:absolute;inset:0}
+.ciel-etoiles::before{background:
+    radial-gradient(2.4px 2.4px at 7% 12%,#fff,transparent),radial-gradient(1.6px 1.6px at 15% 30%,#fff,transparent),
+    radial-gradient(2.0px 2.0px at 23% 8%,#fff,transparent),radial-gradient(1.4px 1.4px at 31% 22%,#fff,transparent),
+    radial-gradient(1.8px 1.8px at 44% 6%,#fff,transparent),radial-gradient(2.6px 2.6px at 52% 18%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 61% 9%,#fff,transparent),radial-gradient(1.4px 1.4px at 68% 26%,#fff,transparent),
+    radial-gradient(2.2px 2.2px at 79% 7%,#fff,transparent),radial-gradient(1.8px 1.8px at 88% 16%,#fff,transparent),
+    radial-gradient(1.6px 1.6px at 95% 32%,#fff,transparent),radial-gradient(1.4px 1.4px at 12% 48%,#fff,transparent),
+    radial-gradient(1.2px 1.2px at 48% 40%,#fff,transparent),radial-gradient(1.8px 1.8px at 58% 34%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 92% 46%,#fff,transparent),radial-gradient(1.2px 1.2px at 4% 64%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 38% 58%,#fff,transparent),radial-gradient(2.0px 2.0px at 27% 44%,#fff,transparent);
+  animation:ciel-scint 5s ease-in-out infinite alternate}
+.ciel-etoiles::after{background:
+    radial-gradient(1.6px 1.6px at 19% 20%,#fff,transparent),radial-gradient(1.4px 1.4px at 74% 12%,#fff,transparent),
+    radial-gradient(1.8px 1.8px at 41% 28%,#fff,transparent),radial-gradient(1.4px 1.4px at 86% 36%,#fff,transparent),
+    radial-gradient(1.4px 1.4px at 9% 38%,#fff,transparent);
+  animation:ciel-scint 3.4s ease-in-out infinite alternate-reverse}
+@keyframes ciel-scint{from{opacity:.35}to{opacity:1}}
+html[data-ciel=nuit][data-meteo=clair] .ciel-etoiles{opacity:1}
+html[data-ciel=nuit][data-meteo=eclaircies] .ciel-etoiles{opacity:.6}
+html:is([data-ciel=aube],[data-ciel=crepuscule])[data-meteo=clair] .ciel-etoiles{opacity:.3}
+
+/* soleil et lune */
+.ciel-astre{position:absolute;z-index:1;right:14%;top:44px;width:62px;height:62px;transition:top 1.5s,opacity 1.5s,filter 1.5s}
+.hero#top .ciel-astre{right:auto;left:46%;top:46px;width:58px;height:58px}
+.ciel-astre i{position:absolute;inset:0;border-radius:50%;opacity:0;transition:opacity 1.5s}
+.ciel-astre .lune{background:radial-gradient(circle at 38% 36%,#ffffff 0%,#eef3fb 45%,#cfdaea 100%);
+  box-shadow:0 0 30px 8px rgba(200,220,255,.35),0 0 120px 40px rgba(150,190,255,.14)}
+.ciel-astre .lune::before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(16% 12% at 62% 40%,rgba(150,170,200,.35),transparent),radial-gradient(10% 10% at 40% 66%,rgba(150,170,200,.3),transparent),radial-gradient(7% 7% at 30% 34%,rgba(150,170,200,.25),transparent)}
+.ciel-astre .soleil{inset:-6px;background:radial-gradient(circle,#fffdf2 0%,#fff3c4 42%,#ffd76e 62%,rgba(255,215,110,0) 72%);
+  box-shadow:0 0 60px 22px rgba(255,236,170,.45),0 0 160px 70px rgba(255,236,170,.18);animation:ciel-halo 6s ease-in-out infinite alternate}
+@keyframes ciel-halo{from{transform:scale(1)}to{transform:scale(1.06)}}
+html[data-ciel=nuit] .ciel-astre .lune{opacity:1}
+html[data-ciel=jour] .ciel-astre .soleil{opacity:1}
+html:is([data-ciel=aube],[data-ciel=crepuscule]) .ciel-astre{top:128px}
+html:is([data-ciel=aube],[data-ciel=crepuscule]) .ciel-astre .soleil{opacity:1;background:radial-gradient(circle,#fff1dc 0%,#ffd0a0 42%,#ff9f6e 62%,rgba(255,159,110,0) 72%);
+  box-shadow:0 0 60px 24px rgba(255,170,120,.45),0 0 160px 80px rgba(255,150,110,.2)}
+html[data-ciel=crepuscule] .ciel-astre{right:24%}
+html:is([data-ciel=aube],[data-ciel=crepuscule]) .hero#top .ciel-astre{top:46px;left:46%;right:auto}
+/* derrière les nuages, l'astre se voile ou disparaît */
+html[data-meteo=eclaircies] .ciel-astre{filter:blur(.5px)}
+html[data-meteo=nuages] .ciel-astre{opacity:.28;filter:blur(6px)}
+html:is([data-meteo=pluie],[data-meteo=neige],[data-meteo=orage]) .ciel-astre{opacity:0}
+html[data-meteo=brouillard] .ciel-astre{opacity:.4;filter:blur(10px)}
+
+/* nuages qui passent */
+.ciel-nuages i{position:absolute;left:0;top:var(--y);width:calc(var(--w) * var(--k,1));height:calc(var(--w) * var(--k,1) * .3);border-radius:999px;
+  background:var(--nuage);opacity:var(--o);filter:blur(5px);display:none;will-change:transform;
+  animation:ciel-vent var(--d) linear infinite;animation-delay:var(--dl);transition:background 1.5s}
+.ciel-nuages i::before,.ciel-nuages i::after{content:"";position:absolute;border-radius:50%;background:inherit}
+.ciel-nuages i::before{width:46%;aspect-ratio:1;left:16%;bottom:35%}
+.ciel-nuages i::after{width:32%;aspect-ratio:1;left:50%;bottom:45%}
+@keyframes ciel-vent{from{transform:translateX(-45vw)}to{transform:translateX(110vw)}}
+html[data-meteo=eclaircies] .ciel-nuages i:nth-child(-n+3){display:block}
+html:is([data-meteo=nuages],[data-meteo=pluie],[data-meteo=neige],[data-meteo=orage]) .ciel-nuages i{display:block;--k:1.2}
+
+/* brouillard : voiles qui dérivent, devant et derrière les montagnes */
+.ciel-brume,.ciel-brume-avant{position:absolute;left:0;right:0;pointer-events:none;opacity:0;transition:opacity 1.5s}
+.ciel-brume{bottom:0;height:75%;background:linear-gradient(to top,var(--brume),transparent)}
+.ciel-brume-avant{bottom:0;height:150px;z-index:2;background:linear-gradient(to top,transparent 0,transparent 12%,var(--brume) 50%,transparent 100%)}
+.ciel-brume::before,.ciel-brume::after,.ciel-brume-avant::before{content:"";position:absolute;left:-30%;width:160%;height:38%;border-radius:50%;
+  background:radial-gradient(closest-side,var(--brume),transparent);filter:blur(8px);animation:ciel-brume 38s ease-in-out infinite alternate}
+.ciel-brume::before{bottom:18%}
+.ciel-brume::after{bottom:46%;animation-duration:52s;animation-direction:alternate-reverse}
+.ciel-brume-avant::before{bottom:30%;height:60%;animation-duration:44s}
+@keyframes ciel-brume{from{transform:translateX(-8%)}to{transform:translateX(8%)}}
+html[data-meteo=brouillard] :is(.ciel-brume,.ciel-brume-avant){opacity:1}
+
+/* orage : éclairs */
+.ciel-eclair{position:absolute;inset:0;background:#e8eeff;opacity:0}
+html[data-meteo=orage] .ciel-eclair{animation:ciel-eclair 9s infinite}
+@keyframes ciel-eclair{0%,90%,100%{opacity:0}91%{opacity:.5}92%{opacity:.08}93.5%{opacity:.38}95%{opacity:0}}
+
+@media (max-width:700px){
+  .ciel-astre{right:6%;top:6px;width:32px;height:32px}
+  .hero#top .ciel-astre{left:auto;right:8%;top:24px;width:38px;height:38px}
+  html:is([data-ciel=aube],[data-ciel=crepuscule]) .ciel-astre{top:6px;right:6%}
+  html:is([data-ciel=aube],[data-ciel=crepuscule]) .hero#top .ciel-astre{left:auto;right:8%;top:24px}
+}
+@media (prefers-reduced-motion: reduce){
+  .ciel-etoiles::before,.ciel-etoiles::after,.ciel-astre .soleil,.ciel-brume::before,.ciel-brume::after,.ciel-brume-avant::before{animation:none}
+  .ciel-nuages i{animation:none;transform:translateX(var(--x))}
+  html[data-meteo=orage] .ciel-eclair{animation:none}
+}

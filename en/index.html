@@ -389,6 +389,8 @@ footer a{color:#fbf3e6}
 }
 @media(max-width:860px){.hang{width:min(54vw,220px)}.hero-grid{padding-bottom:96px}.peaks{height:118px}.hero p{margin:12px 0 20px}}
 </style>
+<link rel="stylesheet" href="/assets/ciel.css">
+<script src="/assets/ciel.js"></script>
 </head>
 <body>
 
@@ -533,7 +535,7 @@ footer a{color:#fbf3e6}
   v.src=big?"videos/hero-sq-hd.mp4":"videos/hero-sq.mp4";
   var slow=function(){v.defaultPlaybackRate=.8;v.playbackRate=.8;}; slow(); v.addEventListener("loadedmetadata",slow); v.addEventListener("play",slow);
   if(rm){v.removeAttribute("autoplay");v.pause();}
-  var c=document.getElementById("snow"); if(!c||rm) return;
+  var c=document.getElementById("snow"); if(!c||rm||document.documentElement.hasAttribute("data-ciel")) return; /* remplacé par assets/ciel.js */
   var x=c.getContext("2d"), f=[], W=0, H=0;
   function size(){var r=c.getBoundingClientRect();W=c.width=r.width;H=c.height=r.height;}
   size(); window.addEventListener("resize",size);
