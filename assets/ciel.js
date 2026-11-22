@@ -1,9 +1,10 @@
-/* Ciel vivant du bandeau : le décor suit l'heure (aube, jour, crépuscule, nuit) et le temps qu'il fait à Megève.
+/* Ciel vivant du bandeau : le décor suit l'heure (aube, jour, crépuscule, nuit) et le temps qu'il fait sur les pistes de Megève
+   (en altitude, ~1 850 m, comme le mode « En altitude » de la page météo).
    Météo : Open-Meteo (sans clé), gardée 20 min dans le navigateur. Styles : assets/ciel.css.
    Chargé dans le <head> (sans defer) pour que le bon ciel s'affiche dès le premier rendu.
    Aperçu de toutes les combinaisons : ?ciel=aube|jour|crepuscule|nuit&meteo=clair|eclaircies|nuages|pluie|neige|brouillard|orage */
 (function () {
-  var LAT = 45.8567, LON = 6.6175, KEY = "mpc-ciel-v1", TTL = 20 * 60 * 1000;
+  var LAT = 45.8567, LON = 6.6175, ALT = 1850, KEY = "mpc-ciel-v3", TTL = 20 * 60 * 1000;
   var root = document.documentElement;
   var q = new URLSearchParams(location.search);
   var CIELS = ["aube", "jour", "crepuscule", "nuit"], METEOS = ["clair", "eclaircies", "nuages", "pluie", "neige", "brouillard", "orage"];
@@ -29,11 +30,11 @@
   }
 
   /* ---------- code météo WMO -> ambiance ---------- */
-  function kind(c, snow) {
+  function kind(c, snow, temp) {
     if (c >= 95) return "orage";
     if (c === 45 || c === 48) return "brouillard";
     if ((c >= 71 && c <= 77) || c === 85 || c === 86) return "neige";
-    if ((c >= 51 && c <= 67) || (c >= 80 && c <= 82)) return snow > 0 ? "neige" : "pluie";
+    if ((c >= 51 && c <= 67) || (c >= 80 && c <= 82)) return (snow > 0 || (temp != null && temp <= 1.5)) ? "neige" : "pluie"; // à 1 850 m, sous ~1,5 °C c'est de la neige
     if (c === 3) return "nuages";
     if (c === 2) return "eclaircies";
     return "clair";
@@ -54,7 +55,7 @@
     if (data && data.rise && new Date(data.rise).toDateString() === new Date(now).toDateString()) { rise = data.rise; set = data.set; }
     state.ciel = forceC || phase(now, rise, set);
     if (forceM) { state.meteo = forceM; state.force = 1; state.vent = .35; }
-    else if (data && now - data.t < 3 * 3600e3) { state.meteo = kind(data.code, data.snow); state.force = force(data.code); state.vent = Math.min(1, (data.wind || 0) / 40); }
+    else if (data && now - data.t < 3 * 3600e3) { state.meteo = kind(data.code, data.snow, data.temp); state.force = force(data.code); state.vent = Math.min(1, (data.wind || 0) / 40); }
     else state.meteo = "clair";
     root.setAttribute("data-ciel", state.ciel);
     root.setAttribute("data-meteo", state.meteo);
@@ -67,11 +68,11 @@
     if (forceC && forceM) return;
     var c = read();
     if (c && Date.now() - c.t < TTL) return;
-    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON +
-      "&current=weather_code,snowfall,wind_speed_10m&daily=sunrise,sunset&timezone=UTC&timeformat=unixtime&forecast_days=1";
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON + "&elevation=" + ALT +
+      "&current=weather_code,snowfall,temperature_2m,wind_speed_10m&daily=sunrise,sunset&timezone=UTC&timeformat=unixtime&forecast_days=1";
     fetch(url).then(function (r) { return r.json(); }).then(function (j) {
       if (!j || !j.current) return;
-      var o = { t: Date.now(), code: j.current.weather_code, snow: j.current.snowfall || 0, wind: j.current.wind_speed_10m || 0,
+      var o = { t: Date.now(), code: j.current.weather_code, snow: j.current.snowfall || 0, temp: j.current.temperature_2m, wind: j.current.wind_speed_10m || 0,
         rise: j.daily && j.daily.sunrise ? j.daily.sunrise[0] * 1000 : 0, set: j.daily && j.daily.sunset ? j.daily.sunset[0] * 1000 : 0 };
       save(o); var before = state.meteo + state.ciel; compute(o);
       if (before !== state.meteo + state.ciel) precip.reset();
