@@ -138,12 +138,18 @@ module.exports = async (req, res) => {
     if (!/^[a-z0-9._-]+@([a-z0-9-]+\.)*mail-tester\.com$/.test(test)) { res.statusCode = 400; return res.end("adresse de test refusée (mail-tester.com uniquement)"); }
     const key = process.env.BREVO_API_KEY; if (!key) { res.statusCode = 503; return res.end("not configured"); }
     const from = process.env.SENDER_EMAIL || "bonjour@megeveparcoeur.fr";
-    const t = await fetch("https://api.brevo.com/v3/smtp/email", { method: "POST", headers: { "api-key": key, "Content-Type": "application/json", accept: "application/json" }, body: JSON.stringify({
-      sender: { name: "Megève par cœur", email: from }, replyTo: { email: from }, to: [{ email: test }], subject: mail.subject,
-      htmlContent: mail.html.replace("{{ unsubscribe }}", SITE + "/#newsletter"),
-      headers: { "List-Unsubscribe": "<mailto:" + from + "?subject=unsubscribe>" } }) });
+    const H = { "api-key": key, "Content-Type": "application/json", accept: "application/json" };
+    const c = await fetch("https://api.brevo.com/v3/emailCampaigns", { method: "POST", headers: H, body: JSON.stringify({
+      name: "TEST délivrabilité " + new Date().toISOString(), subject: mail.subject, sender: { name: "Megève par cœur", email: from },
+      htmlContent: mail.html, inlineImageActivation: false, replyTo: from,
+      previewText: "Marchés, spectacles, sorties en famille, et le point météo & neige : tout ce qui se passe cette semaine à Megève, Combloux, Demi-Quartier et Praz." }) });
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
-    if (!t.ok) { res.statusCode = 502; return res.end("échec : " + (await t.text()).slice(0, 300)); }
+    if (!c.ok) { res.statusCode = 502; return res.end("échec création : " + (await c.text()).slice(0, 300)); }
+    const { id } = await c.json();
+    const t = await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}/sendTest`, { method: "POST", headers: H, body: JSON.stringify({ emailTo: [test] }) });
+    const tt = t.ok ? "" : await t.text();
+    await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}`, { method: "DELETE", headers: H }).catch(() => {});
+    if (!t.ok) { res.statusCode = 502; return res.end("échec envoi test : " + tt.slice(0, 300)); }
     return res.end("test envoyé à " + test + " (" + mail.count + " événements)");
   }
   const secret = process.env.CRON_SECRET, auth = req.headers.authorization || "";
