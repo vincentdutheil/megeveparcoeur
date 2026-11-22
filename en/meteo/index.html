@@ -177,7 +177,7 @@ async function load(z){
   const q=new URLSearchParams({
     latitude:V.map(v=>v.lat).join(","), longitude:V.map(v=>v.lon).join(","), elevation:V.map(v=>z==="v"?v.v:v.a).join(","),
     current:"temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_gusts_10m",
-    hourly:"snow_depth,snowfall,freezing_level_height",
+    hourly:"snow_depth,snowfall,freezing_level_height,temperature_2m,weather_code",
     daily:"weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum,precipitation_probability_max",
     timezone:"Europe/Paris", forecast_days:"7", past_days:"1"
   });
@@ -233,6 +233,8 @@ async function show(){
 }
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{zone=b.dataset.z;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));show();});
 show();
+// pour le bouton « Partager sur Instagram » (assets/partage.js)
+window.mpcMeteo=()=>({zone,V,wc,summarize,load,data:cache[zone]});
 
 /* neige qui tombe dans le bandeau */
 (function(){const c=$("snow");if(!c||matchMedia("(prefers-reduced-motion: reduce)").matches)return;const x=c.getContext("2d");let W2,H2,f=[];
@@ -242,5 +244,6 @@ for(let i=0;i<120;i++){const z=Math.random();f.push({x:Math.random()*W2,y:Math.r
 </script>
 <script src="/assets/app.js" defer></script>
 <script src="/assets/neige.js" defer></script>
+<script src="/assets/partage.js" defer></script>
 </body>
 </html>
