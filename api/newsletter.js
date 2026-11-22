@@ -146,9 +146,21 @@ module.exports = async (req, res) => {
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     if (!c.ok) { res.statusCode = 502; return res.end("échec création : " + (await c.text()).slice(0, 300)); }
     const { id } = await c.json();
+    // Brevo n'envoie un test qu'à un contact existant rangé dans une liste : liste dédiée « Tests délivrabilité » (jamais la liste des abonnés).
+    let tl = null;
+    const ls = await fetch("https://api.brevo.com/v3/contacts/lists?limit=50", { headers: H }).then(r => r.json()).catch(() => ({}));
+    tl = ((ls.lists || []).find(l => l.name === "Tests délivrabilité") || {}).id;
+    if (!tl) {
+      const fs = await fetch("https://api.brevo.com/v3/contacts/folders?limit=10", { headers: H }).then(r => r.json()).catch(() => ({}));
+      const folderId = ((fs.folders || [])[0] || {}).id;
+      const nl = await fetch("https://api.brevo.com/v3/contacts/lists", { method: "POST", headers: H, body: JSON.stringify({ name: "Tests délivrabilité", folderId }) }).then(r => r.json());
+      tl = nl.id;
+    }
+    await fetch("https://api.brevo.com/v3/contacts", { method: "POST", headers: H, body: JSON.stringify({ email: test, listIds: [tl], updateEnabled: true }) });
     const t = await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}/sendTest`, { method: "POST", headers: H, body: JSON.stringify({ emailTo: [test] }) });
     const tt = t.ok ? "" : await t.text();
     await fetch(`https://api.brevo.com/v3/emailCampaigns/${id}`, { method: "DELETE", headers: H }).catch(() => {});
+    await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(test)}`, { method: "DELETE", headers: H }).catch(() => {});
     if (!t.ok) { res.statusCode = 502; return res.end("échec envoi test : " + tt.slice(0, 300)); }
     return res.end("test envoyé à " + test + " (" + mail.count + " événements)");
   }
