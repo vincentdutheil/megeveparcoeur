@@ -34,7 +34,6 @@
     { id: "village", t: EN ? "Megève village" : "Megève village", v: "Megève", c: "#1f3d7a" },
     { id: "rochebrune", t: "Rochebrune", v: "Megève", c: "#1f3d7a" },
     { id: "mont-d-arbois", t: "Mont d'Arbois", v: "Megève", c: "#1f3d7a" },
-    { id: "cote-2000", t: "Côte 2000", v: "Megève", c: "#1f3d7a" },
     { id: "combloux", t: EN ? "Combloux summit" : "Sommet de Combloux", v: "Combloux", c: "#2f5a44" },
     { id: "jaillet", t: EN ? "Le Jaillet summit" : "Sommet du Jaillet", v: "Le Jaillet", c: "#5b4a86" },
   ];
