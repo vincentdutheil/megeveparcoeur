@@ -39,6 +39,10 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .hidden{display:none}
 .sper{display:flex;gap:6px}.sper button{background:#fff;color:var(--navy);border:1.5px solid var(--line);padding:7px 13px;font-size:.85rem}
 .sper button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.kpi.big{background:var(--ink);color:#fff;border-color:var(--ink)}.kpi.big small,.kpi.big b{color:#fff}
+.cchart{display:flex;align-items:flex-end;gap:2px;height:110px;margin:14px 0 4px}.cchart .c{flex:1;display:flex;flex-direction:column-reverse;height:100%;cursor:default}
+.cchart .c i{display:block;min-height:0}.cchart .w{background:#7aa7d8}.cchart .a{background:#c8323d}
+.cleg{display:flex;gap:14px;font-size:.8rem;color:var(--muted)}.cleg span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--c)}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
 .kpi{border:1px solid var(--line);border-radius:12px;padding:12px 14px}.kpi small{display:block;color:var(--muted);font-size:.8rem;font-weight:600}
 .kpi b{font-size:1.8rem;line-height:1.2;color:var(--ink)}.kpi i{font-style:normal;font-size:.8rem;font-weight:700;margin-left:6px}
@@ -139,6 +143,10 @@ textarea{font:inherit;padding:9px 11px;border:1.5px solid var(--line);border-rad
   </div>
 
   <div id="tStats" class="hidden">
+  <section class="box">
+    <h2 style="margin:0">Site et appli : compteur total</h2>
+    <div id="cbody"><p class="muted">Chargement…</p></div>
+  </section>
   <section class="box">
     <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
       <h2 style="margin:0">Visites du site</h2>
@@ -377,7 +385,26 @@ async function publishAgenda(){
 }
 
 /* ---------- Statistiques (Vercel Web Analytics via /api/stats) ---------- */
+
 let sDays=7;
+/* ---------- Compteur maison (site + appli, /api/compteur) ---------- */
+async function loadCpt(){
+  const b=$("cbody");
+  let j;try{const r=await fetch("/api/compteur?days="+Math.max(sDays,30),{headers:{"X-GH-Token":token}});j=await r.json();}catch(e){j={ok:false,error:e.message};}
+  if(!j.ok){b.innerHTML=`<p class="muted">${j.error==="auth"?"Accès refusé : reconnectez-vous à l'admin.":"Compteur indisponible : "+esc(j.error||"erreur")}</p>`;return;}
+  const T=j.total,ser=j.series.slice(-sDays),P={web:0,app:0,install:0};ser.forEach(s=>{P.web+=s.web;P.app+=s.app;P.install+=s.install;});
+  const per=sDays===1?"aujourd'hui":`sur ${sDays} jours`;
+  const s30=j.series.slice(-30),mx=Math.max(1,...s30.map(s=>s.web+s.app));
+  b.innerHTML=`<div class="kpis">
+    <div class="kpi big"><small>Visites au total${j.since?" depuis le "+fmt(j.since):""}</small><b>${nf(T.web+T.app)}</b></div>
+    <div class="kpi"><small>Dont visites sur le site</small><b>${nf(T.web)}</b></div>
+    <div class="kpi"><small>Dont ouvertures de l'appli</small><b>${nf(T.app)}</b></div>
+    <div class="kpi"><small>Installations de l'appli</small><b>${nf(T.install)}</b></div></div>
+    <p style="margin:4px 0 0"><b>${per[0].toUpperCase()+per.slice(1)} :</b> ${nf(P.web+P.app)} visites (${nf(P.web)} site · ${nf(P.app)} appli) · ${nf(P.install)} installation${P.install>1?"s":""}</p>
+    <div class="cchart">${s30.map(s=>`<div class="c" title="${new Date(s.day+"T12:00").toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"})} · ${s.web} site · ${s.app} appli${s.install?" · "+s.install+" install.":""}"><i class="w" style="height:${s.web/mx*100}%"></i><i class="a" style="height:${s.app/mx*100}%"></i></div>`).join("")}</div>
+    <div class="cleg"><span style="--c:#7aa7d8">Site</span><span style="--c:#c8323d">Appli</span><span style="margin-left:auto">30 derniers jours</span></div>
+    <p class="muted" style="margin-top:12px">Une visite = une session (plusieurs pages vues d'affilée comptent pour une). Une ouverture de l'appli = un lancement depuis l'icône de l'écran d'accueil. Installations : détectées à l'installation sur Android et ordinateur, à la première ouverture sur iPhone.</p>`;
+}
 const PNAMES={"/":"Accueil","/en/":"Accueil (EN)","/meteo/":"Météo & neige","/webcams/":"Webcams","/balades/":"Balades","/carte/":"Carte","/boutique/":"Boutique",
  "/que-faire/":"Que faire ?","/que-faire/ce-week-end/":"Ce week-end","/que-faire/aujourd-hui/":"Aujourd'hui","/que-faire/avec-des-enfants/":"Avec des enfants",
  "/que-faire/quand-il-pleut/":"Quand il pleut","/que-faire/gratuit/":"Gratuit","/venir/":"Venir & se déplacer","/proposer/":"Proposer un événement","/merci/":"Merci (newsletter)"};
@@ -391,6 +418,7 @@ function rank(title,rows,label){
   return `<div class="rank"><h3>${title}</h3>${rows.length?rows.map(r=>`<div class="r"><em style="width:${(r.visitors||0)/max*100}%"></em><span>${esc(label(r))}</span><b>${nf(r.visitors)}</b></div>`).join(""):'<p class="muted">Pas encore de données.</p>'}</div>`;
 }
 async function loadStats(){
+  loadCpt();
   const b=$("sbody");b.innerHTML='<p class="muted">Chargement…</p>';
   let j;try{const r=await fetch("/api/stats?days="+sDays,{headers:{"X-GH-Token":token}});j=await r.json();}catch(e){j={ok:false,error:e.message};}
   if(!j.ok){b.innerHTML=`<p class="muted">${j.error==="auth"?"Accès refusé : reconnectez-vous à l'admin.":"Statistiques indisponibles : "+esc(j.error||"erreur")}</p>`;return;}

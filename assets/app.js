@@ -46,3 +46,6 @@
   document.addEventListener("submit",e=>{if(e.target&&e.target.id==="nl-form") try{window.va("event",{name:"newsletter_envoi"});}catch(_){}
     if(e.target&&e.target.id==="pr-form") try{window.va("event",{name:"proposition_evenement"});}catch(_){}},true);
 })();
+
+/* Compteur maison : visites du site / ouvertures de l'appli / installations (assets/compteur.js) */
+(function(){const s=document.createElement("script");s.defer=true;s.src="/assets/compteur.js?v=1";document.head.appendChild(s);})();
