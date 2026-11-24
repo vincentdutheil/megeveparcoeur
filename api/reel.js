@@ -96,6 +96,7 @@ module.exports = async (req, res) => {
       }
       const params = {
         media_type: "REELS", video_url: c.video, caption: c.caption || "", share_to_feed: "true",
+        location_id: c.location_id || null,
         user_tags: (c.tags || []).length ? (c.tags || []).map(u => ({ username: String(u).replace(/^@/, "") })) : null,
         cover_url: c.cover || null, thumb_offset: c.cover ? null : (c.thumb_offset != null ? c.thumb_offset : null),
         audio_configuration: audioId ? { audio_id: String(audioId), audio_volume: c.audio_volume ?? 100, video_volume: c.video_volume ?? 0 } : null,
