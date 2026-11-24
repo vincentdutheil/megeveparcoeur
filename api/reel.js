@@ -10,7 +10,8 @@
 // Fichier JSON : { "video": "https://www.megeveparcoeur.fr/instagram/....mp4", "caption": "...",
 //   "audio_id": "123" | null, "audio_query": "Megève c'est le rêve Akhilleus", "audio_title": "Megève c'est le rêve",
 //   "tags": ["megeve_officiel", ...], "cover": "https://.../cover.jpg", "thumb_offset": 1000,
-//   "audio_volume": 100, "video_volume": 0, "after": "2026-11-22T09:00:00+01:00", "require_audio": true }
+//   "audio_volume": 100, "video_volume": 0, "after": "2026-11-22T09:00:00+01:00", "require_audio": true,
+//   "location_id": "24274852196", "comment": "premier commentaire (facultatif)" }
 const OWNER = "vincentdutheil", REPO = "megeveparcoeur";
 const V = process.env.META_GRAPH_VERSION || "v23.0", GRAPH = "https://graph.facebook.com/" + V;
 const RURL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -120,7 +121,12 @@ module.exports = async (req, res) => {
 
     const pub = await graph(`/${auth.igId}/media_publish`, { creation_id: st.container, access_token: auth.pageToken }, "POST");
     let link = null; try { link = (await graph("/" + pub.id, { fields: "permalink", access_token: auth.pageToken })).permalink; } catch (e) {}
-    Object.assign(st, { published: new Date().toISOString(), media: pub.id, link });
+    let comment = null;
+    if (c.comment) {   // premier commentaire (facultatif ; nécessite instagram_manage_comments, sinon simple avertissement)
+      try { comment = { ok: true, id: (await graph(`/${pub.id}/comments`, { message: String(c.comment).slice(0, 2000), access_token: auth.pageToken }, "POST")).id }; }
+      catch (e) { comment = { ok: false, error: String(e.message || e).slice(0, 200) }; }
+    }
+    Object.assign(st, { published: new Date().toISOString(), media: pub.id, link, comment });
     await redis("SET", "reel:" + key, JSON.stringify(st));
     return send(200, { ok: true, ...st });
   } catch (e) {
