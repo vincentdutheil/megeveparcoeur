@@ -110,10 +110,9 @@ T = {
   ],
   park_note="Le plus simple à Megève : laisser la voiture et prendre le <b>Meg'bus</b>, gratuit (3 lignes en hiver) et suivi en temps réel dans l'appli Pysae. Les samedis de vacances, les parkings gratuits de Combloux et de la Princesse se remplissent vite : arrivez tôt.",
   plan_h="🗺️ Plans des pistes",
-  plans=[("https://forfait.megeve.com/hiver/plan-des-pistes-temps-reel/", "Plan en temps réel Évasion Mont-Blanc"),
-         ("https://forfait.megeve.com/hiver/wp-content/uploads/sites/7/2025/11/2025-Plan-Megeve-Evasion-basseDef.pdf", "Plan Évasion (PDF)"),
-         ("https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/", "Plan Portes du Mont-Blanc"),
-         ("https://www.lesportesdumontblanc.fr/hiver/infoneige-portes-du-mont-blanc/", "Pistes ouvertes aujourd'hui (Portes du Mont-Blanc)")],
+  maps=[("🗺️ Plan des pistes Évasion Mont-Blanc", "https://forfait.megeve.com/hiver/plan-des-pistes-temps-reel/"), ("🗺️ Plan des pistes Portes du Mont-Blanc", "https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/")],
+  plans=[("Évasion Mont-Blanc <small>(Rochebrune, Côte 2000, Mont d'Arbois, Saint-Gervais…)</small>", [("https://forfait.megeve.com/hiver/plan-des-pistes-temps-reel/", "Plan interactif en temps réel"), ("https://forfait.megeve.com/hiver/wp-content/uploads/sites/7/2025/11/2025-Plan-Megeve-Evasion-basseDef.pdf", "Plan à télécharger (PDF)")]),
+         ("Portes du Mont-Blanc <small>(Jaillet, Combloux, La Giettaz)</small>", [("https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/", "Plan des pistes"), ("https://www.lesportesdumontblanc.fr/hiver/infoneige-portes-du-mont-blanc/", "Pistes et remontées ouvertes aujourd'hui")])],
   plan_p="Pour l'état de la neige et des pistes avant de partir, voyez aussi nos pages <a href=\"/meteo/\">Météo &amp; neige</a> et <a href=\"/webcams/\">Webcams</a>.",
   more_h="✨ Et aussi",
   more=[
@@ -197,10 +196,9 @@ T = {
   ],
   park_note="The easiest in Megève: leave the car and take the free <b>Meg'bus</b> (3 lines in winter), tracked live in the Pysae app. On holiday Saturdays the free car parks in Combloux and at the Princesse fill up fast: arrive early.",
   plan_h="🗺️ Piste maps",
-  plans=[("https://forfait.megeve.com/hiver/en/ski-resort-map/", "Évasion Mont-Blanc live map"),
-         ("https://forfait.megeve.com/hiver/wp-content/uploads/sites/7/2025/11/2025-Plan-Megeve-Evasion-basseDef.pdf", "Évasion map (PDF)"),
-         ("https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/", "Portes du Mont-Blanc map"),
-         ("https://www.lesportesdumontblanc.fr/hiver/infoneige-portes-du-mont-blanc/", "Runs open today (Portes du Mont-Blanc)")],
+  maps=[("🗺️ Évasion Mont-Blanc piste map", "https://forfait.megeve.com/hiver/en/ski-resort-map/"), ("🗺️ Portes du Mont-Blanc piste map", "https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/")],
+  plans=[("Évasion Mont-Blanc <small>(Rochebrune, Côte 2000, Mont d'Arbois, Saint-Gervais…)</small>", [("https://forfait.megeve.com/hiver/en/ski-resort-map/", "Live interactive map"), ("https://forfait.megeve.com/hiver/wp-content/uploads/sites/7/2025/11/2025-Plan-Megeve-Evasion-basseDef.pdf", "Downloadable map (PDF)")]),
+         ("Portes du Mont-Blanc <small>(Jaillet, Combloux, La Giettaz)</small>", [("https://www.lesportesdumontblanc.fr/hiver/plan-des-pistes-megeve-saintgervais-combloux-lagiettaz/", "Piste map"), ("https://www.lesportesdumontblanc.fr/hiver/infoneige-portes-du-mont-blanc/", "Runs and lifts open today")])],
   plan_p="For snow and piste conditions before you go, see also our <a href=\"/en/meteo/\">Snow &amp; weather</a> and <a href=\"/en/webcams/\">Webcams</a> pages.",
   more_h="✨ Also",
   more=[
@@ -228,6 +226,7 @@ CSS = """
 .stat b{display:block;font-family:var(--display,Fraunces,serif);font-size:1.7rem;color:var(--heart);line-height:1.1}
 .stat strong{display:block;margin:4px 0 2px}.stat span{color:var(--muted);font-size:.86rem;line-height:1.35;display:block}
  .domp ul{margin:8px 0}.domp li{margin:6px 0}
+.maps{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}.maps a{text-decoration:none;font-weight:800;color:#fff;background:var(--heart);border-radius:16px;padding:11px 18px}.maps a:hover{filter:brightness(1.1)}
 .sect{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .sec{border:1px solid var(--line);border-radius:16px;padding:14px 16px}.sec:last-child{grid-column:1/-1}
 .sec h3{font-size:1.1rem;margin:0 0 4px}.sec p{margin:6px 0 0;font-size:.95rem}
@@ -256,7 +255,7 @@ def build(lang):
     path, alt = ("/skier/", "/en/skiing/") if lang == "fr" else ("/en/skiing/", "/skier/")
     stats = '<div class="stats lift">' + "".join(f'<div class="stat"><b>{a}</b><strong>{b}</strong><span>{c}</span></div>' for a, b, c in d["stats"]) + "</div>"
     sect = "".join(f'<div class="sec"><h3>{t}</h3><span class="tag">{g}</span><p>{p}</p></div>' for t, g, p in d["secteurs"])
-    dom = f'<section class="box"><h2>{d["dom_h"]}</h2><div class="domp">{d["dom_p"]}</div><div class="sect">{sect}</div></section>'
+    dom = f'<section class="box"><h2>{d["dom_h"]}</h2><div class="domp">{d["dom_p"]}</div><div class="maps">' + "".join(f'<a href="{u}" target="_blank" rel="noopener">{l} ↗</a>' for l, u in d["maps"]) + f'</div><div class="sect">{sect}</div></section>'
     i = 0 if lang == "fr" else 1
     eva_rows = [(r[i],) + r[2] + (r[3] if r[3] else (None, None, None)) for r in PRIX_EVA]
     pmb_rows = [(r[i],) + r[2] for r in PRIX_PMB]
@@ -270,8 +269,8 @@ def build(lang):
         trs = "".join(f"<tr><th scope=row>{a}</th><td>{b}</td><td>{c}</td></tr>" for a, b, c in rows)
         pk += f'<h3>{zone}</h3><div class="tw"><table class="px pk"><thead><tr>{"".join(f"<th>{h}</th>" for h in d["park_head"])}</tr></thead><tbody>{trs}</tbody></table></div>'
     park = f'<section class="box" id="parkings"><h2>{d["park_h"]}</h2>{pk}<p>{d["park_note"]}</p></section>'
-    plans = ('<div class="links">' + "".join(f'<a href="{u}" target="_blank" rel="noopener">{l} ↗</a>' for u, l in d["plans"]) + "</div>")
-    plan = f'<section class="box"><h2>{d["plan_h"]}</h2>{plans}<p>{d["plan_p"]}</p></section>'
+    plans = "".join(f'<h3>{t}</h3><div class="links">' + "".join(f'<a href="{u}" target="_blank" rel="noopener">{l} ↗</a>' for u, l in ls) + "</div>" for t, ls in d["plans"])
+    plan = f'<section class="box" id="{"plans" if lang == "fr" else "maps"}"><h2>{d["plan_h"]}</h2>{plans}<p>{d["plan_p"]}</p></section>'
     more = f'<section class="box"><h2>{d["more_h"]}</h2><div class="more">' + "".join(f"<div><b>{t}</b><p>{p}</p></div>" for t, p in d["more"]) + "</div></section>"
     links = '<div class="links">' + "".join(f'<a href="{u}" target="_blank" rel="noopener">{l} ↗</a>' for u, l in d["links"]) + "</div>"
     body = (stats + dom + px + deals + park + plan + more + faq_html(d["faq"], lang) +
