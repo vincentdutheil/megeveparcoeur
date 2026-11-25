@@ -21,8 +21,14 @@
  "buildCommand": "node tools/build.mjs",
  "outputDirectory": "dist",
  "functions": {
-  "api/reel.js": {
+  "api/main.js": {
    "maxDuration": 60
   }
- }
+ },
+ "rewrites": [
+  {
+   "source": "/api/:fn(compteur|ig|ig-auth|neige|newsletter|propose|push|reel|stats|subscribe|webcam)",
+   "destination": "/api/main?fn=:fn"
+  }
+ ]
 }
