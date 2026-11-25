@@ -19,8 +19,8 @@ NAV = {
            ("/en/carte/", "Map"), ("/enfants/", "Kids' corner (FR)"), ("/en/boutique/", "Shop")],
 }
 FOOT = {
-    "fr": '<a href="/">Accueil</a> · <a href="/#agenda">Agenda</a> · <a href="/que-faire/">Que faire ?</a> · <a href="/venir/">Venir &amp; se déplacer</a> · <a href="/proposer/">Proposer un événement</a> · <a href="/app/">📲 L\'appli</a> · <a href="/meteo/">Météo &amp; neige</a>',
-    "en": '<a href="/en/">Home</a> · <a href="/en/#agenda">What\'s on</a> · <a href="/en/things-to-do/">Things to do</a> · <a href="/en/getting-here/">Getting here</a> · <a href="/en/submit-event/">Submit an event</a> · <a href="/en/app/">📲 The app</a> · <a href="/en/meteo/">Snow &amp; weather</a>',
+    "fr": '<a href="/">Accueil</a> · <a href="/#agenda">Agenda</a> · <a href="/que-faire/">Que faire ?</a> · <a href="/skier/">Skier</a> · <a href="/venir/">Venir &amp; se déplacer</a> · <a href="/proposer/">Proposer un événement</a> · <a href="/app/">📲 L\'appli</a> · <a href="/meteo/">Météo &amp; neige</a>',
+    "en": '<a href="/en/">Home</a> · <a href="/en/#agenda">What\'s on</a> · <a href="/en/things-to-do/">Things to do</a> · <a href="/en/skiing/">Skiing</a> · <a href="/en/getting-here/">Getting here</a> · <a href="/en/submit-event/">Submit an event</a> · <a href="/en/app/">📲 The app</a> · <a href="/en/meteo/">Snow &amp; weather</a>',
 }
 
 
@@ -239,10 +239,12 @@ def qf_pages():
             cards.append(f'<a class="qc" href="{href}"><b>{d["nav"]}</b><span>{d["intro"]}</span></a>')
         more = [("/balades/", "🥾 Balades &amp; raquettes", "Itinéraires balisés pour profiter de la montagne sans skis."),
                 ("/carte/", "🗺️ La carte des beaux coins", "Panoramas, patrimoine et sorties en famille."),
+                ("/skier/", "⛷️ Skier à Megève &amp; Combloux", "Domaines, prix des forfaits, parkings et plans des pistes."),
                 ("/meteo/", "❄️ Météo &amp; neige", "Neige au sol et chutes prévues sur 7 jours."),
                 ("/venir/", "🚗 Venir &amp; se déplacer", "Parkings, navettes gratuites, train et aéroports.")] if lang == "fr" else \
                [("/en/balades/", "🥾 Walks &amp; snowshoes", "Signposted trails to enjoy the mountains without skis."),
                 ("/en/carte/", "🗺️ Map of favourite spots", "Viewpoints, heritage and family outings."),
+                ("/en/skiing/", "⛷️ Skiing in Megève &amp; Combloux", "Ski areas, lift pass prices, parking and piste maps."),
                 ("/en/meteo/", "❄️ Snow &amp; weather", "Snow on the ground and 7-day snowfall forecast."),
                 ("/en/getting-here/", "🚗 Getting here &amp; around", "Car parks, free shuttles, trains and airports.")]
         cards += [f'<a class="qc alt" href="{h}"><b>{t}</b><span>{s}</span></a>' for h, t, s in more]
@@ -288,7 +290,7 @@ VENIR = {
    ("🅿️ Se garer à Megève", ["Parkings couverts : <b>Village</b> (route Nationale), <b>Casino</b> (entrée de la zone piétonne, 200 places, hauteur 1,90 m), <b>Office de Tourisme</b> (rue de la Poste), <b>Rochebrune</b> et <b>Mont d'Arbois</b> (297 places au pied de la télécabine, 2,10 m).",
                     "Parking aérien du <b>Palais</b> : 389 places, à deux pas du centre.",
                     "Les 30 premières minutes sont gratuites dans la plupart des parkings. Renseignements : Megève Parkings, 04 50 21 18 30.",
-                    "À Combloux, le <b>parking de la Cry</b> (100 places) est au pied du domaine skiable."]),
+                    "À Combloux, les parkings gratuits des <b>Brons</b>, de <b>la Cry</b> et de <b>Cuchet</b> sont au pied du domaine skiable (détails sur la page <a href=\"/skier/#parkings\">Skier</a>)."]),
   ],
   note="Informations pratiques vérifiées auprès des offices de tourisme et de la mairie de Megève ; horaires et tarifs peuvent changer d'une saison à l'autre.",
   links=[("https://www.megeve-tourisme.fr/", "Megève Tourisme"), ("https://www.combloux.com/", "Office de tourisme de Combloux"),
@@ -314,7 +316,7 @@ VENIR = {
    ("🅿️ Parking in Megève", ["Covered car parks: <b>Village</b> (route Nationale), <b>Casino</b> (by the pedestrian area, 200 spaces, 1.90 m height limit), <b>Tourist Office</b> (rue de la Poste), <b>Rochebrune</b> and <b>Mont d'Arbois</b> (297 spaces at the gondola, 2.10 m).",
                     "Open-air <b>Palais</b> car park: 389 spaces, a short walk from the centre.",
                     "The first 30 minutes are free in most car parks. Information: Megève Parkings, +33 4 50 21 18 30.",
-                    "In Combloux, <b>La Cry car park</b> (100 spaces) is at the foot of the ski area."]),
+                    "In Combloux, the free <b>Brons</b>, <b>la Cry</b> and <b>Cuchet</b> car parks are at the foot of the ski area (details on the <a href=\"/en/skiing/#parkings\">Skiing</a> page)."]),
   ],
   note="Practical information checked with the tourist offices and Megève town hall; timetables and prices may change from season to season.",
   links=[("https://www.megeve-tourisme.fr/en/", "Megève Tourisme"), ("https://www.combloux.com/", "Combloux tourist office"),
