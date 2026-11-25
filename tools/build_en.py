@@ -15,9 +15,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.megeveparcoeur.fr"
 SUB = "meteo|webcams|galerie|balades|carte|boutique"
 
-NAV_FR = [("#agenda", "Agenda"), ("meteo/", "Météo &amp; neige"), ("webcams/", "Webcams"), ("galerie/", "Galerie"), ("balades/", "Balades"),
+NAV_FR = [("#agenda", "Agenda"), ("meteo/", "Météo &amp; neige"), ("webcams/", "Webcams"), ("galerie/", "Galerie"), ("skier/", "Ski"), ("balades/", "Balades"),
           ("carte/", "Carte"), ("enfants/", "Le coin des enfants"), ("boutique/", "Boutique")]
-NAV_EN = [("#agenda", "What's on"), ("meteo/", "Snow &amp; weather"), ("webcams/", "Webcams"), ("galerie/", "Gallery"), ("balades/", "Walks"),
+NAV_EN = [("#agenda", "What's on"), ("meteo/", "Snow &amp; weather"), ("webcams/", "Webcams"), ("galerie/", "Gallery"), ("skiing/", "Skiing"), ("balades/", "Walks"),
           ("carte/", "Map"), ("enfants/", "Kids' corner (FR)"), ("boutique/", "Shop")]
 
 

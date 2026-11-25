@@ -13,9 +13,9 @@ SCENE = re.search(r'<svg class="scene".*?</svg>', _bal, re.S).group(0)
 PEAKS = re.search(r'<svg class="foot-peaks".*?</svg>', _bal, re.S).group(0)
 
 NAV = {
-    "fr": [("/#agenda", "Agenda"), ("/meteo/", "Météo &amp; neige"), ("/webcams/", "Webcams"), ("/galerie/", "Galerie"), ("/balades/", "Balades"),
+    "fr": [("/#agenda", "Agenda"), ("/meteo/", "Météo &amp; neige"), ("/webcams/", "Webcams"), ("/galerie/", "Galerie"), ("/skier/", "Ski"), ("/balades/", "Balades"),
            ("/carte/", "Carte"), ("/enfants/", "Le coin des enfants"), ("/boutique/", "Boutique")],
-    "en": [("/en/#agenda", "What's on"), ("/en/meteo/", "Snow &amp; weather"), ("/en/webcams/", "Webcams"), ("/en/galerie/", "Gallery"), ("/en/balades/", "Walks"),
+    "en": [("/en/#agenda", "What's on"), ("/en/meteo/", "Snow &amp; weather"), ("/en/webcams/", "Webcams"), ("/en/galerie/", "Gallery"), ("/en/skiing/", "Skiing"), ("/en/balades/", "Walks"),
            ("/en/carte/", "Map"), ("/enfants/", "Kids' corner (FR)"), ("/en/boutique/", "Shop")],
 }
 FOOT = {
