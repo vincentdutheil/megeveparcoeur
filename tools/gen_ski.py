@@ -56,8 +56,8 @@ T = {
          ("100 km", "Portes du Mont-Blanc", "69 pistes · Combloux, Megève-Jaillet, La Giettaz, Cordon"),
          ("19 déc.", "Ouverture générale", "Pré-ouverture à Megève les 5-6 déc., puis dès le 12 déc."),
          ("4 avril", "Fermeture", "Rochebrune &amp; Mont d'Arbois · Portes du Mont-Blanc : 21 mars")],
-  dom_h="Deux domaines, un seul forfait possible",
-  dom_p="Autour de Megève, on skie sur <b>deux forfaits</b>. Le forfait <b>Évasion Mont-Blanc</b> ouvre tout ; le forfait <b>Portes du Mont-Blanc</b>, moins cher, couvre seulement le côté Combloux · Jaillet · La Giettaz. Attention : l'Évasion regroupe trois secteurs <b>non reliés skis aux pieds</b> (on passe de l'un à l'autre en voiture ou en navette).",
+  dom_h="Deux forfaits, deux versants",
+  dom_p="Il existe <b>deux forfaits</b> : l'<b>Évasion Mont-Blanc</b>, qui donne accès à tout, et le <b>Portes du Mont-Blanc</b>, moins cher, limité à Combloux, au Jaillet et à La Giettaz.<br><br>Côté pistes, Megève a <b>deux versants qui ne sont pas reliés skis aux pieds</b> :<ul><li><b>Rochebrune, Côte 2000, Mont d'Arbois, la Princesse, Saint-Gervais et Saint-Nicolas-de-Véroce</b> sont reliés entre eux (forfait Évasion).</li><li><b>Le Jaillet, Combloux et La Giettaz</b> sont sur l'autre versant, reliés entre eux mais pas au Mont d'Arbois ni à Rochebrune (forfait Portes du Mont-Blanc ou Évasion).</li></ul>Pour passer d'un versant à l'autre, on traverse Megève en voiture ou en Meg'bus gratuit. Les Contamines, aussi incluses dans l'Évasion, sont à part, en voiture.",
   secteurs=[
    ("🏔️ Rochebrune &amp; Côte 2000", "Évasion", "Le domaine « historique », juste au-dessus du village : téléphérique de Rochebrune depuis le centre, pistes en forêt et, à Côte 2000, le point culminant du secteur. Le téléphérique de <b>Rocharbois</b> le relie au Mont d'Arbois."),
    ("🌲 Mont d'Arbois · Princesse → Saint-Gervais", "Évasion", "Le plus vaste : télécabines du Mont d'Arbois et de la Princesse (Demi-Quartier), puis liaison vers Saint-Gervais et Saint-Nicolas-de-Véroce, jusqu'au Mont Joly (2 350 m) face au Mont-Blanc."),
@@ -143,8 +143,8 @@ T = {
          ("100 km", "Portes du Mont-Blanc", "69 runs · Combloux, Megève-Jaillet, La Giettaz, Cordon"),
          ("19 Dec", "Full opening", "Early opening in Megève on 5-6 Dec, then from 12 Dec"),
          ("4 April", "Closing", "Rochebrune &amp; Mont d'Arbois · Portes du Mont-Blanc: 21 March")],
-  dom_h="Two ski areas, one pass can cover both",
-  dom_p="Around Megève there are <b>two lift passes</b>. The <b>Évasion Mont-Blanc</b> pass covers everything; the cheaper <b>Portes du Mont-Blanc</b> pass only covers the Combloux · Jaillet · La Giettaz side. Note: Évasion is made of three sectors <b>not linked on skis</b> (you move between them by car or shuttle).",
+  dom_h="Two passes, two sides of the valley",
+  dom_p="There are <b>two lift passes</b>: <b>Évasion Mont-Blanc</b>, which covers everything, and the cheaper <b>Portes du Mont-Blanc</b>, limited to Combloux, Le Jaillet and La Giettaz.<br><br>On the slopes, Megève has <b>two sides that are not linked on skis</b>:<ul><li><b>Rochebrune, Côte 2000, Mont d'Arbois, the Princesse, Saint-Gervais and Saint-Nicolas-de-Véroce</b> are linked together (Évasion pass).</li><li><b>Le Jaillet, Combloux and La Giettaz</b> are on the other side, linked together but not to Mont d'Arbois or Rochebrune (Portes du Mont-Blanc or Évasion pass).</li></ul>To switch sides, cross Megève by car or on the free Meg'bus. Les Contamines, also included in Évasion, is separate, by car.",
   secteurs=[
    ("🏔️ Rochebrune &amp; Côte 2000", "Évasion", "The \"historic\" area right above the village: the Rochebrune cable car from the centre, runs through the forest and, at Côte 2000, the highest point of the sector. The <b>Rocharbois</b> cable car links it to Mont d'Arbois."),
    ("🌲 Mont d'Arbois · Princesse → Saint-Gervais", "Évasion", "The largest sector: the Mont d'Arbois and Princesse (Demi-Quartier) gondolas, then the link to Saint-Gervais and Saint-Nicolas-de-Véroce, up to Mont Joly (2,350 m) facing Mont Blanc."),
@@ -227,6 +227,7 @@ CSS = """
 .stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:0 8px 24px rgba(10,20,40,.06)}
 .stat b{display:block;font-family:var(--display,Fraunces,serif);font-size:1.7rem;color:var(--heart);line-height:1.1}
 .stat strong{display:block;margin:4px 0 2px}.stat span{color:var(--muted);font-size:.86rem;line-height:1.35;display:block}
+ .domp ul{margin:8px 0}.domp li{margin:6px 0}
 .sect{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
 .sec{border:1px solid var(--line);border-radius:16px;padding:14px 16px}.sec:last-child{grid-column:1/-1}
 .sec h3{font-size:1.1rem;margin:0 0 4px}.sec p{margin:6px 0 0;font-size:.95rem}
@@ -255,7 +256,7 @@ def build(lang):
     path, alt = ("/skier/", "/en/skiing/") if lang == "fr" else ("/en/skiing/", "/skier/")
     stats = '<div class="stats lift">' + "".join(f'<div class="stat"><b>{a}</b><strong>{b}</strong><span>{c}</span></div>' for a, b, c in d["stats"]) + "</div>"
     sect = "".join(f'<div class="sec"><h3>{t}</h3><span class="tag">{g}</span><p>{p}</p></div>' for t, g, p in d["secteurs"])
-    dom = f'<section class="box"><h2>{d["dom_h"]}</h2><p>{d["dom_p"]}</p><div class="sect">{sect}</div></section>'
+    dom = f'<section class="box"><h2>{d["dom_h"]}</h2><div class="domp">{d["dom_p"]}</div><div class="sect">{sect}</div></section>'
     i = 0 if lang == "fr" else 1
     eva_rows = [(r[i],) + r[2] + (r[3] if r[3] else (None, None, None)) for r in PRIX_EVA]
     pmb_rows = [(r[i],) + r[2] for r in PRIX_PMB]
