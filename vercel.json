@@ -27,7 +27,7 @@
  },
  "rewrites": [
   {
-   "source": "/api/:fn(compteur|ig|ig-auth|neige|newsletter|propose|push|reel|stats|subscribe|webcam)",
+   "source": "/api/:fn(chat|compteur|ig|ig-auth|neige|newsletter|propose|push|reel|stats|subscribe|webcam)",
    "destination": "/api/main?fn=:fn"
   }
  ]

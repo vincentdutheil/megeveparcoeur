@@ -6,6 +6,7 @@
 //   2. l'ajouter ci-dessous,
 //   3. ajouter <nom> à la liste de la règle « rewrites » de vercel.json.
 const H = { // require paresseux : une erreur dans un module ne casse pas les autres
+  chat: () => require("./_lib/chat.js"),
   compteur: () => require("./_lib/compteur.js"),
   ig: () => require("./_lib/ig.js"),
   "ig-auth": () => require("./_lib/ig.js"), // retour de Facebook (même module, branche selon l'adresse)

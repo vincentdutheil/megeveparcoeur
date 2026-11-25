@@ -257,4 +257,18 @@ const evs = A.filter(e => (e.d2 || e.d) >= addDays(TODAY, -7)).map(e => {
 }).join("\n");
 sm = sm.replace("</urlset>", evs + "\n</urlset>");
 write("sitemap.xml", sm);
-console.log(`build ok · ${n} pages d'événements · aujourd'hui ${TODAY} · sitemap ${(sm.match(/<loc>/g) || []).length} URL`);
+// ------------------------------------------------------------------ chatbot : script ajouté à toutes les pages publiques
+const NOCHAT = new Set(["admin", "stories", "shots", "instagram", "enfants", "maths", "maths-ga5pz7", "api", "data"]);
+let nchat = 0;
+(function walk(dir) {
+  for (const f of fs.readdirSync(path.join(OUT, dir), { withFileTypes: true })) {
+    const rel = path.join(dir, f.name);
+    if (f.isDirectory()) { if (!(dir === "" && NOCHAT.has(f.name))) walk(rel); continue; }
+    if (f.name !== "index.html") continue;
+    const p = path.join(OUT, rel); let h = fs.readFileSync(p, "utf8");
+    if (h.includes("/assets/chat.js") || !h.includes("</body>")) continue;
+    h = h.replace(/<\/body>(?![\s\S]*<\/body>)/, '<script src="/assets/chat.js?v=1" defer></script>\n</body>');
+    fs.writeFileSync(p, h); nchat++;
+  }
+})("");
+console.log(`build ok · ${n} pages d'événements · aujourd'hui ${TODAY} · sitemap ${(sm.match(/<loc>/g) || []).length} URL · chatbot sur ${nchat} pages`);
