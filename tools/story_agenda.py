@@ -39,7 +39,7 @@ def render(start, end, evs, total, kind):
         for _, d, d2, e in evs)
     per = f"du {start.day} {MC[start.month-1]} au {end.day} {MC[end.month-1]}"
     if kind == "story":
-        cta = "👇 Tous les événements sur<br><b>megeveparcoeur.fr</b>"
+        cta = "👇 L'agenda complet sur<br><b>www.megeveparcoeur.fr</b>"
     else:
         more = f"+ {total-len(evs)} autre{'s' if total-len(evs)>1 else ''} cette semaine · " if total > len(evs) else ""
         cta = f"{more}Tout l'agenda sur<br><b>megeveparcoeur.fr</b> · lien en bio"
@@ -48,7 +48,7 @@ def render(start, end, evs, total, kind):
 background:linear-gradient(180deg,rgba(14,28,60,.78),rgba(14,28,60,.9)),url('{(ROOT/"videos/hero-poster.jpg").as_uri()}') center/cover}}
 .serif{{font-family:"DejaVu Serif",Georgia,serif}}
 .top{{position:absolute;top:{top}px;left:80px;right:80px;display:flex;gap:28px;align-items:center}}
-.top img{{width:130px;height:130px}}.k{{font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ff8a97;font-size:28px}}
+.top img{{width:130px;height:130px}}.k{{font-weight:800;letter-spacing:{".05em" if kind=="story" else ".14em"};white-space:nowrap;text-transform:uppercase;color:#ff8a97;font-size:{46 if kind=="story" else 28}px}}
 h1{{font-size:70px;line-height:1.05;margin-top:8px}}.loc{{font-size:26px;font-weight:700;color:#ff8a97;margin-top:6px}}
 .per{{font-size:34px;opacity:.9;margin-top:8px}}
 .list{{position:absolute;top:{lst}px;left:70px;right:70px;display:grid;gap:22px}}
@@ -56,7 +56,7 @@ h1{{font-size:70px;line-height:1.05;margin-top:8px}}.loc{{font-size:26px;font-we
 .d{{font-weight:800;color:#d6283c;font-size:28px;text-transform:uppercase;letter-spacing:.03em}}
 .t{{font-size:38px;font-weight:700;line-height:1.15;margin-top:6px;padding-right:200px}}
 .p{{position:absolute;right:26px;top:24px;color:#fff;font-size:22px;font-weight:800;text-transform:uppercase;padding:6px 14px;border-radius:999px}}
-.cta{{position:absolute;bottom:{bottom}px;left:0;right:0;text-align:center;font-size:{40 if kind=="story" else 34}px;font-weight:700}}
+.cta{{position:absolute;bottom:{bottom}px;left:0;right:0;text-align:center;font-size:{56 if kind=="story" else 34}px;font-weight:800;line-height:1.25}}
 .cta b{{color:#ff8a97}}
 </style></head><body>
 <div class="top"><img src="{(ROOT/"img/logo-rond.png").as_uri()}"><div><div class="k">L'agenda de la semaine</div>
@@ -72,10 +72,32 @@ h1{{font-size:70px;line-height:1.05;margin-top:8px}}.loc{{font-size:26px;font-we
         pg = b.new_page(viewport={"width":1080,"height":H}); pg.goto(tmp.as_uri()); pg.wait_for_timeout(600)
         lb = pg.evaluate("document.querySelector('.list').getBoundingClientRect().bottom")
         ct = pg.evaluate("document.querySelector('.cta').getBoundingClientRect().top")
+        tb = pg.evaluate("document.querySelector('.top').getBoundingClientRect().bottom")
+        lt = pg.evaluate("document.querySelector('.list').getBoundingClientRect().top")
+        kw = pg.evaluate("document.querySelector('.k').scrollWidth - document.querySelector('.k').parentElement.clientWidth")
         pg.screenshot(path=str(png)); b.close()
     tmp.unlink()
     if lb > ct - 20: print(f"ATTENTION ({kind}) : la liste chevauche le bas de l'image")
+    if tb > lt - 10: print(f"ATTENTION ({kind}) : l'en-tête chevauche la liste")
+    if kw > 0: print(f"ATTENTION ({kind}) : « L'agenda de la semaine » déborde")
     print(png)
+
+def render_fin(start):
+    """Carte de fin du reel (1080x1920) : logo + « Bonne fin de semaine ! »."""
+    page = f"""<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{{box-sizing:border-box;margin:0}}body{{width:1080px;height:1920px;font-family:Inter,sans-serif;color:#fff;overflow:hidden;
+background:linear-gradient(180deg,rgba(14,28,60,.78),rgba(14,28,60,.9)),url('{(ROOT/"videos/hero-poster.jpg").as_uri()}') center/cover;
+display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}}
+img{{width:520px;height:520px}}h1{{font-family:"DejaVu Serif",Georgia,serif;font-size:96px;line-height:1.1;margin-top:70px}}
+p{{font-size:52px;font-weight:800;color:#ff8a97;margin-top:50px}}
+</style></head><body><img src="{(ROOT/"img/logo-rond.png").as_uri()}"><h1>Bonne fin<br>de semaine !</h1><p>www.megeveparcoeur.fr</p></body></html>"""
+    out = ROOT/"stories"; tmp = out/"_tmp_fin.html"; tmp.write_text(page, encoding="utf-8")
+    png = out/f"agenda-{start.isoformat()}-fin.png"
+    with sync_playwright() as p:
+        b = p.chromium.launch(executable_path="/usr/bin/google-chrome")
+        pg = b.new_page(viewport={"width":1080,"height":1920}); pg.goto(tmp.as_uri()); pg.wait_for_timeout(600)
+        pg.screenshot(path=str(png)); b.close()
+    tmp.unlink(); print(png)
 
 def main():
     start = dt.date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else dt.date.today()
@@ -84,6 +106,7 @@ def main():
         print("AUCUN ÉVÉNEMENT"); return 1
     render(start, end, evs, len(evs), "story")
     render(start, end, evs[:5], len(evs), "post")
+    render_fin(start)
     for _, d, d2, e in evs:
         print("-", label(d, d2, start), "|", e["lieu"], "|", e["t"], "|", e.get("h", ""), "|", e["u"])
     return 0
