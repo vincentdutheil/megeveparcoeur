@@ -72,6 +72,17 @@
  },
  {
   "d": "2026-11-19",
+  "d2": "2026-11-22",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "Théâtre : « Petites comédies »",
+  "x": "Les courtes pièces burlesques de Tchekhov jouées par la troupe Ancolie à l'auditorium du Palais : jeudi 19h30, vendredi et samedi 20h, dimanche 18h. 10 €, 5 € enfant, sur réservation.",
+  "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies",
+  "t_en": "Theatre: Chekhov's short comedies",
+  "x_en": "Chekhov's short farces performed by the Ancolie company at the Palais auditorium: Thursday 7.30pm, Friday and Saturday 8pm, Sunday 6pm. €10, children €5, booking required."
+ },
+ {
+  "d": "2026-11-19",
   "d2": "2026-12-06",
   "h": "14h–18h",
   "lieu": "Megève",
@@ -94,17 +105,6 @@
   "always": true,
   "t_en": "Exhibition: “Alpine light: spring and summer”",
   "x_en": "Caroline Gallien-Lavorel's photos of mountain pastures and shepherds, at the Ferme à Isidore, Wednesday to Friday. Free entry."
- },
- {
-  "d": "2026-11-19",
-  "d2": "2026-11-22",
-  "lieu": "Megève",
-  "cat": "Spectacle",
-  "t": "Théâtre : « Petites comédies »",
-  "x": "Les courtes pièces burlesques de Tchekhov jouées par la troupe Ancolie à l'auditorium du Palais : jeudi 19h30, vendredi et samedi 20h, dimanche 18h. 10 €, 5 € enfant, sur réservation.",
-  "u": "https://www.haute-savoie-tourisme.org/6453863-theatre-ancolie-petites-comedies",
-  "t_en": "Theatre: Chekhov's short comedies",
-  "x_en": "Chekhov's short farces performed by the Ancolie company at the Palais auditorium: Thursday 7.30pm, Friday and Saturday 8pm, Sunday 6pm. €10, children €5, booking required."
  },
  {
   "d": "2026-11-19",
@@ -229,13 +229,41 @@
  },
  {
   "d": "2026-11-27",
+  "d2": "2026-12-18",
+  "h": "16h30–18h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Atelier informatique (vendredis)",
+  "x": "Initiation détendue à l'ordinateur, à internet et aux e-mails, en groupe au Loucafé. Participation libre (adhésion Loucafé 5 €).",
+  "u": "https://www.haute-savoie-tourisme.org/8056940-atelier-informatique",
+  "free": true,
+  "indoor": true,
+  "t_en": "Computer workshop (Fridays)",
+  "x_en": "A relaxed group introduction to computers, the internet and e-mail at the Loucafé. Pay what you like (Loucafé membership €5)."
+ },
+ {
+  "d": "2026-11-27",
+  "d2": "2026-12-18",
+  "h": "17h–17h45",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Visite Laurenzio granit (vendredis)",
+  "x": "45 minutes chez un graniteur : de l'extraction du granit du Mont-Blanc aux cheminées, fontaines et tables. 5 €, réservation à l'office de tourisme avant le jeudi 18h.",
+  "u": "https://www.haute-savoie-tourisme.org/594823-visite-guidee-de-lentreprise-laurenzio-granit-du-mont-blanc",
+  "free": false,
+  "indoor": true,
+  "t_en": "Laurenzio granite tour (Fridays)",
+  "x_en": "45 minutes in a granite workshop, from quarried Mont-Blanc stone to fireplaces, fountains and tables. €5, book at the tourist office by Thursday 6pm."
+ },
+ {
+  "d": "2026-11-27",
   "h": "20h30",
   "lieu": "Megève",
   "cat": "Spectacle",
-  "t": "Mathieu Stepson, magie et mentalisme",
+  "t": "Mathieu Stepson, mentaliste",
   "x": "Le vainqueur de « La France a un Incroyable Talent » mêle illusion et mentalisme, au Palais. Dès 8 ans.",
   "u": "https://www.haute-savoie-tourisme.org/7388657-mathieu-stepson",
-  "t_en": "Mathieu Stepson, magic & mentalism",
+  "t_en": "Mathieu Stepson, mentalist",
   "x_en": "The winner of France's Got Talent blends illusion and mind reading, at the Palais. From age 8."
  },
  {
@@ -251,14 +279,31 @@
  },
  {
   "d": "2026-11-28",
-  "h": "11h",
+  "d2": "2026-12-30",
+  "h": "10h et 15h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Visite et ateliers à la ferme (mercredis et samedis)",
+  "x": "Une heure et demie dans une ferme du village : traite, soins des vaches, fabrication de beurre et dégustation de reblochon AOP. 13 €.",
+  "u": "https://www.haute-savoie-tourisme.org/7726146-visite-et-ateliers-a-la-ferme-a-combloux",
+  "free": false,
+  "kids": true,
+  "t_en": "Farm visit and workshops (Wed & Sat)",
+  "x_en": "90 minutes on a village farm: milking, caring for the cows, butter-making and a PDO reblochon tasting. €13."
+ },
+ {
+  "d": "2026-11-28",
+  "h": "11h et 15h30",
   "lieu": "Megève",
   "cat": "Famille",
   "t": "Spectacle bébés lecteurs « Moon »",
   "x": "Un petit spectacle tout doux pour les tout-petits, à la médiathèque.",
   "u": "https://www.haute-savoie-tourisme.org/7987555-spectacle-bebes-lecteurs-moon",
   "t_en": "Baby show “Moon”",
-  "x_en": "A gentle little show for toddlers at the library."
+  "x_en": "A gentle little show for toddlers at the library.",
+  "free": true,
+  "kids": true,
+  "indoor": true
  },
  {
   "d": "2026-11-28",
@@ -270,6 +315,60 @@
   "u": "https://haute-savoie.planetekiosque.com/167-2347864-5-concours-belote-des-mailles-beguines.html",
   "t_en": "Belote card tournament",
   "x_en": "The traditional tournament of the Mailles et Béguines folk group at the Fondation Morand Allard: €12, a prize for everyone, bar and snacks."
+ },
+ {
+  "d": "2026-11-28",
+  "h": "20h30",
+  "lieu": "Megève",
+  "cat": "Concert",
+  "t": "Concert « Chorales à travers chants »",
+  "x": "Les Voix de l'OHMegève, la chorale Résonances et Doucement les Basses chantent de Haendel à Vianney sous la direction de Jean-Marie Couttet, à l'auditorium du Palais. Entrée libre.",
+  "u": "https://www.megeve-tourisme.fr/agenda/concert-les-voix-de-lohmegeve/",
+  "free": true,
+  "indoor": true,
+  "t_en": "Choir concert “Chorales à travers chants”",
+  "x_en": "Three local choirs sing everything from Handel to Vianney, conducted by Jean-Marie Couttet, at the Palais auditorium. Free entry."
+ },
+ {
+  "d": "2026-11-28",
+  "h": "20h–23h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Soirée jeu Loup-Garou",
+  "x": "Soirée de bluff et de stratégie autour du célèbre jeu, au Loucafé, le café associatif du village. Entrée gratuite, boissons en vente sur place.",
+  "u": "https://www.haute-savoie-tourisme.org/8065554-soiree-jeu-loup-garou",
+  "free": true,
+  "indoor": true,
+  "t_en": "Werewolf game night",
+  "x_en": "An evening of bluffing and strategy around the famous party game at the Loucafé, the village's community café. Free entry, drinks for sale."
+ },
+ {
+  "d": "2026-11-28",
+  "h": "9h30–11h30",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Atelier parents-enfants",
+  "x": "Deux éducatrices de jeunes enfants animent au Loucafé un atelier pour aider parents et enfants à mieux se comprendre. Gratuit (adhésion Loucafé 5 €).",
+  "u": "https://www.haute-savoie-tourisme.org/8065669-atelier-parents-enfants",
+  "free": true,
+  "kids": true,
+  "indoor": true,
+  "t_en": "Parent-child workshop",
+  "x_en": "Two early-years educators lead a session at the Loucafé to help parents and children understand each other better. Free (Loucafé membership €5)."
+ },
+ {
+  "d": "2026-11-28",
+  "d2": "2026-11-29",
+  "h": "9h30–18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Noël",
+  "t": "Premier marché de Noël de Praz",
+  "x": "Une dizaine d'exposants à la mairie (artisanat, décorations, confitures), avec crêpes et vin chaud au profit d'une association locale. Entrée libre.",
+  "u": "https://noel.org/evenement/1047836/20261128",
+  "free": true,
+  "kids": true,
+  "t_en": "Praz's first Christmas market",
+  "x_en": "About ten stalls at the town hall (crafts, decorations, jams), with crêpes and mulled wine for a local charity. Free entry."
  },
  {
   "d": "2026-11-28",
@@ -317,6 +416,20 @@
  },
  {
   "d": "2026-12-01",
+  "d2": "2027-03-25",
+  "h": "14h–17h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Raquettes en famille « Petits Lapons » (mardis et jeudis)",
+  "x": "Sortie raquettes avec un guide habitué aux enfants : traces d'animaux, chamois à la longue-vue, légendes locales. Dès 6 ans, 38 €, réservation au Bureau des guides.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/sortie-raquettes-famille-petits-lapons-combloux-fr-6063414/",
+  "free": false,
+  "kids": true,
+  "t_en": "Family snowshoeing “Little Laplanders” (Tue & Thu)",
+  "x_en": "A snowshoe outing with a guide used to children: animal tracks, chamois through a telescope, local legends. Ages 6+, €38, book with the guides' office."
+ },
+ {
+  "d": "2026-12-01",
   "h": "19h30",
   "lieu": "Megève",
   "cat": "Sport",
@@ -347,6 +460,20 @@
   "u": "https://www.haute-savoie-tourisme.org/178145-marche-de-combloux",
   "t_en": "Combloux market",
   "x_en": "The Wednesday morning market in front of the tourist office."
+ },
+ {
+  "d": "2026-12-04",
+  "d2": "2026-12-18",
+  "h": "14h–18h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Permanence généalogie (vendredis)",
+  "x": "Les bénévoles du Centre généalogique de Savoie aident à démarrer ou compléter son arbre, à la Maison des associations (salle Warens). Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/638655-permanence-pour-des-recherches-genealogiques",
+  "free": true,
+  "indoor": true,
+  "t_en": "Genealogy help desk (Fridays)",
+  "x_en": "Volunteers from the Savoie genealogy society help you start or complete your family tree, at the Maison des Associations. Free."
  },
  {
   "d": "2026-12-04",
@@ -393,6 +520,19 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/journee-nationale-dhommage-aux-morts-pour-la-france-megeve-fr-5866235/",
   "t_en": "Remembrance ceremony (North Africa veterans)",
   "x_en": "Ceremony and wreath-laying on Place de la Résistance, in memory of the victims of the Algerian war and the fighting in Morocco and Tunisia."
+ },
+ {
+  "d": "2026-12-05",
+  "h": "14h–18h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Portes ouvertes généalogie",
+  "x": "Le premier samedi du mois, le Centre généalogique de Savoie ouvre ses portes à tous, débutants compris. Prochaines dates : 2 janvier, 6 février et 6 mars.",
+  "u": "https://www.haute-savoie-tourisme.org/4987245-journee-portes-ouvertes-genealogie",
+  "free": true,
+  "indoor": true,
+  "t_en": "Genealogy open day",
+  "x_en": "On the first Saturday of the month the Savoie genealogy society welcomes everyone, beginners included. Next dates: 2 January, 6 February and 6 March."
  },
  {
   "d": "2026-12-05",
@@ -453,6 +593,20 @@
  },
  {
   "d": "2026-12-09",
+  "h": "10h45 et 14h45",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Escape game « Cornebidouille » à la médiathèque",
+  "x": "Énigmes et déductions au kids club du Palais pour aider Pierre à trouver la formule magique de Cornebidouille, dès 6 ans. Gratuit, sur inscription.",
+  "u": "https://www.haute-savoie-tourisme.org/5893569-escape-game-a-la-mediatheque",
+  "free": true,
+  "kids": true,
+  "indoor": true,
+  "t_en": "Kids' escape game “Cornebidouille”",
+  "x_en": "Riddles and deduction at the Palais kids club to help Pierre find Cornebidouille's magic formula, ages 6+. Free, booking required."
+ },
+ {
+  "d": "2026-12-09",
   "d2": "2027-03-17",
   "h": "14h–16h",
   "lieu": "Megève",
@@ -477,14 +631,17 @@
  },
  {
   "d": "2026-12-10",
-  "h": "19h",
+  "h": "19h (sam. 11h)",
   "lieu": "Megève",
   "cat": "Sport",
   "t": "Hockey féminin U18 : France – Norvège",
-  "x": "Match international des moins de 18 ans à la patinoire de Megève. Entrée gratuite.",
-  "u": "https://www.haute-savoie-tourisme.org/8060397-hockey-sur-glace-feminin-u18-france-norvege",
+  "x": "Trois matches internationaux des moins de 18 ans à la patinoire de Megève : jeudi 10 et vendredi 11 à 19h, samedi 12 à 11h. Entrée gratuite.",
+  "u": "https://www.megeve-tourisme.fr/agenda/hockey-sur-glace-feminin-u18-france-norvege/",
   "t_en": "Women's U18 ice hockey: France – Norway",
-  "x_en": "Under-18 international match at the Megève ice rink. Free entry."
+  "x_en": "Three under-18 international games at the Megève ice rink: Thursday 10 and Friday 11 at 7pm, Saturday 12 at 11am. Free entry.",
+  "d2": "2026-12-12",
+  "free": true,
+  "indoor": true
  },
  {
   "d": "2026-12-11",
@@ -576,6 +733,31 @@
   "x_en": "Acrobatics and music: the “Let's twist again” show at the Palais."
  },
  {
+  "d": "2026-12-13",
+  "h": "10h–12h",
+  "lieu": "Combloux",
+  "cat": "Concert",
+  "t": "Jouons et chantons la Savoie ensemble !",
+  "x": "Matinée musicale participative au Loucafé : on vient avec son instrument, sa voix ou juste l'envie de chanter le répertoire savoyard.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2355336-5-jouons-chantons-savoie-ensemble.html",
+  "indoor": true,
+  "t_en": "Let's play and sing Savoy together!",
+  "x_en": "A join-in music morning at the Loucafé: bring an instrument, your voice or simply the urge to sing Savoyard songs."
+ },
+ {
+  "d": "2026-12-15",
+  "h": "9h30–12h",
+  "lieu": "Combloux",
+  "cat": "Culture",
+  "t": "Atelier crochet",
+  "x": "Matinée crochet au Loucafé, pour débutants comme habitués. Gratuit (adhésion Loucafé 5 €).",
+  "u": "https://haute-savoie.planetekiosque.com/167-2342496-5-atelier-crochet.html",
+  "free": true,
+  "indoor": true,
+  "t_en": "Crochet workshop",
+  "x_en": "A crochet morning at the Loucafé for beginners and regulars alike. Free (Loucafé membership €5)."
+ },
+ {
   "d": "2026-12-16",
   "h": "11h",
   "lieu": "Megève",
@@ -622,25 +804,15 @@
  },
  {
   "d": "2026-12-19",
-  "d2": "2027-04-04",
+  "d2": "2027-12-19",
   "lieu": "Megève",
-  "cat": "Ski",
-  "t": "Ouverture générale de la station",
-  "x": "Rochebrune, Côte 2000 et Mont d'Arbois ouverts tous les jours.",
-  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable",
-  "t_en": "Resort fully open",
-  "x_en": "Rochebrune, Côte 2000 and Mont d'Arbois open every day."
- },
- {
-  "d": "2026-12-19",
-  "d2": "2027-03-21",
-  "lieu": "Combloux",
-  "cat": "Ski",
-  "t": "Ouverture des Portes du Mont-Blanc",
-  "x": "Le domaine de Combloux, Megève-Jaillet et La Giettaz, face au Mont-Blanc. Selon l'enneigement.",
-  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee",
-  "t_en": "Portes du Mont-Blanc opening",
-  "x_en": "The Combloux, Megève-Jaillet and La Giettaz ski area, facing Mont Blanc. Depending on snow."
+  "cat": "Expo",
+  "t": "La Vie d'Artiste, atelier-galerie",
+  "x": "Sculptures et peintures à découvrir dans l'atelier de l'artiste, allée des Planes, sur rendez-vous.",
+  "u": "https://www.megeve-tourisme.fr/en/agenda/la-vie-dartiste/",
+  "always": true,
+  "t_en": "La Vie d'Artiste studio-gallery",
+  "x_en": "Sculptures and paintings to discover in the artist's studio, allée des Planes, by appointment."
  },
  {
   "d": "2026-12-19",
@@ -655,15 +827,76 @@
  },
  {
   "d": "2026-12-19",
-  "d2": "2027-12-19",
+  "d2": "2027-03-21",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Ouverture des Portes du Mont-Blanc",
+  "x": "Le domaine de Combloux, Megève-Jaillet et La Giettaz, face au Mont-Blanc. Selon l'enneigement.",
+  "u": "https://www.haute-savoie-tourisme.org/loisirs/lieux-sportifs/stations-ski/5392989-espace-ski-de-randonnee",
+  "t_en": "Portes du Mont-Blanc opening",
+  "x_en": "The Combloux, Megève-Jaillet and La Giettaz ski area, facing Mont Blanc. Depending on snow."
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-04-04",
   "lieu": "Megève",
-  "cat": "Expo",
-  "t": "La Vie d'Artiste, atelier-galerie",
-  "x": "Sculptures et peintures à découvrir dans l'atelier de l'artiste, allée des Planes, sur rendez-vous.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/la-vie-dartiste/",
-  "always": true,
-  "t_en": "La Vie d'Artiste studio-gallery",
-  "x_en": "Sculptures and paintings to discover in the artist's studio, allée des Planes, by appointment."
+  "cat": "Ski",
+  "t": "Ouverture générale de la station",
+  "x": "Rochebrune, Côte 2000 et Mont d'Arbois ouverts tous les jours.",
+  "u": "https://www.haute-savoie-tourisme.org/services/transport/navettes/4978672-megeve-domaine-skiable",
+  "t_en": "Resort fully open",
+  "x_en": "Rochebrune, Côte 2000 and Mont d'Arbois open every day."
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-03-21",
+  "lieu": "Combloux",
+  "cat": "Ski",
+  "t": "Randojeu « Combloux 2126 – Le bug du futur »",
+  "x": "Jeu de piste à ski sur les pistes vertes de la Cry avec l'application Randojeu : on aide une IA déboussolée en découvrant les remontées et la neige de culture. Gratuit.",
+  "u": "https://www.haute-savoie-tourisme.org/8076543-randojeu-combloux-2126-le-bug-du-futur",
+  "free": true,
+  "kids": true,
+  "t_en": "Ski trail game “Combloux 2126”",
+  "x_en": "An app-based treasure trail on the green runs at La Cry: help a confused AI while learning about lifts and snowmaking. Free."
+ },
+ {
+  "d": "2026-12-19",
+  "h": "10h–12h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Matinée yoga « Le mal de dos »",
+  "x": "Deux heures de yoga à l'Espace forme du Palais pour soulager le dos, avec des routines simples à refaire chez soi.",
+  "u": "https://www.megeve-tourisme.fr/agenda/matinee-yoga-le-mal-de-dos/",
+  "indoor": true,
+  "t_en": "Yoga morning: back pain",
+  "x_en": "Two hours of yoga at the Palais fitness area to ease back pain, with simple routines to repeat at home."
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2027-03-27",
+  "h": "14h–16h",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Ski nordique en autonomie à la Livraz (samedis)",
+  "x": "Le foyer de fond prête le matériel classique ou skating (5 €) pour deux heures de découverte sur les pistes de la Livraz, selon l'enneigement.",
+  "u": "https://www.megeve-tourisme.fr/agenda/decouverte-en-autonomie-du-ski-nordique/",
+  "free": false,
+  "t_en": "Self-guided Nordic skiing at La Livraz (Saturdays)",
+  "x_en": "Borrow classic or skate gear (€5) for a two-hour session on the La Livraz trails, snow permitting."
+ },
+ {
+  "d": "2026-12-19",
+  "d2": "2026-12-26",
+  "h": "15h–18h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché des artisans et producteurs aux Loges Blanches",
+  "x": "Marché éphémère d'artisans et producteurs locaux (sirops, bijoux, maroquinerie, biscuits, tisanes), les samedis 19 et 26 décembre.",
+  "u": "https://www.megeve-tourisme.fr/agenda/marche-des-artisans-producteurs-locaux/",
+  "free": true,
+  "t_en": "Artisans & local producers market",
+  "x_en": "A pop-up market of local crafts and produce at Les Loges Blanches on Saturdays 19 and 26 December."
  },
  {
   "d": "2026-12-19",
@@ -677,15 +910,43 @@
   "x_en": "Book signing at the library."
  },
  {
+  "d": "2026-12-19",
+  "d2": "2027-03-21",
+  "h": "8h30–18h30",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Chasse au trésor « Le Code du Messager des Montagnes »",
+  "x": "Avec un vieux journal et une loupe, on résout 7 énigmes du village jusqu'à la télécabine de Beauregard, puis on rapporte le mot secret à l'office de tourisme contre un cadeau. 5 € le livret.",
+  "u": "https://www.haute-savoie-tourisme.org/8075966-le-code-du-messager-des-montagnes-chasse-au-tresor",
+  "free": false,
+  "kids": true,
+  "t_en": "Treasure hunt “The Mountain Messenger's Code”",
+  "x_en": "With an old newspaper and a magnifying glass, solve 7 riddles from the village up to the Beauregard gondola, then swap the secret word for a gift at the tourist office. €5 booklet."
+ },
+ {
   "d": "2026-12-20",
   "d2": "2027-03-20",
   "lieu": "Demi-Quartier",
   "cat": "Expo",
   "t": "Expo « Lumières d'alpages : un automne et un hiver »",
   "x": "Les photos de Caroline Gallien-Lavorel sur la vie des alpages en automne et en hiver, exposées dans la salle hors-sac de l'alpage de Beauregard (1 433 m), sur les pistes.",
-  "u": "https://www.haute-savoie-tourisme.org/date/05-01-2027.html",
+  "u": "https://www.haute-savoie-tourisme.org/7774393-lumieres-dalpages-un-automne-et-un-hiver-a-combloux-exposition-de-caroline-gallien-lavorel",
   "t_en": "Exhibition “Alpine light: an autumn and a winter”",
-  "x_en": "Caroline Gallien-Lavorel's photos of life in the alpine pastures in autumn and winter, shown in the picnic room of the Beauregard alpine farm (1,433 m), on the slopes."
+  "x_en": "Caroline Gallien-Lavorel's photos of life in the alpine pastures in autumn and winter, shown in the picnic room of the Beauregard alpine farm (1,433 m), on the slopes.",
+  "free": true
+ },
+ {
+  "d": "2026-12-20",
+  "h": "17h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Concert",
+  "t": "Concert de Noël des Harmonicas de Combloux",
+  "x": "Chants de Noël et airs de variété à l'église Sainte-Marie-Madeleine, avec le groupe des Harmonicas de Combloux.",
+  "u": "https://www.prazsurarly.com/en/objet_touristique/3026",
+  "kids": true,
+  "indoor": true,
+  "t_en": "Christmas concert by the Combloux Harmonicas",
+  "x_en": "Christmas carols and popular tunes in Sainte-Marie-Madeleine church with the Harmonicas de Combloux group."
  },
  {
   "d": "2026-12-20",
@@ -700,6 +961,19 @@
  },
  {
   "d": "2026-12-20",
+  "d2": "2026-12-27",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Pot d'accueil (dimanches)",
+  "x": "Les dimanches 20 et 27 décembre place de l'église : présentation de la semaine et rencontre avec les prestataires autour d'un verre. Gratuit.",
+  "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/welcome-drink",
+  "t_en": "Welcome drinks (Sundays)",
+  "x_en": "Sundays 20 and 27 December on the church square: the week ahead and a chance to meet local providers over a drink. Free.",
+  "free": true
+ },
+ {
+  "d": "2026-12-20",
   "h": "18h",
   "lieu": "Combloux",
   "cat": "Famille",
@@ -708,18 +982,6 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/offres/spectacle-de-guignol-combloux-fr-5869906/",
   "t_en": "Guignol puppet show",
   "x_en": "Puppets and laughter for the whole family, at the tourist office. Also on 14 February."
- },
- {
-  "d": "2026-12-20",
-  "d2": "2027-02-28",
-  "h": "18h",
-  "lieu": "Praz-sur-Arly",
-  "cat": "Fête",
-  "t": "Pot d'accueil (dimanches)",
-  "x": "Chaque dimanche place de l'église : présentation de la semaine et rencontre avec les prestataires autour d'un verre.",
-  "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pot-d-accueil-d-hiver",
-  "t_en": "Welcome drinks (Sundays)",
-  "x_en": "Every Sunday on the church square: the week ahead and a chance to meet local providers over a drink."
  },
  {
   "d": "2026-12-20",
@@ -743,6 +1005,18 @@
   "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/escape-game-une-nouvelle-aventure-se-prepare/",
   "t_en": "Tourist office escape game",
   "x_en": "A new one-hour adventure for up to 5 players, age 12+ (7+ with an adult). €30 per group, booking required."
+ },
+ {
+  "d": "2026-12-21",
+  "d2": "2026-12-24",
+  "lieu": "Megève",
+  "cat": "Noël",
+  "t": "Le Père Noël reçoit dans son bureau",
+  "x": "Au Village de Noël, les enfants rencontrent le Père Noël : du 21 au 23 de 14h à 15h, 16h à 17h et 18h à 19h ; le 24 de 14h à 15h et 16h à 17h.",
+  "u": "https://www.tourisme-haute-savoie.com/en/news-from-haute-savoie/activities-events/megeve-christmas-village-2026-elf-workshops-christmas-tree-lighting-and-santa-claus-parade/",
+  "kids": true,
+  "t_en": "Meet Father Christmas in his office",
+  "x_en": "At the Christmas Village children can meet Father Christmas: 21–23 Dec at 2, 4 and 6pm; 24 Dec at 2 and 4pm (one-hour slots)."
  },
  {
   "d": "2026-12-21",
@@ -773,10 +1047,11 @@
   "lieu": "Megève",
   "cat": "Famille",
   "t": "Le Village de Noël",
-  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (fermé le 25). Fermé le 25 décembre ; bureau du Père Noël du 21 au 24.",
+  "x": "Ateliers des lutins pour les enfants sur l'esplanade de la patinoire, de 10h à 12h et de 15h30 à 18h30 (ateliers à 5 €). Fermé le 25 décembre ; contes des lutins le 31.",
   "u": "https://www.megeve-tourisme.fr/agenda/le-village-de-noel/",
   "t_en": "Christmas Village",
-  "x_en": "Elf workshops for children on the ice-rink esplanade, 10am–12pm and 3:30–6:30pm (closed on the 25th). Father Christmas's office from the 21st to the 24th."
+  "x_en": "Elf workshops for children on the ice-rink esplanade, 10am–12pm and 3:30–6:30pm (workshops €5). Closed on 25 December; elf storytelling on the 31st.",
+  "kids": true
  },
  {
   "d": "2026-12-21",
@@ -813,6 +1088,19 @@
  },
  {
   "d": "2026-12-21",
+  "h": "18h20–21h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Soirée curling : initiation et tournoi",
+  "x": "Le club de curling de Megève initie au jeu sur la patinoire, puis lance un tournoi ouvert à tous, avec remise des prix et verre de l'amitié. 40 €, sur inscription.",
+  "u": "https://www.megeve-tourisme.fr/agenda/soiree-curling-initiation-tournoi/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Curling night: lesson + tournament",
+  "x_en": "Megève curling club teaches the basics on the rink, then runs an open tournament with prizes and drinks. €40, booking required."
+ },
+ {
+  "d": "2026-12-21",
   "h": "9h",
   "lieu": "Praz-sur-Arly",
   "cat": "Ski",
@@ -824,6 +1112,49 @@
  },
  {
   "d": "2026-12-22",
+  "d2": "2027-03-23",
+  "h": "10h et 11h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Découverte du curling (mardis)",
+  "x": "45 minutes pour apprendre à lancer la pierre au plus près de la cible, sur la patinoire du Palais. 18 €, sur inscription.",
+  "u": "https://www.megeve-tourisme.fr/agenda/decouverte-curling/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Curling taster (Tuesdays)",
+  "x_en": "45 minutes learning to slide the stone as close to the target as possible on the Palais rink. €18, booking required."
+ },
+ {
+  "d": "2026-12-22",
+  "d2": "2026-12-31",
+  "h": "10h–11h30",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Aquagames à la piscine (mardis et jeudis)",
+  "x": "Une grande structure gonflable sur le bassin de 25 m du Palais, pour les nageurs dès 6 ans : les 22, 24, 29 et 31 décembre. Compris dans l'entrée piscine.",
+  "u": "https://www.megeve-tourisme.fr/agenda/aquagames/",
+  "free": false,
+  "kids": true,
+  "indoor": true,
+  "t_en": "Aquagames at the pool (Tue & Thu)",
+  "x_en": "A big inflatable course on the Palais 25 m pool for swimmers aged 6+, on 22, 24, 29 and 31 December. Included in pool entry."
+ },
+ {
+  "d": "2026-12-22",
+  "d2": "2027-03-04",
+  "h": "13h30 et 14h15",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Découverte de l'escalade en duo (mardis et jeudis)",
+  "x": "45 minutes à deux avec un éducateur du Palais pour apprendre le nœud de huit et l'assurage. 18 €, sur inscription.",
+  "u": "https://www.megeve-tourisme.fr/agenda/decouverte-de-lescalade-en-duo/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Climbing taster for two (Tue & Thu)",
+  "x_en": "45 minutes for two with a Palais instructor to learn the figure-eight knot and belaying. €18, booking required."
+ },
+ {
+  "d": "2026-12-22",
   "h": "15h–17h",
   "lieu": "Combloux",
   "cat": "Famille",
@@ -832,6 +1163,18 @@
   "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/mini-pelle-challenge/",
   "t_en": "Mini Digger Challenge",
   "x_en": "3 to 10-year-olds drive electric mini-diggers to move a load. Free."
+ },
+ {
+  "d": "2026-12-22",
+  "h": "15h–19h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Marché",
+  "t": "Marché des producteurs de Noël",
+  "x": "Fromages, liqueurs, miel, bijoux et décorations d'artisans et producteurs locaux, place de l'église. Accès libre.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2343135-5-marche-des-producteurs.html",
+  "free": true,
+  "t_en": "Christmas producers' market",
+  "x_en": "Cheese, liqueurs, honey, jewellery and decorations from local makers on the church square. Free entry."
  },
  {
   "d": "2026-12-22",
@@ -881,6 +1224,17 @@
  },
  {
   "d": "2026-12-23",
+  "h": "11h",
+  "lieu": "Megève",
+  "cat": "Noël",
+  "t": "Heure du conte spéciale Noël",
+  "x": "Une séance de contes de Noël à la médiathèque, gratuite.",
+  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
+  "t_en": "Christmas story time",
+  "x_en": "A Christmas story session at the library, free."
+ },
+ {
+  "d": "2026-12-23",
   "d2": "2026-12-30",
   "h": "11h",
   "lieu": "Combloux",
@@ -890,17 +1244,6 @@
   "u": "https://www.haute-savoie-tourisme.org/7602716-la-causerie-du-ski",
   "t_en": "La causerie du ski (street theatre)",
   "x_en": "Free street theatre outside the tourist office. Back from 10 February to 3 March 2027."
- },
- {
-  "d": "2026-12-23",
-  "h": "11h",
-  "lieu": "Megève",
-  "cat": "Noël",
-  "t": "Heure du conte spéciale Noël",
-  "x": "Une séance de contes de Noël à la médiathèque, gratuite.",
-  "u": "https://www.haute-savoie-tourisme.org/214384-heure-du-conte",
-  "t_en": "Christmas story time",
-  "x_en": "A Christmas story session at the library, free."
  },
  {
   "d": "2026-12-23",
@@ -922,7 +1265,48 @@
   "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
   "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/",
   "t_en": "ESF evening: sledging, torchlight and fireworks",
-  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free."
+  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free.",
+  "free": true,
+  "kids": true
+ },
+ {
+  "d": "2026-12-23",
+  "d2": "2027-03-03",
+  "h": "17h30–18h30",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Ski",
+  "t": "Jeu concours « Monte dans ma dameuse » (mercredis)",
+  "x": "Chaque mercredi, des gagnants tirés au sort montent à bord d'une dameuse à la tombée de la nuit ; bulletin à remplir au pot d'accueil.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1416366-5-jeu-concours-monte-dans-dameuse.html",
+  "free": true,
+  "kids": true,
+  "t_en": "“Ride my snow groomer” prize draw (Wednesdays)",
+  "x_en": "Every Wednesday, lucky winners ride a piste groomer at dusk; fill in the entry form at the welcome drinks."
+ },
+ {
+  "d": "2026-12-23",
+  "h": "17h–20h",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Nocturne nordique à la Livraz",
+  "x": "Le domaine de fond ouvre de nuit : ski à la frontale, biathlon laser avec l'ESF, piste de luge éclairée et snack.",
+  "u": "https://www.megeve-tourisme.fr/agenda/les-nocturnes-de-la-livraz/",
+  "kids": true,
+  "t_en": "Night Nordic skiing at La Livraz",
+  "x_en": "The cross-country area opens after dark: headlamp skiing, laser biathlon with the ESF, a lit sledging run and snacks."
+ },
+ {
+  "d": "2026-12-23",
+  "d2": "2027-03-17",
+  "h": "18h",
+  "lieu": "Combloux",
+  "cat": "Gastronomie",
+  "t": "Raquettes sous les étoiles et apéro savoyard",
+  "x": "Balade nocturne en raquettes avec quelques glissades, puis apéritif dînatoire au coin du feu. 39 € par adulte, 29 € par enfant, sur réservation à l'office de tourisme.",
+  "u": "https://hautesavoiemontblanc-tourisme.com/offres/sortie-raquettes-balade-sous-les-etoiles-et-apero-savoyard-combloux-fr-5835927/",
+  "free": false,
+  "t_en": "Starlit snowshoe walk & Savoyard apéro",
+  "x_en": "A night snowshoe walk with a few slides, then a fireside apéritif of local produce. €39 adult, €29 child, book at the tourist office."
  },
  {
   "d": "2026-12-23",
@@ -1016,6 +1400,19 @@
  },
  {
   "d": "2026-12-24",
+  "h": "20h",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "t": "Messe de la veille de Noël",
+  "x": "Messe de la nuit de Noël à l'église baroque Saint-Nicolas.",
+  "u": "https://messes.info/lieu/74/combloux/eglise",
+  "free": true,
+  "indoor": true,
+  "t_en": "Christmas Eve Mass",
+  "x_en": "Christmas Eve Mass in the baroque Saint-Nicolas church."
+ },
+ {
+  "d": "2026-12-24",
   "d2": "2027-03-18",
   "h": "8h40",
   "lieu": "Praz-sur-Arly",
@@ -1025,6 +1422,19 @@
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/pisteur-d-un-jour",
   "t_en": "Ski patroller for a day (Thursdays)",
   "x_en": "On Thursday mornings, tour the ski area with the ski patrol before opening. Free, from 3rd-star level, sign up the day before."
+ },
+ {
+  "d": "2026-12-25",
+  "h": "10h",
+  "lieu": "Combloux",
+  "cat": "Noël",
+  "t": "Messe du jour de Noël",
+  "x": "Messe de Noël à l'église baroque Saint-Nicolas.",
+  "u": "https://messes.info/lieu/74/combloux/eglise",
+  "free": true,
+  "indoor": true,
+  "t_en": "Christmas Day Mass",
+  "x_en": "Christmas Day Mass in the baroque Saint-Nicolas church."
  },
  {
   "d": "2026-12-25",
@@ -1038,16 +1448,32 @@
   "x_en": "A Christmas parade through the village with stilts, juggling and balancing acts. Free."
  },
  {
+  "d": "2026-12-26",
+  "h": "9h–12h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Repair Café",
+  "x": "Des bénévoles réparent gratuitement petit électroménager et vêtements, sous le presbytère. Sans rendez-vous.",
+  "u": "https://www.haute-savoie-tourisme.org/7122787-permanence-repair-cafe-combloux",
+  "free": true,
+  "indoor": true,
+  "t_en": "Repair Café",
+  "x_en": "Volunteers fix small appliances and clothes for free, under the presbytery. No appointment needed."
+ },
+ {
   "d": "2026-12-27",
   "d2": "2027-01-03",
   "h": "10h–19h",
   "lieu": "Megève",
   "cat": "Famille",
   "t": "Structures gonflables des vacances",
-  "x": "Châteaux gonflables pour tous les âges au gymnase du Palais : 10 € par enfant, sans limite de temps.",
+  "x": "Châteaux gonflables pour tous les âges au gymnase du Palais : 10 € par enfant, sans limite de temps. Le 1er janvier, de 14h à 19h seulement.",
   "u": "https://haute-savoie.planetekiosque.com/167-1998597-5-les-structures-gonflables-des-vacances.html",
   "t_en": "Holiday bouncy castles",
-  "x_en": "Bouncy castles for all ages at the Palais gym: €10 per child, no time limit."
+  "x_en": "Bouncy castles for all ages at the Palais gym: €10 per child, no time limit. On 1 January, 2–7pm only.",
+  "free": false,
+  "kids": true,
+  "indoor": true
  },
  {
   "d": "2026-12-27",
@@ -1115,6 +1541,19 @@
   "u": "https://www.prazsurarly.com/fr/agenda/evenements-et-animations/show-sculpture-sur-glace",
   "t_en": "Ice-sculpture show",
   "x_en": "Sculptor Nicolas Gombert carves ice live with a chainsaw on the church square. Free."
+ },
+ {
+  "d": "2026-12-28",
+  "h": "18h",
+  "lieu": "Megève",
+  "cat": "Concert",
+  "t": "Concert de fin d'année de Musicâme",
+  "x": "L'ensemble Musicâme joue Rossini, la Valse des fleurs de Tchaïkovski, la Ronde des lutins de Bazzini et la Marche de Radetzky à l'église Saint-Jean-Baptiste. À partir de 30 €.",
+  "u": "https://www.megeve-tourisme.fr/agenda/concert-musicame-a-megeve-rossini-tchaikovski-bazzini/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Musicâme holiday concert",
+  "x_en": "The Musicâme ensemble plays Rossini, Tchaikovsky's Waltz of the Flowers, Bazzini and the Radetzky March in Saint-Jean-Baptiste church. From €30."
  },
  {
   "d": "2026-12-28",
@@ -1213,7 +1652,21 @@
   "x": "Au pied de la piste Écureuil : course de luge, descente aux flambeaux des enfants à 18h, Ski Parade « La Guerre des Bonnets » et feu d'artifice. Gratuit.",
   "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/combloux-ski-parade-la-guerre-des-bonnets/",
   "t_en": "ESF evening: sledging, torchlight and fireworks",
-  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free."
+  "x_en": "At the bottom of the Écureuil slope: sledge race, children's torchlight descent at 6pm, “La Guerre des Bonnets” Ski Parade and fireworks. Free.",
+  "free": true,
+  "kids": true
+ },
+ {
+  "d": "2026-12-30",
+  "h": "17h–20h",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Nocturne nordique à la Livraz",
+  "x": "Le domaine de fond ouvre de nuit : ski à la frontale, biathlon laser avec l'ESF, piste de luge éclairée et snack.",
+  "u": "https://www.megeve-tourisme.fr/agenda/les-nocturnes-de-la-livraz/",
+  "kids": true,
+  "t_en": "Night Nordic skiing at La Livraz",
+  "x_en": "The cross-country area opens after dark: headlamp skiing, laser biathlon with the ESF, a lit sledging run and snacks."
  },
  {
   "d": "2026-12-30",
@@ -1272,6 +1725,19 @@
   "x_en": "Open-air New Year's Eve party on the church square with DJ and bar."
  },
  {
+  "d": "2027-01-04",
+  "d2": "2027-02-01",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Pot d'accueil (lundis)",
+  "x": "En janvier, le pot d'accueil passe au lundi, place de l'église : présentation de la semaine autour d'un verre. Gratuit.",
+  "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/welcome-drink",
+  "free": true,
+  "t_en": "Welcome drinks (Mondays)",
+  "x_en": "In January the welcome drinks move to Mondays on the church square: the week ahead over a drink. Free."
+ },
+ {
   "d": "2027-01-05",
   "d2": "2027-02-02",
   "h": "14h30–16h30",
@@ -1282,6 +1748,20 @@
   "u": "https://www.haute-savoie-tourisme.org/index.php/6072009-aide-au-clic",
   "t_en": "Aide au Clic: digital help (Tuesdays)",
   "x_en": "Free one-to-one help with computers and phones every Tuesday at the library, booking required."
+ },
+ {
+  "d": "2027-01-06",
+  "d2": "2027-03-03",
+  "h": "18h–21h",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Nuits lumineuses à la balnéoforme (mercredis)",
+  "x": "Soirées à la balnéo du Palais avec jeux de lumière autour des bassins à 32-34 °C et vue sur les étoiles. Compris dans l'entrée.",
+  "u": "https://www.megeve-tourisme.fr/agenda/nuit-lumineuse-a-la-balneoforme/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Glowing nights at the spa pools (Wednesdays)",
+  "x_en": "Evenings at the Palais spa with light shows around the 32–34 °C pools and a view of the stars. Included in entry."
  },
  {
   "d": "2027-01-08",
@@ -1383,6 +1863,18 @@
   "x_en": "Documentary film screening at the Palais."
  },
  {
+  "d": "2027-01-16",
+  "h": "9h30–12h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Matinée bien-être au Palais",
+  "x": "Yoga, pause thé et Pilates avec l'équipe de l'Espace forme du Palais.",
+  "u": "https://www.megeve-tourisme.fr/agenda/matinee-bien-etre/",
+  "indoor": true,
+  "t_en": "Wellness morning",
+  "x_en": "Yoga, a tea break and Pilates with the Palais fitness team."
+ },
+ {
   "d": "2027-01-17",
   "h": "10h–12h",
   "lieu": "Megève",
@@ -1450,13 +1942,27 @@
  },
  {
   "d": "2027-01-30",
-  "lieu": "Megève",
+  "lieu": "Demi-Quartier",
   "cat": "Sport",
   "t": "L'Edelweiss",
-  "x": "Course de ski de randonnée nocturne sur le domaine Évasion Mont-Blanc, départ du stade de la Côte 2000.",
-  "u": "https://hautesavoiemontblanc-tourisme.com/nl/aanbiedingen/edelweiss-domaine-evasion-mont-blanc-megeve-nl-5953347/",
+  "x": "Course de ski de randonnée sur le domaine Évasion Mont-Blanc, au départ du pied de la télécabine de la Princesse, entre Demi-Quartier, Saint-Gervais et Megève.",
+  "u": "https://www.haute-savoie-tourisme.org/5693047-edelweiss-domaine-evasion-mont-blanc",
   "t_en": "L'Edelweiss",
-  "x_en": "Night ski-touring race on the Évasion Mont-Blanc ski area, starting from the Côte 2000 stadium."
+  "x_en": "Ski-touring race on the Évasion Mont-Blanc area, starting at the foot of the Princesse gondola and crossing Demi-Quartier, Saint-Gervais and Megève.",
+  "h": "9h"
+ },
+ {
+  "d": "2027-01-30",
+  "h": "9h–12h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Repair Café",
+  "x": "Des bénévoles réparent gratuitement petit électroménager et vêtements, sous le presbytère. Sans rendez-vous.",
+  "u": "https://www.haute-savoie-tourisme.org/7122787-permanence-repair-cafe-combloux",
+  "free": true,
+  "indoor": true,
+  "t_en": "Repair Café",
+  "x_en": "Volunteers fix small appliances and clothes for free, under the presbytery. No appointment needed."
  },
  {
   "d": "2027-01-31",
@@ -1470,6 +1976,19 @@
   "x_en": "Praz-sur-Arly's snow trail race, on snowy courses around the village."
  },
  {
+  "d": "2027-02-02",
+  "d2": "2027-03-09",
+  "h": "17h45",
+  "lieu": "Combloux",
+  "cat": "Sport",
+  "t": "L'Échappée Rando (mardis)",
+  "x": "Montée en ski de randonnée à la tombée de la nuit jusqu'à Beauregard, vin chaud et produits locaux, descente à la frontale. 10 € (location 30 €), sur réservation, niveau piste bleue.",
+  "u": "https://haute-savoie.planetekiosque.com/167-1426440-5-echappee-rando.html",
+  "free": false,
+  "t_en": "L'Échappée Rando dusk ski-touring (Tuesdays)",
+  "x_en": "Skin up to Beauregard at dusk, enjoy mulled wine and local produce, then ski down by headlamp. €10 (gear hire €30), booking required, blue-run level."
+ },
+ {
   "d": "2027-02-06",
   "h": "11h",
   "lieu": "Megève",
@@ -1479,6 +1998,19 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
   "t_en": "Story time for babies",
   "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
+ },
+ {
+  "d": "2027-02-06",
+  "d2": "2027-02-27",
+  "h": "15h–18h",
+  "lieu": "Megève",
+  "cat": "Marché",
+  "t": "Marché des artisans et producteurs (samedis)",
+  "x": "Le marché éphémère des Loges Blanches revient chaque samedi de février.",
+  "u": "https://www.megeve-tourisme.fr/agenda/marche-des-artisans-producteurs-locaux/",
+  "free": true,
+  "t_en": "Artisans & local producers market (Saturdays)",
+  "x_en": "The Loges Blanches pop-up market is back every Saturday in February."
  },
  {
   "d": "2027-02-06",
@@ -1517,6 +2049,19 @@
  },
  {
   "d": "2027-02-07",
+  "d2": "2027-02-28",
+  "h": "18h",
+  "lieu": "Praz-sur-Arly",
+  "cat": "Fête",
+  "t": "Pot d'accueil (dimanches)",
+  "x": "Chaque dimanche des vacances d'hiver, place de l'église : présentation de la semaine et rencontre avec les prestataires autour d'un verre. Gratuit.",
+  "u": "https://www.prazsurarly.com/en/agenda/events-and-activities/welcome-drink",
+  "free": true,
+  "t_en": "Welcome drinks (Sundays)",
+  "x_en": "Every Sunday of the winter holidays on the church square: the week ahead and local providers over a drink. Free."
+ },
+ {
+  "d": "2027-02-07",
   "d2": "2027-03-14",
   "h": "18h",
   "lieu": "Combloux",
@@ -1529,6 +2074,34 @@
  },
  {
   "d": "2027-02-09",
+  "d2": "2027-03-04",
+  "h": "10h–11h30",
+  "lieu": "Megève",
+  "cat": "Famille",
+  "t": "Aquagames à la piscine (mardis et jeudis)",
+  "x": "Le parcours gonflable revient sur le bassin de 25 m pendant les vacances d'hiver. Compris dans l'entrée piscine.",
+  "u": "https://www.megeve-tourisme.fr/agenda/aquagames/",
+  "free": false,
+  "kids": true,
+  "indoor": true,
+  "t_en": "Aquagames at the pool (Tue & Thu)",
+  "x_en": "The inflatable course is back on the 25 m pool for the winter holidays. Included in pool entry."
+ },
+ {
+  "d": "2027-02-09",
+  "h": "15h–17h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Construction d'igloo",
+  "x": "Avec le Centre de la nature montagnarde, on bâtit un igloo en équipe au parking de Cuchet. Gratuit, sur réservation.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2059974-5-construction-igloo.html",
+  "free": true,
+  "kids": true,
+  "t_en": "Igloo building",
+  "x_en": "Build an igloo as a team with the mountain nature centre at the Cuchet car park. Free, booking required."
+ },
+ {
+  "d": "2027-02-09",
   "d2": "2027-03-02",
   "h": "17h45",
   "lieu": "Megève",
@@ -1538,6 +2111,32 @@
   "u": "https://www.haute-savoie-tourisme.org/index.php/282224-soiree-luge-rochebrune",
   "t_en": "Sledging evenings at Rochebrune (Tuesdays)",
   "x_en": "Free sledging at Petit Rochebrune with music and a raffle, on Tuesdays during the winter holidays."
+ },
+ {
+  "d": "2027-02-09",
+  "d2": "2027-03-02",
+  "h": "18h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Biking fluo (mardis)",
+  "x": "Cours de vélo en salle en musique et sous lumières fluo, à l'Espace forme du Palais.",
+  "u": "https://www.megeve-tourisme.fr/agenda/cours-collectif-soiree-biking-fluo/",
+  "indoor": true,
+  "t_en": "Neon spin class (Tuesdays)",
+  "x_en": "An indoor cycling class with music and neon lights at the Palais fitness area."
+ },
+ {
+  "d": "2027-02-09",
+  "d2": "2027-03-02",
+  "h": "19h30",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Yoga à la bougie (mardis)",
+  "x": "Une séance de yoga à la lueur des bougies, à l'Espace forme du Palais.",
+  "u": "https://www.megeve-tourisme.fr/agenda/cours-collectifs-yoga-a-la-bougie/",
+  "indoor": true,
+  "t_en": "Candlelight yoga (Tuesdays)",
+  "x_en": "A candlelit yoga class at the Palais fitness area."
  },
  {
   "d": "2027-02-10",
@@ -1576,15 +2175,43 @@
  },
  {
   "d": "2027-02-10",
-  "d2": "2027-03-03",
+  "d2": "2027-02-10",
   "h": "17h45",
   "lieu": "Combloux",
   "cat": "Ski",
-  "t": "Soirées ESF : luge, flambeaux et feu d'artifice",
-  "x": "Chaque mercredi des vacances d'hiver au bas de la piste Écureuil : luge, descente aux flambeaux des enfants, Ski Parade et feu d'artifice.",
+  "t": "Soirée ESF : luge, flambeaux et feu d'artifice",
+  "x": "Au pied de la piste Écureuil : course de luge à 17h45, descente aux flambeaux des enfants à 18h30, Ski Parade « La Guerre des Bonnets » à 18h45 et feu d'artifice à 19h15. Gratuit.",
   "u": "https://www.escapadesmontblanc.com/fete-et-manifestation/descente-aux-flambeaux-des-enfants/",
-  "t_en": "ESF evenings: sledging, torchlight and fireworks",
-  "x_en": "Every Wednesday of the winter holidays at the bottom of the Écureuil slope: sledging, children's torchlight descent, Ski Parade and fireworks."
+  "t_en": "ESF evening: sledging, torchlight and fireworks",
+  "x_en": "At the bottom of the Écureuil slope: sledge race at 5:45pm, children's torchlight descent at 6:30pm, “La Guerre des Bonnets” Ski Parade at 6:45pm and fireworks at 7:15pm. Free.",
+  "free": true,
+  "kids": true
+ },
+ {
+  "d": "2027-02-10",
+  "d2": "2027-03-03",
+  "h": "17h–20h",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Nocturnes nordiques à la Livraz (mercredis)",
+  "x": "Ski de fond à la frontale, biathlon laser et luge éclairée chaque mercredi des vacances d'hiver, selon l'enneigement.",
+  "u": "https://www.megeve-tourisme.fr/agenda/les-nocturnes-de-la-livraz/",
+  "kids": true,
+  "t_en": "Night Nordic skiing at La Livraz (Wednesdays)",
+  "x_en": "Headlamp cross-country skiing, laser biathlon and a lit sledging run every Wednesday of the winter holidays, snow permitting."
+ },
+ {
+  "d": "2027-02-10",
+  "h": "18h20–21h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Soirée curling : initiation et tournoi",
+  "x": "Le club de curling de Megève initie au jeu sur la patinoire, puis lance un tournoi ouvert à tous, avec remise des prix et verre de l'amitié. 40 €, sur inscription.",
+  "u": "https://www.megeve-tourisme.fr/agenda/soiree-curling-initiation-tournoi/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Curling night: lesson + tournament",
+  "x_en": "Megève curling club teaches the basics on the rink, then runs an open tournament with prizes and drinks. €40, booking required."
  },
  {
   "d": "2027-02-10",
@@ -1633,6 +2260,19 @@
   "x_en": "The filmmakers tell of their 10,000 km by bike and then 80 days on foot to Nepal. Free, Palais auditorium."
  },
  {
+  "d": "2027-02-11",
+  "d2": "2027-03-04",
+  "h": "18h–21h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Escalade à la frontale (jeudis)",
+  "x": "On grimpe lumières éteintes, lampe frontale sur la tête, à la salle d'escalade du Palais.",
+  "u": "https://www.megeve-tourisme.fr/agenda/soiree-escalade-grimper-a-la-frontale/",
+  "indoor": true,
+  "t_en": "Headlamp climbing night (Thursdays)",
+  "x_en": "Climb the Palais wall with the lights off and a headlamp on."
+ },
+ {
   "d": "2027-02-12",
   "d2": "2027-03-05",
   "lieu": "Megève",
@@ -1664,6 +2304,20 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/sport/sports-de-glace/5065937-jardin-de-la-glisse",
   "t_en": "Jardin de la glisse (kids' skating)",
   "x_en": "An introduction to skating for under-10s with an adult, at the Palais ice rink. €6."
+ },
+ {
+  "d": "2027-02-15",
+  "d2": "2027-02-24",
+  "h": "14h30–16h30",
+  "lieu": "Megève",
+  "cat": "Ski",
+  "t": "Mini-stages de biathlon pour enfants",
+  "x": "Deux mini-stages de trois séances à la Livraz : 15, 16 et 17 février, puis 22, 23 et 24 février. Inscription sur HelloAsso.",
+  "u": "https://www.megeve-tourisme.fr/agenda/mini-stage-biathlon/",
+  "free": false,
+  "kids": true,
+  "t_en": "Kids' biathlon mini-camps",
+  "x_en": "Two three-session biathlon camps at La Livraz: 15–17 and 22–24 February. Booking on HelloAsso."
  },
  {
   "d": "2027-02-16",
@@ -1777,6 +2431,19 @@
  },
  {
   "d": "2027-02-23",
+  "h": "15h–17h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Construction d'igloo",
+  "x": "Avec le Centre de la nature montagnarde, on bâtit un igloo en équipe au parking de Cuchet. Gratuit, sur réservation.",
+  "u": "https://haute-savoie.planetekiosque.com/167-2059974-5-construction-igloo.html",
+  "free": true,
+  "kids": true,
+  "t_en": "Igloo building",
+  "x_en": "Build an igloo as a team with the mountain nature centre at the Cuchet car park. Free, booking required."
+ },
+ {
+  "d": "2027-02-23",
   "h": "15h–18h",
   "lieu": "Megève",
   "cat": "Famille",
@@ -1796,6 +2463,18 @@
   "u": "https://www.haute-savoie-tourisme.org/7054279-soiree-givree",
   "t_en": "Frosty night at the ice rink",
   "x_en": "Skating to music with a DJ and light show at the Palais. €6."
+ },
+ {
+  "d": "2027-02-24",
+  "h": "19h–20h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Challenge des associations en ski de fond",
+  "x": "Relais par équipes de 5 à 8 : le plus de tours possible en une heure sur une boucle d'un kilomètre à la Livraz. 40 € par équipe.",
+  "u": "https://www.megeve-tourisme.fr/agenda/challenge-des-associations/",
+  "free": false,
+  "t_en": "Cross-country team challenge",
+  "x_en": "Teams of 5–8 race to cover as many 1 km laps as possible in an hour at La Livraz. €40 per team."
  },
  {
   "d": "2027-02-26",
@@ -1831,6 +2510,19 @@
   "x_en": "The Yetis' Division 1 match at the Palais ice rink."
  },
  {
+  "d": "2027-02-27",
+  "h": "9h–12h",
+  "lieu": "Combloux",
+  "cat": "Famille",
+  "t": "Repair Café",
+  "x": "Des bénévoles réparent gratuitement petit électroménager et vêtements, sous le presbytère. Sans rendez-vous.",
+  "u": "https://www.haute-savoie-tourisme.org/7122787-permanence-repair-cafe-combloux",
+  "free": true,
+  "indoor": true,
+  "t_en": "Repair Café",
+  "x_en": "Volunteers fix small appliances and clothes for free, under the presbytery. No appointment needed."
+ },
+ {
   "d": "2027-03-02",
   "h": "14h–18h",
   "lieu": "Combloux",
@@ -1864,15 +2556,30 @@
   "x_en": "A free screening chosen by the librarians, at the Palais auditorium."
  },
  {
+  "d": "2027-03-03",
+  "h": "18h20–21h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Soirée curling : initiation et tournoi",
+  "x": "Le club de curling de Megève initie au jeu sur la patinoire, puis lance un tournoi ouvert à tous, avec remise des prix et verre de l'amitié. 40 €, sur inscription.",
+  "u": "https://www.megeve-tourisme.fr/agenda/soiree-curling-initiation-tournoi/",
+  "free": false,
+  "indoor": true,
+  "t_en": "Curling night: lesson + tournament",
+  "x_en": "Megève curling club teaches the basics on the rink, then runs an open tournament with prizes and drinks. €40, booking required."
+ },
+ {
   "d": "2027-03-05",
-  "d2": "2027-03-07",
+  "d2": "2027-03-10",
   "lieu": "Megève",
   "cat": "Culture",
-  "t": "Megève Leadership : « Du ciel aux abysses »",
-  "x": "Un week-end de conférences ouvert au grand public, salle Mageva au Palais.",
-  "u": "https://www.megeve-tourisme.fr/en/agenda/braderie-de-la-mediatheque/occ/1/",
-  "t_en": "Megève Leadership: “From the sky to the deep”",
-  "x_en": "A weekend of talks open to the public, salle Mageva at the Palais."
+  "t": "Megève Leadership : « S'élever ensemble »",
+  "x": "Conférences et rencontres salle Mageva au Palais : week-end grand public du 5 au 7 mars (soirée d'ouverture « Du ciel aux abysses »), puis programme professionnel jusqu'au 10. Payant.",
+  "u": "https://www.megeve-tourisme.fr/agenda/megeve-leadership-selever-ensemble/",
+  "t_en": "Megève Leadership: “Rising together”",
+  "x_en": "Talks and meetings at the Palais's Mageva hall: a public weekend on 5–7 March (opening night “From the sky to the deep”), then a professional programme until the 10th. Paid.",
+  "free": false,
+  "indoor": true
  },
  {
   "d": "2027-03-05",
@@ -1904,7 +2611,9 @@
   "t": "Coupe de ski des Banques Genevoises",
   "x": "Evènement sportif et caritatif réunissant les collaborateurs des banques genevoises (Rendez vous au parking du cuchet)",
   "u": "https://www.coupedesbanquesgenevoises.ch/",
-  "v": true
+  "v": true,
+  "t_en": "Geneva Banks Ski Cup",
+  "x_en": "A sporting and charity event bringing together staff from Geneva's banks (meeting point: Cuchet car park)."
  },
  {
   "d": "2027-03-07",
@@ -1931,7 +2640,7 @@
  },
  {
   "d": "2027-03-09",
-  "d2": "2027-03-16",
+  "d2": "2027-03-30",
   "h": "14h30–16h30",
   "lieu": "Megève",
   "cat": "Culture",
@@ -1951,6 +2660,18 @@
   "u": "https://www.haute-savoie-tourisme.org/evenements/apprendre/lecture/198738-heure-du-conte-bebes-lecteurs",
   "t_en": "Story time for babies",
   "x_en": "Stories and pop-up or touch-and-feel books for little ones in the library's children's area. Free."
+ },
+ {
+  "d": "2027-03-13",
+  "h": "9h–14h",
+  "lieu": "Megève",
+  "cat": "Sport",
+  "t": "Challenge biathlon de la Livraz",
+  "x": "Course amicale ouverte à tous : boucle de 600 m et tir couché à la carabine à plombs, départs à 10h, 11h et 12h. 15 €. Date à confirmer.",
+  "u": "https://www.megeve-tourisme.fr/agenda/challenge-biathlon/",
+  "free": false,
+  "t_en": "La Livraz biathlon challenge",
+  "x_en": "A friendly race open to all: a 600 m loop and prone air-rifle shooting, starts at 10am, 11am and noon. €15. Date to be confirmed."
  },
  {
   "d": "2027-03-17",
@@ -1975,6 +2696,31 @@
   "x_en": "Documentary film screening at the Palais."
  },
  {
+  "d": "2027-03-20",
+  "h": "20h30",
+  "lieu": "Megève",
+  "cat": "Spectacle",
+  "t": "« Viriles », Cie Kynlaus",
+  "x": "Danse contemporaine, théâtre et performance pour questionner les codes de la masculinité, dès 7 ans. Salle Mageva, de 15 à 28 €.",
+  "u": "https://spectacles-megeve.fr/event/viriles-cie-kynlaus/",
+  "free": false,
+  "indoor": true,
+  "t_en": "“Viriles” by Cie Kynlaus",
+  "x_en": "Contemporary dance, theatre and performance questioning masculinity, ages 7+. Mageva hall, €15–28."
+ },
+ {
+  "d": "2027-03-21",
+  "h": "11h",
+  "lieu": "Demi-Quartier",
+  "cat": "Fête",
+  "t": "« À la r'voyure », fête de fin de saison",
+  "x": "Dernière fête de l'hiver à l'alpage de Beauregard, sur les pistes : DJ et barbecue offert. Annulé en cas de mauvais temps.",
+  "u": "https://www.megeve-tourisme.fr/agenda/a-la-rvoyure-fete-de-fin-de-saison-de-ski/",
+  "free": true,
+  "t_en": "“À la r'voyure” end-of-season party",
+  "x_en": "The last party of the winter at the Beauregard mountain pasture, on the slopes: DJ and free barbecue. Cancelled in bad weather."
+ },
+ {
   "d": "2027-03-24",
   "d2": "2027-03-27",
   "lieu": "Megève",
@@ -1984,5 +2730,16 @@
   "u": "https://hautesavoiemontblanc-tourisme.com/en/offers/27th-ski-open-coq-dor-megeve-en-6746964/",
   "t_en": "27th Ski Open Coq d'Or",
   "x_en": "Alpine ski race at the Côte 2000 stadium."
+ },
+ {
+  "d": "2027-03-26",
+  "d2": "2027-03-28",
+  "lieu": "Megève",
+  "cat": "Culture",
+  "t": "Idéal Festival",
+  "x": "Trois jours de cinéma, musique et littérature : projections au Panoramic, concerts à l'église, showcases, master classes et dédicaces.",
+  "u": "https://www.megeve-tourisme.fr/agenda/ideal-festival/",
+  "t_en": "Idéal Festival",
+  "x_en": "Three days of film, music and books: screenings at the Panoramic, church concerts, showcases, master classes and signings."
  }
 ]
