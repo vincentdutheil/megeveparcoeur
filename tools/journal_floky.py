@@ -10,8 +10,11 @@
 Étape 2 — HeyGen (à la main) : avatar Floky, voix de Floky, format vertical 9:16, FOND VERT UNI.
     Exporter la vidéo et la passer à l'étape 3.
 
-Étape 3 — montage : python3 tools/journal_floky.py montage AAAA-MM-JJ VIDEO_HEYGEN.mp4 [--fond place-neige] [--relire]
-    Détoure Floky (fond vert), le pose devant la photo de fond avec la neige qui tombe, ajoute le titre,
+Étape 3 — montage : python3 tools/journal_floky.py montage AAAA-MM-JJ VIDEO_HEYGEN.mp4 [--fond webcam|place-neige] [--neige|--sans-neige] [--relire]
+    Détoure Floky (fond vert) et le pose « au balcon » devant la webcam du village prise au moment du montage
+    (par défaut ; panoramique lent sur toute la place, à lancer vers 17h30), ou devant une photo (--fond place-neige).
+    Neige qui tombe : seulement s'il neige au village à ce moment (Open-Meteo), ou forcée avec --neige / --sans-neige.
+    Ajoute le titre,
     les cartes météo, les sous-titres (calés sur la voix par transcription automatique), le bandeau « SORTIES »
     et la chanson d'Akhilleus en fond très bas. Sorties : instagram/journal/AAAA-MM-JJ/journal-AAAA-MM-JJ.mp4
     et journal-AAAA-MM-JJ-cover.jpg. Les sous-titres sont écrits dans sous-titres.json : avec --relire, le script
@@ -156,7 +159,7 @@ def texte(sam):
     met = meteo(jours)
     so = sorties(jours[0], jours[1])
     sem = s.isocalendar()[1]
-    intro = "Coucou, c'est Floky, l'ourson de Megève par cœur ! Voici votre journal du weekend !"
+    intro = "Coucou, c'est Floky, l'ourson de Megève par cœur, en direct du balcon sur la place du village ! Voici votre journal du weekend !"
     p_meteo = [phrase_jour("Samedi", met[0])]
     if met[0]["min"] is not None and met[0]["min"] <= -5: p_meteo.append(BLAGUES_FROID[sem % len(BLAGUES_FROID)])
     if met[1]["type"] == met[0]["type"] and met[1]["min"] is not None and abs(met[1]["min"] - met[0]["min"]) <= 2:
@@ -209,7 +212,7 @@ def icone(d, ty, cx, cy):
         nuage(cx, cy - 20, 50, (210, 220, 240))
         for dx, dy in ((-40, 43), (0, 53), (40, 43)): flocon(cx + dx, cy + dy, 14)
 
-def calque_ui(sam, met):
+def calque_ui(sam, met, credit=None):
     s = dt.date.fromisoformat(sam); dim = s + dt.timedelta(days=1)
     dates = f"{s.day}-{dim.day} {MOIS[dim.month - 1]}" if s.month == dim.month else f"{s.day} {MOIS[s.month - 1]} - {dim.day} {MOIS[dim.month - 1]}"
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
@@ -221,7 +224,7 @@ def calque_ui(sam, met):
     cw, ch, y0 = 320, 300, 290
     for i, (nom, m) in enumerate(zip(("SAMEDI", "DIMANCHE", "LUNDI"), met)):
         x0 = 30 + i * (cw + 25)
-        carte = Image.new("RGBA", (cw, ch)); ImageDraw.Draw(carte).rounded_rectangle([0, 0, cw - 1, ch - 1], 36, fill=(255, 255, 255, 55), outline=(255, 255, 255, 140), width=3)
+        carte = Image.new("RGBA", (cw, ch)); ImageDraw.Draw(carte).rounded_rectangle([0, 0, cw - 1, ch - 1], 36, fill=(14, 28, 70, 190), outline=(255, 255, 255, 140), width=3)
         im.alpha_composite(carte, (x0, y0)); cx = x0 + cw // 2
         f = font("Bold", 36); d.text((cx - d.textlength(nom, font=f) / 2, y0 + 16), nom, font=f, fill=WHITE)
         icone(d, m["type"], cx, y0 + 125)
@@ -238,7 +241,39 @@ def calque_ui(sam, met):
     f = font("Medium", 32)
     for txt, yy in [("Floky, l'ourson virtuel de Megève par cœur", 1612), ("Rendez-vous chaque jeudi !", 1657)]:
         d.text(((W - d.textlength(txt, font=f)) / 2, yy), txt, font=f, fill=(200, 215, 245))
+    if credit:
+        f = font("Medium", 24); d.text(((W - d.textlength(credit, font=f)) / 2, 1715), credit, font=f, fill=(150, 170, 210))
     return im
+
+def fond_webcam(tmp):
+    """Dernière image de la webcam du village (Skaping, via le site), agrandie à 1440 px de haut pour le panoramique,
+    + calque : dégradé sous le titre et badge « EN DIRECT DU BALCON »."""
+    req = urllib.request.Request(f"https://www.megeveparcoeur.fr/api/webcam?c=village&t={int(dt.datetime.now().timestamp())}",
+                                 headers={"User-Agent": "megeveparcoeur.fr"})
+    r = urllib.request.urlopen(req, timeout=60); (tmp / "cam.jpg").write_bytes(r.read())
+    print("webcam du village, prise de vue :", r.headers.get("x-shot"))
+    im = Image.open(tmp / "cam.jpg").convert("RGB")
+    h = 1440; im = im.resize((max(W, round(im.width * h / im.height)), h), Image.LANCZOS).filter(ImageFilter.GaussianBlur(2.5))
+    im.save(tmp / "cam_big.jpg", quality=92)
+    ov = Image.new("RGBA", (W, H)); d = ImageDraw.Draw(ov)
+    for y in range(460): d.line([(0, y), (W, y)], fill=NAVY + (int(200 * (1 - y / 460)),))
+    d.rounded_rectangle([30, 612, 520, 662], 25, fill=RED + (235,)); d.ellipse([48, 627, 68, 647], fill=WHITE)
+    d.text((82, 615), "EN DIRECT DU BALCON", font=font("Bold", 30), fill=WHITE)
+    ov.save(tmp / "cam_ov.png")
+    return tmp / "cam_big.jpg", tmp / "cam_ov.png"
+
+def neige_maintenant():
+    try:
+        c = get_json(f"https://api.open-meteo.com/v1/forecast?latitude={LAT}&longitude={LON}&elevation={ALT}&current=weather_code,snowfall")["current"]
+        return c.get("snowfall", 0) > 0 or 71 <= c["weather_code"] <= 77 or c["weather_code"] in (85, 86)
+    except Exception as e:
+        print("Open-Meteo indisponible (%s), repli sur MET Norway" % e)
+    try:
+        d = get_json(f"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={LAT}&lon={LON}&altitude={ALT}")
+        n = d["properties"]["timeseries"][0]["data"].get("next_1_hours", {})
+        return "snow" in n.get("summary", {}).get("symbol_code", "")
+    except Exception as e:
+        print("météo actuelle indisponible :", e); return False
 
 def etiquette():
     im = Image.new("RGBA", (210, 80), WHITE); ImageDraw.Draw(im).text((22, 12), "SORTIES", font=font("Bold", 40), fill=RED); return im
@@ -356,7 +391,7 @@ def ass(lignes, dst):
     dst.write_text(h + "".join(f"Dialogue: 0,{ts(l['debut'])},{ts(max(l['fin'], l['debut'] + 0.6))},S,,0,0,0,,{l['texte']}\n" for l in lignes))
 
 # ---------------------------------------------------------------- montage
-def montage(sam, video, nom_fond="place-neige", relire=False):
+def montage(sam, video, nom_fond="webcam", relire=False, neige_force=None):
     d = dossier(sam); video = pathlib.Path(video).resolve()
     donnees = json.loads((d / "donnees.json").read_text())
     tmp = pathlib.Path(tempfile.mkdtemp())
@@ -364,32 +399,44 @@ def montage(sam, video, nom_fond="place-neige", relire=False):
     if relire:
         print("Relis/corrige", d / "sous-titres.json", "puis relance sans --relire."); return
     ass(lignes, tmp / "st.ass")
-    fond(nom_fond).save(tmp / "fond.png"); calque_ui(sam, donnees["meteo"]).save(tmp / "ui.png"); etiquette().save(tmp / "etiq.png")
+    webcam = nom_fond == "webcam"
+    calque_ui(sam, donnees["meteo"], "Image en direct : webcam Skaping de la place du village" if webcam else None).save(tmp / "ui.png")
+    etiquette().save(tmp / "etiq.png")
     bandeau = "     •     ".join(f"{s['titre'].split(' (')[0]}, {s['lieu']} · {jour_court(s['jours'], sam)}" + (f" {s['heure']}" if s["heure"] else "")
                                   + (", gratuit" if s["gratuit"] else "") for s in donnees["sorties"]) + "     •     Tout l'agenda sur megeveparcoeur.fr     •     "
     (tmp / "bandeau.txt").write_text(bandeau * 3)
     larg = ImageDraw.Draw(Image.new("RGB", (1, 1))).textlength(bandeau, font=font("Bold", 38))
-    # couleur du fond vert, lue dans un coin de la vidéo HeyGen
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "1", "-i", str(video), "-frames:v", "1", str(tmp / "f.png")], check=True)
     vi = Image.open(tmp / "f.png").convert("RGB"); vw, vh = vi.size; vert = "0x%02X%02X%02X" % vi.getpixel((5, 5))
     c = round(vw * 0.972); cx, cy = round(vw * 0.014), round(vh * 0.047)
     duree = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(video)],
                                  capture_output=True, text=True, check=True).stdout)
-    n = neige(tmp)
+    avec_neige = neige_force if neige_force is not None else (neige_maintenant() if webcam else True)
+    print("neige qui tombe :", "oui" if avec_neige else "non")
     out, cover = d / f"journal-{sam}.mp4", d / f"journal-{sam}-cover.jpg"
-    fc = (f"[0:v][1:v]overlay=0:0[p];"
-          f"[2:v]crop={c}:{c}:{cx}:{cy},chromakey={vert}:0.16:0.06,despill=type=green,scale=860:860[fl];"
-          f"[p][fl]overlay=110:600:shortest=1[a];[a][3:v]overlay=0:0:shortest=1[b];"
-          f"[b]drawtext=fontfile={FONTS/'Poppins-Bold.ttf'}:textfile={tmp/'bandeau.txt'}:fontsize=38:fontcolor=white:y=1488:x=210-mod(t*170\\,{larg:.0f})[t];"
-          f"[t][4:v]overlay=0:1470[s];[s]subtitles={tmp/'st.ass'}:fontsdir={FONTS},format=yuv420p[v]")
-    cmd = ["ffmpeg", "-v", "error", "-y", "-loop", "1", "-i", str(tmp / "fond.png"), "-stream_loop", "-1", "-i", str(n), "-i", str(video),
-           "-loop", "1", "-i", str(tmp / "ui.png"), "-i", str(tmp / "etiq.png")]
+    if webcam:
+        cam, cam_ov = fond_webcam(tmp)
+        ins = ["-loop", "1", "-i", str(cam), "-f", "lavfi", "-i", f"color=c=0x0E1C46:s={W}x{H}:r=25", "-loop", "1", "-i", str(cam_ov)]
+        fc = (f"[0:v]crop={W}:1440:x='(iw-{W})*t/{duree:.2f}':y=0[cam];[1:v][cam]overlay=0:0[f0];[f0][2:v]overlay=0:0[f1];")
+    else:
+        fond(nom_fond).save(tmp / "fond.png")
+        ins = ["-loop", "1", "-i", str(tmp / "fond.png"), "-f", "lavfi", "-i", f"color=c=black@0:s=16x16:r=25", "-loop", "1", "-i", str(tmp / "etiq.png")]
+        fc = "[0:v]null[f1];"
+    if avec_neige:
+        ins += ["-stream_loop", "-1", "-i", str(neige(tmp))]; fc += "[f1][3:v]overlay=0:0[p];"
+    else:
+        ins += ["-f", "lavfi", "-i", "color=c=black:s=16x16:r=25"]; fc += "[f1]null[p];"
+    ins += ["-i", str(video), "-loop", "1", "-i", str(tmp / "ui.png"), "-i", str(tmp / "etiq.png")]   # 4, 5, 6
+    fc += (f"[4:v]crop={c}:{c}:{cx}:{cy},chromakey={vert}:0.16:0.06,despill=type=green,scale=860:860[fl];"
+           f"[p][fl]overlay=110:600:shortest=1[a];[a][5:v]overlay=0:0:shortest=1[b];"
+           f"[b]drawtext=fontfile={FONTS/'Poppins-Bold.ttf'}:textfile={tmp/'bandeau.txt'}:fontsize=38:fontcolor=white:y=1488:x=210-mod(t*170\\,{larg:.0f})[t];"
+           f"[t][6:v]overlay=0:1470[s];[s]subtitles={tmp/'st.ass'}:fontsdir={FONTS},format=yuv420p[v]")
     if SON.exists():
-        cmd += ["-ss", "63", "-i", str(SON)]
-        fc += ";[5:a]volume=0.10,afade=t=in:d=1[m];[2:a][m]amix=inputs=2:duration=first:normalize=0[au]"; amap = "[au]"
-    else: amap = "2:a"
-    cmd += ["-filter_complex", fc, "-map", "[v]", "-map", amap, "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-r", "25",
-            "-c:a", "aac", "-b:a", "160k", "-t", f"{duree:.2f}", "-movflags", "+faststart", str(out)]
+        ins += ["-i", str(SON)]
+        fc += ";[7:a]atrim=start=63,asetpts=PTS-STARTPTS,volume=0.10,afade=t=in:d=1[m];[4:a][m]amix=inputs=2:duration=first:normalize=0[au]"; amap = "[au]"
+    else: amap = "4:a"
+    cmd = ["ffmpeg", "-v", "error", "-y"] + ins + ["-filter_complex", fc, "-map", "[v]", "-map", amap, "-c:v", "libx264", "-preset", "veryfast",
+           "-crf", "20", "-r", "25", "-c:a", "aac", "-b:a", "160k", "-t", f"{duree:.2f}", "-movflags", "+faststart", str(out)]
     subprocess.run(cmd, check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "3", "-i", str(out), "-frames:v", "1", "-q:v", "3", str(cover)], check=True)
     print("→", out, "\n→", cover)
@@ -398,6 +445,6 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if len(a) >= 2 and a[0] == "texte": texte(a[1])
     elif len(a) >= 3 and a[0] == "montage":
-        f = a[a.index("--fond") + 1] if "--fond" in a else "place-neige"
-        montage(a[1], a[2], f, "--relire" in a)
+        f = a[a.index("--fond") + 1] if "--fond" in a else "webcam"
+        montage(a[1], a[2], f, "--relire" in a, True if "--neige" in a else False if "--sans-neige" in a else None)
     else: sys.exit(__doc__)
