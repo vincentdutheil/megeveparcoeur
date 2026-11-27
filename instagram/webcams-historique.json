@@ -9,5 +9,16 @@
   "avertissements": [
    "webcam Sommet de Combloux très sombre (luminosité 37/255, nuit ?)"
   ]
+ },
+ {
+  "date": "2026-11-27",
+  "heure_webcams": "village 08h00, Rochebrune 08h10, Combloux 08h02",
+  "temperature": 0,
+  "neige_sol_sommet_cm": 61,
+  "citation": "Le soleil est nouveau chaque jour.",
+  "publie_par": "en cours",
+  "avertissements": [
+   "webcam Sommet de Combloux dans le brouillard"
+  ]
  }
 ]
