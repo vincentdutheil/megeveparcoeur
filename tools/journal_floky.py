@@ -56,13 +56,15 @@ def heure_orale(h):  # "20h30" -> "vingt heures trente"
     hh, mm = int(m.group(1)), int(m.group(2) or 0)
     s = ("midi" if hh == 12 else en_lettres(hh) + (" heure" if hh == 1 else " heures"))
     return s + (" " + en_lettres(mm) if mm else "")
-ORAL = [("Praz-sur-Arly", "Pra-sur-Arly"), ("megeveparcoeur.fr", "megeveparcoeur point fr")]
+ORAL = [("Praz-sur-Arly", "Pra-sur-Arly"), ("megeveparcoeur.fr", "Meugève par cœur point f r"), ("Megève", "Meugève")]
 def pour_oreille(t):
     for a, b in ORAL: t = t.replace(a, b)
     return t
 def pour_ecran(t):
     for a, b in ORAL: t = t.replace(b, a)
     t = re.sub(r"\bPra-sur-Arly\b", "Praz-sur-Arly", t)
+    t = re.sub(r"\bMeug[eè]ve par c(œ|oe)ur point f ?r\b", "megeveparcoeur.fr", t, flags=re.I)
+    t = re.sub(r"\bMeug[eè]ve\b", "Megève", t, flags=re.I)
     nb = {en_lettres(n): n for n in range(60)}
     mots = "|".join(sorted(map(re.escape, nb), key=len, reverse=True))
     t = re.sub(rf"\b({mots}) heures?(?: ({mots}))?\b", lambda m: f"{nb[m.group(1)]}h" + (f"{nb[m.group(2)]:02d}" if m.group(2) else ""), t)
@@ -227,7 +229,8 @@ def carte(nom, m, lundi, k=2.0, opaque=False):
     cx = w / 2
     f = font("Bold", round(36 * k)); d.text((cx - d.textlength(nom, font=f) / 2, 16 * k), nom, font=f, fill=WHITE)
     icone(d, m["type"], cx, 125 * k, k)
-    if lundi and m["type"] == "neige": l1, l2 = "Neige !", (f"~{m['neige_cm']} cm prévus" if m["neige_cm"] else "Flocons prévus")
+    if lundi and m["type"] == "neige" and m.get("neige_cm", 0) >= 1: l1, l2 = "Neige !", f"~{m['neige_cm']} cm prévus"
+    elif m["type"] == "neige" and m.get("neige_cm", 0) < 1 and m["min"] is not None: l1, l2 = f"{m['min']}° / {m['max']}°", "Quelques flocons"
     else:
         l1 = f"{m['min']}° / {m['max']}°" if m["min"] is not None else "—"
         l2 = DESC[m["type"]]
