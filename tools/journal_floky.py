@@ -182,7 +182,8 @@ def texte(sam):
         if len(t) <= MAX_CHARS or not choix: break
         choix = choix[:-1]
     d = dossier(sam)
-    donnees = {"samedi": sam, "meteo": met, "sorties": [{k: v for k, v in x.items() if k != "score"} for x in so]}
+    dits = {x["titre"] for x in choix}
+    donnees = {"samedi": sam, "meteo": met, "sorties": [dict({k: v for k, v in x.items() if k != "score"}, parle=x["titre"] in dits) for x in so]}
     (d / "donnees.json").write_text(json.dumps(donnees, ensure_ascii=False, indent=1))
     (d / "texte-heygen.txt").write_text(t + "\n")
     print(t, f"\n\n[{len(t)} caractères] → {d/'texte-heygen.txt'}")
@@ -248,14 +249,13 @@ def calque_ui(sam, met, credit=None, cartes=True):
         if cartes: im.alpha_composite(carte(nom, m, i == 2, 1.0), (x0, y0))
         else: d.rounded_rectangle([x0, y0, x0 + CW - 1, y0 + CH - 1], 36, outline=(255, 255, 255, 70), width=2)   # place vide
     # pupitre + bandeau + mention « virtuel »
-    d.rectangle([0, 1440, W, 1600], fill=NAVY + (255,)); d.rectangle([0, 1440, W, 1450], fill=WHITE)
-    d.rectangle([0, 1470, W, 1550], fill=RED + (255,))
-    d.rectangle([0, 1600, W, H], fill=NAVY + (200,))
-    f = font("Medium", 32)
-    for txt, yy in [("Floky, l'ourson virtuel de Megève par cœur", 1612), ("Rendez-vous chaque jeudi !", 1657)]:
-        d.text(((W - d.textlength(txt, font=f)) / 2, yy), txt, font=f, fill=(200, 215, 245))
+    d.rectangle([0, 1440, W, H], fill=NAVY + (255,)); d.rectangle([0, 1440, W, 1446], fill=WHITE)
+    for i in range(4):                                       # places des 4 sorties
+        x0, y0 = slot_sortie(i); d.rounded_rectangle([x0, y0, x0 + SW - 1, y0 + SH - 1], 22, outline=(255, 255, 255, 60), width=2)
+    f = font("Medium", 28); txt = "Floky, l'ourson virtuel de Megève par cœur · chaque jeudi"
+    d.text(((W - d.textlength(txt, font=f)) / 2, 1712), txt, font=f, fill=(200, 215, 245))
     if credit:
-        f = font("Medium", 24); d.text(((W - d.textlength(credit, font=f)) / 2, 1715), credit, font=f, fill=(150, 170, 210))
+        f = font("Medium", 22); d.text(((W - d.textlength(credit, font=f)) / 2, 1754), credit, font=f, fill=(150, 170, 210))
     return im
 
 # ---------------------------------------------------------------- animations (générique + cartes météo)
@@ -276,55 +276,153 @@ def instants_meteo(lignes, duree):
     if t[2] is None or t[2] <= t[1]: t[2] = t[1] + 4
     return t
 
-def calque_cartes(met, lignes, duree, tmp):
-    """Vidéo transparente 1080x640 : chaque carte surgit en grand quand Floky en parle, puis va se ranger dans le bandeau."""
-    t0s = instants_meteo(lignes, duree)
-    noms = ("SAMEDI", "DIMANCHE", "LUNDI")
-    grandes = [carte(n, m, i == 2, 1.8, opaque=True) for i, (n, m) in enumerate(zip(noms, met))]
-    bx, by = (W - grandes[0].width) // 2, 140                   # position de la carte en grand
-    plan = []
-    for i, t0 in enumerate(t0s):
-        suiv = t0s[i + 1] if i + 1 < 3 else t0 + 3.5
-        tm = max(t0 + 1.8, min(suiv - 0.25, t0 + 3.5))          # début du rangement
-        plan.append((t0, tm))
-    out = tmp / "cartes.mov"; HH = 640
-    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{HH}", "-r", str(FPS), "-i", "-",
+def animer(elements, y0, hh, duree, tmp, nom):
+    """Vidéo transparente W x hh (placée à y0) : chaque élément surgit en grand à t0 (petit rebond), reste jusqu'à tm,
+    puis glisse en rétrécissant jusqu'à sa place. elements = [{"grand": img, "petit": img, "t0", "tm", "gx", "gy", "px", "py"}]
+    (positions en coordonnées de l'écran)."""
+    out = tmp / f"{nom}.mov"
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgba", "-s", f"{W}x{hh}", "-r", str(FPS), "-i", "-",
                           "-c:v", "qtrle", str(out)], stdin=subprocess.PIPE)
-    vide = Image.new("RGBA", (W, HH), (0, 0, 0, 0)); cache = {}
+    vide = Image.new("RGBA", (W, hh), (0, 0, 0, 0)); cache = {}
     for f in range(int(duree * FPS) + 1):
         t = f / FPS; etat = []
-        for i, (t0, tm) in enumerate(plan):
-            if t < t0: continue
-            sx, sy = slot(i)
-            if t < tm:                                          # apparition en grand (petit rebond)
-                a = ease_back((t - t0) / 0.35); k = 0.55 + 0.45 * a
-                g = grandes[i]; w_, h_ = max(1, round(g.width * k)), max(1, round(g.height * k))
-                etat.append((i, "g", round(k * 100), bx + (g.width - w_) // 2, by + (g.height - h_) // 2, min(1, (t - t0) / 0.2)))
-            elif t < tm + 0.6:                                  # rangement dans le bandeau
-                a = ease((t - tm) / 0.6); k = 1.8 + (1.0 - 1.8) * a
-                etat.append((i, "m", round(k * 100), round(bx + (sx - bx) * a), round(by + (sy - by) * a), 1))
+        for i, e in enumerate(elements):
+            if t < e["t0"]: continue
+            g, pt = e["grand"], e["petit"]
+            if t < e["tm"]:
+                k = 0.55 + 0.45 * ease_back((t - e["t0"]) / 0.35)
+                w_, h_ = max(1, round(g.width * k)), max(1, round(g.height * k))
+                etat.append((i, "g", round(k * 100), e["gx"] + (g.width - w_) // 2, e["gy"] + (g.height - h_) // 2, round(min(1, (t - e["t0"]) / 0.2) * 20)))
+            elif t < e["tm"] + 0.6:
+                a = ease((t - e["tm"]) / 0.6)
+                w_ = round(g.width + (pt.width - g.width) * a); h_ = round(g.height + (pt.height - g.height) * a)
+                etat.append((i, "m", (w_, h_), round(e["gx"] + (e["px"] - e["gx"]) * a), round(e["gy"] + (e["py"] - e["gy"]) * a), 20))
             else:
-                etat.append((i, "p", 100, sx, sy, 1))
+                etat.append((i, "p", 0, e["px"], e["py"], 20))
         cle = tuple(etat)
         if cle in cache: p.stdin.write(cache[cle]); continue
         im = vide.copy()
-        actives = [e for e in etat if e[1] == "p"] + [e for e in etat if e[1] != "p"]   # la carte en mouvement passe devant
-        for i, mode, kk, x, y, al in actives:
-            k = kk / 100
-            if mode == "p": img = carte(noms[i], met[i], i == 2, 1.0)
-            elif mode == "g": img = grandes[i].resize((max(1, round(grandes[i].width * k)), max(1, round(grandes[i].height * k))), Image.LANCZOS)
-            else: img = grandes[i].resize((round(CW * k), round(CH * k)), Image.LANCZOS)
-            if al < 1:
-                a_ = img.split()[3].point(lambda v: int(v * al)); img = img.copy(); img.putalpha(a_)
-            im.alpha_composite(img, (x, y))
+        for i, mode, k, x, y, al in [x for x in etat if x[1] == "p"] + [x for x in etat if x[1] != "p"]:
+            e = elements[i]
+            if mode == "p": img = e["petit"]
+            elif mode == "g": img = e["grand"].resize((max(1, round(e["grand"].width * k / 100)), max(1, round(e["grand"].height * k / 100))), Image.LANCZOS)
+            else: img = e["grand"].resize(k, Image.LANCZOS)
+            if al < 20:
+                img = img.copy(); img.putalpha(img.split()[3].point(lambda v: v * al // 20))
+            im.alpha_composite(img, (x, y - y0))
         b = im.tobytes()
         if len(cache) < 12: cache[cle] = b
         p.stdin.write(b)
     p.stdin.close(); p.wait()
-    print("cartes météo à", ", ".join(f"{x:.1f} s" for x in t0s))
     return out
 
-def generique(sam, tmp, duree=3.3):
+def plan_temps(t0s, fin):
+    """tm (début du rangement) de chaque élément : on laisse la carte en grand ~2-3,5 s, et jamais après la suivante."""
+    return [max(t0 + 1.8, min((t0s[i + 1] if i + 1 < len(t0s) else fin) - 0.25, t0 + 3.5)) for i, t0 in enumerate(t0s)]
+
+def calque_cartes(met, lignes, duree, tmp):
+    """Cartes météo : surgissent en grand quand Floky dit « samedi », « dimanche », « lundi », puis vont dans le bandeau du haut."""
+    t0s = instants_meteo(lignes, duree); tms = plan_temps(t0s, t0s[-1] + 3.5)
+    noms = ("SAMEDI", "DIMANCHE", "LUNDI"); el = []
+    for i, (n, m) in enumerate(zip(noms, met)):
+        g = carte(n, m, i == 2, 1.8, opaque=True); px, py = slot(i)
+        el.append({"grand": g, "petit": carte(n, m, i == 2, 1.0), "t0": t0s[i], "tm": tms[i], "gx": (W - g.width) // 2, "gy": 140, "px": px, "py": py})
+    print("cartes météo à", ", ".join(f"{x:.1f} s" for x in t0s))
+    return animer(el, 0, 640, duree, tmp, "meteo"), t0s[-1]
+
+# --- sorties : mini-fiches rangées en bas, sur le pupitre
+SY0, SH, SW = 1458, 112, 510                    # 2 x 2 mini-fiches
+def slot_sortie(i): return 20 + (i % 2) * (SW + 20), SY0 + (i // 2) * (SH + 14)
+
+def fiche(s, sam, k=1.0, opaque=False):
+    """Fiche d'une sortie : bloc rouge jour + heure, titre, lieu (k=1 : mini-fiche 510x112)."""
+    w, h = round(SW * k), round(SH * k); im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    r = round(22 * k); bw = round(150 * k)
+    d.rounded_rectangle([0, 0, w - 1, h - 1], r, fill=(255, 255, 255, 250 if opaque else 235))
+    d.rounded_rectangle([0, 0, bw, h - 1], r, fill=RED + (255,)); d.rectangle([bw - r, 0, bw, h - 1], fill=RED + (255,))
+    jour = {"sam. et dim.": "SAM. + DIM.", "sam.": "SAMEDI", "dim.": "DIMANCHE"}[jour_court(s["jours"], sam)]
+    heure = s.get("heure") or ""
+    if len(heure) > 9: heure = heure.split(" et ")[0].split("-")[0].split("–")[0]
+    f1, f2 = font("Bold", round(22 * k)), font("Bold", round(30 * k))
+    lignes_ = [(jour, f1)] + ([(heure, f2)] if heure else [])
+    yy = (h - sum(round(f.size * 1.25) for _, f in lignes_)) / 2
+    for txt, f in lignes_:
+        d.text((bw / 2 - d.textlength(txt, font=f) / 2, yy), txt, font=f, fill=WHITE); yy += round(f.size * 1.25)
+    titre = re.sub(r"\s+", " ", s["titre"].split(" (")[0].replace("«", "").replace("»", "")).strip()
+    ft, fl = font("Bold", round(23 * k)), font("Medium", round(19 * k))
+    zone = w - bw - round(26 * k); lignes_t, cur = [], ""
+    for mot in titre.split():                                   # titre sur 2 lignes max
+        if d.textlength((cur + " " + mot).strip(), font=ft) <= zone: cur = (cur + " " + mot).strip()
+        else: lignes_t.append(cur); cur = mot
+    lignes_t.append(cur); lignes_t = [l for l in lignes_t if l]
+    if len(lignes_t) > 2:
+        l2 = lignes_t[1]
+        while d.textlength(l2 + "…", font=ft) > zone and len(l2) > 3: l2 = l2[:-1]
+        lignes_t = [lignes_t[0], l2.rstrip(" ,.-") + "…"]
+    lieu = s["lieu"] + (" · gratuit" if s.get("gratuit") else "")
+    hl = round(ft.size * 1.18); yy = (h - (len(lignes_t) * hl + round(fl.size * 1.3))) / 2
+    for l in lignes_t:
+        d.text((bw + round(14 * k), yy), l, font=ft, fill=NAVY); yy += hl
+    d.text((bw + round(14 * k), yy + round(2 * k)), lieu, font=fl, fill=(200, 30, 40) if s.get("gratuit") else (70, 85, 120))
+    return im
+
+def instants_sorties(sorties, lignes, apres, duree):
+    """Moment où Floky parle de chaque sortie : 1re ligne de sous-titres (après la météo) qui contient un mot du titre ou du lieu."""
+    t, dernier = [], apres + 1.5
+    for s in sorties:
+        mots = {norm(w) for w in re.findall(r"[\wÀ-ÿ'-]+", s["titre"].split(" (")[0]) if len(norm(w)) >= 5}
+        mots -= {"megeve", "combloux", "sallanches", "demiquartier", "saint", "gervais"}
+        x = next((l["debut"] for l in lignes if l["debut"] > dernier - 0.01 and mots & {norm(w) for w in re.findall(r"[\wÀ-ÿ'-]+", l["texte"])}), None)
+        if x is None: x = dernier + 2.5
+        t.append(x); dernier = x + 0.3
+    return [min(x, duree - 3) for x in t]
+
+def calque_sorties(sorties, sam, lignes, apres, duree, tmp):
+    so = [s for s in sorties if s.get("parle")][:4] or sorties[:4]
+    t0s = instants_sorties(so, lignes, apres, duree); tms = plan_temps(t0s, t0s[-1] + 3.0) if so else []
+    el = []
+    for i, s in enumerate(so):
+        g = fiche(s, sam, 1.65, opaque=True); px, py = slot_sortie(i)
+        el.append({"grand": g, "petit": fiche(s, sam), "t0": t0s[i], "tm": tms[i], "gx": (W - g.width) // 2, "gy": 1050, "px": px, "py": py})
+    print("fiches sorties à", ", ".join(f"{x:.1f} s" for x in t0s))
+    return animer(el, 960, 760, duree, tmp, "sorties")
+
+def ecran_fin(tmp, duree=3.5):
+    """Écran de fin : le logo surgit, puis « Tout le programme sur megeveparcoeur.fr » en grand."""
+    fond_ = fond_etoile(); R = 460
+    lg = Image.new("RGBA", (R, R), (0, 0, 0, 0)); ld = ImageDraw.Draw(lg); ld.ellipse([0, 0, R - 1, R - 1], fill=WHITE)
+    lg.alpha_composite(Image.open(ROOT / "img/logo-rond.png").convert("RGBA").resize((R - 24, R - 24), Image.LANCZOS), (12, 12))
+    out = tmp / "fin.mp4"
+    p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
+                          "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], stdin=subprocess.PIPE)
+    for f in range(round(duree * FPS)):
+        t = f / FPS; im = fond_.copy().convert("RGBA")
+        k = 0.2 + 0.8 * ease_back(t / 0.45); w_ = max(1, round(R * k))
+        im.alpha_composite(lg.resize((w_, w_), Image.LANCZOS), ((W - w_) // 2, 620 - w_ // 2))
+        a = ease((t - 0.45) / 0.45)
+        if a > 0:
+            tl = Image.new("RGBA", (W, 400), (0, 0, 0, 0)); td = ImageDraw.Draw(tl)
+            for txt, ff, yy, col in (("Tout le programme sur", font("Bold", 62), 0, WHITE), ("megeveparcoeur.fr", font("Bold", 96), 90, (255, 90, 95)),
+                                     ("À jeudi prochain avec Floky !", font("Medium", 44), 240, (200, 215, 245))):
+                td.text(((W - td.textlength(txt, font=ff)) / 2, yy), txt, font=ff, fill=col)
+            tl.putalpha(tl.split()[3].point(lambda v: int(v * a)))
+            im.alpha_composite(tl, (0, 930 + round(40 * (1 - a))))
+        p.stdin.write(im.convert("RGB").tobytes())
+    p.stdin.close(); p.wait()
+    return out
+
+def fond_etoile():
+    fond_ = Image.new("RGB", (W, H)); gd = ImageDraw.Draw(fond_)
+    for y in range(H):
+        u = abs(y - H * 0.42) / H; c = tuple(int(a * (1 - u) + b * u) for a, b in zip((32, 64, 140), (8, 16, 44)))
+        gd.line([(0, y), (W, y)], fill=c)
+    rnd = random.Random(3)
+    for _ in range(120):
+        x, y, r = rnd.uniform(0, W), rnd.uniform(0, H), rnd.choice([2, 2, 3])
+        gd.ellipse([x - r, y - r, x + r, y + r], fill=(190, 205, 240))
+    return fond_
+
+def generique(sam, tmp, duree=4.3):
     """Générique : le logo surgit, tourne sur lui-même et s'arrête sur son verso « MEGÈVE NEWS », puis le titre apparaît."""
     s = dt.date.fromisoformat(sam); dim = s + dt.timedelta(days=1)
     dates = f"{s.day}-{dim.day} {MOIS[dim.month - 1]}" if s.month == dim.month else f"{s.day} {MOIS[s.month - 1]} - {dim.day} {MOIS[dim.month - 1]}"
@@ -338,14 +436,7 @@ def generique(sam, tmp, duree=3.3):
     dd.polygon([(120, 330), (200, 230), (245, 280), (300, 205), (400, 330)], fill=(255, 255, 255, 70))
     for txt, fs, yy in (("MEGÈVE", 74, 132), ("NEWS", 124, 212)):
         f = font("Bold", fs); dd.text(((R - dd.textlength(txt, font=f)) / 2, yy), txt, font=f, fill=WHITE)
-    fond_ = Image.new("RGB", (W, H)); gd = ImageDraw.Draw(fond_)
-    for y in range(H):
-        u = abs(y - H * 0.42) / H; c = tuple(int(a * (1 - u) + b * u) for a, b in zip((32, 64, 140), (8, 16, 44)))
-        gd.line([(0, y), (W, y)], fill=c)
-    rnd = random.Random(3)
-    for _ in range(120):
-        x, y, r = rnd.uniform(0, W), rnd.uniform(0, H), rnd.choice([2, 2, 3])
-        gd.ellipse([x - r, y - r, x + r, y + r], fill=(190, 205, 240))
+    fond_ = fond_etoile()
     out = tmp / "generique.mp4"
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-pix_fmt", "yuv420p", str(out)], stdin=subprocess.PIPE)
@@ -549,30 +640,31 @@ def montage(sam, video, nom_fond="webcam", relire=False, neige_force=None):
         ins += ["-stream_loop", "-1", "-i", str(neige(tmp))]; fc += "[f1][3:v]overlay=0:0[p];"
     else:
         ins += ["-f", "lavfi", "-i", "color=c=black:s=16x16:r=25"]; fc += "[f1]null[p];"
-    cartes_mov = calque_cartes(donnees["meteo"], lignes, duree, tmp)
-    ins += ["-i", str(video), "-loop", "1", "-i", str(tmp / "ui.png"), "-i", str(tmp / "etiq.png"), "-i", str(cartes_mov)]   # 4, 5, 6, 7
+    meteo_mov, fin_meteo = calque_cartes(donnees["meteo"], lignes, duree, tmp)
+    sorties_mov = calque_sorties(donnees["sorties"], sam, lignes, fin_meteo, duree, tmp)
+    ins += ["-i", str(video), "-loop", "1", "-i", str(tmp / "ui.png"), "-i", str(sorties_mov), "-i", str(meteo_mov)]   # 4, 5, 6, 7
     fc += (f"[4:v]crop={c}:{c}:{cx}:{cy},chromakey={vert}:0.16:0.06,despill=type=green,scale=860:860[fl];"
-           f"[p][fl]overlay=110:600:shortest=1[a];[a][5:v]overlay=0:0:shortest=1[a2];[a2][7:v]overlay=0:0:eof_action=repeat[b];"
-           f"[b]drawtext=fontfile={FONTS/'Poppins-Bold.ttf'}:textfile={tmp/'bandeau.txt'}:fontsize=38:fontcolor=white:y=1488:x=210-mod(t*170\\,{larg:.0f})[t];"
-           f"[t][6:v]overlay=0:1470[s];[s]subtitles={tmp/'st.ass'}:fontsdir={FONTS},format=yuv420p[v]")
+           f"[p][fl]overlay=110:600:shortest=1[a];[a][5:v]overlay=0:0:shortest=1[a2];[a2][7:v]overlay=0:0:eof_action=repeat[a3];"
+           f"[a3][6:v]overlay=0:960:eof_action=repeat[s];[s]subtitles={tmp/'st.ass'}:fontsdir={FONTS},format=yuv420p[v]")
     principal = tmp / "principal.mp4"
     cmd = ["ffmpeg", "-v", "error", "-y"] + ins + ["-filter_complex", fc, "-map", "[v]", "-map", "4:a", "-c:v", "libx264", "-preset", "veryfast",
            "-crf", "18", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-t", f"{duree:.2f}", str(principal)]
     subprocess.run(cmd, check=True)
     # générique (logo qui tourne, verso « MEGÈVE NEWS ») enchaîné en fondu, puis musique sur l'ensemble
-    gen = generique(sam, tmp); TG, XF = 3.3, 0.4; dec = TG - XF; total = dec + duree
-    fc2 = (f"[0:v]fps={FPS},format=yuv420p,setsar=1[g];[1:v]fps={FPS},format=yuv420p,setsar=1[m];[g][m]xfade=transition=fade:duration={XF}:offset={dec:.2f}[v];"
+    gen = generique(sam, tmp); fin = ecran_fin(tmp); TG, TF, XF = 4.3, 3.5, 0.4; dec = TG - XF; total = dec + duree - XF + TF
+    fc2 = (f"[0:v]fps={FPS},format=yuv420p,setsar=1[g];[1:v]fps={FPS},format=yuv420p,setsar=1[m];[2:v]fps={FPS},format=yuv420p,setsar=1[e];"
+           f"[g][m]xfade=transition=fade:duration={XF}:offset={dec:.2f}[gm];[gm][e]xfade=transition=fade:duration={XF}:offset={dec + duree - XF:.2f}[v];"
            f"[1:a]adelay={int(dec * 1000)}|{int(dec * 1000)},apad[voix]")
-    ins2 = ["-i", str(gen), "-i", str(principal)]
+    ins2 = ["-i", str(gen), "-i", str(principal), "-i", str(fin)]
     if SON.exists():
         ins2 += ["-i", str(SON)]
-        fc2 += (f";[2:a]atrim=start=63,asetpts=PTS-STARTPTS,volume='if(lt(t,{dec:.2f}),0.6,if(lt(t,{dec + 0.8:.2f}),0.6-0.5*(t-{dec:.2f})/0.8,0.10))':eval=frame,"
+        fc2 += (f";[3:a]atrim=start=63,asetpts=PTS-STARTPTS,volume='if(lt(t,{dec:.2f}),0.6,if(lt(t,{dec + 0.8:.2f}),0.6-0.5*(t-{dec:.2f})/0.8,if(lt(t,{dec + duree - 0.6:.2f}),0.10,min(0.6,0.10+0.5*(t-{dec + duree - 0.6:.2f})/0.8))))':eval=frame,"
                 f"afade=t=out:st={total - 1.5:.2f}:d=1.5[mus];[voix][mus]amix=inputs=2:duration=longest:normalize=0[au]")
     else:
         fc2 += ";[voix]anull[au]"
     subprocess.run(["ffmpeg", "-v", "error", "-y"] + ins2 + ["-filter_complex", fc2, "-map", "[v]", "-map", "[au]", "-c:v", "libx264", "-preset", "veryfast",
                     "-crf", "20", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-t", f"{total:.2f}", "-movflags", "+faststart", str(out)], check=True)
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "2.6", "-i", str(out), "-frames:v", "1", "-q:v", "3", str(cover)], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "3.6", "-i", str(out), "-frames:v", "1", "-q:v", "3", str(cover)], check=True)
     print("→", out, "\n→", cover)
 
 if __name__ == "__main__":
