@@ -161,19 +161,42 @@ def bouches(phon, n_img, energie):
             nas = i + 1 < len(phon) and phon[i + 1][2] == "̃"
             if nas and f == "a": f = "o" if p == "ɑ" else "ah"
             seq.append((a, b, f))
-        elif p in CONS: seq.append((a, b, CONS[p]))
+        elif p in CONS:
+            if b - a < 0.07 and CONS[p] not in ("ferme", "f") and seq and seq[-1][2] in set(VOY.values()) | {"ah"}:
+                seq[-1] = (seq[-1][0], b, seq[-1][2])
+            else: seq.append((a, b, CONS[p]))
         else: seq.append((a, b, "repos"))
     out = []
     for k in range(n_img):
-        t = (k + 0.5) / FPS
+        if k % 2: out.append(out[-1]); continue        # « en deux » : une forme pour 2 images
+        t = (k + 1) / FPS
         f = next((s[2] for s in seq if s[0] <= t < s[1]), "repos")
         e = energie[k] if k < len(energie) else 0
         if f == "a" and e < 0.45: f = "ah"
         if f != "repos" and e < 0.06: f = "ferme" if f == "ferme" else "neutre"
         out.append(f)
-    for k in range(1, n_img - 1):              # pas de bouche qui ne dure qu'une image
-        if out[k] != out[k - 1] and out[k] != out[k + 1]: out[k] = out[k - 1] if out[k - 1] != "repos" else out[k]
     return out
+
+def tenir(seq, n):
+    """Les états qui durent moins de n images rejoignent le plus long de leurs deux voisins (sans effet de cascade)."""
+    runs = []
+    for v in seq:
+        if runs and runs[-1][0] == v: runs[-1][1] += 1
+        else: runs.append([v, 1])
+    for _ in range(3):
+        i = 1
+        while i < len(runs):
+            if runs[i][1] < n and len(runs) > 1:
+                g = runs[i - 1] if i == len(runs) - 1 or runs[i - 1][1] >= runs[i + 1][1] else runs[i + 1]
+                g[1] += runs[i][1]; runs.pop(i)
+                j = max(1, i - 1)          # refusionne les voisins devenus identiques
+                k = 1
+                while k < len(runs):
+                    if runs[k][0] == runs[k - 1][0]: runs[k - 1][1] += runs[k][1]; runs.pop(k)
+                    else: k += 1
+                i = j
+            else: i += 1
+    return [v for v, c in runs for _ in range(c)]
 
 def energie_audio(wav):
     w = wave.open(str(wav)); sr = w.getframerate(); a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
@@ -198,10 +221,10 @@ REGLES = [  # (motif, yeux pendant la phrase, geste, visage muet à la fin de la
 
 def scenario(texte, phon, n_img, energie):
     """Yeux, geste et visage muet pour chaque image, phrase par phrase (les phrases sont repérées par les pauses de la voix)."""
-    phrases = [p.strip() for p in re.split(r"(?<=[.!?…])\s+", texte.strip()) if p.strip()]
-    fins = [b for a, b, p in phon if p in (".", "!", "?", "…")]
-    # la voix est générée phrase par phrase : une fin de ponctuation par phrase (sinon on répartit au prorata)
-    if len(fins) < len(phrases):
+    phrases = [p.strip() for p in re.split(r"(?<=[.!?])\s+", texte.strip().replace("\n", " ")) if p.strip()]
+    fins = [a for a, b, p in phon if p == "$"]
+    debuts = [b for a, b, p in phon if p == "^"]
+    if len(fins) != len(phrases):
         tot = n_img / FPS; L = sum(len(p) for p in phrases); acc = 0; fins = []
         for p in phrases: acc += len(p); fins.append(tot * acc / L)
     bornes, t0 = [], 0.0
@@ -218,47 +241,87 @@ def scenario(texte, phon, n_img, energie):
         for k in range(ka, kb): yeux[k] = y
         if g:   # le geste dure ~2,4 s depuis le début de la phrase
             for k in range(ka + 3, min(kb + 8, ka + 63, n_img)): geste[k] = g
-        if v:   # petite mimique muette juste après la phrase
-            for k in range(kb, min(n_img, kb + 14)): muet[k] = v
-    # clignements naturels toutes les 2,5 à 5 s
+        if v:   # petite mimique muette pendant le silence qui suit la phrase
+            fin_muet = int(debuts[i + 1] * FPS) if len(debuts) == len(phrases) and i + 1 < len(debuts) else kb + 14
+            for k in range(kb, min(n_img, max(kb + 8, fin_muet), kb + 18)): muet[k] = v
+    yeux, geste = tenir(yeux, 12), tenir(geste, 20)
+    # clignements naturels toutes les 2,5 à 5 s : mi-clos, fermé, fermé, mi-clos
     k = 20
-    while k < n_img:
-        for j in range(k, min(n_img, k + 3)):
-            if yeux[j] in ("normal", "brillants", "grands", "malin", "pensif", "gene", "sourcil"): yeux[j] = "fermes"
+    while k < n_img - 4:
+        if all(yeux[j] in ("normal", "brillants", "grands", "malin", "pensif", "gene", "sourcil") for j in range(k - 2, k + 6)):
+            for j, e in zip(range(k, k + 4), ("plisses", "fermes", "fermes", "plisses")): yeux[j] = e
         k += int(FPS * rnd.uniform(2.5, 5))
     return yeux, geste, muet
 
 # ------------------------------------------------------------------ rendu
-def charger():
-    idx = json.loads((ASSETS / "calques.json").read_text())
-    L = lambda parts: [(Image.open(ASSETS / f).convert("RGBA"), tuple(xy)) for f, xy in parts]
-    return ({k: Image.open(ASSETS / f).convert("RGBA") for k, f in idx["poses"].items()},
-            {k: L(v) for k, v in idx["bouches"].items()}, {k: L(v) for k, v in idx["yeux"].items()},
-            {k: L(v) for k, v in idx["visages"].items()})
-
-# cadrage : carré 1050 px en (15, 90) — c'est la zone que journal_floky.py découpe dans une vidéo HeyGen 1080x1920
-CADRE = (15, 90, 1050)
+CADRE = (15, 90, 1050)       # carré 1050 px en (15, 90) : la zone que journal_floky.py découpe dans une vidéo 1080x1920
 SOURCE = (-20, 40, 1064)     # carré découpé dans le dessin : de la tête aux genoux
+FONDU = {"bouche": 2, "yeux": 3, "pose": 1}   # geste : coupe franche + rebond (un fondu ferait un bras fantôme)   # durée des fondus, en images
 
-def image(poses, B, Y, V, pose, bouche, yeux_, muet, t, parle, rebond):
-    im = poses[pose].copy()
-    if muet:
-        for c, xy in V[muet]: im.alpha_composite(c, xy)
-    else:
-        for c, xy in Y.get(yeux_, []): im.alpha_composite(c, xy)
-        for c, xy in B.get(bouche, []): im.alpha_composite(c, xy)
-    # balancement léger + respiration + petit hochement quand il parle + rebond au changement de geste
-    ang = 1.3 * math.sin(t * 1.1) + 0.6 * parle * math.sin(t * 7.3)
-    sc = 1 + 0.008 * math.sin(t * 2.2) + 0.05 * rebond
-    pivot = (512, 1480)
-    im = im.rotate(ang, Image.BICUBIC, center=pivot)
+class Floky:
+    def __init__(self):
+        idx = json.loads((ASSETS / "calques.json").read_text())
+        L = lambda parts: [(Image.open(ASSETS / f).convert("RGBA"), tuple(xy)) for f, xy in parts]
+        self.poses = {}
+        for k, f in idx["poses"].items():      # prémultiplié : les fondus ne font pas ressortir le vert
+            a = np.asarray(Image.open(ASSETS / f).convert("RGBA")).astype(np.float32) / 255; a[..., :3] *= a[..., 3:]; self.poses[k] = a
+        self.calques = {("b", k): L(v) for k, v in idx["bouches"].items()}
+        self.calques.update({("y", k): L(v) for k, v in idx["yeux"].items()})
+        self.calques.update({("v", k): L(v) for k, v in idx["visages"].items()})
+        self.cache = {}
+
+    def visage(self, yeux, bouche):
+        """Calques du visage seuls (prémultipliés, zone de la tête) : yeux + bouche, ou visage muet complet."""
+        cle = (yeux, bouche)
+        if cle not in self.cache:
+            x0, y0, x1, y1 = ZONE_TETE
+            c = Image.new("RGBA", (1024, 1536), (0, 0, 0, 0))
+            parts = self.calques.get(("v", yeux[2:]), []) if yeux.startswith("v:") else \
+                self.calques.get(("y", yeux), []) + self.calques.get(("b", bouche), [])
+            for im, xy in parts: c.alpha_composite(im, xy)
+            a = np.asarray(c.crop((x0, y0, x1, y1))).astype(np.float32) / 255
+            a[..., :3] *= a[..., 3:]
+            self.cache[cle] = a
+        return self.cache[cle]
+
+    def dessin(self, pose, yeux, bouche):
+        """pose/yeux/bouche = (état précédent, état actuel, poids 0→1)."""
+        pa, pb, wp = pose
+        P = self.poses[pb] if wp >= 1 or pa == pb else self.poses[pa] * (1 - wp) + self.poses[pb] * wp
+        ya, yb, wy = yeux; ba, bb, wb = bouche
+        F = sum(w * self.visage(y, b) for y, b, w in
+                ((ya, ba, (1 - wy) * (1 - wb)), (yb, ba, wy * (1 - wb)), (ya, bb, (1 - wy) * wb), (yb, bb, wy * wb)) if w > 0.001)
+        x0, y0, x1, y1 = ZONE_TETE
+        P = P.copy(); zone = P[y0:y1, x0:x1]
+        zone[...] = F + zone * (1 - F[..., 3:])
+        al = P[..., 3:]; P[..., :3] = np.where(al > 0, P[..., :3] / np.maximum(al, 1e-6), 0)
+        return Image.fromarray((np.clip(P, 0, 1) * 255).astype(np.uint8), "RGBA")
+
+def ease(x): x = min(1.0, max(0.0, x)); return x * x * (3 - 2 * x)
+
+def transitions(seq, d):
+    """[(précédent, actuel, poids)] : chaque changement d'état se fait en fondu sur d images."""
+    out, prec, k0 = [], seq[0], -999
+    for k, v in enumerate(seq):
+        if k and v != seq[k - 1]: prec, k0 = seq[k - 1], k
+        w = 1.0 if d <= 1 else ease((k - k0 + 1) / d)
+        out.append((prec, v, w))
+    return out
+
+def composer(fl, pose, yeux, bouche, t, parle, rebond):
+    im = fl.dessin(pose, yeux, bouche)
+    # balancement lent + respiration + léger hochement quand il parle + petit rebond quand il change de geste
+    ang = 1.2 * math.sin(t * 1.1) + 0.9 * parle * math.sin(t * 3.4)
+    dy = -10 * parle * abs(math.sin(t * 3.4)) - 14 * rebond
+    sc = 1 + 0.008 * math.sin(t * 2.2) + 0.025 * rebond
+    im = im.rotate(ang, Image.BICUBIC, center=(512, 1480))
     x0, y0, s = SOURCE
     cad = Image.new("RGBA", (s, s), (0, 0, 0, 0)); cad.alpha_composite(im, (-x0, -y0))
     taille = int(CADRE[2] * sc)
-    cad = cad.resize((taille, taille), Image.BILINEAR)
+    cad = cad.resize((taille, taille), Image.BICUBIC)
     out = Image.new("RGB", (W, H), VERT)
     cx, cy = CADRE[0] + CADRE[2] // 2, CADRE[1] + CADRE[2]
-    out.paste(cad, (cx - taille // 2, cy - taille), cad)
+    out.paste(cad, (cx - taille // 2, int(cy - taille + dy)), cad)
     return out
 
 def anim(texte_f, sortie, nom_voix="tom"):
@@ -268,17 +331,22 @@ def anim(texte_f, sortie, nom_voix="tom"):
     energie, n = energie_audio(wav)
     n += FPS // 2                                      # petite marge après la dernière syllabe
     bo = bouches(phon, n, energie); yeux_, geste, muet = scenario(texte, phon, n, energie)
-    poses, B, Y, V = charger()
+    # un visage muet (rire, miam, brrr) remplace yeux et bouche
+    yeux_ = [f"v:{m}" if m else y for y, m in zip(yeux_, muet)]
+    bo = ["repos" if m else b for b, m in zip(bo, muet)]
+    Tb, Ty, Tp = transitions(bo, FONDU["bouche"]), transitions(yeux_, FONDU["yeux"]), transitions(geste, FONDU["pose"])
+    # le clignement se fait sans fondu (déjà progressif)
+    Ty = [(a, b, 1.0) if "fermes" in (a, b) or b == "plisses" and a == "fermes" else (a, b, w) for a, b, w in Ty]
+    fl = Floky()
     p = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-i", str(wav), "-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p",
                           "-af", "apad", "-c:a", "aac", "-b:a", "192k", "-shortest", str(sortie)], stdin=subprocess.PIPE)
-    parle_lisse, rebond = 0.0, 0.0
+    parle, rebond = 0.0, 0.0
     for k in range(n):
-        t = k / FPS
-        parle_lisse += ((energie[k] if k < len(energie) else 0) - parle_lisse) * 0.25
-        if k and geste[k] != geste[k - 1]: rebond = 1.0
-        rebond *= 0.7
-        im = image(poses, B, Y, V, geste[k], bo[k], yeux_[k], muet[k], t, min(1, parle_lisse), -rebond * math.cos(k))
+        e = energie[k] if k < len(energie) else 0
+        parle += (min(1.0, e) - parle) * 0.08          # enveloppe très lissée : pas de tremblote
+        rebond = 1.0 if k and geste[k] != geste[k - 1] else rebond * 0.82
+        im = composer(fl, Tp[k], Ty[k], Tb[k], k / FPS, parle, math.sin(rebond * math.pi / 2) * rebond)
         p.stdin.write(im.tobytes())
     p.stdin.close(); p.wait(); wav.unlink()
     print("→", sortie, f"({n / FPS:.1f} s)")
