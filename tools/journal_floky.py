@@ -7,8 +7,11 @@
     instagram/journal/AAAA-MM-JJ/texte-heygen.txt : le texte à faire dire à Floky dans HeyGen (840 caractères max).
     Le texte est écrit « pour l'oreille » : « Pra-sur-Arly », heures et adresse du site en toutes lettres.
 
-Étape 2 — HeyGen (à la main) : avatar Floky, voix de Floky, format vertical 9:16, FOND VERT UNI.
-    Exporter la vidéo et la passer à l'étape 3.
+Étape 2 — Floky qui parle, gratuit et automatique : python3 tools/journal_floky.py floky AAAA-MM-JJ [--voix tom|siwis|upmc]
+    Voix Piper + animation maison (tools/floky_anim.py) → instagram/journal/AAAA-MM-JJ/floky.mp4 (fond vert, comme HeyGen)
+    et sous-titres.json calés sur la voix (sans transcription). Ancienne voie, toujours possible : vidéo HeyGen fond vert.
+
+Tout d'un coup : python3 tools/journal_floky.py video AAAA-MM-JJ [--voix …] [options du montage] (texte si absent, Floky, montage).
 
 Étape 3 — montage : python3 tools/journal_floky.py montage AAAA-MM-JJ VIDEO_HEYGEN.mp4 [--fond webcam|place-neige] [--neige|--sans-neige] [--relire]
     Détoure Floky (fond vert) et le pose « au balcon » devant la webcam du village prise au moment du montage
@@ -63,7 +66,7 @@ def pour_oreille(t):
 def pour_ecran(t):
     for a, b in ORAL: t = t.replace(b, a)
     t = re.sub(r"\bPra-sur-Arly\b", "Praz-sur-Arly", t)
-    t = re.sub(r"\bMeug[eè]ve par c(œ|oe)ur point f ?r\b", "megeveparcoeur.fr", t, flags=re.I)
+    t = re.sub(r"\b(Meug[eè]ve par c(œ|oe)ur|megeveparcoeur) point f ?r\b", "megeveparcoeur.fr", t, flags=re.I)
     t = re.sub(r"\bMeug[eè]ve\b", "Megève", t, flags=re.I)
     nb = {en_lettres(n): n for n in range(60)}
     mots = "|".join(sorted(map(re.escape, nb), key=len, reverse=True))
@@ -670,8 +673,24 @@ def montage(sam, video, nom_fond="webcam", relire=False, neige_force=None):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "3.6", "-i", str(out), "-frames:v", "1", "-q:v", "3", str(cover)], check=True)
     print("→", out, "\n→", cover)
 
+def floky(sam, nom_voix="tom"):
+    sys.path.insert(0, str(ROOT / "tools")); import floky_anim
+    d = dossier(sam); out = d / "floky.mp4"
+    mots = floky_anim.anim(d / "texte-heygen.txt", out, nom_voix)
+    lignes = []
+    for i, (a, b, t) in enumerate(decouper(mots)):
+        t = corriger(t); lignes.append({"debut": round(a, 2), "fin": round(b, 2), "texte": t[:1].upper() + t[1:] if i == 0 else t})
+    (d / "sous-titres.json").write_text(json.dumps(lignes, ensure_ascii=False, indent=1))
+    print("→", d / "sous-titres.json")
+    return out
+
 if __name__ == "__main__":
     a = sys.argv[1:]
+    nv = a[a.index("--voix") + 1] if "--voix" in a else "tom"
+    if len(a) >= 2 and a[0] == "floky": floky(a[1], nv); sys.exit()
+    if len(a) >= 2 and a[0] == "video":
+        if not (dossier(a[1]) / "texte-heygen.txt").exists(): texte(a[1])
+        a = ["montage", a[1], str(floky(a[1], nv))] + a[2:]
     if len(a) >= 2 and a[0] == "texte": texte(a[1])
     elif len(a) >= 3 and a[0] == "montage":
         f = a[a.index("--fond") + 1] if "--fond" in a else "webcam"

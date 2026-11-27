@@ -1,0 +1,263 @@
+{
+ "poses": {
+  "repos": "pose-repos.png",
+  "coucou": "pose-coucou.png",
+  "pouce": "pose-pouce.png",
+  "doigt": "pose-doigt.png",
+  "bras": "pose-bras.png"
+ },
+ "bouches": {
+  "repos": [],
+  "ferme": [
+   [
+    "bouche-ferme-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "neutre": [
+   [
+    "bouche-neutre-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "dents": [
+   [
+    "bouche-dents-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "e": [
+   [
+    "bouche-e-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "a": [
+   [
+    "bouche-a-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "o": [
+   [
+    "bouche-o-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "ou": [
+   [
+    "bouche-ou-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "f": [
+   [
+    "bouche-f-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "ah": [
+   [
+    "bouche-ah-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ]
+ },
+ "yeux": {
+  "normal": [],
+  "plisses": [
+   [
+    "yeu-plisses-yeux.png",
+    [
+     201,
+     250
+    ]
+   ]
+  ],
+  "fermes_rose": [
+   [
+    "yeu-fermes_rose-yeux.png",
+    [
+     201,
+     250
+    ]
+   ]
+  ],
+  "grands": [
+   [
+    "yeu-grands-yeux.png",
+    [
+     201,
+     250
+    ]
+   ]
+  ],
+  "clin": [
+   [
+    "yeu-clin-yeux.png",
+    [
+     209,
+     250
+    ]
+   ]
+  ],
+  "emu": [
+   [
+    "yeu-emu-yeux.png",
+    [
+     202,
+     250
+    ]
+   ]
+  ],
+  "pensif": [
+   [
+    "yeu-pensif-yeux.png",
+    [
+     202,
+     250
+    ]
+   ]
+  ],
+  "sourcil": [
+   [
+    "yeu-sourcil-yeux.png",
+    [
+     201,
+     250
+    ]
+   ]
+  ],
+  "malin": [
+   [
+    "yeu-malin-yeux.png",
+    [
+     205,
+     250
+    ]
+   ]
+  ],
+  "gene": [
+   [
+    "yeu-gene-yeux.png",
+    [
+     218,
+     250
+    ]
+   ]
+  ],
+  "brillants": [
+   [
+    "yeu-brillants-yeux.png",
+    [
+     201,
+     250
+    ]
+   ]
+  ],
+  "fermes": [
+   [
+    "yeu-fermes-yeux.png",
+    [
+     209,
+     250
+    ]
+   ]
+  ],
+  "miam": [
+   [
+    "yeu-miam-yeux.png",
+    [
+     202,
+     250
+    ]
+   ]
+  ],
+  "froid": [
+   [
+    "yeu-froid-yeux.png",
+    [
+     194,
+     250
+    ]
+   ]
+  ]
+ },
+ "visages": {
+  "rire": [
+   [
+    "visage-rire-yeux.png",
+    [
+     201,
+     250
+    ]
+   ],
+   [
+    "visage-rire-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "miam": [
+   [
+    "visage-miam-yeux.png",
+    [
+     202,
+     250
+    ]
+   ],
+   [
+    "visage-miam-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ],
+  "brrr": [
+   [
+    "visage-brrr-yeux.png",
+    [
+     194,
+     250
+    ]
+   ],
+   [
+    "visage-brrr-bouche.png",
+    [
+     370,
+     440
+    ]
+   ]
+  ]
+ }
+}
