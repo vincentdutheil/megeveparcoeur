@@ -669,7 +669,7 @@ def montage(sam, video, nom_fond="webcam", relire=False, neige_force=None):
     else:
         fc2 += ";[voix]anull[au]"
     subprocess.run(["ffmpeg", "-v", "error", "-y"] + ins2 + ["-filter_complex", fc2, "-map", "[v]", "-map", "[au]", "-c:v", "libx264", "-preset", "veryfast",
-                    "-crf", "20", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-t", f"{total:.2f}", "-movflags", "+faststart", str(out)], check=True)
+                    "-crf", "20", "-pix_fmt", "yuv420p", "-profile:v", "high", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-t", f"{total:.2f}", "-movflags", "+faststart", str(out)], check=True)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "3.6", "-i", str(out), "-frames:v", "1", "-q:v", "3", str(cover)], check=True)
     print("→", out, "\n→", cover)
 
