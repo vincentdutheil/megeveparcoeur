@@ -43,6 +43,25 @@ WMO = {0: ("☀️", "Grand soleil"), 1: ("🌤️", "Plutôt ensoleillé"), 2: 
        96: ("⛈️", "Orages et grêle"), 99: ("⛈️", "Orages et grêle")}
 
 
+def meteo_json():
+    """Météo Open-Meteo, d'abord via le relais du site (/api/meteo, interrogé depuis Vercel),
+    puis en direct. Le direct échoue souvent dans le cloud : quota quotidien de l'IP partagée épuisé (429)."""
+    import time
+    q = METEO_URL.split("?", 1)[1]
+    erreurs = []
+    for essai in range(3):
+        for url in ("https://www.megeveparcoeur.fr/api/meteo?" + q, METEO_URL):
+            try:
+                m = json.loads(get(url)[0])
+                if isinstance(m, list) and len(m) >= 2:
+                    return m
+                erreurs.append(f"{url[:40]}… : réponse inattendue {str(m)[:120]}")
+            except Exception as e:
+                erreurs.append(f"{url[:40]}… : {e}")
+        time.sleep(15)
+    sys.exit("ATTENTION : météo indisponible, pas de reel. " + " | ".join(erreurs[-2:]))
+
+
 def get(url):
     with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=40) as r:
         return r.read(), r.headers
@@ -264,7 +283,7 @@ def main():
     date = dt.date.fromisoformat(a[0])
     opt = lambda k: a[a.index(k) + 1] if k in a else None
     mf = opt("--meteo")
-    m = json.loads(pathlib.Path(mf).read_text()) if mf else json.loads(get(METEO_URL)[0])
+    m = json.loads(pathlib.Path(mf).read_text()) if mf else meteo_json()
     if not isinstance(m, list) or len(m) < 2:
         sys.exit("ATTENTION : réponse Open-Meteo inattendue (il faut les 2 lieux : village puis sommet)")
     tmp = pathlib.Path(tempfile.mkdtemp())

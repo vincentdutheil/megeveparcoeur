@@ -84,9 +84,22 @@ def wmo(code, neige):
     return "pluie"
 DESC = {"soleil": "Grand soleil", "eclaircies": "Éclaircies", "nuages": "Nuageux", "pluie": "Pluie", "neige": "Neige"}
 
-def get_json(url):
+def _get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "megeveparcoeur.fr (github.com/vincentdutheil/megeveparcoeur)"})
     return json.load(urllib.request.urlopen(req, timeout=30))
+
+def get_json(url):
+    # Open-Meteo : d'abord via le relais du site (/api/meteo, depuis Vercel), car dans le cloud
+    # le quota quotidien de l'IP partagée est souvent épuisé (429). Repli en direct sinon.
+    om = "https://api.open-meteo.com/v1/forecast?"
+    if url.startswith(om):
+        try:
+            d = _get_json("https://www.megeveparcoeur.fr/api/meteo?" + url[len(om):])
+            if not (isinstance(d, dict) and d.get("error")):
+                return d
+        except Exception as e:
+            print("Relais /api/meteo indisponible (%s), Open-Meteo en direct" % e)
+    return _get_json(url)
 
 def meteo(jours):
     try:

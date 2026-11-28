@@ -10,6 +10,7 @@ const H = { // require paresseux : une erreur dans un module ne casse pas les au
   compteur: () => require("./_lib/compteur.js"),
   ig: () => require("./_lib/ig.js"),
   "ig-auth": () => require("./_lib/ig.js"), // retour de Facebook (même module, branche selon l'adresse)
+  meteo: () => require("./_lib/meteo.js"), // relais Open-Meteo pour les scripts lancés dans le cloud
   neige: () => require("./_lib/neige.js"),
   newsletter: () => require("./_lib/newsletter.js"),
   propose: () => require("./_lib/propose.js"),
