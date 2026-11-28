@@ -175,8 +175,16 @@ let zone="v", cache={};
 const $=id=>document.getElementById(id);
 const r0=x=>Math.round(x), cmF=x=>x>=10?r0(x):Math.round(x*10)/10;
 
+const FRAIS=30*60*1000; // la météo se met à jour toutes les 30 min
+async function om(q){
+  // Open-Meteo en direct ; si refusé (quota de l'adresse épuisé, panne…), relais du site /api/meteo (même réponse, depuis Vercel)
+  for(const base of ["https://api.open-meteo.com/v1/forecast?","/api/meteo?"]){
+    try{const r=await fetch(base+q,{cache:"no-store"}); if(r.ok){const d=await r.json(); if(!d.error) return d;}}catch(e){}
+  }
+  throw new Error("météo indisponible");
+}
 async function load(z){
-  if(cache[z]) return cache[z];
+  if(cache[z]&&Date.now()-cache[z].t<FRAIS) return cache[z].d;
   const q=new URLSearchParams({
     latitude:V.map(v=>v.lat).join(","), longitude:V.map(v=>v.lon).join(","), elevation:V.map(v=>z==="v"?v.v:v.a).join(","),
     current:"temperature_2m,apparent_temperature,weather_code,wind_speed_10m,wind_gusts_10m",
@@ -184,10 +192,8 @@ async function load(z){
     daily:"weather_code,temperature_2m_max,temperature_2m_min,snowfall_sum,precipitation_probability_max",
     timezone:"Europe/Paris", forecast_days:"7", past_days:"1"
   });
-  const r=await fetch("https://api.open-meteo.com/v1/forecast?"+q);
-  if(!r.ok) throw new Error(r.status);
-  let d=await r.json(); if(!Array.isArray(d)) d=[d];
-  cache[z]=d; return d;
+  let d=await om(q); if(!Array.isArray(d)) d=[d];
+  cache[z]={d,t:Date.now()}; return d;
 }
 function summarize(d){
   const now=d.current.time.slice(0,13), H=d.hourly, i=Math.max(0,H.time.findIndex(t=>t.slice(0,13)===now));
@@ -229,15 +235,20 @@ function render(data){
   }else{$("aIc").textContent="☀️";$("aT").textContent="No snowfall expected this week";$("aP").textContent=zone==="v"?"Check up the mountain too: snow often falls there first.":"Enjoy the sunshine on the slopes!";}
   const t=new Date(); $("upd").textContent="Updated at "+t.toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"});
 }
-async function show(){
-  $("upd").textContent="Loading…";
-  try{render(await load(zone));}
-  catch(e){$("grid").innerHTML='<p class="skel">The weather could not load. Please try again in a moment.</p>';$("upd").textContent="";}
+let vu=0; // heure du dernier affichage réussi
+async function show(auto){
+  if(!auto||!vu) $("upd").textContent="Loading…";
+  try{render(await load(zone)); vu=Date.now();}
+  catch(e){if(auto&&vu) return; // rafraîchissement raté : on garde l'affichage précédent
+    $("grid").innerHTML='<p class="skel">The weather could not load. Please try again in a moment.</p>';$("upd").textContent="";}
 }
+// rafraîchissement automatique toutes les 30 min, et au retour sur la page si l'affichage a plus de 30 min
+setInterval(()=>{if(!document.hidden) show(true);},FRAIS);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&vu&&Date.now()-vu>=FRAIS) show(true);});
 document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{zone=b.dataset.z;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));show();});
 show();
 // pour le bouton « Partager sur Instagram » (assets/partage.js)
-window.mpcMeteo=()=>({zone,V,wc,summarize,load,data:cache[zone]});
+window.mpcMeteo=()=>({zone,V,wc,summarize,load,data:cache[zone]&&cache[zone].d});
 
 /* neige qui tombe dans le bandeau */
 (function(){const c=$("snow");if(!c||matchMedia("(prefers-reduced-motion: reduce)").matches||document.documentElement.hasAttribute("data-ciel"))return;const x=c.getContext("2d");let W2,H2,f=[];

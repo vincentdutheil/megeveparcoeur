@@ -70,7 +70,10 @@
     if (c && Date.now() - c.t < TTL) return;
     var url = "https://api.open-meteo.com/v1/forecast?latitude=" + LAT + "&longitude=" + LON + "&elevation=" + ALT +
       "&current=weather_code,snowfall,temperature_2m,wind_speed_10m&daily=sunrise,sunset&timezone=UTC&timeformat=unixtime&forecast_days=1";
-    fetch(url).then(function (r) { return r.json(); }).then(function (j) {
+    // Open-Meteo en direct, sinon relais du site /api/meteo (quota de l'adresse épuisé, panne…)
+    fetch(url).then(function (r) { if (!r.ok) throw r.status; return r.json(); })
+      .catch(function () { return fetch(url.replace("https://api.open-meteo.com/v1/forecast", "/api/meteo")).then(function (r) { return r.json(); }); })
+      .then(function (j) {
       if (!j || !j.current) return;
       var o = { t: Date.now(), code: j.current.weather_code, snow: j.current.snowfall || 0, temp: j.current.temperature_2m, wind: j.current.wind_speed_10m || 0,
         rise: j.daily && j.daily.sunrise ? j.daily.sunrise[0] * 1000 : 0, set: j.daily && j.daily.sunset ? j.daily.sunset[0] * 1000 : 0 };

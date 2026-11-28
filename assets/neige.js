@@ -37,7 +37,7 @@
 @media(max-width:560px){.cls-r,.cls-hd{grid-template-columns:1fr 78px 84px}.cls-r{font-size:.92rem}}`;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   const d = s => new Date(s + "T12:00:00").toLocaleDateString(T.loc, { day: "numeric", month: "long" });
-  fetch("/api/neige").then(r => r.json()).then(j => {
+  const maj = () => fetch("/api/neige", { cache: "no-store" }).then(r => r.json()).then(j => {
     if (!j.stations) return;
     if (box) {
       const v = HOME.map(n => j.stations.find(s => s.nom === n)).filter(Boolean);
@@ -52,4 +52,6 @@
       cl.hidden = false;
     }
   }).catch(() => {});
+  maj();
+  setInterval(() => { if (!document.hidden) maj(); }, 30 * 60 * 1000); // mise à jour toutes les 30 min
 })();

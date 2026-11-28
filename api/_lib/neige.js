@@ -25,7 +25,7 @@ module.exports = async function handler(req, res) {
       jours: x.daily.time.map((d, k) => ({ date: d, neige: Math.round((x.daily.snowfall_sum[k] || 0) * 10) / 10 })),
     })).sort((a, b) => b.prevu - a.prevu);
     const m = list[0].daily;
-    res.setHeader("Cache-Control", "public, s-maxage=1800, stale-while-revalidate=3600");
+    res.setHeader("Cache-Control", "public, s-maxage=900, stale-while-revalidate=900"); // jamais plus vieux que 30 min
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.status(200).json({
       maj: new Date().toISOString(), du: m.time[0], au: m.time[m.time.length - 1],
