@@ -12,8 +12,11 @@
   if (!/\/meteo\//.test(location.pathname) || document.documentElement.lang === "en") return;
   const get = k => { try { return localStorage.getItem(k); } catch (_) { return null; } };
   const put = (k, v) => { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch (_) {} };
-  const TOK = get("mpc_tok");
-  if (!TOK) return;
+  // Le bouton s'affiche si la clé de l'admin est enregistrée dans ce navigateur, ou si la page a été ouverte
+  // une fois avec ?reel (utile dans l'appli installée, qui n'a pas forcément la clé) : il reste ensuite affiché.
+  let TOK = get("mpc_tok");
+  if (/[?&]reel\b/.test(location.search) || TOK) put("mpc_reel_btn", "1");
+  if (!TOK && !get("mpc_reel_btn")) return;
 
   const OWNER = "vincentdutheil", REPO = "megeveparcoeur", BRANCH = "main", SITE = "https://www.megeveparcoeur.fr";
   const HOME = ["Megève", "Combloux", "Demi-Quartier", "Praz-sur-Arly"];
@@ -23,7 +26,7 @@
 
   // ------------------------------------------------------------------ interface
   const css = `
-.rn-btn{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font:800 .95rem var(--body);color:#fff;border:0;border-radius:999px;padding:11px 18px;cursor:pointer;
+.rn-btn{display:inline-flex;align-items:center;gap:8px;margin:0 0 16px;font:800 .95rem var(--body);color:#fff;border:0;border-radius:999px;padding:11px 18px;cursor:pointer;
   background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);box-shadow:0 10px 24px rgba(188,24,136,.25)}
 .rn-btn:hover{filter:brightness(1.07)}
 .rn-dlg{border:0;border-radius:24px;padding:0;width:min(460px,94vw);max-height:94vh;background:var(--card);color:var(--ink);box-shadow:0 30px 80px rgba(0,0,0,.45)}
@@ -45,8 +48,8 @@
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
   const btn = document.createElement("button");
-  btn.type = "button"; btn.className = "rn-btn"; btn.innerHTML = "🎬 Partager ce tableau en Reel";
-  const place = () => { const cl = document.getElementById("classement"); if (!cl || cl.hidden || btn.isConnected) return !!btn.isConnected; cl.appendChild(btn); return true; };
+  btn.type = "button"; btn.className = "rn-btn"; btn.innerHTML = "❄️ Partager ce tableau en Reel";
+  const place = () => { const cl = document.getElementById("classement"); if (!cl || cl.hidden || btn.isConnected) return !!btn.isConnected; const tb = cl.querySelector(".cls-t"); if (!tb) return false; cl.insertBefore(btn, tb); return true; };
   if (!place()) { const cl = document.getElementById("classement"); if (cl) new MutationObserver((m, o) => { if (place()) o.disconnect(); }).observe(cl, { attributes: true, childList: true }); }
 
   const dlg = document.createElement("dialog"); dlg.className = "rn-dlg"; dlg.setAttribute("aria-label", "Reel La neige cette semaine");
@@ -326,6 +329,13 @@
   async function publish() {
     if (!made || busy) return;
     if (!confirm("Publier ce Reel maintenant sur @megeveparcoeur (avec la musique, le lieu Megève et les 7 comptes identifiés) ?")) return;
+    if (!TOK) {
+      const k = (prompt("Clé GitHub de l'admin (github_pat_…), demandée une seule fois sur cet appareil :") || "").trim();
+      if (!k) return;
+      TOK = k;
+      try { await gh(""); } catch (e) { TOK = null; status("Clé refusée par GitHub (" + (e.message || e) + ").", true); return; }
+      put("mpc_tok", TOK);
+    }
     busy = true; bGo.disabled = bSh.disabled = bDl.disabled = true; cap.readOnly = true;
     try {
       const { key, mp4, cover } = made, base = `instagram/reel-${key}`;
